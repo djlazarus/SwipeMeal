@@ -97,6 +97,11 @@
 					CE2782C71CE7EA4200039014 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 49BYD5B64K;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
