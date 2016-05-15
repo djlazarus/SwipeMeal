@@ -10,7 +10,7 @@
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
 		CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CB1CE7EA4200039014 /* AppDelegate.swift */; };
 		CE2782CE1CE7EA4200039014 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CD1CE7EA4200039014 /* ViewController.swift */; };
-		CE2782D11CE7EA4200039014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* Main.storyboard */; };
+		CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* Welcome.storyboard */; };
 		CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D21CE7EA4200039014 /* Assets.xcassets */; };
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -22,7 +22,7 @@
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2782CB1CE7EA4200039014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2782CD1CE7EA4200039014 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SwipeMeal/ViewController.swift; sourceTree = "<group>"; };
-		CE2782D01CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE2782D01CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Welcome.storyboard; sourceTree = "<group>"; };
 		CE2782D21CE7EA4200039014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwipeMeal/Assets.xcassets; sourceTree = "<group>"; };
 		CE2782D51CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2782D71CE7EA4200039014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwipeMeal/Info.plist; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		CE2782DF1CE7FFE800039014 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				CE2782CF1CE7EA4200039014 /* Main.storyboard */,
+				CE2782CF1CE7EA4200039014 /* Welcome.storyboard */,
 				CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -181,7 +181,7 @@
 			files = (
 				CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */,
 				CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */,
-				CE2782D11CE7EA4200039014 /* Main.storyboard in Resources */,
+				CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,12 +248,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE2782CF1CE7EA4200039014 /* Main.storyboard */ = {
+		CE2782CF1CE7EA4200039014 /* Welcome.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CE2782D01CE7EA4200039014 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Welcome.storyboard;
 			path = SwipeMeal;
 			sourceTree = "<group>";
 		};
