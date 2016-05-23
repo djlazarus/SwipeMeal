@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
 		CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */; };
+		CE23E5621CF3A54D00B3161D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */; };
 		CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CB1CE7EA4200039014 /* AppDelegate.swift */; };
-		CE2782CE1CE7EA4200039014 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CD1CE7EA4200039014 /* ViewController.swift */; };
+		CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */; };
 		CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* Welcome.storyboard */; };
 		CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D21CE7EA4200039014 /* Assets.xcassets */; };
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
@@ -21,9 +22,10 @@
 		B4F9E638069FF5996BB25BBD /* Pods-SwipeMeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.debug.xcconfig"; sourceTree = "<group>"; };
 		B58457A538308AC028CDB657 /* Pods-SwipeMeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.release.xcconfig"; sourceTree = "<group>"; };
 		CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwipeMeal/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2782CB1CE7EA4200039014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE2782CD1CE7EA4200039014 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SwipeMeal/ViewController.swift; sourceTree = "<group>"; };
+		CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseTestingViewController.swift; path = SwipeMeal/FirebaseTestingViewController.swift; sourceTree = "<group>"; };
 		CE2782D01CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Welcome.storyboard; sourceTree = "<group>"; };
 		CE2782D21CE7EA4200039014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwipeMeal/Assets.xcassets; sourceTree = "<group>"; };
 		CE2782D51CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,7 +85,8 @@
 		CE2782E01CE7FFEF00039014 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE2782CD1CE7EA4200039014 /* ViewController.swift */,
+				CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */,
+				CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -244,7 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2782CE1CE7EA4200039014 /* ViewController.swift in Sources */,
+				CE23E5621CF3A54D00B3161D /* WelcomeViewController.swift in Sources */,
+				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

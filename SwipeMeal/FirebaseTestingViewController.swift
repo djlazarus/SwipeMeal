@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FirebaseTestingViewController.swift
 //  SwipeMeal
 //
 //  Created by Gregory Klein on 5/14/16.
@@ -12,7 +12,7 @@ import FirebaseAuth
 private let kTestEmail = "gregoryhklein@gmail.com"
 private let kTestPassword = "Elleven7"
 
-class ViewController: UIViewController
+class FirebaseTestingViewController: UIViewController
 {
    var loggedInUser: FIRUser?
    

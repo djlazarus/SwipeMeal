@@ -55,22 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private func _setupRootViewController()
    {
       let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("ViewControllerID")
-      
-      let navController = UINavigationController(rootViewController: controller)
-      navController.navigationBar.barStyle = .Black
-      navController.navigationBar.tintColor = UIColor.redColor()
-      navController.navigationBar.translucent = false
-      
-      let leftItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Organize, target: nil, action: nil)
-      
-      let rightItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: nil, action: nil)
-      
-      controller.navigationItem.leftBarButtonItem = leftItem
-      controller.navigationItem.rightBarButtonItem = rightItem
+      let controller = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewControllerID")
+//      let navController = UINavigationController(rootViewController: controller)
       
       window = UIWindow()
-      window?.rootViewController = navController
+      window?.rootViewController = controller
       window?.makeKeyAndVisible()
    }
 }
