@@ -17,17 +17,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDD-m3-YAK">
-                                <rect key="frame" x="257" y="290" width="86.5" height="19.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4C-cg-9tR">
+                                <rect key="frame" x="273" y="285" width="55" height="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="_signUp" destination="BYZ-38-t0r" eventType="touchUpInside" id="GG5-av-ZQL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uee-pR-bKW">
+                                <rect key="frame" x="277" y="339" width="47" height="30"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="_signIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="LB8-Cp-rrP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qf-qe-FOz">
+                                <rect key="frame" x="222" y="418" width="157" height="30"/>
+                                <state key="normal" title="Send Verification Email"/>
+                                <connections>
+                                    <action selector="_sendVerificationEmail" destination="BYZ-38-t0r" eventType="touchUpInside" id="lZz-Hb-qIe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tF-SW-iqt">
+                                <rect key="frame" x="211" y="466" width="178" height="30"/>
+                                <state key="normal" title="Print Email Verified Status"/>
+                                <connections>
+                                    <action selector="_printEmailVerifiedStatus" destination="BYZ-38-t0r" eventType="touchUpInside" id="bEp-8H-WOH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s96-36-L7B">
+                                <rect key="frame" x="277" y="230" width="47" height="30"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="_reload" destination="BYZ-38-t0r" eventType="touchUpInside" id="XJs-RB-MvJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thr-F6-BnK">
+                                <rect key="frame" x="277" y="20" width="46" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="_deleteUser" destination="BYZ-38-t0r" eventType="touchUpInside" id="e2a-YG-wdw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IDD-m3-YAK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="30B-v2-cfq"/>
-                            <constraint firstItem="IDD-m3-YAK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dEe-YI-bSQ"/>
+                            <constraint firstItem="s96-36-L7B" firstAttribute="centerX" secondItem="g4C-cg-9tR" secondAttribute="centerX" id="0CC-EM-dHR"/>
+                            <constraint firstItem="g4C-cg-9tR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1IJ-1u-iFd"/>
+                            <constraint firstItem="6tF-SW-iqt" firstAttribute="centerX" secondItem="4Qf-qe-FOz" secondAttribute="centerX" id="1pe-ZV-HZY"/>
+                            <constraint firstItem="g4C-cg-9tR" firstAttribute="top" secondItem="s96-36-L7B" secondAttribute="bottom" constant="25" id="1sc-7V-HHM"/>
+                            <constraint firstItem="thr-F6-BnK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2MH-wc-fuD"/>
+                            <constraint firstItem="Uee-pR-bKW" firstAttribute="top" secondItem="g4C-cg-9tR" secondAttribute="bottom" constant="24" id="CmT-H8-qaP"/>
+                            <constraint firstItem="thr-F6-BnK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mtc-MX-kAB"/>
+                            <constraint firstItem="g4C-cg-9tR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ePq-Xr-xTz"/>
+                            <constraint firstItem="4Qf-qe-FOz" firstAttribute="centerX" secondItem="Uee-pR-bKW" secondAttribute="centerX" id="g4T-I4-zko"/>
+                            <constraint firstItem="6tF-SW-iqt" firstAttribute="top" secondItem="4Qf-qe-FOz" secondAttribute="bottom" constant="18" id="npf-Bc-Smn"/>
+                            <constraint firstItem="Uee-pR-bKW" firstAttribute="centerX" secondItem="g4C-cg-9tR" secondAttribute="centerX" id="p8n-C5-taU"/>
+                            <constraint firstItem="4Qf-qe-FOz" firstAttribute="top" secondItem="Uee-pR-bKW" secondAttribute="bottom" constant="49" id="qcY-bL-iuy"/>
                         </constraints>
                     </view>
                 </viewController>
