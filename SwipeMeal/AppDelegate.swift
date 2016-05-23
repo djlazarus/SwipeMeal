@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -16,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    // MARK: - Overridden
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
+      FIRApp.configure()
       _setupRootViewController()
+      
       return true
    }
    

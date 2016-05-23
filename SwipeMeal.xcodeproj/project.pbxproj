@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
+		CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */; };
 		CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CB1CE7EA4200039014 /* AppDelegate.swift */; };
 		CE2782CE1CE7EA4200039014 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CD1CE7EA4200039014 /* ViewController.swift */; };
 		CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* Welcome.storyboard */; };
@@ -19,6 +20,7 @@
 		346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F9E638069FF5996BB25BBD /* Pods-SwipeMeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.debug.xcconfig"; sourceTree = "<group>"; };
 		B58457A538308AC028CDB657 /* Pods-SwipeMeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.release.xcconfig"; sourceTree = "<group>"; };
+		CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwipeMeal/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2782CB1CE7EA4200039014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2782CD1CE7EA4200039014 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SwipeMeal/ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2782D21CE7EA4200039014 /* Assets.xcassets */,
+				CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */,
 				CE2782D71CE7EA4200039014 /* Info.plist */,
 			);
 			name = Resources;
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */,
+				CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */,
 				CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */,
 				CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */,
 			);
