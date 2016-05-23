@@ -7,144 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012A7E018F3D34F159894EBD7EACACF9 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DAF734CAAF2F494DE720B2386CFFF /* Empty.m */; };
-		191DE2EB9A35585AE0A88BA9F833A1F4 /* FTransactionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A06FFED058218134C702A407304A9F /* FTransactionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C3EF85CD30E6FF2E51471BD5B3CEB29 /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 99994D7C8CADD905BE2B9BBD61C5DAD8 /* Firebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D925BB011B04DDED982C7946571A67A /* FAuthType.h in Headers */ = {isa = PBXBuildFile; fileRef = 891B0E2082543D26FADFA72F524E77AF /* FAuthType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D9D7FF5237C8CC91EF58DC45AC274FB /* Firebase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0143DCE5A276FD546BC307BA6384A /* Firebase-dummy.m */; };
-		1E338760CBC33BC6B336387E038D2530 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE1CA2C649A7D498907EDA2BB79F456 /* CFNetwork.framework */; };
-		1E6DE784A7B938E860AEB5C78446148D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16074B17A28C3B533169A6D610280008 /* SystemConfiguration.framework */; };
-		239B10F388840841389B7F09648735B1 /* FEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = 817BCDAD66E1493A462C3D125BB8A039 /* FEventType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2F1496011DBBB75777645194AAAFE92D /* FirebaseApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CAA7C78DB3882A984A96D28F8AA2D41 /* FirebaseApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D75CF0089B20355B17A851513C4A002 /* FQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E2AC3209047C6550E8D065954966F5 /* FQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52B5EF41A0C4DA71CBD032362B324BF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764F56587A817DAF4471759BE67F5970 /* Foundation.framework */; };
-		60F9139BDD38565B78214C4FC5F5729D /* Firebase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A35E3E3F0CCA6B0B0A5E20810C135EA2 /* Firebase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6646DA26298257396C7FFE141BB84CC3 /* FirebaseServerValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 55000294CC62B92A597CC865BC53ECFC /* FirebaseServerValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67C4C3F9A546EF2F5FDB18EB837EA6D8 /* Pods-SwipeMeal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8692E03C73750299FF9E4E081981B1B /* Pods-SwipeMeal-dummy.m */; };
-		AFF6EC6514DD0003278B7A01E9AE77EA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7336C3619B6C46F51EBB5A19DD32AEF5 /* Security.framework */; };
-		B38814AB50021E78959BFA3A56B5E741 /* Pods-SwipeMeal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B20A8872C8F39A82E63C31E416361467 /* Pods-SwipeMeal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C23FCF31260D47CEC1494A292DAA1A1E /* FAuthData.h in Headers */ = {isa = PBXBuildFile; fileRef = CDBB06694A091085C1CDD755EBC4B578 /* FAuthData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D531F31D0463D736D936F13E71D21171 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764F56587A817DAF4471759BE67F5970 /* Foundation.framework */; };
-		DB05A9DD8244D10C28B6915C514AE15F /* FMutableData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E547A224BA2BD4DB4A5DB059D7F5898 /* FMutableData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E60FA42EEC3ECC48701DB55986D25D69 /* FConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9726FDC67EF47C28FEC9A974D42B81B4 /* FConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8B534D15D2B25919ACD898217266891 /* FDataSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 85FE7BFEAA7B743553B973A7168CDD98 /* FDataSnapshot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		299485C510B49478350F407726660BD9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		41D498C03C975EA4ABD847A9F020E2DA /* Pods-SwipeMeal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B20A8872C8F39A82E63C31E416361467 /* Pods-SwipeMeal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9780EB5EF3CDDF45DF03870251F27E8 /* Pods-SwipeMeal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C8692E03C73750299FF9E4E081981B1B /* Pods-SwipeMeal-dummy.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		47A0AFB7772E0DF5966EF51D7666C8AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B7AC9326D819482593FE118E915409D7;
-			remoteInfo = Firebase;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		104481390B1098325AD2AFB70FC78878 /* Firebase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Firebase-prefix.pch"; sourceTree = "<group>"; };
-		16074B17A28C3B533169A6D610280008 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		1C573D507044F337CB656599E1880F98 /* Pods_SwipeMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		224368C5EEC49D4D956B5B95BB215BFB /* libFirebaseStatic.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libFirebaseStatic.a; sourceTree = "<group>"; };
 		23BF3E05B54FC437A0D4EFC31FAE1235 /* Pods-SwipeMeal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SwipeMeal.modulemap"; sourceTree = "<group>"; };
-		3C7CA58E3DA234AA2574549CD49238A7 /* Firebase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Firebase.modulemap; sourceTree = "<group>"; };
 		3CF2CAE4AFF3E29C25929E82D4D30949 /* Pods-SwipeMeal-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwipeMeal-frameworks.sh"; sourceTree = "<group>"; };
 		4D03E0D3A7B847B0D63BAD61835802EE /* Pods-SwipeMeal-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwipeMeal-resources.sh"; sourceTree = "<group>"; };
 		5013E2238761581BF5DA6519368AFBE1 /* Pods-SwipeMeal-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwipeMeal-acknowledgements.plist"; sourceTree = "<group>"; };
-		55000294CC62B92A597CC865BC53ECFC /* FirebaseServerValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FirebaseServerValue.h; sourceTree = "<group>"; };
 		612BD88A47BB5C5EA6CA2039781CB180 /* Pods-SwipeMeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwipeMeal.debug.xcconfig"; sourceTree = "<group>"; };
-		6DE1CA2C649A7D498907EDA2BB79F456 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		7336C3619B6C46F51EBB5A19DD32AEF5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		75D525E173027731A9738DB24D1146FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		764F56587A817DAF4471759BE67F5970 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7E547A224BA2BD4DB4A5DB059D7F5898 /* FMutableData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FMutableData.h; sourceTree = "<group>"; };
-		817BCDAD66E1493A462C3D125BB8A039 /* FEventType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FEventType.h; sourceTree = "<group>"; };
-		85FE7BFEAA7B743553B973A7168CDD98 /* FDataSnapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDataSnapshot.h; sourceTree = "<group>"; };
-		8619E61D2EA5245B74FA4FD145D00747 /* Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		891B0E2082543D26FADFA72F524E77AF /* FAuthType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAuthType.h; sourceTree = "<group>"; };
-		8CAA7C78DB3882A984A96D28F8AA2D41 /* FirebaseApp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FirebaseApp.h; sourceTree = "<group>"; };
-		91C0143DCE5A276FD546BC307BA6384A /* Firebase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Firebase-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94DB7A55FA5D2E3F80778EE9FA874E6E /* Pods-SwipeMeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwipeMeal.release.xcconfig"; sourceTree = "<group>"; };
-		9726FDC67EF47C28FEC9A974D42B81B4 /* FConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FConfig.h; sourceTree = "<group>"; };
-		99994D7C8CADD905BE2B9BBD61C5DAD8 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
-		A2E2AC3209047C6550E8D065954966F5 /* FQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FQuery.h; sourceTree = "<group>"; };
-		A35E3E3F0CCA6B0B0A5E20810C135EA2 /* Firebase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Firebase-umbrella.h"; sourceTree = "<group>"; };
 		B20A8872C8F39A82E63C31E416361467 /* Pods-SwipeMeal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwipeMeal-umbrella.h"; sourceTree = "<group>"; };
-		B8A3E022EEBF7EE421677F959588CBDA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9A06FFED058218134C702A407304A9F /* FTransactionResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FTransactionResult.h; sourceTree = "<group>"; };
-		C30DAF734CAAF2F494DE720B2386CFFF /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
 		C8692E03C73750299FF9E4E081981B1B /* Pods-SwipeMeal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwipeMeal-dummy.m"; sourceTree = "<group>"; };
-		CDBB06694A091085C1CDD755EBC4B578 /* FAuthData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAuthData.h; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E0615CED60EDB03E862E3DDD00AF7F23 /* Pods_SwipeMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E8D17C24B9C8DA00A24034F7C2EF21 /* Pods-SwipeMeal-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwipeMeal-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Firebase.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A7E10F383DCD59079712A57B50DCF88E /* Frameworks */ = {
+		A2E53AA699A14AD179053C4E4342BA83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E338760CBC33BC6B336387E038D2530 /* CFNetwork.framework in Frameworks */,
-				52B5EF41A0C4DA71CBD032362B324BF7 /* Foundation.framework in Frameworks */,
-				AFF6EC6514DD0003278B7A01E9AE77EA /* Security.framework in Frameworks */,
-				1E6DE784A7B938E860AEB5C78446148D /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C1892FEBE7B0A65D866E05B18AB7F0DE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D531F31D0463D736D936F13E71D21171 /* Foundation.framework in Frameworks */,
+				299485C510B49478350F407726660BD9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0280F39357BFB29500B4998E02F9BB8C /* Products */ = {
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8619E61D2EA5245B74FA4FD145D00747 /* Firebase.framework */,
-				1C573D507044F337CB656599E1880F98 /* Pods_SwipeMeal.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				21E8101B1E2DBD0F5665941ACCDCEC22 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		21E8101B1E2DBD0F5665941ACCDCEC22 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				6DE1CA2C649A7D498907EDA2BB79F456 /* CFNetwork.framework */,
-				764F56587A817DAF4471759BE67F5970 /* Foundation.framework */,
-				7336C3619B6C46F51EBB5A19DD32AEF5 /* Security.framework */,
-				16074B17A28C3B533169A6D610280008 /* SystemConfiguration.framework */,
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5883428897D1426E6EB96D7E36556192 /* Frameworks */ = {
+		445445DCBB23D3F925392C6B8FFD0572 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				224368C5EEC49D4D956B5B95BB215BFB /* libFirebaseStatic.a */,
+				E0615CED60EDB03E862E3DDD00AF7F23 /* Pods_SwipeMeal.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
-				F56CE447D2542B744EB0DA47C71E6EDD /* Pods */,
-				0280F39357BFB29500B4998E02F9BB8C /* Products */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				445445DCBB23D3F925392C6B8FFD0572 /* Products */,
 				C36FEE9A7EA7804102F38E397EAE5F3D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -167,25 +84,12 @@
 			path = "Target Support Files/Pods-SwipeMeal";
 			sourceTree = "<group>";
 		};
-		B870B24C59D78DF34E50CD8E9DB3800F /* Firebase */ = {
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C30DAF734CAAF2F494DE720B2386CFFF /* Empty.m */,
-				CDBB06694A091085C1CDD755EBC4B578 /* FAuthData.h */,
-				891B0E2082543D26FADFA72F524E77AF /* FAuthType.h */,
-				9726FDC67EF47C28FEC9A974D42B81B4 /* FConfig.h */,
-				85FE7BFEAA7B743553B973A7168CDD98 /* FDataSnapshot.h */,
-				817BCDAD66E1493A462C3D125BB8A039 /* FEventType.h */,
-				99994D7C8CADD905BE2B9BBD61C5DAD8 /* Firebase.h */,
-				8CAA7C78DB3882A984A96D28F8AA2D41 /* FirebaseApp.h */,
-				55000294CC62B92A597CC865BC53ECFC /* FirebaseServerValue.h */,
-				7E547A224BA2BD4DB4A5DB059D7F5898 /* FMutableData.h */,
-				A2E2AC3209047C6550E8D065954966F5 /* FQuery.h */,
-				B9A06FFED058218134C702A407304A9F /* FTransactionResult.h */,
-				5883428897D1426E6EB96D7E36556192 /* Frameworks */,
-				FCDF2535463133900325F78E576B07E8 /* Support Files */,
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
 			);
-			path = Firebase;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C36FEE9A7EA7804102F38E397EAE5F3D /* Targets Support Files */ = {
@@ -196,94 +100,35 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		F56CE447D2542B744EB0DA47C71E6EDD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B870B24C59D78DF34E50CD8E9DB3800F /* Firebase */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		FCDF2535463133900325F78E576B07E8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3C7CA58E3DA234AA2574549CD49238A7 /* Firebase.modulemap */,
-				E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */,
-				91C0143DCE5A276FD546BC307BA6384A /* Firebase-dummy.m */,
-				104481390B1098325AD2AFB70FC78878 /* Firebase-prefix.pch */,
-				A35E3E3F0CCA6B0B0A5E20810C135EA2 /* Firebase-umbrella.h */,
-				B8A3E022EEBF7EE421677F959588CBDA /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Firebase";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2FDCAAB615C287D16BF7F1F2AA978246 /* Headers */ = {
+		9C0361DF904ECDC4577FFAB95F22725F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23FCF31260D47CEC1494A292DAA1A1E /* FAuthData.h in Headers */,
-				1D925BB011B04DDED982C7946571A67A /* FAuthType.h in Headers */,
-				E60FA42EEC3ECC48701DB55986D25D69 /* FConfig.h in Headers */,
-				E8B534D15D2B25919ACD898217266891 /* FDataSnapshot.h in Headers */,
-				239B10F388840841389B7F09648735B1 /* FEventType.h in Headers */,
-				60F9139BDD38565B78214C4FC5F5729D /* Firebase-umbrella.h in Headers */,
-				1C3EF85CD30E6FF2E51471BD5B3CEB29 /* Firebase.h in Headers */,
-				2F1496011DBBB75777645194AAAFE92D /* FirebaseApp.h in Headers */,
-				6646DA26298257396C7FFE141BB84CC3 /* FirebaseServerValue.h in Headers */,
-				DB05A9DD8244D10C28B6915C514AE15F /* FMutableData.h in Headers */,
-				4D75CF0089B20355B17A851513C4A002 /* FQuery.h in Headers */,
-				191DE2EB9A35585AE0A88BA9F833A1F4 /* FTransactionResult.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3DC2533B452BC36E6CDCFF95B39D344C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B38814AB50021E78959BFA3A56B5E741 /* Pods-SwipeMeal-umbrella.h in Headers */,
+				41D498C03C975EA4ABD847A9F020E2DA /* Pods-SwipeMeal-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		233480774F0597459E7D67CA570DEAC5 /* Pods-SwipeMeal */ = {
+		3C45D6C1F4FC9D8A074EA1B78E397797 /* Pods-SwipeMeal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 787BE9525A850009154B52661C08C6D1 /* Build configuration list for PBXNativeTarget "Pods-SwipeMeal" */;
+			buildConfigurationList = BFD59ECECC58F6A4D4BE340F7583EA0B /* Build configuration list for PBXNativeTarget "Pods-SwipeMeal" */;
 			buildPhases = (
-				3FF402DB27FD8FB27BE153AAEDF884F9 /* Sources */,
-				C1892FEBE7B0A65D866E05B18AB7F0DE /* Frameworks */,
-				3DC2533B452BC36E6CDCFF95B39D344C /* Headers */,
+				7AF1B36F238E3136FBD428287C26AC78 /* Sources */,
+				A2E53AA699A14AD179053C4E4342BA83 /* Frameworks */,
+				9C0361DF904ECDC4577FFAB95F22725F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				912710ED7A176FF3108E0FB12F7E0DBA /* PBXTargetDependency */,
 			);
 			name = "Pods-SwipeMeal";
 			productName = "Pods-SwipeMeal";
-			productReference = 1C573D507044F337CB656599E1880F98 /* Pods_SwipeMeal.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B7AC9326D819482593FE118E915409D7 /* Firebase */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49B346C14D532324DCD14D0FA1347BC6 /* Build configuration list for PBXNativeTarget "Firebase" */;
-			buildPhases = (
-				46E052D320E3B778B76D8393E0BAFE0F /* Sources */,
-				A7E10F383DCD59079712A57B50DCF88E /* Frameworks */,
-				2FDCAAB615C287D16BF7F1F2AA978246 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Firebase;
-			productName = Firebase;
-			productReference = 8619E61D2EA5245B74FA4FD145D00747 /* Firebase.framework */;
+			productReference = E0615CED60EDB03E862E3DDD00AF7F23 /* Pods_SwipeMeal.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -303,44 +148,25 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0280F39357BFB29500B4998E02F9BB8C /* Products */;
+			productRefGroup = 445445DCBB23D3F925392C6B8FFD0572 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B7AC9326D819482593FE118E915409D7 /* Firebase */,
-				233480774F0597459E7D67CA570DEAC5 /* Pods-SwipeMeal */,
+				3C45D6C1F4FC9D8A074EA1B78E397797 /* Pods-SwipeMeal */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3FF402DB27FD8FB27BE153AAEDF884F9 /* Sources */ = {
+		7AF1B36F238E3136FBD428287C26AC78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67C4C3F9A546EF2F5FDB18EB837EA6D8 /* Pods-SwipeMeal-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		46E052D320E3B778B76D8393E0BAFE0F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				012A7E018F3D34F159894EBD7EACACF9 /* Empty.m in Sources */,
-				1D9D7FF5237C8CC91EF58DC45AC274FB /* Firebase-dummy.m in Sources */,
+				A9780EB5EF3CDDF45DF03870251F27E8 /* Pods-SwipeMeal-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		912710ED7A176FF3108E0FB12F7E0DBA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Firebase;
-			target = B7AC9326D819482593FE118E915409D7 /* Firebase */;
-			targetProxy = 47A0AFB7772E0DF5966EF51D7666C8AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		034014829C1E4434983CF3A690C12017 /* Debug */ = {
@@ -385,98 +211,7 @@
 			};
 			name = Debug;
 		};
-		05081DA41513C998B5B2B341B6418CF4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94DB7A55FA5D2E3F80778EE9FA874E6E /* Pods-SwipeMeal.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SwipeMeal/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SwipeMeal;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9E5F9A409F7A80E320328AA627E5F72F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Firebase/Firebase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Firebase/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Firebase;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A137EDCFE721980B861039D09E3342BD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Firebase/Firebase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Firebase/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Firebase;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C619F5960B21C91568793AD3BC1BB094 /* Debug */ = {
+		1F32EB113E3E933E3FE4DA8C8347205D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 612BD88A47BB5C5EA6CA2039781CB180 /* Pods-SwipeMeal.debug.xcconfig */;
 			buildSettings = {
@@ -508,6 +243,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		8BDCF3053E2E2235DCD99B5BAF91F12A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94DB7A55FA5D2E3F80778EE9FA874E6E /* Pods-SwipeMeal.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwipeMeal/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwipeMeal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -559,20 +327,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49B346C14D532324DCD14D0FA1347BC6 /* Build configuration list for PBXNativeTarget "Firebase" */ = {
+		BFD59ECECC58F6A4D4BE340F7583EA0B /* Build configuration list for PBXNativeTarget "Pods-SwipeMeal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E5F9A409F7A80E320328AA627E5F72F /* Debug */,
-				A137EDCFE721980B861039D09E3342BD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		787BE9525A850009154B52661C08C6D1 /* Build configuration list for PBXNativeTarget "Pods-SwipeMeal" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C619F5960B21C91568793AD3BC1BB094 /* Debug */,
-				05081DA41513C998B5B2B341B6418CF4 /* Release */,
+				1F32EB113E3E933E3FE4DA8C8347205D /* Debug */,
+				8BDCF3053E2E2235DCD99B5BAF91F12A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
