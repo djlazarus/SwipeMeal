@@ -15,6 +15,9 @@
 		CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* Welcome.storyboard */; };
 		CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D21CE7EA4200039014 /* Assets.xcassets */; };
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
+		CE4E37A71CF60A36000D3E24 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37A61CF60A36000D3E24 /* BottomBorderTextField.swift */; };
+		CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */; };
+		CE4E37AC1CF60E41000D3E24 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		CE2782D21CE7EA4200039014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwipeMeal/Assets.xcassets; sourceTree = "<group>"; };
 		CE2782D51CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2782D71CE7EA4200039014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwipeMeal/Info.plist; sourceTree = "<group>"; };
+		CE4E37A61CF60A36000D3E24 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
+		CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIProtocols.swift; path = CustomUI/UIProtocols.swift; sourceTree = "<group>"; };
+		CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInTextField.swift; path = CustomUI/SignInTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,8 @@
 		CE2782BF1CE7EA4200039014 = {
 			isa = PBXGroup;
 			children = (
+				CE4E37A81CF60CB7000D3E24 /* UI Protocols */,
+				CE4E37A51CF60A06000D3E24 /* Custom UI */,
 				CE2782E11CE8000500039014 /* Resources */,
 				CE2782E01CE7FFEF00039014 /* View Controllers */,
 				CE2782DF1CE7FFE800039014 /* Storyboards */,
@@ -99,6 +107,23 @@
 				CE2782D71CE7EA4200039014 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CE4E37A51CF60A06000D3E24 /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				CE4E37A61CF60A36000D3E24 /* BottomBorderTextField.swift */,
+				CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */,
+			);
+			name = "Custom UI";
+			sourceTree = "<group>";
+		};
+		CE4E37A81CF60CB7000D3E24 /* UI Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */,
+			);
+			name = "UI Protocols";
 			sourceTree = "<group>";
 		};
 		D07A19302079A42674FF8D91 /* Pods */ = {
@@ -248,7 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE23E5621CF3A54D00B3161D /* WelcomeViewController.swift in Sources */,
+				CE4E37AC1CF60E41000D3E24 /* SignInTextField.swift in Sources */,
 				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
+				CE4E37A71CF60A36000D3E24 /* BottomBorderTextField.swift in Sources */,
+				CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
