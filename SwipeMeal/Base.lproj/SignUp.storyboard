@@ -41,30 +41,45 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="k48-6n-9Rx" id="PdA-fF-WWU"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAS-ej-LlP" customClass="SignUpTextField" customModule="SwipeMeal" customModuleProvider="target">
                                         <rect key="frame" x="30" y="156" width="260" height="50"/>
                                         <color key="backgroundColor" red="0.57900441749999998" green="0.57900441749999998" blue="0.57900441749999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="k48-6n-9Rx" id="CDe-ki-elf"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-KX-GNY" customClass="SignUpTextField" customModule="SwipeMeal" customModuleProvider="target">
                                         <rect key="frame" x="30" y="104" width="260" height="50"/>
                                         <color key="backgroundColor" red="0.57900441749999998" green="0.57900441749999998" blue="0.57900441749999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="k48-6n-9Rx" id="mHc-m7-WbS"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFP-Pl-wGv" customClass="SignUpTextField" customModule="SwipeMeal" customModuleProvider="target">
                                         <rect key="frame" x="30" y="0.0" width="260" height="50"/>
                                         <color key="backgroundColor" red="0.57900441749999998" green="0.57900441749999998" blue="0.57900441749999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="k48-6n-9Rx" id="i9x-SR-cEg"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vql-Bd-Bi1" customClass="SignUpTextField" customModule="SwipeMeal" customModuleProvider="target">
                                         <rect key="frame" x="30" y="52" width="260" height="50"/>
                                         <color key="backgroundColor" red="0.57900441749999998" green="0.57900441749999998" blue="0.57900441749999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="k48-6n-9Rx" id="cy1-6n-LXM"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,6 +151,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="eEf-iY-zvN" firstAttribute="top" secondItem="P1p-UW-N3R" secondAttribute="bottom" constant="30" id="0mn-AA-Gro"/>
                             <constraint firstAttribute="trailing" secondItem="XWO-fJ-Jsd" secondAttribute="trailing" id="4jC-iN-QjB"/>
@@ -149,9 +165,32 @@
                             <constraint firstItem="P1p-UW-N3R" firstAttribute="top" secondItem="XWO-fJ-Jsd" secondAttribute="bottom" constant="20" id="sz0-IF-ni6"/>
                             <constraint firstItem="P1p-UW-N3R" firstAttribute="leading" secondItem="SaE-fp-RLw" secondAttribute="leading" id="vKP-ki-5iP"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="TxB-HN-MCc" appends="YES" id="S6w-Fh-Pys"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="_confirmPasswordTextField" destination="N5L-Ou-FRt" id="b84-QP-Owc"/>
+                        <outlet property="_emailTextField" destination="fbd-KX-GNY" id="5Zj-jz-j0V"/>
+                        <outlet property="_firstNameTextField" destination="dFP-Pl-wGv" id="6ZA-CK-dSg"/>
+                        <outlet property="_keyboardAvoidingConstraint" destination="0mn-AA-Gro" id="yJO-HV-EMo"/>
+                        <outlet property="_lastNameTextField" destination="vql-Bd-Bi1" id="PRc-Q1-03s"/>
+                        <outlet property="_lastTextField" destination="N5L-Ou-FRt" id="wFc-C6-b1E"/>
+                        <outlet property="_passwordTextField" destination="nAS-ej-LlP" id="tPV-EP-kpr"/>
+                        <outlet property="_textFieldsContainer" destination="P1p-UW-N3R" id="Bd2-GU-PXN"/>
+                        <outletCollection property="_textFields" destination="dFP-Pl-wGv" collectionClass="NSMutableArray" id="i0O-2l-mLU"/>
+                        <outletCollection property="_textFields" destination="vql-Bd-Bi1" collectionClass="NSMutableArray" id="MVh-Xd-5IZ"/>
+                        <outletCollection property="_textFields" destination="fbd-KX-GNY" collectionClass="NSMutableArray" id="UrH-3H-q4M"/>
+                        <outletCollection property="_textFields" destination="nAS-ej-LlP" collectionClass="NSMutableArray" id="IcI-aX-paI"/>
+                        <outletCollection property="_textFields" destination="N5L-Ou-FRt" collectionClass="NSMutableArray" id="nMm-Dv-cYz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Il-In-j9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TxB-HN-MCc">
+                    <connections>
+                        <action selector="_viewTapped:" destination="k48-6n-9Rx" id="2a6-YK-Rr4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-14" y="168"/>
         </scene>

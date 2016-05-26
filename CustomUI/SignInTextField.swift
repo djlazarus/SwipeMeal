@@ -14,8 +14,12 @@ class SignInTextField: BottomBorderTextField, PlaceholderColorAdjustable
    {
       super.awakeFromNib()
       backgroundColor = UIColor.clearColor()
-      textColor = UIColor.whiteColor()
-      adjustPlaceholder(UIColor.whiteColor())
+      
+      let color = UIColor.whiteColor()
+      textColor = color
+      tintColor = color
+      bottomBorderColor = color.colorWithAlphaComponent(0.5)
+      adjustPlaceholder(color)
    }
 }
 
@@ -28,6 +32,7 @@ class SignUpTextField: BottomBorderTextField, PlaceholderColorAdjustable
       
       let color = UIColor(white: 0.8, alpha: 1)
       textColor = color
+      tintColor = color
       bottomBorderColor = color.colorWithAlphaComponent(0.5)
       adjustPlaceholder(color)
    }
