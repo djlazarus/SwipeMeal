@@ -29,6 +29,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="_registerButtonPressed" destination="k48-6n-9Rx" eventType="touchUpInside" id="hmD-xX-Omr"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1p-UW-N3R">
                                 <rect key="frame" x="0.0" y="190" width="320" height="258"/>

@@ -28,12 +28,21 @@ class SignUpOperation: PresentationOperation
 
 extension SignUpOperation: SignUpViewControllerDelegate
 {
-   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController) {
+   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
+   {
+      controller.dismissKeyboard()
       dismissViewController(controller) {
          self.finish()
       }
    }
    
-   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController) {
+   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController)
+   {
+      let info = SignUpInfo(controller: controller)
+      let validator = SignUpInfoValidator(info: info)
+      
+      if let status = validator.validate() {
+         print(status.description(info))
+      }
    }
 }

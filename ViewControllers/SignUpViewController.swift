@@ -16,8 +16,29 @@ protocol SignUpViewControllerDelegate: class
 
 class SignUpViewController: UIViewController
 {
+   // MARK: - Public Properites
    weak var delegate: SignUpViewControllerDelegate?
    
+   var firstName: String {
+      return _firstNameTextField.text?.trimmed ?? ""
+   }
+   var lastName: String {
+      return _lastNameTextField.text?.trimmed ?? ""
+   }
+   var email: String {
+      return _emailTextField.text?.trimmed ?? ""
+   }
+   var password: String {
+      return _passwordTextField.text?.trimmed ?? ""
+   }
+   var confirmedPassword: String {
+      return _confirmPasswordTextField.text?.trimmed ?? ""
+   }
+   
+   // MARK: - Private Properties
+   private var _initialKeyboardAvoidingConstant: CGFloat = 0
+   
+   // MARK: - Outlets
    @IBOutlet private var _firstNameTextField: SignUpTextField!
    @IBOutlet private var _lastNameTextField: SignUpTextField!
    @IBOutlet private var _emailTextField: SignUpTextField!
@@ -33,8 +54,8 @@ class SignUpViewController: UIViewController
          _initialKeyboardAvoidingConstant = _keyboardAvoidingConstraint.constant
       }
    }
-   private var _initialKeyboardAvoidingConstant: CGFloat = 0
    
+   // MARK: - Computed Properties
    private var _activeTextField: UITextField? {
       return _textFields.filter({ $0.isFirstResponder() }).first
    }
@@ -51,6 +72,7 @@ class SignUpViewController: UIViewController
       _unsubscribeFromKeyboardNotifications()
    }
    
+   // MARK: - Overridden
    override func viewDidLoad()
    {
       super.viewDidLoad()
@@ -61,7 +83,7 @@ class SignUpViewController: UIViewController
       return .LightContent
    }
    
-   // MARK: - Setup
+   // MARK: - Setup / Teardown
    private func _subscribeForKeyboardNotifications()
    {
       let center = NSNotificationCenter.defaultCenter()
@@ -80,6 +102,12 @@ class SignUpViewController: UIViewController
       delegate?.signUpViewControllerSignInButtonPressed(self)
    }
    
+   @IBAction private func _registerButtonPressed()
+   {
+      delegate?.signUpViewControllerRegisterButtonPressed(self)
+   }
+   
+   // MARK: - Gesture Recognizers
    @IBAction private func _viewTapped(recognizer: UIGestureRecognizer)
    {
       let location = recognizer.locationInView(_textFieldsContainer)
@@ -93,12 +121,19 @@ class SignUpViewController: UIViewController
       }
       
       if shouldResign {
-         _textFields.forEach { field in
-            field.resignFirstResponder()
-         }
+         _resignAllTextFields()
       }
    }
    
+   // MARK: - Private
+   private func _resignAllTextFields()
+   {
+      _textFields.forEach { field in
+         field.resignFirstResponder()
+      }
+   }
+   
+   // MARK: - Keyboard
    internal func keyboardWillChangeHeight(notification: NSNotification)
    {
       guard let userInfo = notification.userInfo else { return }
@@ -124,6 +159,12 @@ class SignUpViewController: UIViewController
          self.view.layoutIfNeeded()
          }, completion: nil
       )
+   }
+   
+   // MARK: - Public
+   func dismissKeyboard()
+   {
+      _resignAllTextFields()
    }
 }
 
