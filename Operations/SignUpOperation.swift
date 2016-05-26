@@ -41,8 +41,8 @@ extension SignUpOperation: SignUpViewControllerDelegate
       let info = SignUpInfo(controller: controller)
       let validator = SignUpInfoValidator(info: info)
       
-      if let status = validator.validate() {
-         print(status.description(info))
+      if let invalidStatus = validator.validate() {
+         controller.presentStatus(invalidStatus)
       }
    }
 }

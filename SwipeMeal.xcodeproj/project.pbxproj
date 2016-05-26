@@ -15,6 +15,8 @@
 		CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D77651CF76CDC0071D249 /* String+Extensions.swift */; };
 		CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D776A1CF76FB30071D249 /* SignUpInfo.swift */; };
 		CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D776D1CF7708A0071D249 /* SignUpInfoValidator.swift */; };
+		CE1D77701CF777AA0071D249 /* ErrorPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D776F1CF777AA0071D249 /* ErrorPresenterViewController.swift */; };
+		CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */; };
 		CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */; };
 		CE23E5621CF3A54D00B3161D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */; };
 		CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CB1CE7EA4200039014 /* AppDelegate.swift */; };
@@ -39,6 +41,8 @@
 		CE1D77651CF76CDC0071D249 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "SwipeMeal/UIKit-Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
 		CE1D776A1CF76FB30071D249 /* SignUpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpInfo.swift; path = SwipeMeal/Models/SignUpInfo.swift; sourceTree = "<group>"; };
 		CE1D776D1CF7708A0071D249 /* SignUpInfoValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpInfoValidator.swift; path = SwipeMeal/Utilities/SignUpInfoValidator.swift; sourceTree = "<group>"; };
+		CE1D776F1CF777AA0071D249 /* ErrorPresenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorPresenterViewController.swift; path = ViewControllers/ErrorPresenterViewController.swift; sourceTree = "<group>"; };
+		CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "SwipeMeal/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwipeMeal/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1D77651CF76CDC0071D249 /* String+Extensions.swift */,
+				CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */,
 				CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */,
 				CE1D77621CF644F10071D249 /* SignUpViewController.swift */,
+				CE1D776F1CF777AA0071D249 /* ErrorPresenterViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -336,11 +342,13 @@
 				CE1D775C1CF639410071D249 /* PresentationOperation.swift in Sources */,
 				CE1D77631CF644F10071D249 /* SignUpViewController.swift in Sources */,
 				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
+				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				CE1D775E1CF63B340071D249 /* SignUpOperation.swift in Sources */,
 				CE4E37A71CF60A36000D3E24 /* BottomBorderTextField.swift in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */,
 				CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */,
+				CE1D77701CF777AA0071D249 /* ErrorPresenterViewController.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
