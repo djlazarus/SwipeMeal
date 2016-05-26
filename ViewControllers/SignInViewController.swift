@@ -89,8 +89,17 @@ class SignInViewController: UIViewController
 
 extension SignInViewController: UITextFieldDelegate
 {
-   func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+   func textFieldShouldReturn(textField: UITextField) -> Bool
    {
-      return true
+      switch textField {
+      case _usernameTextField:
+         _passwordTextField.becomeFirstResponder()
+         return false
+      case _passwordTextField:
+         _passwordTextField.resignFirstResponder()
+         return true
+      default:
+         return true
+      }
    }
 }

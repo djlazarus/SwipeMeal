@@ -12,7 +12,7 @@ enum SignUpInfoInvalidStatus
 {
    case FirstNameEmpty, LastNameEmpty, EmailEmpty, InvalidEmail(email: String), PasswordEmpty, PasswordsDoNotMatch, UniversityDoesNotMatchEmail(university: String, email: String)
    
-   func valid(info: SignUpInfo) -> Bool {
+   private func valid(info: SignUpInfo) -> Bool {
       switch self {
       case .FirstNameEmpty: return info.firstName != ""
       case .LastNameEmpty: return info.lastName != ""
@@ -24,7 +24,19 @@ enum SignUpInfoInvalidStatus
       }
    }
    
-   static func all(info: SignUpInfo) -> [SignUpInfoInvalidStatus]
+   private static func status(info: SignUpInfo) -> SignUpInfoInvalidStatus?
+   {
+      var invalidStatus: SignUpInfoInvalidStatus?
+      for status in SignUpInfoInvalidStatus.all(info) {
+         if !status.valid(info) {
+            invalidStatus = status
+            break
+         }
+      }
+      return invalidStatus
+   }
+   
+   private static func all(info: SignUpInfo) -> [SignUpInfoInvalidStatus]
    {
       return [
          .FirstNameEmpty,
@@ -49,7 +61,7 @@ enum SignUpInfoInvalidStatus
       }
    }
    
-   func errorMessage() -> String {
+   var errorMessage: String {
       switch self {
       case .FirstNameEmpty: return "The First Name field is empty. Please enter your first name."
       case .LastNameEmpty: return "The Last Name field is empty. Please enter your last name."
@@ -69,13 +81,6 @@ struct SignUpInfoValidator
    
    func validate() -> SignUpInfoInvalidStatus?
    {
-      var invalidStatus: SignUpInfoInvalidStatus?
-      for status in SignUpInfoInvalidStatus.all(info) {
-         if !status.valid(info) {
-            invalidStatus = status
-            break
-         }
-      }
-      return invalidStatus
+      return SignUpInfoInvalidStatus.status(info)
    }
 }

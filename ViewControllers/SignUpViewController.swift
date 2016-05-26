@@ -61,9 +61,7 @@ class SignUpViewController: UIViewController
    }
    
    private var _keyboardPadding: CGFloat {
-      
       guard let field = _activeTextField else { return 0 }
-      
       let padding: CGFloat = 10
       return field === _lastTextField ? padding : field.bounds.height + padding
    }
@@ -133,6 +131,18 @@ class SignUpViewController: UIViewController
       }
    }
    
+   private func _nextTextField(field: UITextField) -> UITextField?
+   {
+      switch field {
+      case _firstNameTextField: return _lastNameTextField
+      case _lastNameTextField: return _emailTextField
+      case _emailTextField: return _passwordTextField
+      case _passwordTextField: return _confirmPasswordTextField
+      case _confirmPasswordTextField: return nil
+      default: return nil
+      }
+   }
+   
    // MARK: - Keyboard
    internal func keyboardWillChangeHeight(notification: NSNotification)
    {
@@ -170,4 +180,13 @@ class SignUpViewController: UIViewController
 
 extension SignUpViewController: UITextFieldDelegate
 {
+   func textFieldShouldReturn(textField: UITextField) -> Bool
+   {
+      _nextTextField(textField)?.becomeFirstResponder()
+      if textField == _lastTextField {
+         textField.resignFirstResponder()
+      }
+      
+      return true
+   }
 }
