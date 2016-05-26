@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="344" y="62.479999999999997"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="xjr-mg-9fC">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Ly-A5-txH" customClass="WelcomeViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Ly-A5-txH" customClass="SignInViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IOc-Sb-hSo"/>
                         <viewControllerLayoutGuide type="bottom" id="VAF-D9-pRA"/>
@@ -97,17 +97,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fun-large" translatesAutoresizingMaskIntoConstraints="NO" id="IrN-aC-048">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account don't have an?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qy-XQ-17Y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qy-XQ-17Y">
                                 <rect key="frame" x="44" y="531" width="151" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-hq-jTt">
-                                <rect key="frame" x="204" y="525" width="51" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-hq-jTt">
+                                <rect key="frame" x="203" y="525" width="51" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Up Sign">
-                                    <color key="titleColor" red="0.57457181040000005" green="0.8723208442" blue="0.37989504229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_signUpButtonPressed" destination="6Ly-A5-txH" eventType="touchUpInside" id="uAu-uc-0V0"/>
@@ -115,12 +115,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMH-Xm-72T">
                                 <rect key="frame" x="0.0" y="461" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.57457181044921912" green="0.87232084424083767" blue="0.37989504232428012" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wbj-dn-GOU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="In Sign">
+                                <state key="normal" title="Sign In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -130,13 +130,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0el-zI-TgL">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="231"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Swipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb3-iK-ZAT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb3-iK-ZAT">
                                                 <rect key="frame" x="31" y="85" width="258" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Log to Account your" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqh-hK-XQS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In to your Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqh-hK-XQS">
                                                 <rect key="frame" x="74" y="153" width="172.5" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,9 +180,9 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1z6-NB-Dud">
-                                                <rect key="frame" x="110" y="160" width="99" height="27"/>
+                                                <rect key="frame" x="109" y="160" width="101" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="Password forgot?">
+                                                <state key="normal" title="Forgot password?">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>

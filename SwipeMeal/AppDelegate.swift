@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    // MARK: - Private
    private func _setupRootViewController()
    {
-      let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
+      let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
       let controller = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewControllerID")
 //      let navController = UINavigationController(rootViewController: controller)
       

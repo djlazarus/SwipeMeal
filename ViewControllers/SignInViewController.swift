@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  SignInViewController.swift
 //  SwipeMeal
 //
 //  Created by Gregory Klein on 5/23/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController
+class SignInViewController: UIViewController
 {
    @IBOutlet private var _usernameTextField: SignInTextField!
    @IBOutlet private var _passwordTextField: SignInTextField!
@@ -35,7 +35,7 @@ class WelcomeViewController: UIViewController
    private func _subscribeForKeyboardNotifications()
    {
       let center = NSNotificationCenter.defaultCenter()
-      center.addObserver(self, selector: #selector(WelcomeViewController.keyboardWillChangeHeight(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+      center.addObserver(self, selector: #selector(SignInViewController.keyboardWillChangeHeight(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
    }
    
    private func _unsubscribeFromKeyboardNotifications()
@@ -87,7 +87,7 @@ class WelcomeViewController: UIViewController
    }
 }
 
-extension WelcomeViewController: UITextFieldDelegate
+extension SignInViewController: UITextFieldDelegate
 {
    func textFieldShouldBeginEditing(textField: UITextField) -> Bool
    {

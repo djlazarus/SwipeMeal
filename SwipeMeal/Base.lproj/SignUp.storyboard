@@ -20,7 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEf-iY-zvN">
                                 <rect key="frame" x="0.0" y="478" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.57457181040000005" green="0.8723208442" blue="0.37989504229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.52771094851439904" green="0.80341950257696337" blue="0.35121518704142113" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8b3-xe-WL0"/>
                                 </constraints>
@@ -115,7 +115,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fun" translatesAutoresizingMaskIntoConstraints="NO" id="RNi-By-tSb">
                                         <rect key="frame" x="0.0" y="-20" width="320" height="219"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Swipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-de-UNx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-de-UNx">
                                         <rect key="frame" x="31" y="69" width="258" height="60"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,7 +131,7 @@
                                         <rect key="frame" x="222.5" y="168" width="46" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <state key="normal" title="Sign In">
-                                            <color key="titleColor" red="0.57457181040000005" green="0.8723208442" blue="0.37989504229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="_signInButtonPressed" destination="k48-6n-9Rx" eventType="touchUpInside" id="l4R-td-g5B"/>
