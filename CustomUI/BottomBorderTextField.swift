@@ -10,6 +10,12 @@ import UIKit
 
 class BottomBorderTextField: UITextField
 {
+   var bottomBorderColor = UIColor(white: 1, alpha: 0.5) {
+      didSet {
+         _bottomBorder.backgroundColor = bottomBorderColor
+      }
+   }
+   
    private let _borderHeight: CGFloat = 1.0
    private let _bottomBorder = UIView()
    
@@ -25,7 +31,7 @@ class BottomBorderTextField: UITextField
    
    private func _commonInit()
    {
-      _bottomBorder.backgroundColor = UIColor(white: 1, alpha: 0.5)
+      _bottomBorder.backgroundColor = bottomBorderColor
       addSubview(_bottomBorder)
    }
    

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
+		CE1D775C1CF639410071D249 /* PresentationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D775B1CF639410071D249 /* PresentationOperation.swift */; };
+		CE1D775E1CF63B340071D249 /* SignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D775D1CF63B340071D249 /* SignUpOperation.swift */; };
+		CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1D775F1CF644620071D249 /* SignUp.storyboard */; };
+		CE1D77631CF644F10071D249 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D77621CF644F10071D249 /* SignUpViewController.swift */; };
 		CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */; };
 		CE23E5621CF3A54D00B3161D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */; };
 		CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CB1CE7EA4200039014 /* AppDelegate.swift */; };
@@ -18,12 +22,17 @@
 		CE4E37A71CF60A36000D3E24 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37A61CF60A36000D3E24 /* BottomBorderTextField.swift */; };
 		CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */; };
 		CE4E37AC1CF60E41000D3E24 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */; };
+		CE4E37AF1CF6381E000D3E24 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37AE1CF6381E000D3E24 /* BaseOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F9E638069FF5996BB25BBD /* Pods-SwipeMeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.debug.xcconfig"; sourceTree = "<group>"; };
 		B58457A538308AC028CDB657 /* Pods-SwipeMeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.release.xcconfig"; sourceTree = "<group>"; };
+		CE1D775B1CF639410071D249 /* PresentationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentationOperation.swift; path = Operations/PresentationOperation.swift; sourceTree = "<group>"; };
+		CE1D775D1CF63B340071D249 /* SignUpOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpOperation.swift; path = Operations/SignUpOperation.swift; sourceTree = "<group>"; };
+		CE1D77601CF644620071D249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
+		CE1D77621CF644F10071D249 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ViewControllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwipeMeal/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +45,7 @@
 		CE4E37A61CF60A36000D3E24 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIProtocols.swift; path = CustomUI/UIProtocols.swift; sourceTree = "<group>"; };
 		CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInTextField.swift; path = CustomUI/SignInTextField.swift; sourceTree = "<group>"; };
+		CE4E37AE1CF6381E000D3E24 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOperation.swift; path = Operations/BaseOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 		CE2782BF1CE7EA4200039014 = {
 			isa = PBXGroup;
 			children = (
+				CE4E37AD1CF637E8000D3E24 /* Operations */,
 				CE4E37A81CF60CB7000D3E24 /* UI Protocols */,
 				CE4E37A51CF60A06000D3E24 /* Custom UI */,
 				CE2782E11CE8000500039014 /* Resources */,
@@ -86,6 +97,7 @@
 			children = (
 				CE2782CF1CE7EA4200039014 /* Welcome.storyboard */,
 				CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */,
+				CE1D775F1CF644620071D249 /* SignUp.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -95,6 +107,7 @@
 			children = (
 				CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */,
 				CE23E5611CF3A54D00B3161D /* WelcomeViewController.swift */,
+				CE1D77621CF644F10071D249 /* SignUpViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -124,6 +137,16 @@
 				CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */,
 			);
 			name = "UI Protocols";
+			sourceTree = "<group>";
+		};
+		CE4E37AD1CF637E8000D3E24 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				CE4E37AE1CF6381E000D3E24 /* BaseOperation.swift */,
+				CE1D775B1CF639410071D249 /* PresentationOperation.swift */,
+				CE1D775D1CF63B340071D249 /* SignUpOperation.swift */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		D07A19302079A42674FF8D91 /* Pods */ = {
@@ -214,6 +237,7 @@
 				CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */,
 				CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */,
 				CE2782D11CE7EA4200039014 /* Welcome.storyboard in Resources */,
+				CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE23E5621CF3A54D00B3161D /* WelcomeViewController.swift in Sources */,
+				CE4E37AF1CF6381E000D3E24 /* BaseOperation.swift in Sources */,
 				CE4E37AC1CF60E41000D3E24 /* SignInTextField.swift in Sources */,
+				CE1D775C1CF639410071D249 /* PresentationOperation.swift in Sources */,
+				CE1D77631CF644F10071D249 /* SignUpViewController.swift in Sources */,
 				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
+				CE1D775E1CF63B340071D249 /* SignUpOperation.swift in Sources */,
 				CE4E37A71CF60A36000D3E24 /* BottomBorderTextField.swift in Sources */,
 				CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
@@ -284,6 +312,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		CE1D775F1CF644620071D249 /* SignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE1D77601CF644620071D249 /* Base */,
+			);
+			name = SignUp.storyboard;
+			sourceTree = "<group>";
+		};
 		CE2782CF1CE7EA4200039014 /* Welcome.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

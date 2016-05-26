@@ -13,6 +13,22 @@ class SignInTextField: BottomBorderTextField, PlaceholderColorAdjustable
    override func awakeFromNib()
    {
       super.awakeFromNib()
+      backgroundColor = UIColor.clearColor()
+      textColor = UIColor.whiteColor()
       adjustPlaceholder(UIColor.whiteColor())
+   }
+}
+
+class SignUpTextField: BottomBorderTextField, PlaceholderColorAdjustable
+{
+   override func awakeFromNib()
+   {
+      super.awakeFromNib()
+      backgroundColor = UIColor.clearColor()
+      
+      let color = UIColor(white: 0.8, alpha: 1)
+      textColor = color
+      bottomBorderColor = color.colorWithAlphaComponent(0.5)
+      adjustPlaceholder(color)
    }
 }

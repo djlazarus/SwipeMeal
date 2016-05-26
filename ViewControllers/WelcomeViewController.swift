@@ -14,6 +14,8 @@ class WelcomeViewController: UIViewController
    @IBOutlet private var _passwordTextField: SignInTextField!
    @IBOutlet private var _keyboardAvoidingConstraint: NSLayoutConstraint!
    
+   private let _operationQueue = NSOperationQueue()
+   
    deinit {
       _unsubscribeFromKeyboardNotifications()
    }
@@ -56,6 +58,8 @@ class WelcomeViewController: UIViewController
    
    @IBAction private func _signUpButtonPressed()
    {
+      let signUpOperation = SignUpOperation(presentingViewController: self)
+      _operationQueue.addOperation(signUpOperation)
    }
    
    internal func keyboardWillChangeHeight(notification: NSNotification)
@@ -85,4 +89,8 @@ class WelcomeViewController: UIViewController
 
 extension WelcomeViewController: UITextFieldDelegate
 {
+   func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+   {
+      return true
+   }
 }
