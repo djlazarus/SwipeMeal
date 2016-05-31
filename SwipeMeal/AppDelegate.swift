@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       _observeFirebaseMessagingTokenRefresh()
       _setupRootViewController()
       
+      let token = FIRInstanceID.instanceID().token()
+      print("TOKEN: \(token)")
+      
       return true
    }
    
@@ -117,19 +120,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       _connectToFCM()
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
