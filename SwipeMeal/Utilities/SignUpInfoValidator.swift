@@ -10,7 +10,7 @@ import Foundation
 
 enum SignUpInfoInvalidStatus
 {
-   case FirstNameEmpty, LastNameEmpty, EmailEmpty, InvalidEmail(email: String), PasswordEmpty, PasswordsDoNotMatch, UniversityDoesNotMatchEmail(university: String, email: String)
+   case FirstNameEmpty, LastNameEmpty, EmailEmpty, InvalidEmail(email: String), PasswordEmpty, PasswordsDoNotMatch, InvalidUniversityEmail(university: String, email: String)
    
    private func valid(info: SignUpInfo) -> Bool {
       switch self {
@@ -20,7 +20,7 @@ enum SignUpInfoInvalidStatus
       case .InvalidEmail(_): return info.email.isValidEmail
       case .PasswordEmpty: return info.password != ""
       case .PasswordsDoNotMatch: return info.password == info.confirmedPassword
-      case .UniversityDoesNotMatchEmail(_, _): return true // For now
+      case .InvalidUniversityEmail(_, _): return info.email.isUniversityEmail // For now
       }
    }
    
@@ -45,7 +45,7 @@ enum SignUpInfoInvalidStatus
          .InvalidEmail(email: info.email),
          .PasswordEmpty,
          .PasswordsDoNotMatch,
-         .UniversityDoesNotMatchEmail(university: "", email: info.email)
+         .InvalidUniversityEmail(university: "", email: info.email)
       ]
    }
    
@@ -57,7 +57,7 @@ enum SignUpInfoInvalidStatus
       case .InvalidEmail(_): return "Invalid Email"
       case .PasswordEmpty: return "Invalid Password"
       case .PasswordsDoNotMatch: return "Incorrect Confirmed Password"
-      case .UniversityDoesNotMatchEmail(_, _): return "Unsupported Univerity Email"
+      case .InvalidUniversityEmail(_, _): return "Unsupported Univerity Email"
       }
    }
    
@@ -69,8 +69,7 @@ enum SignUpInfoInvalidStatus
       case .InvalidEmail(let email): return "\(email) is not a valid email address. Please enter a valid email address."
       case .PasswordEmpty: return "The Password field is empty. Please enter a password."
       case .PasswordsDoNotMatch: return "The Password and Confirmed Password fields do not match."
-      case .UniversityDoesNotMatchEmail(let email, let university):
-         return "The email address \(email) does not match \(university). Please enter a valid email address for \(university)."
+      case .InvalidUniversityEmail(_, let email): return "The email address \(email) is not a valid university email."
       }
    }
 }
