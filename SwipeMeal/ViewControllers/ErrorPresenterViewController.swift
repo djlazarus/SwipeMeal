@@ -36,7 +36,7 @@ class ErrorPresenterViewController: UIViewController
 
 extension ErrorPresenterViewController
 {
-   func present(status: SignUpInfoInvalidStatus)
+   func presentStatus(status: SignUpInfoInvalidStatus)
    {
       let alertController = UIAlertController(title: status.title, message: status.errorMessage, preferredStyle: .Alert)
       alertController.addAction(_okAction)

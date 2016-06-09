@@ -29,10 +29,10 @@ extension UIViewController
       return errorPresenter
    }
    
-   func presentStatus(status: SignUpInfoInvalidStatus)
+   func present(status: SignUpInfoInvalidStatus)
    {
       dispatch_async(dispatch_get_main_queue()) { 
-         self.errorPresenter.present(status)
+         self.errorPresenter.presentStatus(status)
       }
    }
 }
