@@ -76,21 +76,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    }
    
    // MARK: - Private
+   private func _setupRootViewController()
+   {
+      let controller = SignInViewController.instantiate(.SignIn)
+      window = UIWindow()
+      window?.rootViewController = controller
+      window?.makeKeyAndVisible()
+   }
+   
    private func _registerForPushNotifications(application: UIApplication)
    {
       let notificationSettings = UIUserNotificationSettings(
          forTypes: [.Badge, .Sound, .Alert], categories: nil)
       application.registerUserNotificationSettings(notificationSettings)
-   }
-   
-   private func _setupRootViewController()
-   {
-      let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-      let controller = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewControllerID")
-      
-      window = UIWindow()
-      window?.rootViewController = controller
-      window?.makeKeyAndVisible()
    }
    
    private func _connectToFCM()
@@ -109,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    // MARK: - Observing
    private func _observeFirebaseMessagingTokenRefresh()
    {
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshed(_:)), name: kFIRInstanceIDTokenRefreshNotification, object: nil)
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.tokenRefreshed(_:)), name: kFIRInstanceIDTokenRefreshNotification, object: nil)
    }
    
    internal func tokenRefreshed(notification: NSNotification)

@@ -28,6 +28,7 @@
 		CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */; };
 		CE4E37AC1CF60E41000D3E24 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */; };
 		CE4E37AF1CF6381E000D3E24 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E37AE1CF6381E000D3E24 /* BaseOperation.swift */; };
+		CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		CE4E37A91CF60CDC000D3E24 /* UIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIProtocols.swift; path = CustomUI/UIProtocols.swift; sourceTree = "<group>"; };
 		CE4E37AB1CF60E41000D3E24 /* SignInTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInTextField.swift; path = CustomUI/SignInTextField.swift; sourceTree = "<group>"; };
 		CE4E37AE1CF6381E000D3E24 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOperation.swift; path = Operations/BaseOperation.swift; sourceTree = "<group>"; };
+		CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "SwipeMeal/UIKit-Extensions/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				CE1D77651CF76CDC0071D249 /* String+Extensions.swift */,
 				CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */,
+				CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				CE1D775E1CF63B340071D249 /* SignUpOperation.swift in Sources */,
 				CE4E37A71CF60A36000D3E24 /* BottomBorderTextField.swift in Sources */,
+				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */,
 				CE4E37AA1CF60CDC000D3E24 /* UIProtocols.swift in Sources */,

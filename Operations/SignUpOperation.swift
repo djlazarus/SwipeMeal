@@ -9,12 +9,8 @@
 import UIKit
 
 class SignUpOperation: PresentationOperation
-{
-   private var _signUpViewController: SignUpViewController = {
-      let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-      let controller: SignUpViewController = storyboard.instantiateInitialViewController() as! SignUpViewController
-      return controller
-   }()
+{  
+   let _signUpViewController = SignUpViewController.instantiate(.SignUp)
    
    override func commonInit() {
       super.commonInit()
