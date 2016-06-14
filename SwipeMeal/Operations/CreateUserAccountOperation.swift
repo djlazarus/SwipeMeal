@@ -11,7 +11,8 @@ import UIKit
 class CreateUserAccountStatus
 {
    let info: SignUpInfo
-   var user: SMUser?
+   var user: SwipeMealUser?
+   var error: NSError?
    
    init(info: SignUpInfo) {
       self.info = info
@@ -30,7 +31,8 @@ class CreateUserAccountOperation: BaseOperation
    {
       SMAuthLayer.createUser(status.info.email, password: status.info.password) { (user, error) in
          self.status.user = user
-         self.finishWithError(error)
+         self.status.error = error
+         self.finish()
       }
    }
 }

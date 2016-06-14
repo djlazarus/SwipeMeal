@@ -27,6 +27,7 @@ class VerifyUserEmailOperation: PresentationOperation
    
    override func execute()
    {
+      guard status.error == nil else { finish(); return }
       presentViewController(_emailVerificationSentViewController)
    }
 }

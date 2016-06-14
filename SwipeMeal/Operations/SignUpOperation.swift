@@ -45,7 +45,7 @@ extension SignUpOperation: SignUpViewControllerDelegate
          
          let status = CreateUserAccountStatus(info: info)
          
-//         let createAccountOp = CreateUserAccountOperation(status: status)
+         let createAccountOp = CreateUserAccountOperation(status: status)
          let verifyEmailOp = VerifyUserEmailOperation(status: status, presentationContext: controller)
          _internalQueue.addOperation(verifyEmailOp)
       }
