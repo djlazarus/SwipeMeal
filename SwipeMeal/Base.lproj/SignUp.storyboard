@@ -8,7 +8,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="Ph4-dj-Gb2">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k48-6n-9Rx" customClass="SignUpViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k48-6n-9Rx" customClass="SignUpViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xVy-rh-pRx"/>
                         <viewControllerLayoutGuide type="bottom" id="lrx-Vz-f8G"/>
