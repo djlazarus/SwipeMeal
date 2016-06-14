@@ -29,6 +29,14 @@
 		CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766971D09FE38003D6EF0 /* BaseOperation.swift */; };
 		CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766981D09FE38003D6EF0 /* PresentationOperation.swift */; };
 		CE67669C1D09FE38003D6EF0 /* SignUpOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766991D09FE38003D6EF0 /* SignUpOperation.swift */; };
+		CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */; };
+		CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A01D0A02BD003D6EF0 /* SMDatabaseLayer.swift */; };
+		CE6766A31D0A02FC003D6EF0 /* SMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A21D0A02FC003D6EF0 /* SMUser.swift */; };
+		CE6766A61D0A09B1003D6EF0 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A51D0A09B1003D6EF0 /* FlowController.swift */; };
+		CE6766A81D0A1351003D6EF0 /* SMUser+Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A71D0A1351003D6EF0 /* SMUser+Firebase.swift */; };
+		CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */; };
+		CE6766AC1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */; };
+		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +66,14 @@
 		CE6766971D09FE38003D6EF0 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOperation.swift; path = SwipeMeal/Operations/BaseOperation.swift; sourceTree = "<group>"; };
 		CE6766981D09FE38003D6EF0 /* PresentationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentationOperation.swift; path = SwipeMeal/Operations/PresentationOperation.swift; sourceTree = "<group>"; };
 		CE6766991D09FE38003D6EF0 /* SignUpOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpOperation.swift; path = SwipeMeal/Operations/SignUpOperation.swift; sourceTree = "<group>"; };
+		CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUserAccountOperation.swift; path = SwipeMeal/Operations/CreateUserAccountOperation.swift; sourceTree = "<group>"; };
+		CE6766A01D0A02BD003D6EF0 /* SMDatabaseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMDatabaseLayer.swift; path = SwipeMeal/DatabaseLayer/SMDatabaseLayer.swift; sourceTree = "<group>"; };
+		CE6766A21D0A02FC003D6EF0 /* SMUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMUser.swift; path = SwipeMeal/DatabaseLayer/SMUser.swift; sourceTree = "<group>"; };
+		CE6766A51D0A09B1003D6EF0 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowController.swift; path = SwipeMeal/Controllers/FlowController.swift; sourceTree = "<group>"; };
+		CE6766A71D0A1351003D6EF0 /* SMUser+Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SMUser+Firebase.swift"; path = "SwipeMeal/Model-Extensions/SMUser+Firebase.swift"; sourceTree = "<group>"; };
+		CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMAuthLayer.swift; path = SwipeMeal/DatabaseLayer/SMAuthLayer.swift; sourceTree = "<group>"; };
+		CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyUserEmailOperation.swift; path = SwipeMeal/Operations/VerifyUserEmailOperation.swift; sourceTree = "<group>"; };
+		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,7 @@
 				CE1D77651CF76CDC0071D249 /* String+Extensions.swift */,
 				CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */,
 				CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */,
+				CE6766A71D0A1351003D6EF0 /* SMUser+Firebase.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -102,6 +119,8 @@
 		CE2782BF1CE7EA4200039014 = {
 			isa = PBXGroup;
 			children = (
+				CE6766A41D0A098A003D6EF0 /* Controllers */,
+				CE67669F1D0A0216003D6EF0 /* Database Layer */,
 				CE4E37A51CF60A06000D3E24 /* Custom UI */,
 				CE1D77641CF76CBF0071D249 /* Extensions */,
 				E6476D2A82ECE8382B3DCD72 /* Frameworks */,
@@ -150,6 +169,7 @@
 				CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */,
 				CE6766931D09FE2E003D6EF0 /* SignInViewController.swift */,
 				CE6766941D09FE2E003D6EF0 /* SignUpViewController.swift */,
+				CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -187,8 +207,28 @@
 				CE6766971D09FE38003D6EF0 /* BaseOperation.swift */,
 				CE6766981D09FE38003D6EF0 /* PresentationOperation.swift */,
 				CE6766991D09FE38003D6EF0 /* SignUpOperation.swift */,
+				CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */,
+				CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */,
 			);
 			name = Operations;
+			sourceTree = "<group>";
+		};
+		CE67669F1D0A0216003D6EF0 /* Database Layer */ = {
+			isa = PBXGroup;
+			children = (
+				CE6766A01D0A02BD003D6EF0 /* SMDatabaseLayer.swift */,
+				CE6766A21D0A02FC003D6EF0 /* SMUser.swift */,
+				CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */,
+			);
+			name = "Database Layer";
+			sourceTree = "<group>";
+		};
+		CE6766A41D0A098A003D6EF0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE6766A51D0A09B1003D6EF0 /* FlowController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		D07A19302079A42674FF8D91 /* Pods */ = {
@@ -343,16 +383,24 @@
 			files = (
 				CE67668F1D09FE1B003D6EF0 /* BottomBorderTextField.swift in Sources */,
 				CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */,
+				CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */,
+				CE6766A61D0A09B1003D6EF0 /* FlowController.swift in Sources */,
+				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
+				CE6766A31D0A02FC003D6EF0 /* SMUser.swift in Sources */,
 				CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */,
 				CE6766921D09FE25003D6EF0 /* ErrorPresenterViewController.swift in Sources */,
+				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE6766961D09FE2E003D6EF0 /* SignUpViewController.swift in Sources */,
 				CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */,
+				CE6766A81D0A1351003D6EF0 /* SMUser+Firebase.swift in Sources */,
 				CE6766951D09FE2E003D6EF0 /* SignInViewController.swift in Sources */,
 				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
+				CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */,
 				CE6766901D09FE1B003D6EF0 /* SignInTextField.swift in Sources */,
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */,
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
+				CE6766AC1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift in Sources */,
 				CE67669C1D09FE38003D6EF0 /* SignUpOperation.swift in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */,
