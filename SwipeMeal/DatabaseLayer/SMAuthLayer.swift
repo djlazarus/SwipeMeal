@@ -65,12 +65,12 @@ struct SMAuthLayer
    }
    
    static var currentUserEmailVerified: Bool {
-      guard let user = FIRAuth.auth()?.currentUser else { assert(false, "current user is nil") }
+      guard let user = FIRAuth.auth()?.currentUser else { assert(false, "current user is nil"); return false }
       return user.emailVerified
    }
    
    static var currentUser: SMUser? {
-      guard let user = FIRAuth.auth()?.currentUser else { assert(false, "current user is nil") }
+      guard let user = FIRAuth.auth()?.currentUser else { assert(false, "current user is nil"); return nil }
       return SMUser(user: user)
    }
 }
