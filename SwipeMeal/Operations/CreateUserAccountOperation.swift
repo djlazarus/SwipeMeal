@@ -8,6 +8,29 @@
 
 import UIKit
 
-class CreateUserAccountOperation: BaseOperation {
+class CreateUserAccountStatus
+{
+   let info: SignUpInfo
+   var user: SMUser?
+   
+   init(info: SignUpInfo) {
+      self.info = info
+   }
+}
 
+class CreateUserAccountOperation: BaseOperation
+{
+   let status: CreateUserAccountStatus
+   
+   init(status: CreateUserAccountStatus) {
+      self.status = status
+   }
+   
+   override func execute()
+   {
+      SMAuthLayer.createUser(status.info.email, password: status.info.password) { (user, error) in
+         self.status.user = user
+         self.finishWithError(error)
+      }
+   }
 }

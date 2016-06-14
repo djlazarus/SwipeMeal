@@ -14,6 +14,7 @@ import Stripe
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
+   private let _flowController = FlowController()
    
    // MARK: - Overridden
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
@@ -78,9 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    // MARK: - Private
    private func _setupRootViewController()
    {
-      let controller = SignInViewController.instantiate(.SignIn)
       window = UIWindow()
-      window?.rootViewController = controller
+      window?.rootViewController = _flowController.initialViewController()
       window?.makeKeyAndVisible()
    }
    

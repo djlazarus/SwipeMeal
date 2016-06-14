@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import FirebaseAuth
+
+extension SMUser
+{
+   init?(user: FIRUser)
+   {
+      guard let email = user.email else { return nil }
+      guard let displayName = user.displayName else { return nil }
+      guard let photoURL = user.photoURL else { return nil }
+      
+      self.init(uid: user.uid, email: email, displayName: displayName, photoURL: photoURL)
+   }
+}

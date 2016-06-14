@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct SMUser
+{
+   let uid: String
+   let email: String
+   let displayName: String
+   let photoURL: NSURL
+}

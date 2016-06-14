@@ -8,28 +8,28 @@
 
 import UIKit
 
-class EmailVerificationSentViewController: UIViewController {
+protocol EmailVerificationSentViewControllerDelegate: class
+{
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+class EmailVerificationSentViewController: UIViewController
+{
+   weak var delegate: EmailVerificationSentViewControllerDelegate?
+   
+   override func preferredStatusBarStyle() -> UIStatusBarStyle {
+      return .LightContent
+   }
+   
+   // MARK: - IBActions
+   @IBAction private func resendButtonPressed(sender: UIButton)
+   {
+      delegate?.emailVerificationSentViewController(self, resendButtonPressed: sender)
+   }
+   
+   @IBAction private func logMeInButtonPressed(sender: UIButton)
+   {
+      delegate?.emailVerificationSentViewController(self, logMeInButtonPressed: sender)
+   }
 }

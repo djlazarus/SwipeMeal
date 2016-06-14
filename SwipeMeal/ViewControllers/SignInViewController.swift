@@ -8,8 +8,17 @@
 
 import UIKit
 
+protocol SignInViewControllerDelegate: class
+{
+   func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
+   func signInViewController(controller: SignInViewController, signInButtonPressed: UIButton)
+   func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
+}
+
 class SignInViewController: UIViewController
 {
+   weak var delegate: SignInViewControllerDelegate?
+   
    @IBOutlet private var _usernameTextField: SignInTextField!
    @IBOutlet private var _passwordTextField: SignInTextField!
    @IBOutlet private var _keyboardAvoidingConstraint: NSLayoutConstraint!
@@ -56,10 +65,19 @@ class SignInViewController: UIViewController
       _passwordTextField.resignFirstResponder()
    }
    
-   @IBAction private func _signUpButtonPressed()
+   @IBAction private func _signUpButtonPressed(sender: UIButton)
    {
-      let signUpOperation = SignUpOperation(presentingViewController: self)
-      _operationQueue.addOperation(signUpOperation)
+      delegate?.signInViewController(self, signUpButtonPressed: sender)
+   }
+   
+   @IBAction private func _signInButtonPressed(sender: UIButton)
+   {
+      delegate?.signInViewController(self, signInButtonPressed: sender)
+   }
+   
+   @IBAction private func _forgotPasswordButtonPressed(sender: UIButton)
+   {
+      delegate?.signInViewController(self, forgotPasswordButtonPressed: sender)
    }
    
    internal func keyboardWillChangeHeight(notification: NSNotification)

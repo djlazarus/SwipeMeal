@@ -8,6 +8,36 @@
 
 import UIKit
 
-class VerifyUserEmailOperation: PresentationOperation {
+class VerifyUserEmailOperation: PresentationOperation
+{
+   let status: CreateUserAccountStatus
+   private let _emailVerificationSentViewController = EmailVerificationSentViewController.instantiate(.SignUp)
+   
+   init(status: CreateUserAccountStatus, presentationContext: UIViewController)
+   {
+      self.status = status
+      super.init(presentingViewController: presentationContext)
+   }
+   
+   override func commonInit()
+   {
+      _emailVerificationSentViewController.modalPresentationStyle = .OverCurrentContext
+      _emailVerificationSentViewController.delegate = self
+   }
+   
+   override func execute()
+   {
+      presentViewController(_emailVerificationSentViewController)
+   }
+}
 
+extension VerifyUserEmailOperation: EmailVerificationSentViewControllerDelegate
+{
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
+   {
+   }
+   
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
+   {
+   }
 }

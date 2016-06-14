@@ -195,7 +195,62 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-14" y="168"/>
+            <point key="canvasLocation" x="-218" y="168"/>
+        </scene>
+        <!--Email Verification Sent View Controller-->
+        <scene sceneID="Voi-ZM-njC">
+            <objects>
+                <viewController storyboardIdentifier="EmailVerificationSentViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Xt-yl-Nfj" customClass="EmailVerificationSentViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ggm-wd-Yvy"/>
+                        <viewControllerLayoutGuide type="bottom" id="8lJ-2K-1gx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gas-ot-TcP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07p-Cy-A5s">
+                                <rect key="frame" x="160" y="376" width="92" height="30"/>
+                                <state key="normal" title="Resend Email">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resendButtonPressed:" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="Jrh-CP-is4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma1-Zh-4Pb">
+                                <rect key="frame" x="97" y="440" width="218" height="30"/>
+                                <state key="normal" title="I verified my account, log me in!">
+                                    <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logMeInButtonPressed:" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="EZv-nk-uiv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've sent you an email to verify your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R69-EF-9b1">
+                                <rect key="frame" x="41" y="186" width="331" height="143.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="R69-EF-9b1" firstAttribute="centerY" secondItem="gas-ot-TcP" secondAttribute="centerY" multiplier="0.7" id="2gt-Sw-9w3"/>
+                            <constraint firstItem="ma1-Zh-4Pb" firstAttribute="centerX" secondItem="07p-Cy-A5s" secondAttribute="centerX" id="BB7-p3-N7u"/>
+                            <constraint firstItem="07p-Cy-A5s" firstAttribute="centerX" secondItem="R69-EF-9b1" secondAttribute="centerX" id="PcV-Wd-yTs"/>
+                            <constraint firstItem="ma1-Zh-4Pb" firstAttribute="top" secondItem="07p-Cy-A5s" secondAttribute="bottom" constant="34" id="eo8-gB-ikx"/>
+                            <constraint firstItem="R69-EF-9b1" firstAttribute="width" secondItem="gas-ot-TcP" secondAttribute="width" multiplier="0.8" id="fhu-aE-biJ"/>
+                            <constraint firstItem="07p-Cy-A5s" firstAttribute="top" secondItem="R69-EF-9b1" secondAttribute="bottom" constant="46.5" id="gqt-0w-ZPp"/>
+                            <constraint firstItem="R69-EF-9b1" firstAttribute="centerX" secondItem="gas-ot-TcP" secondAttribute="centerX" id="n2u-b8-0N1"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRa-EZ-aEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261" y="162"/>
         </scene>
     </scenes>
     <resources>

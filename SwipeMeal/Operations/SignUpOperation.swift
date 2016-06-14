@@ -11,6 +11,7 @@ import UIKit
 class SignUpOperation: PresentationOperation
 {  
    let _signUpViewController = SignUpViewController.instantiate(.SignUp)
+   let _internalQueue = NSOperationQueue()
    
    override func commonInit() {
       super.commonInit()
@@ -39,6 +40,14 @@ extension SignUpOperation: SignUpViewControllerDelegate
       
       if let invalidStatus = validator.validate() {
          controller.present(invalidStatus)
+      }
+      else { // The sign up info was valid!
+         
+         let status = CreateUserAccountStatus(info: info)
+         
+//         let createAccountOp = CreateUserAccountOperation(status: status)
+         let verifyEmailOp = VerifyUserEmailOperation(status: status, presentationContext: controller)
+         _internalQueue.addOperation(verifyEmailOp)
       }
    }
 }

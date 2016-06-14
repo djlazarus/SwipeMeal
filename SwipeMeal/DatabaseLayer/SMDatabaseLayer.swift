@@ -1,5 +1,5 @@
 //
-//  SwipeMealDatabaseLayer.swift
+//  SMDatabaseLayer.swift
 //  SwipeMeal
 //
 //  Created by Gregory Klein on 6/9/16.
