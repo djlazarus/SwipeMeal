@@ -34,13 +34,3 @@ struct SMAuthLayer
       return FIRAuth.auth()?.currentUser
    }
 }
-
-extension NSError
-{
-   static func currentUserNilError() -> NSError
-   {
-      let failureReason = "Current user is nil"
-      let userInfo = [NSLocalizedFailureReasonErrorKey : failureReason]
-      return NSError(domain: "com.SwipeMeal.ErrorDomain", code: 1234, userInfo: userInfo)
-   }
-}

@@ -32,6 +32,11 @@ protocol SwipeMealUser
     */
    var email: String? { get }
    
+   /** @property emailVerified
+    @brief Indicates the email address associated with this user has been verified.
+    */
+   var emailVerified: Bool { get }
+   
    func reload(completion: ReloadUserProfileCompletion?)
    func sendEmailVerification(completion: SendEmailVerificationCompletion?)
 }

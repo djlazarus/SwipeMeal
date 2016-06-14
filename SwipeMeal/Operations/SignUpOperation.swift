@@ -42,12 +42,21 @@ extension SignUpOperation: SignUpViewControllerDelegate
          controller.present(invalidStatus)
       }
       else { // The sign up info was valid!
-         
          let status = CreateUserAccountStatus(info: info)
          
          let createAccountOp = CreateUserAccountOperation(status: status)
          let verifyEmailOp = VerifyUserEmailOperation(status: status, presentationContext: controller)
-         _internalQueue.addOperation(verifyEmailOp)
+         let finalOp = NSBlockOperation {
+            if let error = status.error {
+               controller.present(error)
+            }
+         }
+         
+         verifyEmailOp.addDependency(createAccountOp)
+         finalOp.addDependency(verifyEmailOp)
+         
+         let ops = [createAccountOp, verifyEmailOp, finalOp]
+         _internalQueue.addOperations(ops, waitUntilFinished: false)
       }
    }
 }

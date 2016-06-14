@@ -35,6 +35,20 @@ extension UIViewController
          self.errorPresenter.presentStatus(status)
       }
    }
+   
+   func present(error: NSError)
+   {
+      dispatch_async(dispatch_get_main_queue()) {
+         self.errorPresenter.presentError(error)
+      }
+   }
+   
+   func presentMessage(message: String)
+   {
+      dispatch_async(dispatch_get_main_queue()) {
+         self.errorPresenter.presentMessage(message)
+      }
+   }
 }
 
 extension UIViewController
