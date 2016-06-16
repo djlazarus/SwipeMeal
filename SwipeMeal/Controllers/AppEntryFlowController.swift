@@ -88,6 +88,5 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
       }
       
       createUserAccountOp.start()
-      print("FINISHED!")
    }
 }
