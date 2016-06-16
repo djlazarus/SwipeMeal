@@ -1,5 +1,5 @@
 //
-//  FlowController.swift
+//  AppEntryFlowController.swift
 //  SwipeMeal
 //
 //  Created by Gregory Klein on 6/9/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlowController
+class AppEntryFlowController
 {
    private let _rootNavController = UINavigationController()
    
@@ -35,7 +35,7 @@ class FlowController
    }
 }
 
-extension FlowController: SignInViewControllerDelegate
+extension AppEntryFlowController: SignInViewControllerDelegate
 {
    func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
    {
@@ -64,7 +64,7 @@ extension FlowController: SignInViewControllerDelegate
    }
 }
 
-extension FlowController: SignUpViewControllerDelegate
+extension AppEntryFlowController: SignUpViewControllerDelegate
 {
    func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
    {

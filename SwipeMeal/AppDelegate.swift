@@ -14,7 +14,7 @@ import Stripe
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
-   private let _flowController = FlowController()
+   private let _flowController = AppEntryFlowController()
    
    // MARK: - Overridden
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool

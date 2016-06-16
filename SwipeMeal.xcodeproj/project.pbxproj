@@ -33,7 +33,7 @@
 		CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */; };
 		CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A01D0A02BD003D6EF0 /* SMDatabaseLayer.swift */; };
 		CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A21D0A02FC003D6EF0 /* SwipeMealUser.swift */; };
-		CE6766A61D0A09B1003D6EF0 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A51D0A09B1003D6EF0 /* FlowController.swift */; };
+		CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */; };
 		CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */; };
 		CE6766AC1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */; };
 		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
@@ -71,7 +71,7 @@
 		CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateUserAccountOperation.swift; path = SwipeMeal/Operations/CreateUserAccountOperation.swift; sourceTree = "<group>"; };
 		CE6766A01D0A02BD003D6EF0 /* SMDatabaseLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMDatabaseLayer.swift; path = SwipeMeal/DatabaseLayer/SMDatabaseLayer.swift; sourceTree = "<group>"; };
 		CE6766A21D0A02FC003D6EF0 /* SwipeMealUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealUser.swift; path = SwipeMeal/DatabaseLayer/SwipeMealUser.swift; sourceTree = "<group>"; };
-		CE6766A51D0A09B1003D6EF0 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowController.swift; path = SwipeMeal/Controllers/FlowController.swift; sourceTree = "<group>"; };
+		CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppEntryFlowController.swift; path = SwipeMeal/Controllers/AppEntryFlowController.swift; sourceTree = "<group>"; };
 		CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMAuthLayer.swift; path = SwipeMeal/DatabaseLayer/SMAuthLayer.swift; sourceTree = "<group>"; };
 		CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyUserEmailOperation.swift; path = SwipeMeal/Operations/VerifyUserEmailOperation.swift; sourceTree = "<group>"; };
 		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		CE6766A41D0A098A003D6EF0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE6766A51D0A09B1003D6EF0 /* FlowController.swift */,
+				CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -388,7 +388,7 @@
 				CE0A128E1D10981A00BB3AFD /* SwipeMealErrors.swift in Sources */,
 				CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */,
 				CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */,
-				CE6766A61D0A09B1003D6EF0 /* FlowController.swift in Sources */,
+				CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */,
 				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
 				CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */,
