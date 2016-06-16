@@ -10,17 +10,28 @@ import UIKit
 
 class FlowController
 {
-   let _signInViewController = SignInViewController.instantiate(.SignIn)
+   private let _rootNavController = UINavigationController()
+   
+   private let _signInViewController = SignInViewController.instantiate(.SignIn)
+   private let _signUpViewController = SignUpViewController.instantiate(.SignUp)
+   private let _emailVerificationController = EmailVerificationSentViewController.instantiate(.SignUp)
+   
    let _internalQueue = NSOperationQueue()
    
    init()
    {
       _signInViewController.delegate = self
+      _signUpViewController.delegate = self
+      
+      _rootNavController.navigationBar.barStyle = .Black
+      _rootNavController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+      _rootNavController.navigationBar.shadowImage = UIImage()
+      _rootNavController.pushViewController(_signInViewController, animated: false)
    }
    
    func initialViewController() -> UIViewController
    {
-      return _signInViewController
+      return _rootNavController
    }
 }
 
@@ -28,15 +39,58 @@ extension FlowController: SignInViewControllerDelegate
 {
    func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
    {
-      let signUpOperation = SignUpOperation(presentingViewController: controller)
-      _internalQueue.addOperation(signUpOperation)
+      controller.presentViewController(_signUpViewController, animated: true, completion: nil)
    }
    
-   func signInViewController(controller: SignInViewController, signInButtonPressed: UIButton)
+   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
    {
+      let status = AuthenticateLoginStatus(email: email, password: password)
+      let authOp = AuthenticateLoginOperation(status: status)
+      authOp.completionBlock = {
+         
+         if let error = status.error {
+            controller.present(error)
+         }
+         else if let user = status.user {
+            print("AUTHENTICATED USER: \(user.email)")
+         }
+      }
+      
+      authOp.start()
    }
    
    func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
    {
+   }
+}
+
+extension FlowController: SignUpViewControllerDelegate
+{
+   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
+   {
+      controller.dismissViewControllerAnimated(true, completion: nil)
+   }
+   
+   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController)
+   {
+      let info = SignUpInfo(controller: controller)
+      let status = CreateUserAccountStatus(info: info)
+      
+      let createUserAccountOp = CreateUserAccountOperation(status: status)
+      createUserAccountOp.completionBlock = {
+         
+         if let invalidInfoStatus = status.infoInvalidStatus {
+            controller.present(invalidInfoStatus)
+         }
+         else if let creationError = status.error {
+            controller.present(creationError)
+         }
+         else if let user = status.user {
+            print("CREATED USER: \(user)")
+         }
+      }
+      
+      createUserAccountOp.start()
+      print("FINISHED!")
    }
 }

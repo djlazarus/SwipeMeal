@@ -10,8 +10,8 @@ import UIKit
 
 class PresentationOperation: BaseOperation
 {
-   private let _viewControllerPresentationContext: UIViewController?
-   private let _navigationControllerPresentationContext: UINavigationController?
+   internal let _viewControllerPresentationContext: UIViewController?
+   internal let _navigationControllerPresentationContext: UINavigationController?
    
    init(presentingViewController: UIViewController)
    {
