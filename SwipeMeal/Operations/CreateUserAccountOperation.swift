@@ -11,7 +11,6 @@ import UIKit
 class CreateUserAccountStatus
 {
    let info: SignUpInfo
-   var infoInvalidStatus: SignUpInfoInvalidStatus? = nil
    
    var user: SwipeMealUser?
    var error: NSError?
@@ -34,11 +33,14 @@ class CreateUserAccountOperation: BaseOperation
    {
       let validateSignUpInfoOp = NSBlockOperation {
          let validator = SignUpInfoValidator(info: self._status.info)
-         self._status.infoInvalidStatus = validator.validate()
+         
+         if let invalidStatus = validator.validate() {
+            self._status.error = SwipeMealErrors.error(invalidStatus)
+         }
       }
       
       let createUserAccountOp = NSBlockOperation {
-         guard self._status.infoInvalidStatus == nil else {
+         guard self._status.error == nil else {
             self.finish()
             return
          }

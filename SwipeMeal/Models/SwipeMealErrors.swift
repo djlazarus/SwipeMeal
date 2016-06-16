@@ -33,3 +33,16 @@ enum SwipeMealErrors
       }
    }
 }
+
+extension SwipeMealErrors
+{
+   static func error(status: SignUpInfoInvalidStatus) -> NSError
+   {
+      let userInfo = [
+         NSLocalizedFailureReasonErrorKey : status.errorMessage,
+         NSLocalizedDescriptionKey : status.title
+      ]
+      
+      return NSError(domain: "com.SwipeMeal.ErrorDomain", code: 9999, userInfo: userInfo)
+   }
+}

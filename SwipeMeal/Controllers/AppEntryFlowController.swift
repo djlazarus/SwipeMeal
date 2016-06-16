@@ -79,10 +79,7 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
       let createUserAccountOp = CreateUserAccountOperation(status: status)
       createUserAccountOp.completionBlock = {
          
-         if let invalidInfoStatus = status.infoInvalidStatus {
-            controller.present(invalidInfoStatus)
-         }
-         else if let creationError = status.error {
+         if let creationError = status.error {
             controller.present(creationError)
          }
          else if let user = status.user {
