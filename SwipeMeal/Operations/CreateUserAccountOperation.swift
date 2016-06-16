@@ -11,6 +11,8 @@ import UIKit
 class CreateUserAccountStatus
 {
    let info: SignUpInfo
+   var infoInvalidStatus: SignUpInfoInvalidStatus? = nil
+   
    var user: SwipeMealUser?
    var error: NSError?
    
@@ -21,18 +23,34 @@ class CreateUserAccountStatus
 
 class CreateUserAccountOperation: BaseOperation
 {
-   let status: CreateUserAccountStatus
+   private let _status: CreateUserAccountStatus
+   private let _internalQueue = NSOperationQueue()
    
    init(status: CreateUserAccountStatus) {
-      self.status = status
+      self._status = status
    }
    
    override func execute()
    {
-      SMAuthLayer.createUser(status.info.email, password: status.info.password) { (user, error) in
-         self.status.user = user
-         self.status.error = error
-         self.finish()
+      let validateSignUpInfoOp = NSBlockOperation {
+         let validator = SignUpInfoValidator(info: self._status.info)
+         self._status.infoInvalidStatus = validator.validate()
       }
+      
+      let createUserAccountOp = NSBlockOperation {
+         guard self._status.infoInvalidStatus == nil else {
+            self.finish()
+            return
+         }
+         
+         SMAuthLayer.createUser(self._status.info.email, password: self._status.info.password) { (user, error) in
+            self._status.user = user
+            self._status.error = error
+            self.finish()
+         }
+      }
+      
+      createUserAccountOp.addDependency(validateSignUpInfoOp)
+      _internalQueue.addOperations([validateSignUpInfoOp, createUserAccountOp], waitUntilFinished: false)
    }
 }
