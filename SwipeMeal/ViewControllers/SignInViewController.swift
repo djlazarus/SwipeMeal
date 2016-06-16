@@ -10,8 +10,9 @@ import UIKit
 
 protocol SignInViewControllerDelegate: class
 {
+   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
    func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
-   func signInViewController(controller: SignInViewController, signInButtonPressed: UIButton)
+   
    func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
 }
 
@@ -72,7 +73,10 @@ class SignInViewController: UIViewController
    
    @IBAction private func _signInButtonPressed(sender: UIButton)
    {
-      delegate?.signInViewController(self, signInButtonPressed: sender)
+      guard let email = _usernameTextField.text else { return }
+      guard let password = _passwordTextField.text else { return }
+      
+      delegate?.signInViewControllerSignInButtonPressed(self, email: email, password: password)
    }
    
    @IBAction private func _forgotPasswordButtonPressed(sender: UIButton)
