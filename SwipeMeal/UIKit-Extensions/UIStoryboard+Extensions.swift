@@ -10,7 +10,7 @@ import UIKit
 
 enum StoryboardType: String
 {
-   case LaunchScreen, SignIn, SignUp
+   case LaunchScreen, SignIn, SignUp, Onboarding
 }
 
 extension UIStoryboard

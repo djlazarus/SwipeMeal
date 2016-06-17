@@ -15,6 +15,7 @@ class AppEntryFlowController
    private let _signInViewController = SignInViewController.instantiate(.SignIn)
    private let _signUpViewController = SignUpViewController.instantiate(.SignUp)
    private let _emailVerificationController = EmailVerificationSentViewController.instantiate(.SignUp)
+   private let _welcomeViewController = WelcomeViewController.instantiate(.Onboarding)
    
    private var _user: SwipeMealUser?
    
@@ -130,6 +131,11 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
 {
    func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
    {
+      if let user = _user {
+         user.sendEmailVerification({ (error) in
+            controller.presentMessage("Verification email sent.")
+         })
+      }
    }
    
    func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
