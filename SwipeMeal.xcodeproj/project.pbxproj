@@ -35,7 +35,6 @@
 		CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A21D0A02FC003D6EF0 /* SwipeMealUser.swift */; };
 		CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */; };
 		CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */; };
-		CE6766AC1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */; };
 		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
 		CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */; };
 /* End PBXBuildFile section */
@@ -73,7 +72,6 @@
 		CE6766A21D0A02FC003D6EF0 /* SwipeMealUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealUser.swift; path = SwipeMeal/DatabaseLayer/SwipeMealUser.swift; sourceTree = "<group>"; };
 		CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppEntryFlowController.swift; path = SwipeMeal/Controllers/AppEntryFlowController.swift; sourceTree = "<group>"; };
 		CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMAuthLayer.swift; path = SwipeMeal/DatabaseLayer/SMAuthLayer.swift; sourceTree = "<group>"; };
-		CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyUserEmailOperation.swift; path = SwipeMeal/Operations/VerifyUserEmailOperation.swift; sourceTree = "<group>"; };
 		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
 		CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticateLoginOperation.swift; path = SwipeMeal/Operations/AuthenticateLoginOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,7 +208,6 @@
 				CE6766971D09FE38003D6EF0 /* BaseOperation.swift */,
 				CE6766981D09FE38003D6EF0 /* PresentationOperation.swift */,
 				CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */,
-				CE6766AB1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift */,
 				CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */,
 			);
 			name = Operations;
@@ -403,7 +400,6 @@
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */,
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
-				CE6766AC1D0A2377003D6EF0 /* VerifyUserEmailOperation.swift in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,

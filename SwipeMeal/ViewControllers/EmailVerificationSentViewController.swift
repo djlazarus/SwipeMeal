@@ -12,6 +12,8 @@ protocol EmailVerificationSentViewControllerDelegate: class
 {
    func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
    func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
+   
+   func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController)
 }
 
 class EmailVerificationSentViewController: UIViewController
@@ -31,5 +33,10 @@ class EmailVerificationSentViewController: UIViewController
    @IBAction private func logMeInButtonPressed(sender: UIButton)
    {
       delegate?.emailVerificationSentViewController(self, logMeInButtonPressed: sender)
+   }
+   
+   @IBAction private func cancelButtonPressed()
+   {
+      delegate?.emailVerificationSentViewControllerCancelButtonPressed(self)
    }
 }

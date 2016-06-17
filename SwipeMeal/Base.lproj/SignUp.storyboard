@@ -233,12 +233,28 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlu-0H-5dY">
+                                <rect key="frame" x="20" y="28" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="4CO-GG-nMi"/>
+                                    <constraint firstAttribute="height" constant="55" id="u9t-mW-Wqc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                <state key="normal" title="×">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="dfN-1e-6Tl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="Mlu-0H-5dY" firstAttribute="leading" secondItem="gas-ot-TcP" secondAttribute="leading" constant="20" id="2b2-dE-o1R"/>
                             <constraint firstItem="R69-EF-9b1" firstAttribute="centerY" secondItem="gas-ot-TcP" secondAttribute="centerY" multiplier="0.7" id="2gt-Sw-9w3"/>
                             <constraint firstItem="ma1-Zh-4Pb" firstAttribute="centerX" secondItem="07p-Cy-A5s" secondAttribute="centerX" id="BB7-p3-N7u"/>
                             <constraint firstItem="07p-Cy-A5s" firstAttribute="centerX" secondItem="R69-EF-9b1" secondAttribute="centerX" id="PcV-Wd-yTs"/>
+                            <constraint firstItem="Mlu-0H-5dY" firstAttribute="top" secondItem="ggm-wd-Yvy" secondAttribute="bottom" constant="8" id="SFd-S4-gbs"/>
                             <constraint firstItem="ma1-Zh-4Pb" firstAttribute="top" secondItem="07p-Cy-A5s" secondAttribute="bottom" constant="34" id="eo8-gB-ikx"/>
                             <constraint firstItem="R69-EF-9b1" firstAttribute="width" secondItem="gas-ot-TcP" secondAttribute="width" multiplier="0.8" id="fhu-aE-biJ"/>
                             <constraint firstItem="07p-Cy-A5s" firstAttribute="top" secondItem="R69-EF-9b1" secondAttribute="bottom" constant="46.5" id="gqt-0w-ZPp"/>
