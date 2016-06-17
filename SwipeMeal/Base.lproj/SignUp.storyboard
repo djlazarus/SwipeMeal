@@ -210,21 +210,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07p-Cy-A5s">
-                                <rect key="frame" x="160" y="376" width="92" height="30"/>
+                                <rect key="frame" x="145" y="376" width="123" height="41"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.098875221631205726" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Resend Email">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="resendButtonPressed:" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="Jrh-CP-is4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma1-Zh-4Pb">
-                                <rect key="frame" x="97" y="440" width="218" height="30"/>
-                                <state key="normal" title="I verified my account, log me in!">
-                                    <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logMeInButtonPressed:" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="EZv-nk-uiv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We've sent you an email to verify your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R69-EF-9b1">
@@ -247,8 +241,20 @@
                                     <action selector="cancelButtonPressed" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="dfN-1e-6Tl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma1-Zh-4Pb">
+                                <rect key="frame" x="64" y="451" width="284" height="41"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.098598182624113531" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="I've verified my account, log me in!">
+                                    <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logMeInButtonPressed:" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="EZv-nk-uiv"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.90000000000000002" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="0.94999999999999996" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="Mlu-0H-5dY" firstAttribute="leading" secondItem="gas-ot-TcP" secondAttribute="leading" constant="20" id="2b2-dE-o1R"/>
                             <constraint firstItem="R69-EF-9b1" firstAttribute="centerY" secondItem="gas-ot-TcP" secondAttribute="centerY" multiplier="0.7" id="2gt-Sw-9w3"/>
@@ -263,6 +269,10 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="_logMeInButton" destination="ma1-Zh-4Pb" id="Uwi-ss-IbR"/>
+                        <outlet property="_resendButton" destination="07p-Cy-A5s" id="lxa-JC-xYV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRa-EZ-aEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
