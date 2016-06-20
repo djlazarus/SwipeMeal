@@ -168,6 +168,9 @@
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="_addImageButtonPressed" destination="Rjl-7Z-64Z" eventType="touchUpInside" id="ds5-Nm-LzT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -196,6 +199,7 @@
                             <constraint firstItem="ce2-bE-kNH" firstAttribute="top" secondItem="cQj-4v-0mK" secondAttribute="top" id="yZC-kW-eZd"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
