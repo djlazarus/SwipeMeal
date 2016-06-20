@@ -18,15 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="64" y="74" width="192" height="191.5"/>
-                                <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="NRX-bi-BDE" secondAttribute="height" multiplier="1:1" id="YLc-Wi-qYE"/>
-                                </constraints>
-                            </imageView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-j3-Xbt">
-                                <rect key="frame" x="20" y="305" width="280" height="185"/>
+                                <rect key="frame" x="20" y="322.5" width="280" height="167.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup and complete your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-y4-cUQ">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
@@ -74,6 +67,13 @@
                                     <action selector="_previousButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="Y95-CS-x3J"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="48" y="58.5" width="224" height="223.5"/>
+                                <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NRX-bi-BDE" secondAttribute="height" multiplier="1:1" id="YLc-Wi-qYE"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
@@ -83,7 +83,7 @@
                             <constraint firstItem="pr6-Lt-Im7" firstAttribute="centerY" secondItem="1lX-n1-Ev1" secondAttribute="centerY" id="AaM-7f-gkw"/>
                             <constraint firstItem="1lX-n1-Ev1" firstAttribute="leading" secondItem="pr6-Lt-Im7" secondAttribute="trailing" constant="25" id="BV9-hO-zCG"/>
                             <constraint firstItem="il9-pU-ZBn" firstAttribute="top" secondItem="1lX-n1-Ev1" secondAttribute="bottom" constant="20" id="Etj-t1-iCs"/>
-                            <constraint firstItem="NRX-bi-BDE" firstAttribute="width" secondItem="9ld-b3-jhS" secondAttribute="width" multiplier="0.6" id="aIe-AZ-Leg"/>
+                            <constraint firstItem="NRX-bi-BDE" firstAttribute="width" secondItem="9ld-b3-jhS" secondAttribute="width" multiplier="0.7" id="aIe-AZ-Leg"/>
                             <constraint firstItem="S4t-j3-Xbt" firstAttribute="top" secondItem="NRX-bi-BDE" secondAttribute="bottom" constant="40" id="jg1-d1-uXN"/>
                             <constraint firstItem="S4t-j3-Xbt" firstAttribute="leading" secondItem="9ld-b3-jhS" secondAttribute="leading" constant="20" id="mod-Y2-bNk"/>
                             <constraint firstItem="NRX-bi-BDE" firstAttribute="centerX" secondItem="9ld-b3-jhS" secondAttribute="centerX" id="pT5-xG-gwX"/>
