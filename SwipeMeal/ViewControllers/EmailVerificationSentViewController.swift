@@ -18,17 +18,10 @@ protocol EmailVerificationSentViewControllerDelegate: class
 
 class EmailVerificationSentViewController: UIViewController
 {
-   @IBOutlet private var _resendButton: UIButton!
-   @IBOutlet private var _logMeInButton: UIButton!
+   @IBOutlet private var _resendButton: SwipeMealRoundedButton!
+   @IBOutlet private var _logMeInButton: SwipeMealRoundedButton!
    
    weak var delegate: EmailVerificationSentViewControllerDelegate?
-   
-   override func viewDidLoad()
-   {
-      super.viewDidLoad()
-      _resendButton.layer.cornerRadius = 4
-      _logMeInButton.layer.cornerRadius = 4
-   }
    
    override func preferredStatusBarStyle() -> UIStatusBarStyle {
       return .LightContent

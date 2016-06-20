@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -13,26 +15,102 @@
                         <viewControllerLayoutGuide type="bottom" id="il9-pU-ZBn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9ld-b3-jhS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME TO SWIPE MEAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cG-zL-gaK">
-                                <rect key="frame" x="193" y="289.5" width="215" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="64" y="74" width="192" height="191.5"/>
+                                <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NRX-bi-BDE" secondAttribute="height" multiplier="1:1" id="YLc-Wi-qYE"/>
+                                </constraints>
+                            </imageView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-j3-Xbt">
+                                <rect key="frame" x="20" y="305" width="280" height="185"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup and complete your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-y4-cUQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A complete profile helps others identify you while you buy and/or sell your swipes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-q1-nVt">
+                                        <rect key="frame" x="0.0" y="80" width="280" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="3ze-y4-cUQ" firstAttribute="leading" secondItem="S4t-j3-Xbt" secondAttribute="leading" id="RAI-Im-Gz2"/>
+                                    <constraint firstItem="BPD-q1-nVt" firstAttribute="top" secondItem="3ze-y4-cUQ" secondAttribute="bottom" constant="20" id="TCv-hW-Cal"/>
+                                    <constraint firstAttribute="trailing" secondItem="BPD-q1-nVt" secondAttribute="trailing" id="Waq-Sb-rck"/>
+                                    <constraint firstAttribute="trailing" secondItem="3ze-y4-cUQ" secondAttribute="trailing" id="X7p-E5-WuE"/>
+                                    <constraint firstItem="BPD-q1-nVt" firstAttribute="leading" secondItem="S4t-j3-Xbt" secondAttribute="leading" id="irA-PZ-mcv"/>
+                                    <constraint firstItem="3ze-y4-cUQ" firstAttribute="top" secondItem="S4t-j3-Xbt" secondAttribute="top" id="lut-ar-6cm"/>
+                                </constraints>
+                            </view>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-n1-Ev1">
+                                <rect key="frame" x="141" y="511" width="39" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPA-GL-HTk" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="205" y="510" width="52" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_nextButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="toL-a4-GaP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr6-Lt-Im7" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="37" y="510.5" width="79" height="38"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Previous">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_previousButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="Y95-CS-x3J"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="1cG-zL-gaK" firstAttribute="centerX" secondItem="9ld-b3-jhS" secondAttribute="centerX" id="JbR-uq-JsU"/>
-                            <constraint firstItem="1cG-zL-gaK" firstAttribute="centerY" secondItem="9ld-b3-jhS" secondAttribute="centerY" id="zK6-xb-nN5"/>
+                            <constraint firstItem="NRX-bi-BDE" firstAttribute="centerY" secondItem="9ld-b3-jhS" secondAttribute="centerY" multiplier="0.6" id="7hI-vU-Xyi"/>
+                            <constraint firstItem="1lX-n1-Ev1" firstAttribute="top" secondItem="S4t-j3-Xbt" secondAttribute="bottom" constant="21" id="AOB-wV-iwy"/>
+                            <constraint firstItem="pr6-Lt-Im7" firstAttribute="centerY" secondItem="1lX-n1-Ev1" secondAttribute="centerY" id="AaM-7f-gkw"/>
+                            <constraint firstItem="1lX-n1-Ev1" firstAttribute="leading" secondItem="pr6-Lt-Im7" secondAttribute="trailing" constant="25" id="BV9-hO-zCG"/>
+                            <constraint firstItem="il9-pU-ZBn" firstAttribute="top" secondItem="1lX-n1-Ev1" secondAttribute="bottom" constant="20" id="Etj-t1-iCs"/>
+                            <constraint firstItem="NRX-bi-BDE" firstAttribute="width" secondItem="9ld-b3-jhS" secondAttribute="width" multiplier="0.6" id="aIe-AZ-Leg"/>
+                            <constraint firstItem="S4t-j3-Xbt" firstAttribute="top" secondItem="NRX-bi-BDE" secondAttribute="bottom" constant="40" id="jg1-d1-uXN"/>
+                            <constraint firstItem="S4t-j3-Xbt" firstAttribute="leading" secondItem="9ld-b3-jhS" secondAttribute="leading" constant="20" id="mod-Y2-bNk"/>
+                            <constraint firstItem="NRX-bi-BDE" firstAttribute="centerX" secondItem="9ld-b3-jhS" secondAttribute="centerX" id="pT5-xG-gwX"/>
+                            <constraint firstItem="1lX-n1-Ev1" firstAttribute="centerX" secondItem="9ld-b3-jhS" secondAttribute="centerX" id="qnF-WQ-24i"/>
+                            <constraint firstItem="mPA-GL-HTk" firstAttribute="leading" secondItem="1lX-n1-Ev1" secondAttribute="trailing" constant="25" id="uaN-xr-NBt"/>
+                            <constraint firstItem="mPA-GL-HTk" firstAttribute="centerY" secondItem="1lX-n1-Ev1" secondAttribute="centerY" id="wat-0t-iHH"/>
+                            <constraint firstAttribute="trailing" secondItem="S4t-j3-Xbt" secondAttribute="trailing" constant="20" id="xcb-vg-FP2"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="_imageView" destination="NRX-bi-BDE" id="6Mr-Uw-jv8"/>
+                        <outlet property="_mainLabel" destination="3ze-y4-cUQ" id="jl3-NU-gri"/>
+                        <outlet property="_nextButton" destination="mPA-GL-HTk" id="mK0-8W-7Oh"/>
+                        <outlet property="_pageControl" destination="1lX-n1-Ev1" id="K7M-Mu-kIV"/>
+                        <outlet property="_previousButton" destination="pr6-Lt-Im7" id="4M1-Vk-9Th"/>
+                        <outlet property="_subLabel" destination="BPD-q1-nVt" id="IId-nh-UDx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Nh-At-tVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="RDq-sc-ISc"/>
             </objects>
-            <point key="canvasLocation" x="541" y="298"/>
+            <point key="canvasLocation" x="840.5" y="203.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="walkthrough-1" width="5355" height="3570"/>
+    </resources>
 </document>

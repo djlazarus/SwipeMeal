@@ -28,6 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       let token = FIRInstanceID.instanceID().token()
       print("TOKEN: \(token)")
       
+      let barButtonItemAppearance = UIBarButtonItem.appearance()
+      
+      let primaryColor = UIColor.whiteColor()
+      barButtonItemAppearance.tintColor = primaryColor
+      barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor], forState: .Normal)
+      barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor.colorWithAlphaComponent(0.4)], forState: .Disabled)
+      
+      let navBarAppearance = UINavigationBar.appearance()
+      navBarAppearance.tintColor = UIColor.whiteColor()
+      
       return true
    }
    

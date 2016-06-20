@@ -15,6 +15,7 @@ class AppEntryFlowController
    private let _signInViewController = SignInViewController.instantiate(.SignIn)
    private let _signUpViewController = SignUpViewController.instantiate(.SignUp)
    private let _emailVerificationController = EmailVerificationSentViewController.instantiate(.SignUp)
+   
    private let _welcomeViewController = WelcomeViewController.instantiate(.Onboarding)
    
    private var _user: SwipeMealUser?
@@ -26,6 +27,7 @@ class AppEntryFlowController
       _signInViewController.delegate = self
       _signUpViewController.delegate = self
       _emailVerificationController.delegate = self
+      _welcomeViewController.delegate = self
       
       _emailVerificationController.modalPresentationStyle = .OverCurrentContext
       
@@ -58,6 +60,20 @@ class AppEntryFlowController
       }
    }
    
+   private func _startProfileSetup(user: SwipeMealUser, fromSignUp: Bool = false)
+   {
+      dispatch_async(dispatch_get_main_queue()) {
+         
+         if fromSignUp {
+            self._rootNavController.pushViewController(self._welcomeViewController, animated: false)
+            self._signUpViewController.dismissViewControllerAnimated(true, completion: nil)
+         }
+         else {
+            self._rootNavController.pushViewController(self._welcomeViewController, animated: true)
+         }
+      }
+   }
+   
    private func _presentEmailVerificationViewController(context: UIViewController)
    {
       dispatch_async(dispatch_get_main_queue(), {
@@ -70,7 +86,7 @@ extension AppEntryFlowController: SignInViewControllerDelegate
 {
    func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
    {
-      controller.presentViewController(_signUpViewController, animated: true, completion: nil)
+      _rootNavController.presentViewController(_signUpViewController, animated: true, completion: nil)
    }
    
    func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
@@ -82,9 +98,17 @@ extension AppEntryFlowController: SignInViewControllerDelegate
          if let error = status.error {
             controller.present(error)
          }
-         else if let user = status.user {
-            self._user = user
+         
+         guard let user = status.user else { return }
+         self._user = user
+         
+         if !user.emailVerified {
             self._startEmailVerification(user, presentationContext: controller)
+         }
+         else if !user.profileSetupComplete {
+            self._startProfileSetup(user)
+         }
+         else {
          }
       }
       
@@ -114,10 +138,10 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
          if let creationError = status.error {
             controller.present(creationError)
          }
-         else if let user = status.user {
-            self._user = user
-            self._startEmailVerification(user, presentationContext: controller, sendEmail: true)
-         }
+         
+         guard let user = status.user else { return }
+         self._user = user
+         self._startEmailVerification(user, presentationContext: controller, sendEmail: true)
       }
       
       createUserAccountOp.start()
@@ -137,29 +161,38 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
    
    func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
    {
-      if let user = _user {
-         user.reload({ (error) in
-            if let error = error {
-               controller.present(error)
+      guard let user = _user else {
+         controller.dismissViewControllerAnimated(true, completion: nil)
+         return
+      }
+      
+      user.reload({ (error) in
+         if let error = error {
+            controller.present(error)
+         }
+         else {
+            if user.emailVerified {
+               controller.dismissViewControllerAnimated(true, completion: {
+                  self._startProfileSetup(user, fromSignUp: true)
+               })
             }
             else {
-               if user.emailVerified {
-                  print("START ONBOARDING!")
-               }
-               else {
-                  guard let email = user.email else { return }
-                  controller.presentMessage("The email address \(email) has not been verified.")
-               }
+               guard let email = user.email else { return }
+               controller.presentMessage("The email address \(email) has not been verified.")
             }
-         })
-      }
-      else {
-         controller.dismissViewControllerAnimated(true, completion: nil)
-      }
+         }
+      })
    }
    
    func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController)
    {
       controller.dismissViewControllerAnimated(true, completion: nil)
+   }
+}
+
+extension AppEntryFlowController: WelcomeViewControllerDelegate
+{
+   func welcomeViewControllerShouldFinish(controller: WelcomeViewController)
+   {
    }
 }

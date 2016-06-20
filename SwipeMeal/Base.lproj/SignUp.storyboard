@@ -209,7 +209,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07p-Cy-A5s">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07p-Cy-A5s" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
                                 <rect key="frame" x="145" y="376" width="123" height="41"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.098875221631205726" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -241,7 +241,7 @@
                                     <action selector="cancelButtonPressed" destination="4Xt-yl-Nfj" eventType="touchUpInside" id="dfN-1e-6Tl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma1-Zh-4Pb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma1-Zh-4Pb" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
                                 <rect key="frame" x="64" y="451" width="284" height="41"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.098598182624113531" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>

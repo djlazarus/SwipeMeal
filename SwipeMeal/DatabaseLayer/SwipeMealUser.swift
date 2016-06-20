@@ -37,6 +37,16 @@ protocol SwipeMealUser
     */
    var emailVerified: Bool { get }
    
+   var profileSetupComplete: Bool { get }
+   
    func reload(completion: ReloadUserProfileCompletion?)
    func sendEmailVerification(completion: SendEmailVerificationCompletion?)
+}
+
+extension SwipeMealUser
+{
+   var profileSetupComplete: Bool {
+      let storage = SwipeMealUserStorage(user: self)
+      return storage.profileSetupComplete
+   }
 }
