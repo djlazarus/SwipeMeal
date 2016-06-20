@@ -35,7 +35,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-fJ-Jsd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark" translatesAutoresizingMaskIntoConstraints="NO" id="RNi-By-tSb">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register-sm" translatesAutoresizingMaskIntoConstraints="NO" id="RNi-By-tSb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Swipe Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-de-UNx">
@@ -280,6 +280,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dark" width="814" height="1096"/>
+        <image name="register-sm" width="1300" height="867"/>
     </resources>
 </document>
