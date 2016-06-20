@@ -17,6 +17,7 @@ class AppEntryFlowController
    private let _emailVerificationController = EmailVerificationSentViewController.instantiate(.SignUp)
    
    private let _welcomeViewController = WelcomeViewController.instantiate(.Onboarding)
+   private let _profileImageViewController = AddProfileImageViewController.instantiate(.Onboarding)
    
    private var _user: SwipeMealUser?
    
@@ -194,5 +195,6 @@ extension AppEntryFlowController: WelcomeViewControllerDelegate
 {
    func welcomeViewControllerShouldFinish(controller: WelcomeViewController)
    {
+      _rootNavController.pushViewController(_profileImageViewController, animated: true)
    }
 }

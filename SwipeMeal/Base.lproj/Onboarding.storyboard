@@ -6,10 +6,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--Welcome-->
         <scene sceneID="j66-Jx-2bJ">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="isE-6k-N2v" customClass="WelcomeViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" title="Welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="isE-6k-N2v" customClass="WelcomeViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G6s-pt-T7y"/>
                         <viewControllerLayoutGuide type="bottom" id="il9-pU-ZBn"/>
@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-j3-Xbt">
-                                <rect key="frame" x="20" y="322.5" width="280" height="167.5"/>
+                                <rect key="frame" x="20" y="337" width="280" height="153"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup and complete your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-y4-cUQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="280" height="60"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A complete profile helps others identify you while you buy and/or sell your swipes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-q1-nVt">
-                                        <rect key="frame" x="0.0" y="80" width="280" height="54"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="280" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -67,8 +67,8 @@
                                     <action selector="_previousButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="Y95-CS-x3J"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="48" y="58.5" width="224" height="223.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1sm" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="48" y="73" width="224" height="223.5"/>
                                 <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NRX-bi-BDE" secondAttribute="height" multiplier="1:1" id="YLc-Wi-qYE"/>
@@ -78,7 +78,7 @@
                         <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NRX-bi-BDE" firstAttribute="centerY" secondItem="9ld-b3-jhS" secondAttribute="centerY" multiplier="0.6" id="7hI-vU-Xyi"/>
+                            <constraint firstItem="NRX-bi-BDE" firstAttribute="centerY" secondItem="9ld-b3-jhS" secondAttribute="centerY" multiplier="0.65" id="7hI-vU-Xyi"/>
                             <constraint firstItem="1lX-n1-Ev1" firstAttribute="top" secondItem="S4t-j3-Xbt" secondAttribute="bottom" constant="21" id="AOB-wV-iwy"/>
                             <constraint firstItem="pr6-Lt-Im7" firstAttribute="centerY" secondItem="1lX-n1-Ev1" secondAttribute="centerY" id="AaM-7f-gkw"/>
                             <constraint firstItem="1lX-n1-Ev1" firstAttribute="leading" secondItem="pr6-Lt-Im7" secondAttribute="trailing" constant="25" id="BV9-hO-zCG"/>
@@ -109,8 +109,105 @@
             </objects>
             <point key="canvasLocation" x="840.5" y="203.5"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="giR-zV-X81">
+            <objects>
+                <viewController storyboardIdentifier="AddProfileImageViewController" title="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rjl-7Z-64Z" customClass="AddProfileImageViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j86-Eq-5Vb"/>
+                        <viewControllerLayoutGuide type="bottom" id="YQY-7Y-oyd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQj-4v-0mK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-bE-kNH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Xwf-DP-pz2"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arZ-dK-7q2">
+                                <rect key="frame" x="25" y="94" width="270" height="125.5"/>
+                                <string key="text">Swipe Meal requires a profile image. This helps to identify who the buyer or seller is in a transaction. You can change your profile image later, but you will not be able to buy or sell Swipes until you import a profile image.</string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfF-Yp-bfB">
+                                <rect key="frame" x="0.0" y="484" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ixY-c0-9UP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rz6-y5-PgY">
+                                <rect key="frame" x="0.0" y="219.5" width="320" height="264"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ZL-GEM">
+                                        <rect key="frame" x="70" y="42" width="180" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="qkH-WZ-2MI"/>
+                                            <constraint firstAttribute="height" constant="180" id="vKk-aa-rWS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-qC-a9Q" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
+                                        <rect key="frame" x="210" y="108" width="48" height="48"/>
+                                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="knQ-Ch-Y9q"/>
+                                            <constraint firstAttribute="height" constant="48" id="m1g-f9-ftk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="69X-ZL-GEM" firstAttribute="centerY" secondItem="Rz6-y5-PgY" secondAttribute="centerY" id="r8I-Re-tYE"/>
+                                    <constraint firstItem="8A8-qC-a9Q" firstAttribute="leading" secondItem="69X-ZL-GEM" secondAttribute="trailing" constant="-40" id="tZM-rn-nKs"/>
+                                    <constraint firstItem="8A8-qC-a9Q" firstAttribute="centerY" secondItem="69X-ZL-GEM" secondAttribute="centerY" id="wdI-EB-DNK"/>
+                                    <constraint firstItem="69X-ZL-GEM" firstAttribute="centerX" secondItem="Rz6-y5-PgY" secondAttribute="centerX" id="xrz-S7-Ke0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="arZ-dK-7q2" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" constant="25" id="4YY-3A-W7s"/>
+                            <constraint firstItem="ce2-bE-kNH" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" id="HNB-Rd-n9I"/>
+                            <constraint firstItem="ZfF-Yp-bfB" firstAttribute="top" secondItem="Rz6-y5-PgY" secondAttribute="bottom" id="HRL-ly-9fb"/>
+                            <constraint firstAttribute="trailing" secondItem="ZfF-Yp-bfB" secondAttribute="trailing" id="MXT-hx-nZP"/>
+                            <constraint firstAttribute="trailing" secondItem="Rz6-y5-PgY" secondAttribute="trailing" id="UYO-CQ-nTi"/>
+                            <constraint firstAttribute="trailing" secondItem="ce2-bE-kNH" secondAttribute="trailing" id="WXp-SP-vpG"/>
+                            <constraint firstItem="YQY-7Y-oyd" firstAttribute="top" secondItem="ZfF-Yp-bfB" secondAttribute="bottom" constant="34" id="aVM-gb-E0o"/>
+                            <constraint firstItem="Rz6-y5-PgY" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" id="nxi-ar-eYZ"/>
+                            <constraint firstItem="Rz6-y5-PgY" firstAttribute="top" secondItem="arZ-dK-7q2" secondAttribute="bottom" id="sTA-vl-8mL"/>
+                            <constraint firstItem="arZ-dK-7q2" firstAttribute="top" secondItem="ce2-bE-kNH" secondAttribute="bottom" constant="30" id="tBb-F8-RYR"/>
+                            <constraint firstAttribute="trailing" secondItem="arZ-dK-7q2" secondAttribute="trailing" constant="25" id="uqz-jw-NXB"/>
+                            <constraint firstItem="ZfF-Yp-bfB" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" id="vyl-Sg-K68"/>
+                            <constraint firstItem="ce2-bE-kNH" firstAttribute="top" secondItem="cQj-4v-0mK" secondAttribute="top" id="yZC-kW-eZd"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="_imageView" destination="69X-ZL-GEM" id="Ssy-kw-Ymv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1n-Od-64X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221" y="203"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="walkthrough-1" width="5355" height="3570"/>
+        <image name="walkthrough-1sm" width="1000" height="667"/>
     </resources>
 </document>

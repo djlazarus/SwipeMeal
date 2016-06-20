@@ -25,3 +25,15 @@ class SwipeMealRoundedButton: UIButton
       layer.cornerRadius = 4
    }
 }
+
+class SwipeMealAddProfileImageButton: UIButton
+{
+   override func awakeFromNib() {
+      super.awakeFromNib()
+      layer.cornerRadius = min(bounds.width, bounds.height) * 0.5
+      
+      layer.shadowOpacity = 0.25
+      layer.shadowOffset = CGSize(width: 0, height: 2)
+      layer.shadowRadius = 3
+   }
+}
