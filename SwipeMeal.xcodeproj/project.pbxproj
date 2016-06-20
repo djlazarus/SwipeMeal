@@ -23,6 +23,9 @@
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
 		CE34EA471D146178003408EB /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34EA451D146178003408EB /* Onboarding.storyboard */; };
 		CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA481D146266003408EB /* WelcomeViewController.swift */; };
+		CE34EA4B1D185BD7003408EB /* SwipeMealNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */; };
+		CE34EA4D1D185CB9003408EB /* SwipeMealNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA4C1D185CB9003408EB /* SwipeMealNavigationController.swift */; };
+		CE34EA4F1D1861F3003408EB /* SwipeMealUserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA4E1D1861F3003408EB /* SwipeMealUserStorage.swift */; };
 		CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */; };
 		CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67668B1D09FE08003D6EF0 /* UIProtocols.swift */; };
 		CE67668F1D09FE1B003D6EF0 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67668D1D09FE1B003D6EF0 /* BottomBorderTextField.swift */; };
@@ -62,6 +65,9 @@
 		CE2782D71CE7EA4200039014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwipeMeal/Info.plist; sourceTree = "<group>"; };
 		CE34EA461D146178003408EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		CE34EA481D146266003408EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = SwipeMeal/ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
+		CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealNavigationBar.swift; path = SwipeMeal/CustomUI/SwipeMealNavigationBar.swift; sourceTree = "<group>"; };
+		CE34EA4C1D185CB9003408EB /* SwipeMealNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealNavigationController.swift; path = SwipeMeal/CustomUI/SwipeMealNavigationController.swift; sourceTree = "<group>"; };
+		CE34EA4E1D1861F3003408EB /* SwipeMealUserStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealUserStorage.swift; path = SwipeMeal/Utilities/SwipeMealUserStorage.swift; sourceTree = "<group>"; };
 		CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Extensions.swift"; path = "SwipeMeal/UIKit-Extensions/UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		CE67668B1D09FE08003D6EF0 /* UIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIProtocols.swift; path = SwipeMeal/CustomUI/UIProtocols.swift; sourceTree = "<group>"; };
 		CE67668D1D09FE1B003D6EF0 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = SwipeMeal/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 			children = (
 				CE1D776D1CF7708A0071D249 /* SignUpInfoValidator.swift */,
 				CE6766911D09FE25003D6EF0 /* ErrorPresenterViewController.swift */,
+				CE34EA4E1D1861F3003408EB /* SwipeMealUserStorage.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -196,6 +203,8 @@
 			children = (
 				CE67668D1D09FE1B003D6EF0 /* BottomBorderTextField.swift */,
 				CE67668E1D09FE1B003D6EF0 /* SignInTextField.swift */,
+				CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */,
+				CE34EA4C1D185CB9003408EB /* SwipeMealNavigationController.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 				CE6766921D09FE25003D6EF0 /* ErrorPresenterViewController.swift in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE6766961D09FE2E003D6EF0 /* SignUpViewController.swift in Sources */,
+				CE34EA4F1D1861F3003408EB /* SwipeMealUserStorage.swift in Sources */,
 				CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */,
 				CE6766951D09FE2E003D6EF0 /* SignInViewController.swift in Sources */,
 				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
@@ -412,7 +422,9 @@
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,
 				CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */,
+				CE34EA4D1D185CB9003408EB /* SwipeMealNavigationController.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
+				CE34EA4B1D185BD7003408EB /* SwipeMealNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

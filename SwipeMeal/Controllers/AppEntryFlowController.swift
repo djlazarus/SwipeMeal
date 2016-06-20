@@ -10,7 +10,7 @@ import UIKit
 
 class AppEntryFlowController
 {
-   private let _rootNavController = UINavigationController()
+   private let _rootNavController = SwipeMealNavigationController()
    
    private let _signInViewController = SignInViewController.instantiate(.SignIn)
    private let _signUpViewController = SignUpViewController.instantiate(.SignUp)
@@ -29,9 +29,6 @@ class AppEntryFlowController
       
       _emailVerificationController.modalPresentationStyle = .OverCurrentContext
       
-      _rootNavController.navigationBar.barStyle = .Black
-      _rootNavController.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-      _rootNavController.navigationBar.shadowImage = UIImage()
       _rootNavController.pushViewController(_signInViewController, animated: false)
    }
    
