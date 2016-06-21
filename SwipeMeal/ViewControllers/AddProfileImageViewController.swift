@@ -28,24 +28,23 @@ class AddProfileImageViewController: UIViewController
    // MARK: - Actions
    @IBAction private func _addImageButtonPressed()
    {
-      let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-      
-      let photoLibraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction!) in
+      let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction!) in
          print("photo library")
-      })
+      }
       
-      let takePictureAction = UIAlertAction(title: "Take Photo", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction!) in
+      let takePictureAction = UIAlertAction(title: "Take Photo", style: .Default) { (alert: UIAlertAction!) in
          print("take photo")
-      })
+      }
       
-      let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(alert: UIAlertAction!) in
+      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) in
          print("cancel")
-      })
-      
+      }
+    
+      let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
       alertController.addAction(photoLibraryAction)
       alertController.addAction(takePictureAction)
       alertController.addAction(cancelAction)
       
-      self.presentViewController(alertController, animated: true, completion:{})
+      presentViewController(alertController, animated: true, completion:nil)
    }
 }

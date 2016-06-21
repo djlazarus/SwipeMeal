@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       _observeFirebaseMessagingTokenRefresh()
       _setupRootViewController()
       
-      let token = FIRInstanceID.instanceID().token()
-      print("TOKEN: \(token)")
+//      let token = FIRInstanceID.instanceID().token()
+//      print("TOKEN: \(token)")
       
       let barButtonItemAppearance = UIBarButtonItem.appearance()
       
@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       FIRMessaging.messaging().appDidReceiveMessage(userInfo)
       
-      print("Message ID: \(userInfo["gcm.message_id"]!)")
+      print("Message ID: \(userInfo["gcm.message_id"])")
       print(userInfo)
       
       completionHandler(.NoData)
@@ -122,8 +122,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    
    internal func tokenRefreshed(notification: NSNotification)
    {
-      let refreshedToken = FIRInstanceID.instanceID().token()!
-      print("InstanceID token: \(refreshedToken)")
+//      let refreshedToken = FIRInstanceID.instanceID().token()
+//      print("InstanceID token: \(refreshedToken)")
       
       _connectToFCM()
    }
