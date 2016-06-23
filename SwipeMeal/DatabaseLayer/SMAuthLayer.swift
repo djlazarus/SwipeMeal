@@ -13,6 +13,7 @@ typealias UserSignInCompletion = (user: SwipeMealUser?, error: NSError?) -> Void
 typealias CreateUserCompletion = (user: SwipeMealUser?, error: NSError?) -> Void
 typealias SendEmailVerificationCompletion = (error: NSError?) -> Void
 typealias ReloadUserProfileCompletion = (error: NSError?) -> Void
+typealias UpdateUserProfileCompletion = (error: NSError?) -> Void
 
 struct SMAuthLayer
 {

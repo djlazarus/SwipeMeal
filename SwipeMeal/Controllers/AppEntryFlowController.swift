@@ -19,9 +19,9 @@ class AppEntryFlowController
    private let _welcomeViewController = WelcomeViewController.instantiate(.Onboarding)
    private let _profileImageViewController = AddProfileImageViewController.instantiate(.Onboarding)
    
-   private var _user: SwipeMealUser?
-   
-   let _internalQueue = NSOperationQueue()
+	private var _user: SwipeMealUser?
+	
+	private let _operationQueue = NSOperationQueue()
    
    init()
    {
@@ -29,6 +29,7 @@ class AppEntryFlowController
       _signUpViewController.delegate = self
       _emailVerificationController.delegate = self
       _welcomeViewController.delegate = self
+		_profileImageViewController.delegate = self
       
       _emailVerificationController.modalPresentationStyle = .OverCurrentContext
       
@@ -135,17 +136,34 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
       
       let createUserAccountOp = CreateUserAccountOperation(status: status)
       createUserAccountOp.completionBlock = {
-         
          if let creationError = status.error {
             controller.present(creationError)
          }
-         
-         guard let user = status.user else { return }
-         self._user = user
-         self._startEmailVerification(user, presentationContext: controller, sendEmail: true)
       }
-      
-      createUserAccountOp.start()
+		
+		let updateProfileInfoOp = NSBlockOperation {
+			guard let user = status.user else { return }
+			user.updateDisplayName("\(info.firstName) \(info.lastName)", completion: { (error) in
+				status.error = error
+			})
+		}
+		
+		let startEmailVerificationOp = NSBlockOperation {
+			if let error = status.error {
+				controller.present(error)
+				return
+			}
+			
+			guard let user = status.user else { return }
+			self._user = user
+			self._startEmailVerification(user, presentationContext: controller, sendEmail: true)
+		}
+		
+		updateProfileInfoOp.addDependency(createUserAccountOp)
+		startEmailVerificationOp.addDependency(updateProfileInfoOp)
+		
+		let ops = [createUserAccountOp, updateProfileInfoOp, startEmailVerificationOp]
+		_operationQueue.addOperations(ops, waitUntilFinished: false)
    }
 }
 
@@ -197,4 +215,30 @@ extension AppEntryFlowController: WelcomeViewControllerDelegate
    {
       _rootNavController.pushViewController(_profileImageViewController, animated: true)
    }
+}
+
+extension AppEntryFlowController: AddProfileImageViewControllerDelegate
+{
+	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController)
+	{
+		guard let user = _user else { return }
+		
+		let addProfileImageOp = AddProfileImageOperation(presentationContext: controller, user: user)
+		addProfileImageOp.completionBlock = {
+			
+			if let image = addProfileImageOp.profileImage {
+				controller.updateImage(image)
+				controller.continueButtonEnabled = true
+			}
+			else {
+				controller.continueButtonEnabled = false
+			}
+		}
+		
+		addProfileImageOp.start()
+	}
+	
+	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController)
+	{
+	}
 }

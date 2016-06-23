@@ -25,4 +25,20 @@ extension FIRUser: SwipeMealUser
    {
       sendEmailVerificationWithCompletion(completion)
    }
+	
+	func updatePhotoURL(photoURL: NSURL, completion: UpdateUserProfileCompletion?)
+	{
+		let changeRequest = profileChangeRequest()
+		
+		changeRequest.photoURL = photoURL
+		changeRequest.commitChangesWithCompletion(completion)
+	}
+	
+	func updateDisplayName(name: String, completion: UpdateUserProfileCompletion?)
+	{
+		let changeRequest = profileChangeRequest()
+		changeRequest.displayName = name
+		
+		changeRequest.commitChangesWithCompletion(completion)
+	}
 }

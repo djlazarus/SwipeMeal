@@ -145,19 +145,21 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="_continueButtonPressed" destination="Rjl-7Z-64Z" eventType="touchUpInside" id="w9F-gN-o1k"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rz6-y5-PgY">
-                                <rect key="frame" x="0.0" y="219.5" width="320" height="264"/>
+                                <rect key="frame" x="0.0" y="219" width="320" height="265"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ZL-GEM">
-                                        <rect key="frame" x="70" y="42" width="180" height="180"/>
+                                        <rect key="frame" x="64" y="36.5" width="192" height="192"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="180" id="qkH-WZ-2MI"/>
-                                            <constraint firstAttribute="height" constant="180" id="vKk-aa-rWS"/>
+                                            <constraint firstAttribute="width" secondItem="69X-ZL-GEM" secondAttribute="height" multiplier="1:1" id="FJi-vA-EnF"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-qC-a9Q" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
-                                        <rect key="frame" x="210" y="108" width="48" height="48"/>
+                                        <rect key="frame" x="216" y="109" width="48" height="48"/>
                                         <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="knQ-Ch-Y9q"/>
@@ -175,6 +177,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="69X-ZL-GEM" firstAttribute="width" secondItem="Rz6-y5-PgY" secondAttribute="width" multiplier="0.6" id="DFn-9R-orW"/>
                                     <constraint firstItem="69X-ZL-GEM" firstAttribute="centerY" secondItem="Rz6-y5-PgY" secondAttribute="centerY" id="r8I-Re-tYE"/>
                                     <constraint firstItem="8A8-qC-a9Q" firstAttribute="leading" secondItem="69X-ZL-GEM" secondAttribute="trailing" constant="-40" id="tZM-rn-nKs"/>
                                     <constraint firstItem="8A8-qC-a9Q" firstAttribute="centerY" secondItem="69X-ZL-GEM" secondAttribute="centerY" id="wdI-EB-DNK"/>
@@ -203,6 +206,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="_continueButton" destination="ZfF-Yp-bfB" id="g6t-ay-elF"/>
                         <outlet property="_imageView" destination="69X-ZL-GEM" id="Ssy-kw-Ymv"/>
                     </connections>
                 </viewController>

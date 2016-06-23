@@ -38,7 +38,10 @@ protocol SwipeMealUser
    var emailVerified: Bool { get }
    
    var profileSetupComplete: Bool { get }
-   
+	
+	func updatePhotoURL(url: NSURL, completion: UpdateUserProfileCompletion?)
+	func updateDisplayName(name: String, completion: UpdateUserProfileCompletion?)
+	
    func reload(completion: ReloadUserProfileCompletion?)
    func sendEmailVerification(completion: SendEmailVerificationCompletion?)
 }

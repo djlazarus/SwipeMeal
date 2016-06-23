@@ -7,6 +7,9 @@ PODS:
   - Firebase/Messaging (3.2.0):
     - Firebase/Analytics (= 3.2.0)
     - FirebaseMessaging (= 1.1.0)
+  - Firebase/Storage (3.2.0):
+    - Firebase/Analytics (= 3.2.0)
+    - FirebaseStorage (= 1.0.1)
   - FirebaseAnalytics (3.2.0):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
@@ -22,6 +25,9 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleIPhoneUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
+  - FirebaseStorage (1.0.1):
+    - FirebaseAnalytics (~> 3.2)
+    - GoogleNetworkingUtilities (~> 1.2)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
   - GoogleIPhoneUtilities (1.2.1):
@@ -39,6 +45,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Messaging
+  - Firebase/Storage
   - Stripe
 
 SPEC CHECKSUMS:
@@ -47,6 +54,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: 94b851fc345ce98036dfedfdc2eddeaef8fa3b4c
   FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
   FirebaseMessaging: 8a92e9ea70673605aa7d1803d2d5aa3eb946009c
+  FirebaseStorage: e9c32a8d246c07eeefd78180c22736aa1b81e81b
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
@@ -54,6 +62,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Stripe: b92298b31cf156fb23a029361b57e2fcb6583d57
 
-PODFILE CHECKSUM: 2abd4663fb0a444122af5a24f9b6503f4810e959
+PODFILE CHECKSUM: 817d78e5193815c0902e9c2eb9ec6cd21cda6e8a
 
 COCOAPODS: 1.0.0
