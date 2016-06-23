@@ -213,6 +213,7 @@ extension AppEntryFlowController: WelcomeViewControllerDelegate
 {
    func welcomeViewControllerShouldFinish(controller: WelcomeViewController)
    {
+		_profileImageViewController.continueButtonEnabled = false
       _rootNavController.pushViewController(_profileImageViewController, animated: true)
    }
 }

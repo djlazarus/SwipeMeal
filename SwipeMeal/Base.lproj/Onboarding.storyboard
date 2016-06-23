@@ -152,7 +152,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rz6-y5-PgY">
                                 <rect key="frame" x="0.0" y="219" width="320" height="265"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ZL-GEM">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ZL-GEM" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
                                         <rect key="frame" x="64" y="36.5" width="192" height="192"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="69X-ZL-GEM" secondAttribute="height" multiplier="1:1" id="FJi-vA-EnF"/>

@@ -20,21 +20,19 @@ class AddProfileImageViewController: UIViewController
 	
 	var continueButtonEnabled: Bool = false {
 		didSet {
-			guard isViewLoaded() else { return }
-			dispatch_async(dispatch_get_main_queue()) {
-				self._continueButton.enabled = self.continueButtonEnabled
-			}
+			_updateContinueButton()
 		}
 	}
 	
 	@IBOutlet private var _continueButton: UIButton!
-   @IBOutlet private var _imageView: UIImageView!
+   @IBOutlet private var _imageView: CircularImageView!
    
    override func preferredStatusBarStyle() -> UIStatusBarStyle {
       return .LightContent
    }
    
-   override func viewDidLoad() {
+   override func viewDidLoad()
+	{
       super.viewDidLoad()
       
       let image = UIImage(named: "user")!.imageWithRenderingMode(.AlwaysTemplate)
@@ -42,11 +40,18 @@ class AddProfileImageViewController: UIViewController
       _imageView.tintColor = UIColor(white: 0.9, alpha: 1)
       _imageView.image = image
 		
-		self._imageView.layer.cornerRadius = min(self._imageView.bounds.width, self._imageView.bounds.height) * 0.5
-		self._imageView.layer.masksToBounds = true
-		
-		self._continueButton.enabled = self.continueButtonEnabled
+		_imageView.layer.masksToBounds = true
+		_updateContinueButton()
    }
+	
+	private func _updateContinueButton()
+	{
+		guard isViewLoaded() else { return }
+		dispatch_async(dispatch_get_main_queue()) {
+			self._continueButton.enabled = self.continueButtonEnabled
+			self._continueButton.alpha = self.continueButtonEnabled ? 1 : 0.5
+		}
+	}
 	
 	func updateImage(image: UIImage)
 	{
