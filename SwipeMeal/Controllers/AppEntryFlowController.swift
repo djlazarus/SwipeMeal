@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class AppEntryFlowController
 {
@@ -44,7 +45,10 @@ class AppEntryFlowController
    private func _startEmailVerification(user: SwipeMealUser, presentationContext: UIViewController, sendEmail: Bool = false)
    {
       if sendEmail {
+			SwiftSpinner.show("Sending Verification Email...")
          user.sendEmailVerification({ (error) in
+				
+				SwiftSpinner.hide()
             if let error = error {
                presentationContext.present(error)
             }
@@ -84,6 +88,7 @@ class AppEntryFlowController
    }
 }
 
+// MARK: - SignInViewControllerDelegate
 extension AppEntryFlowController: SignInViewControllerDelegate
 {
    func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
@@ -92,11 +97,14 @@ extension AppEntryFlowController: SignInViewControllerDelegate
    }
    
    func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
-   {
+	{
+		SwiftSpinner.show("Signing In...")
+		
       let status = AuthenticateLoginStatus(email: email, password: password)
       let authOp = AuthenticateLoginOperation(status: status)
       authOp.completionBlock = {
-         
+			
+			SwiftSpinner.hide()
          if let error = status.error {
             controller.present(error)
          }
@@ -113,7 +121,7 @@ extension AppEntryFlowController: SignInViewControllerDelegate
          else {
          }
       }
-      
+		
       authOp.start()
    }
    
@@ -122,6 +130,7 @@ extension AppEntryFlowController: SignInViewControllerDelegate
    }
 }
 
+// MARK: - SignUpViewControllerDelegate
 extension AppEntryFlowController: SignUpViewControllerDelegate
 {
    func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
@@ -133,15 +142,16 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
    {
       let info = SignUpInfo(controller: controller)
       let status = CreateUserAccountStatus(info: info)
-      
+		
+		SwiftSpinner.show("Creating Account...")
       let createUserAccountOp = CreateUserAccountOperation(status: status)
-      createUserAccountOp.completionBlock = {
-         if let creationError = status.error {
-            controller.present(creationError)
-         }
-      }
 		
 		let updateProfileInfoOp = NSBlockOperation {
+			if let error = status.error {
+				controller.present(error)
+				return
+			}
+			
 			guard let user = status.user else { return }
 			user.updateDisplayName("\(info.firstName) \(info.lastName)", completion: { (error) in
 				status.error = error
@@ -154,9 +164,13 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
 				return
 			}
 			
+			SwiftSpinner.hide()
+			
 			guard let user = status.user else { return }
 			self._user = user
-			self._startEmailVerification(user, presentationContext: controller, sendEmail: true)
+			dispatch_async(dispatch_get_main_queue()) {
+				self._startEmailVerification(user, presentationContext: controller, sendEmail: true)
+			}
 		}
 		
 		updateProfileInfoOp.addDependency(createUserAccountOp)
@@ -167,13 +181,18 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
    }
 }
 
+// MARK: - EmailVerificationSentViewControllerDelegate
 extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
 {
    func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
    {
       if let user = _user {
+			SwiftSpinner.show("Resending Verification Email...")
          user.sendEmailVerification({ (error) in
-            controller.presentMessage("Verification email sent.")
+				
+				SwiftSpinner.hide() {
+					controller.presentMessage("Verification email sent.")
+				}
          })
       }
    }
@@ -184,8 +203,11 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
          controller.dismissViewControllerAnimated(true, completion: nil)
          return
       }
-      
+		
+		SwiftSpinner.show("Checking email")
       user.reload({ (error) in
+			
+			SwiftSpinner.hide()
          if let error = error {
             controller.present(error)
          }
@@ -209,15 +231,18 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
    }
 }
 
+// MARK: - WelcomeViewControllerDelegate
 extension AppEntryFlowController: WelcomeViewControllerDelegate
 {
    func welcomeViewControllerShouldFinish(controller: WelcomeViewController)
-   {
+	{
+		_profileImageViewController.resetImage()
 		_profileImageViewController.continueButtonEnabled = false
       _rootNavController.pushViewController(_profileImageViewController, animated: true)
    }
 }
 
+// MARK: - AddProfileImageViewControllerDelegate
 extension AppEntryFlowController: AddProfileImageViewControllerDelegate
 {
 	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController)

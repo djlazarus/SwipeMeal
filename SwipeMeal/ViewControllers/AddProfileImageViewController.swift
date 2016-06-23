@@ -55,13 +55,15 @@ class AddProfileImageViewController: UIViewController
 	
 	func updateImage(image: UIImage)
 	{
+		guard isViewLoaded() else { return }
 		dispatch_async(dispatch_get_main_queue()) {
 			self._imageView.image = image
 		}
 	}
 	
-	func resetImage(image: UIImage)
+	func resetImage()
 	{
+		guard isViewLoaded() else { return }
 		dispatch_async(dispatch_get_main_queue()) {
 			let image = UIImage(named: "user")!.imageWithRenderingMode(.AlwaysTemplate)
 			self._imageView.image = image

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class AddProfileImageOperation: PresentationOperation
 {
@@ -74,13 +75,18 @@ extension AddProfileImageOperation: UINavigationControllerDelegate, UIImagePicke
 		
 		self.profileImage = editedImage
 		
+		// This is a hack and probably shouldn't live in here...
+		SwiftSpinner.show("Saving Profile Image...")
 		SMDatabaseLayer.upload(editedImage, forSwipeMealUser: _user) { (error, downloadURL) in
 			if let url = downloadURL {
+				SwiftSpinner.show("Updating Profile Image...")
 				self._user.updatePhotoURL(url, completion: { (error) in
+					SwiftSpinner.hide()
 					self.finishWithError(error)
 				})
 			}
 			else {
+				SwiftSpinner.hide()
 				self.finishWithError(error)
 			}
 		}
