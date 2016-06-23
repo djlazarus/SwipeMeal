@@ -17,7 +17,6 @@
 		CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */; };
 		CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */; };
 		CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CB1CE7EA4200039014 /* AppDelegate.swift */; };
-		CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */; };
 		CE2782D11CE7EA4200039014 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* SignIn.storyboard */; };
 		CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D21CE7EA4200039014 /* Assets.xcassets */; };
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
@@ -63,7 +62,6 @@
 		CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwipeMeal/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2782CB1CE7EA4200039014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseTestingViewController.swift; path = SwipeMeal/FirebaseTestingViewController.swift; sourceTree = "<group>"; };
 		CE2782D01CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
 		CE2782D21CE7EA4200039014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwipeMeal/Assets.xcassets; sourceTree = "<group>"; };
 		CE2782D51CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 		CE2782E01CE7FFEF00039014 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE2782CD1CE7EA4200039014 /* FirebaseTestingViewController.swift */,
 				CE6766931D09FE2E003D6EF0 /* SignInViewController.swift */,
 				CE6766941D09FE2E003D6EF0 /* SignUpViewController.swift */,
 				CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */,
@@ -430,7 +427,6 @@
 				CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */,
 				CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */,
 				CE6766951D09FE2E003D6EF0 /* SignInViewController.swift in Sources */,
-				CE2782CE1CE7EA4200039014 /* FirebaseTestingViewController.swift in Sources */,
 				CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */,
 				CE6766901D09FE1B003D6EF0 /* SignInTextField.swift in Sources */,
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
