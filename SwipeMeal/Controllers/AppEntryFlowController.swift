@@ -147,8 +147,7 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
       let createUserAccountOp = CreateUserAccountOperation(status: status)
 		
 		let updateProfileInfoOp = NSBlockOperation {
-			if let error = status.error {
-				controller.present(error)
+			if status.error != nil {
 				return
 			}
 			
@@ -160,6 +159,7 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
 		
 		let startEmailVerificationOp = NSBlockOperation {
 			if let error = status.error {
+				SwiftSpinner.hide()
 				controller.present(error)
 				return
 			}
