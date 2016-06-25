@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
+		168656B41D1EB99F004CE47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168656B21D1EB99F004CE47D /* Main.storyboard */; };
+		168656BA1D1EC830004CE47D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656B91D1EC830004CE47D /* HomeViewController.m */; };
+		168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656BD1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m */; };
+		168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656C01D1ECA0C004CE47D /* HomeMainTableViewCell.m */; };
 		CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A128B1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift */; };
 		CE0A128E1D10981A00BB3AFD /* SwipeMealErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A128D1D10981A00BB3AFD /* SwipeMealErrors.swift */; };
 		CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1D775F1CF644620071D249 /* SignUp.storyboard */; };
@@ -49,6 +53,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		168656B31D1EB99F004CE47D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		168656B71D1EC82F004CE47D /* SwipeMeal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwipeMeal-Bridging-Header.h"; sourceTree = "<group>"; };
+		168656B81D1EC830004CE47D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = SwipeMeal/ViewControllers/HomeViewController.h; sourceTree = "<group>"; };
+		168656B91D1EC830004CE47D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = SwipeMeal/ViewControllers/HomeViewController.m; sourceTree = "<group>"; };
+		168656BC1D1EC9F5004CE47D /* HomeHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeHeaderTableViewCell.h; path = SwipeMeal/ViewControllers/HomeHeaderTableViewCell.h; sourceTree = "<group>"; };
+		168656BD1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeHeaderTableViewCell.m; path = SwipeMeal/ViewControllers/HomeHeaderTableViewCell.m; sourceTree = "<group>"; };
+		168656BF1D1ECA0C004CE47D /* HomeMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeMainTableViewCell.h; path = SwipeMeal/ViewControllers/HomeMainTableViewCell.h; sourceTree = "<group>"; };
+		168656C01D1ECA0C004CE47D /* HomeMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeMainTableViewCell.m; path = SwipeMeal/ViewControllers/HomeMainTableViewCell.m; sourceTree = "<group>"; };
 		346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F9E638069FF5996BB25BBD /* Pods-SwipeMeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.debug.xcconfig"; sourceTree = "<group>"; };
 		B58457A538308AC028CDB657 /* Pods-SwipeMeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +118,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		168656BB1D1EC9B7004CE47D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				168656B81D1EC830004CE47D /* HomeViewController.h */,
+				168656B91D1EC830004CE47D /* HomeViewController.m */,
+				168656BC1D1EC9F5004CE47D /* HomeHeaderTableViewCell.h */,
+				168656BD1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m */,
+				168656BF1D1ECA0C004CE47D /* HomeMainTableViewCell.h */,
+				168656C01D1ECA0C004CE47D /* HomeMainTableViewCell.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		CE1D77641CF76CBF0071D249 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,10 +202,11 @@
 		CE2782DF1CE7FFE800039014 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				CE2782CF1CE7EA4200039014 /* SignIn.storyboard */,
 				CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */,
+				CE2782CF1CE7EA4200039014 /* SignIn.storyboard */,
 				CE1D775F1CF644620071D249 /* SignUp.storyboard */,
 				CE34EA451D146178003408EB /* Onboarding.storyboard */,
+				168656B21D1EB99F004CE47D /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -193,6 +219,7 @@
 				CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */,
 				CE34EA481D146266003408EB /* WelcomeViewController.swift */,
 				CE34EA541D189233003408EB /* AddProfileImageViewController.swift */,
+				168656BB1D1EC9B7004CE47D /* Home */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -203,6 +230,7 @@
 				CE2782D21CE7EA4200039014 /* Assets.xcassets */,
 				CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */,
 				CE2782D71CE7EA4200039014 /* Info.plist */,
+				168656B71D1EC82F004CE47D /* SwipeMeal-Bridging-Header.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -345,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168656B41D1EB99F004CE47D /* Main.storyboard in Resources */,
 				CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */,
 				CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */,
 				CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */,
@@ -426,6 +455,7 @@
 				CE34EA4F1D1861F3003408EB /* SwipeMealUserStorage.swift in Sources */,
 				CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */,
 				CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */,
+				168656BA1D1EC830004CE47D /* HomeViewController.m in Sources */,
 				CE6766951D09FE2E003D6EF0 /* SignInViewController.swift in Sources */,
 				CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */,
 				CE6766901D09FE1B003D6EF0 /* SignInTextField.swift in Sources */,
@@ -437,6 +467,8 @@
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,
 				CE34EA531D187276003408EB /* CircularImageView.swift in Sources */,
+				168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */,
+				168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */,
 				CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */,
 				CE34EA4D1D185CB9003408EB /* SwipeMealNavigationController.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
@@ -447,6 +479,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		168656B21D1EB99F004CE47D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				168656B31D1EB99F004CE47D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		CE1D775F1CF644620071D249 /* SignUp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -572,12 +612,15 @@
 			baseConfigurationReference = B4F9E638069FF5996BB25BBD /* Pods-SwipeMeal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwipeMeal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -586,12 +629,14 @@
 			baseConfigurationReference = B58457A538308AC028CDB657 /* Pods-SwipeMeal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwipeMeal-Bridging-Header.h";
 			};
 			name = Release;
 		};
