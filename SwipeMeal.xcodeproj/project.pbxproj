@@ -12,6 +12,9 @@
 		168656BA1D1EC830004CE47D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656B91D1EC830004CE47D /* HomeViewController.m */; };
 		168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656BD1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m */; };
 		168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656C01D1ECA0C004CE47D /* HomeMainTableViewCell.m */; };
+		168656C71D1F15B5004CE47D /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656C61D1F15B5004CE47D /* MessagesViewController.m */; };
+		168656CB1D1F29BD004CE47D /* MessagesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656CA1D1F29BD004CE47D /* MessagesTableViewCell.m */; };
+		168656CE1D1F2D53004CE47D /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656CD1D1F2D53004CE47D /* Message.m */; };
 		CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A128B1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift */; };
 		CE0A128E1D10981A00BB3AFD /* SwipeMealErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A128D1D10981A00BB3AFD /* SwipeMealErrors.swift */; };
 		CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1D775F1CF644620071D249 /* SignUp.storyboard */; };
@@ -61,6 +64,12 @@
 		168656BD1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeHeaderTableViewCell.m; path = SwipeMeal/ViewControllers/HomeHeaderTableViewCell.m; sourceTree = "<group>"; };
 		168656BF1D1ECA0C004CE47D /* HomeMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeMainTableViewCell.h; path = SwipeMeal/ViewControllers/HomeMainTableViewCell.h; sourceTree = "<group>"; };
 		168656C01D1ECA0C004CE47D /* HomeMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeMainTableViewCell.m; path = SwipeMeal/ViewControllers/HomeMainTableViewCell.m; sourceTree = "<group>"; };
+		168656C51D1F15B5004CE47D /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesViewController.h; path = SwipeMeal/ViewControllers/MessagesViewController.h; sourceTree = "<group>"; };
+		168656C61D1F15B5004CE47D /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesViewController.m; path = SwipeMeal/ViewControllers/MessagesViewController.m; sourceTree = "<group>"; };
+		168656C91D1F29BD004CE47D /* MessagesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesTableViewCell.h; sourceTree = "<group>"; };
+		168656CA1D1F29BD004CE47D /* MessagesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesTableViewCell.m; path = SwipeMeal/ViewControllers/MessagesTableViewCell.m; sourceTree = "<group>"; };
+		168656CC1D1F2D53004CE47D /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = SwipeMeal/Models/Message.h; sourceTree = "<group>"; };
+		168656CD1D1F2D53004CE47D /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Message.m; path = SwipeMeal/Models/Message.m; sourceTree = "<group>"; };
 		346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeMeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F9E638069FF5996BB25BBD /* Pods-SwipeMeal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.debug.xcconfig"; sourceTree = "<group>"; };
 		B58457A538308AC028CDB657 /* Pods-SwipeMeal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeMeal.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +140,17 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		168656C81D1F15BA004CE47D /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				168656C51D1F15B5004CE47D /* MessagesViewController.h */,
+				168656C61D1F15B5004CE47D /* MessagesViewController.m */,
+				168656C91D1F29BD004CE47D /* MessagesTableViewCell.h */,
+				168656CA1D1F29BD004CE47D /* MessagesTableViewCell.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
 		CE1D77641CF76CBF0071D249 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +168,8 @@
 			children = (
 				CE1D776A1CF76FB30071D249 /* SignUpInfo.swift */,
 				CE0A128D1D10981A00BB3AFD /* SwipeMealErrors.swift */,
+				168656CC1D1F2D53004CE47D /* Message.h */,
+				168656CD1D1F2D53004CE47D /* Message.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -220,6 +242,7 @@
 				CE34EA481D146266003408EB /* WelcomeViewController.swift */,
 				CE34EA541D189233003408EB /* AddProfileImageViewController.swift */,
 				168656BB1D1EC9B7004CE47D /* Home */,
+				168656C81D1F15BA004CE47D /* Messages */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -440,12 +463,14 @@
 			files = (
 				CE67668F1D09FE1B003D6EF0 /* BottomBorderTextField.swift in Sources */,
 				CE0A128E1D10981A00BB3AFD /* SwipeMealErrors.swift in Sources */,
+				168656C71D1F15B5004CE47D /* MessagesViewController.m in Sources */,
 				CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */,
 				CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */,
 				CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */,
 				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
 				CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */,
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
+				168656CE1D1F2D53004CE47D /* Message.m in Sources */,
 				CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */,
 				CE6766921D09FE25003D6EF0 /* ErrorPresenterViewController.swift in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
@@ -465,6 +490,7 @@
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
+				168656CB1D1F29BD004CE47D /* MessagesTableViewCell.m in Sources */,
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,
 				CE34EA531D187276003408EB /* CircularImageView.swift in Sources */,
 				168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */,
