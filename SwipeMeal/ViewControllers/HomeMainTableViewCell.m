@@ -21,6 +21,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    self.tintColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor blackColor];
+    self.contentView.backgroundColor = [UIColor blackColor];
+    self.headlineLabel.textColor = [UIColor whiteColor];
+    self.subheadLabel.textColor = [UIColor whiteColor];
 }
 
 - (void)setIconImage:(UIImage *)image {

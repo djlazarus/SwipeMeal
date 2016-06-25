@@ -29,6 +29,7 @@ typedef enum : NSUInteger {
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor blackColor];
 }
 
 - (NSArray *)dataRows {
@@ -60,17 +61,20 @@ typedef enum : NSUInteger {
     
     if ([cellType isEqual:@(HomeCellTypeHeader)]) {
         HomeHeaderTableViewCell *cell = (HomeHeaderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"HomeHeaderTableViewCell" forIndexPath:indexPath];
-        cell.mainImage = [UIImage new];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.mainImage = [UIImage imageNamed:@"temp-food-image"];
         return cell;
     } else if ([cellType isEqual:@(HomeCellTypeBuy)]) {
         HomeMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeMainTableViewCell" forIndexPath:indexPath];
-        cell.iconImage = [UIImage new];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.iconImage = [UIImage imageNamed:@"temp-home-icon"];
         cell.headlineText = @"Buy Swipes";
         cell.subheadText = @"Search for Swipes near you";
         return cell;
     } else if ([cellType isEqual:@(HomeCellTypeSell)]) {
         HomeMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeMainTableViewCell" forIndexPath:indexPath];
-        cell.iconImage = [UIImage new];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.iconImage = [UIImage imageNamed:@"temp-home-icon"];
         cell.headlineText = @"Sell Swipes";
         cell.subheadText = @"Sell your extra Swipes";
         return cell;
