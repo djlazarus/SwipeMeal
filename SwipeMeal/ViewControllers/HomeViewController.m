@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeHeaderTableViewCell.h"
 #import "HomeMainTableViewCell.h"
+#import "SwipeMeal-Swift.h"
 
 typedef enum : NSUInteger {
     HomeCellTypeHeader,
@@ -27,6 +28,8 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.tabBarController.tabBar.tintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor blackColor];
