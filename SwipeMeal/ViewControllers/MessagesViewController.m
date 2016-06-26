@@ -9,6 +9,7 @@
 #import "MessagesViewController.h"
 #import "MessagesTableViewCell.h"
 #import "Message.h"
+#import "MessagesDetailViewController.h"
 #import "SwipeMeal-Swift.h"
 
 @interface MessagesViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBarView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableDictionary *messageHeights;
+@property (strong, nonatomic) Message *selectedMessage;
 @property (nonatomic) CGFloat defaultMessageHeight;
 
 @end
@@ -106,6 +108,20 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Message *message = [[self messages] objectAtIndex:indexPath.row];
+    self.selectedMessage = message;
+    
+    [self performSegueWithIdentifier:@"MessagesViewController_MessagesDetailViewController" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"MessagesViewController_MessagesDetailViewController"]) {
+        MessagesDetailViewController *messagesDetailViewController = (MessagesDetailViewController *)[segue destinationViewController];
+        messagesDetailViewController.message = self.selectedMessage;
+    }
 }
 
 @end
