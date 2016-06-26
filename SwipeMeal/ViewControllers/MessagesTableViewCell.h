@@ -12,5 +12,6 @@
 @interface MessagesTableViewCell : UITableViewCell
 
 - (void)setUpWithMessage:(Message *)message;
+@property (nonatomic, readonly) CGFloat messageHeight;
 
 @end

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *nameText;
 @property (strong, nonatomic) NSString *dateTimeText;
 @property (strong, nonatomic) NSString *messageText;
+@property (nonatomic, getter=isUnread) BOOL unread;
 
 @end
