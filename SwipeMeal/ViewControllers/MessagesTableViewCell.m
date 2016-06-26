@@ -10,6 +10,7 @@
 
 @interface MessagesTableViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIStackView *messageStackView;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateTimeLabel;
@@ -24,6 +25,12 @@
     self.nameLabel.text = message.nameText;
     self.dateTimeLabel.text = message.dateTimeText;
     self.messageLabel.text = message.messageText;
+}
+
+- (CGFloat)messageHeight {
+    // Return the height of the message (plus some padding)
+    CGFloat height = self.messageStackView.frame.size.height;
+    return height + 60;
 }
 
 @end
