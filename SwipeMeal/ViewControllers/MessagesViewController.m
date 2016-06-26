@@ -40,6 +40,13 @@
     // Set the default height for a message
     self.defaultMessageHeight = 60.0; // 60 == message cell's main image
     self.messageHeights = [NSMutableDictionary dictionary];
+    
+    // Listen for notifications telling us that a message detail window has been tapped to close
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMessageDetail) name:@"didTapToCloseMessageDetail" object:nil];
+}
+
+- (void)closeMessageDetail {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (NSArray *)messages {
@@ -114,7 +121,9 @@
     Message *message = [[self messages] objectAtIndex:indexPath.row];
     self.selectedMessage = message;
     
-    [self performSegueWithIdentifier:@"MessagesViewController_MessagesDetailViewController" sender:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"MessagesViewController_MessagesDetailViewController" sender:nil];
+    });
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
