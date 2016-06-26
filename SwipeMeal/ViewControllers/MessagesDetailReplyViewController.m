@@ -10,7 +10,7 @@
 #import "SwipeMeal-Swift.h"
 
 @interface MessagesDetailReplyViewController ()
-@property (weak, nonatomic) IBOutlet UIStackView *topStackView;
+
 @property (weak, nonatomic) IBOutlet UIView *mainMessageView;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateTimeLabel;
@@ -30,7 +30,6 @@
     self.dateTimeLabel.text = self.message.dateTimeText;
     self.nameLabel.text = self.message.nameText;
     self.messageLabel.text = self.message.messageText;
-    [self.topStackView sizeToFit];
     
     self.replyButton.layer.borderWidth = 1.0;
     self.replyButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
