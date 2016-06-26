@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jnk-j2-2bd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -92,13 +93,23 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8V9-qH-fsj" customClass="CircularIndicatorView">
+                                                    <rect key="frame" x="18" y="27" width="15" height="15"/>
+                                                    <color key="backgroundColor" red="0.52941176470588236" green="0.77254901960784317" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="2Im-Y6-WnL"/>
+                                                        <constraint firstAttribute="width" constant="15" id="xFv-Ij-seM"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="1uc-C8-jVV" firstAttribute="leading" secondItem="lty-AY-OcN" secondAttribute="leading" constant="25" id="3Ma-ZU-612"/>
                                                 <constraint firstItem="1uc-C8-jVV" firstAttribute="centerY" secondItem="lty-AY-OcN" secondAttribute="centerY" id="G29-zR-Dtz"/>
+                                                <constraint firstItem="1uc-C8-jVV" firstAttribute="leading" secondItem="8V9-qH-fsj" secondAttribute="centerX" id="GDt-jg-7jm"/>
                                                 <constraint firstItem="g78-eO-FOl" firstAttribute="leading" secondItem="1uc-C8-jVV" secondAttribute="trailing" constant="15" id="Ilv-SJ-iEc"/>
                                                 <constraint firstAttribute="trailing" secondItem="cKS-qJ-pWn" secondAttribute="trailing" constant="25" id="QfI-Q5-Bu0"/>
                                                 <constraint firstItem="cKS-qJ-pWn" firstAttribute="top" secondItem="lty-AY-OcN" secondAttribute="top" constant="25" id="dMJ-sY-k4S"/>
+                                                <constraint firstItem="1uc-C8-jVV" firstAttribute="top" secondItem="8V9-qH-fsj" secondAttribute="bottom" id="e8g-es-tRl"/>
                                                 <constraint firstItem="g78-eO-FOl" firstAttribute="centerY" secondItem="lty-AY-OcN" secondAttribute="centerY" id="qKP-Qv-Hag"/>
                                                 <constraint firstAttribute="trailing" secondItem="g78-eO-FOl" secondAttribute="trailing" constant="25" id="qsr-3M-UPS"/>
                                             </constraints>
@@ -109,6 +120,7 @@
                                             <outlet property="messageLabel" destination="etl-RZ-qAF" id="EV2-RP-gF1"/>
                                             <outlet property="messageStackView" destination="g78-eO-FOl" id="whW-vf-AZm"/>
                                             <outlet property="nameLabel" destination="lgL-i4-4mZ" id="Vkd-TD-S9v"/>
+                                            <outlet property="unreadIndicatorView" destination="8V9-qH-fsj" id="uGg-p6-12e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

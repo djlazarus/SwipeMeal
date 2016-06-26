@@ -42,18 +42,21 @@
 
 - (NSArray *)messages {
     Message *msg1 = [[Message alloc] init];
+    msg1.unread = YES;
     msg1.mainImage = [UIImage imageNamed:@"temp-gabe"];
     msg1.nameText = @"Gabe Kwakyi";
     msg1.dateTimeText = @"9:41a";
     msg1.messageText = @"I just received your Swipe request. I'm currently on my way to the main dining hall. I just received your Swipe request. I'm currently on my way to the main dining hall.";
     
     Message *msg2 = [[Message alloc] init];
+    msg2.unread = NO;
     msg2.mainImage = [UIImage imageNamed:@"temp-greg"];
     msg2.nameText = @"Gregory Klein";
     msg2.dateTimeText = @"5/6/16";
     msg2.messageText = @"$15 has been deposited into your Swipes Wallet. You can deposit those funds into PayPal or use them for future Swipes. $15 has been deposited into your Swipes Wallet. You can deposit those funds into PayPal or use them for future Swipes. $15 has been deposited into your Swipes Wallet. You can deposit those funds into PayPal or use them for future Swipes.";
     
     Message *msg3 = [[Message alloc] init];
+    msg3.unread = NO;
     msg3.mainImage = [UIImage imageNamed:@"temp-gabe"];
     msg3.nameText = @"Gabe Kwakyi";
     msg3.dateTimeText = @"5/2/16";
