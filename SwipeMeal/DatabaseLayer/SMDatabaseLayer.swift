@@ -12,6 +12,10 @@ import Firebase
 private let kStorageURL = "gs://project-3806765351218467701.appspot.com"
 private let kProfileImagesPathName = "profileImages"
 
+private let kUsersPathName = "users"
+private let kUserInfoPathName = "userInfo"
+private let kUserProfileSetupCompletePathName = "profileSetupComplete"
+
 typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> Void
 
 struct SMDatabaseLayer
@@ -33,5 +37,27 @@ struct SMDatabaseLayer
 			let url = metadata?.downloadURL()
 			completion?(error: error, downloadURL: url)
 		}
+	}
+	
+	static func setProfileSetupComplete(complete: Bool, forUser user: SwipeMealUser)
+	{
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
+		userInfoRef.updateChildValues([kUserProfileSetupCompletePathName : complete])
+	}
+	
+	static func profileSetupComplete(user: SwipeMealUser, callback: ((complete: Bool) -> ()))
+	{
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child("\(kUsersPathName)/\(user.uid)/\(kUserInfoPathName)")
+		userInfoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+			
+			var complete = false
+			if let readValue = snapshot.value?[kUserProfileSetupCompletePathName] as? Bool {
+				complete = readValue
+			}
+			
+			callback(complete: complete)
+		})
 	}
 }

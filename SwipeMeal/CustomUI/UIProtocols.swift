@@ -53,7 +53,7 @@ extension TransparencyAdjustable where Self: UINavigationController
    }
 }
 
-extension CornerRadiusAdjustable where Self: UIImageView
+extension CornerRadiusAdjustable where Self: UIView
 {
    func makeCircular()
    {

@@ -48,8 +48,4 @@ protocol SwipeMealUser
 
 extension SwipeMealUser
 {
-   var profileSetupComplete: Bool {
-      let storage = SwipeMealUserStorage(user: self)
-      return storage.profileSetupComplete
-   }
 }

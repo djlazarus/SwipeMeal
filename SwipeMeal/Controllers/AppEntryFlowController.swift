@@ -266,5 +266,7 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate
 	
 	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController)
 	{
+		guard let user = _user else { return }
+		SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
 	}
 }

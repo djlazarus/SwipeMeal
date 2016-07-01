@@ -21,22 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       _registerForPushNotifications(application)
       FIRApp.configure()
+		FIRDatabase.database().persistenceEnabled = true
       
       _observeFirebaseMessagingTokenRefresh()
+		
       _setupRootViewController()
+		_setupNavBarAppearance()
       
 //      let token = FIRInstanceID.instanceID().token()
 //      print("TOKEN: \(token)")
-      
-      let barButtonItemAppearance = UIBarButtonItem.appearance()
-      
-      let primaryColor = UIColor.whiteColor()
-      barButtonItemAppearance.tintColor = primaryColor
-      barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor], forState: .Normal)
-      barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor.colorWithAlphaComponent(0.4)], forState: .Disabled)
-      
-      let navBarAppearance = UINavigationBar.appearance()
-      navBarAppearance.tintColor = UIColor.whiteColor()
       
       return true
    }
@@ -93,7 +86,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       window?.rootViewController = _flowController.initialViewController()
       window?.makeKeyAndVisible()
    }
-   
+	
+	private func _setupNavBarAppearance()
+	{
+		let barButtonItemAppearance = UIBarButtonItem.appearance()
+		
+		let primaryColor = UIColor.whiteColor()
+		barButtonItemAppearance.tintColor = primaryColor
+		barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor], forState: .Normal)
+		barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor.colorWithAlphaComponent(0.4)], forState: .Disabled)
+		
+		let navBarAppearance = UINavigationBar.appearance()
+		navBarAppearance.tintColor = UIColor.whiteColor()
+	}
+	
    private func _registerForPushNotifications(application: UIApplication)
    {
       let notificationSettings = UIUserNotificationSettings(
