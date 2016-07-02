@@ -138,7 +138,7 @@
                             <constraint firstItem="VD6-8Q-JGk" firstAttribute="top" secondItem="JkT-Tb-QYa" secondAttribute="bottom" id="xqv-wI-HjD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="temp-tab-item" selectedImage="temp-tab-item" id="kb1-Ke-ify"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="messages-tab" selectedImage="messages-tab" id="kb1-Ke-ify"/>
                     <connections>
                         <outlet property="navBarView" destination="Nhb-9Q-WoF" id="UiO-X3-vBG"/>
                         <outlet property="tableView" destination="JkT-Tb-QYa" id="lRI-Ku-aQm"/>
@@ -493,7 +493,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Wallet" image="temp-tab-item" selectedImage="temp-tab-item" id="Le2-5o-mLu"/>
+                    <tabBarItem key="tabBarItem" title="Wallet" image="wallet-tab" selectedImage="wallet-tab" id="Le2-5o-mLu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahG-iC-ogK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -512,7 +512,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="temp-tab-item" selectedImage="temp-tab-item" id="OEx-Ik-LT8"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-tab" selectedImage="profile-tab" id="OEx-Ik-LT8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jz-zm-pvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -643,7 +643,7 @@
                             <constraint firstAttribute="trailing" secondItem="xQb-RO-GcR" secondAttribute="trailing" id="mj0-bW-tjm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="temp-tab-item" selectedImage="temp-tab-item" id="54C-hB-Ac1"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-tab" selectedImage="home-tab" id="54C-hB-Ac1"/>
                     <connections>
                         <outlet property="navBarView" destination="nIe-gi-CPw" id="1dA-Ha-tXa"/>
                         <outlet property="tableView" destination="lMJ-Il-GgX" id="s87-WG-Y2I"/>
@@ -676,6 +676,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="temp-tab-item" width="30" height="30"/>
+        <image name="home-tab" width="200" height="200"/>
+        <image name="messages-tab" width="200" height="200"/>
+        <image name="profile-tab" width="200" height="200"/>
+        <image name="wallet-tab" width="200" height="200"/>
     </resources>
 </document>
