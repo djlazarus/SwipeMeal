@@ -676,9 +676,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home-tab" width="200" height="200"/>
-        <image name="messages-tab" width="200" height="200"/>
-        <image name="profile-tab" width="200" height="200"/>
-        <image name="wallet-tab" width="200" height="200"/>
+        <image name="home-tab" width="30" height="30"/>
+        <image name="messages-tab" width="37" height="37"/>
+        <image name="profile-tab" width="37" height="37"/>
+        <image name="wallet-tab" width="37" height="37"/>
     </resources>
 </document>

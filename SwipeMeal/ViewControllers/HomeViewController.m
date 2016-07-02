@@ -76,14 +76,14 @@ typedef enum : NSUInteger {
     } else if ([cellType isEqual:@(HomeCellTypeBuy)]) {
         HomeMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeMainTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.iconImage = [UIImage imageNamed:@"home-buy-swipes"];
+        cell.iconImage = [UIImage imageNamed:@"home-buy"];
         cell.headlineText = @"Buy Swipes";
         cell.subheadText = @"Search for Swipes near you";
         return cell;
     } else if ([cellType isEqual:@(HomeCellTypeSell)]) {
         HomeMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeMainTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.iconImage = [UIImage imageNamed:@"home-sell-swipes"];
+        cell.iconImage = [UIImage imageNamed:@"home-sell"];
         cell.headlineText = @"Sell Swipes";
         cell.subheadText = @"Sell your extra Swipes";
         return cell;
