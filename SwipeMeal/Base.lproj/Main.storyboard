@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="1517" y="61"/>
         </scene>
-        <!--Messages Detail Reply View Controller-->
+        <!--Messages Detail Choice View Controller-->
         <scene sceneID="VZ3-BZ-H4o">
             <objects>
-                <viewController id="adq-Uf-5VP" customClass="MessagesDetailReplyViewController" sceneMemberID="viewController">
+                <viewController id="adq-Uf-5VP" customClass="MessagesDetailChoiceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X9L-VJ-Kog"/>
                         <viewControllerLayoutGuide type="bottom" id="EMI-qN-kcH"/>
@@ -217,7 +217,7 @@
                                                     <color key="titleColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapReplyButton:" destination="adq-Uf-5VP" eventType="touchUpInside" id="PUX-xh-vPZ"/>
+                                                    <action selector="didTapReplyButton:" destination="adq-Uf-5VP" eventType="touchUpInside" id="ru8-Qt-tGd"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0y-VM-kzA">
@@ -227,7 +227,7 @@
                                                     <color key="titleColor" red="0.98638862370000002" green="0.085617430509999995" blue="0.1609951556" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapDeleteButton:" destination="adq-Uf-5VP" eventType="touchUpInside" id="MPv-ET-V0e"/>
+                                                    <action selector="didTapDeleteButton:" destination="adq-Uf-5VP" eventType="touchUpInside" id="YIq-GF-eRG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -269,16 +269,17 @@
                         <outlet property="messageLabel" destination="ncz-ja-pT3" id="CEB-rN-t9q"/>
                         <outlet property="nameLabel" destination="6sY-YF-uq3" id="hTj-x3-fxa"/>
                         <outlet property="replyButton" destination="Pb2-5w-kUU" id="j23-8j-3dJ"/>
+                        <segue destination="AkI-kL-CAK" kind="show" identifier="MessagesDetailChoiceViewController_MessagesDetailReplyViewController" id="3cC-Ni-1WA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whc-g6-riD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2227" y="61"/>
         </scene>
-        <!--View Controller-->
+        <!--Messages Detail Reply View Controller-->
         <scene sceneID="F4Z-z2-lav">
             <objects>
-                <viewController id="AkI-kL-CAK" sceneMemberID="viewController">
+                <viewController id="AkI-kL-CAK" customClass="MessagesDetailReplyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AZ7-1D-UTE"/>
                         <viewControllerLayoutGuide type="bottom" id="npy-ib-VhJ"/>
@@ -303,7 +304,7 @@
                                                 <rect key="frame" x="0.0" y="57" width="470" height="57"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2L-2K-FNy" userLabel="Checkbox View">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="HCX-we-nQY"/>
@@ -311,15 +312,16 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jkx-mS-hue">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="um7-Ox-hm2"/>
                                                             <constraint firstAttribute="width" constant="15" id="z5h-tU-68e"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ok, I'm on my way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJU-Un-Dot">
-                                                        <rect key="frame" x="31" y="18" width="191" height="21"/>
+                                                        <rect key="frame" x="23" y="18" width="199" height="21"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" constant="199" id="gw3-7Y-mrE"/>
                                                             <constraint firstAttribute="height" constant="21" id="miO-yo-EAu"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -329,11 +331,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="GJU-Un-Dot" secondAttribute="trailing" constant="248" id="3Z6-oq-LR1"/>
                                                     <constraint firstItem="jkx-mS-hue" firstAttribute="centerY" secondItem="U2L-2K-FNy" secondAttribute="centerY" id="5eB-wE-DNn"/>
                                                     <constraint firstItem="jkx-mS-hue" firstAttribute="centerX" secondItem="U2L-2K-FNy" secondAttribute="centerX" id="6Iy-u5-zo2"/>
                                                     <constraint firstItem="U2L-2K-FNy" firstAttribute="centerY" secondItem="eBp-yX-1fn" secondAttribute="centerY" id="PhB-Lk-w6z"/>
-                                                    <constraint firstItem="U2L-2K-FNy" firstAttribute="leading" secondItem="eBp-yX-1fn" secondAttribute="leading" constant="8" id="Ug9-cy-xMq"/>
+                                                    <constraint firstItem="U2L-2K-FNy" firstAttribute="leading" secondItem="eBp-yX-1fn" secondAttribute="leading" id="Ug9-cy-xMq"/>
                                                     <constraint firstItem="GJU-Un-Dot" firstAttribute="leading" secondItem="U2L-2K-FNy" secondAttribute="trailing" constant="8" id="oUI-Fc-eGC"/>
                                                     <constraint firstItem="GJU-Un-Dot" firstAttribute="centerY" secondItem="U2L-2K-FNy" secondAttribute="centerY" id="yGq-mr-bxr"/>
                                                 </constraints>
@@ -342,7 +343,7 @@
                                                 <rect key="frame" x="0.0" y="114" width="470" height="57"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcY-4r-cGS" userLabel="Checkbox View">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="4qy-zi-F1f"/>
@@ -350,16 +351,17 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-RR-yea">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="0lA-jl-lin"/>
                                                             <constraint firstAttribute="height" constant="15" id="6DN-TB-kPF"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ok, I'm on my way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1h-vB-CO4">
-                                                        <rect key="frame" x="31" y="18" width="191" height="21"/>
+                                                        <rect key="frame" x="23" y="18" width="199" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="eFC-kO-6E7"/>
+                                                            <constraint firstAttribute="width" constant="199" id="gAG-81-tH6"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -373,15 +375,14 @@
                                                     <constraint firstItem="o1h-vB-CO4" firstAttribute="leading" secondItem="VcY-4r-cGS" secondAttribute="trailing" constant="8" id="aZx-Wa-HyW"/>
                                                     <constraint firstItem="Xhs-RR-yea" firstAttribute="centerX" secondItem="VcY-4r-cGS" secondAttribute="centerX" id="bAl-ID-1cE"/>
                                                     <constraint firstItem="o1h-vB-CO4" firstAttribute="centerY" secondItem="VcY-4r-cGS" secondAttribute="centerY" id="dr6-Tn-TZt"/>
-                                                    <constraint firstItem="VcY-4r-cGS" firstAttribute="leading" secondItem="d9s-L6-2uq" secondAttribute="leading" constant="8" id="fLf-xo-iVf"/>
-                                                    <constraint firstAttribute="trailing" secondItem="o1h-vB-CO4" secondAttribute="trailing" constant="248" id="sJx-9L-7yB"/>
+                                                    <constraint firstItem="VcY-4r-cGS" firstAttribute="leading" secondItem="d9s-L6-2uq" secondAttribute="leading" id="fLf-xo-iVf"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Px-IG-xIk">
                                                 <rect key="frame" x="0.0" y="171" width="470" height="57"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qc1-TE-YgR" userLabel="Checkbox View">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="kam-Qy-CRY"/>
@@ -389,16 +390,17 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ule-h9-Kow">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="cH1-Hw-aT8"/>
                                                             <constraint firstAttribute="height" constant="15" id="z0C-cY-eqQ"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ok, I'm on my way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-a4-oKp">
-                                                        <rect key="frame" x="31" y="18" width="191" height="21"/>
+                                                        <rect key="frame" x="23" y="18" width="199" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="dPJ-h5-m3l"/>
+                                                            <constraint firstAttribute="width" constant="199" id="zKM-aA-myl"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -407,12 +409,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="qc1-TE-YgR" firstAttribute="leading" secondItem="9Px-IG-xIk" secondAttribute="leading" constant="8" id="4r6-0H-qXJ"/>
+                                                    <constraint firstItem="qc1-TE-YgR" firstAttribute="leading" secondItem="9Px-IG-xIk" secondAttribute="leading" id="4r6-0H-qXJ"/>
                                                     <constraint firstItem="qc1-TE-YgR" firstAttribute="centerY" secondItem="9Px-IG-xIk" secondAttribute="centerY" id="8WN-eV-4HC"/>
                                                     <constraint firstItem="ule-h9-Kow" firstAttribute="centerX" secondItem="qc1-TE-YgR" secondAttribute="centerX" id="E5t-Vj-shW"/>
                                                     <constraint firstItem="fNW-a4-oKp" firstAttribute="leading" secondItem="qc1-TE-YgR" secondAttribute="trailing" constant="8" id="dAI-H7-2sj"/>
                                                     <constraint firstItem="ule-h9-Kow" firstAttribute="centerY" secondItem="qc1-TE-YgR" secondAttribute="centerY" id="l16-h3-Fcg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="fNW-a4-oKp" secondAttribute="trailing" constant="248" id="vT2-t8-hHv"/>
                                                     <constraint firstItem="fNW-a4-oKp" firstAttribute="centerY" secondItem="qc1-TE-YgR" secondAttribute="centerY" id="yuJ-ic-tLy"/>
                                                 </constraints>
                                             </view>
@@ -420,7 +421,7 @@
                                                 <rect key="frame" x="0.0" y="228" width="470" height="57"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxb-qY-WMj" userLabel="Checkbox View">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="BFo-Cq-Pi5"/>
@@ -428,15 +429,16 @@
                                                         </constraints>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-6X-nc7">
-                                                        <rect key="frame" x="8" y="21" width="15" height="15"/>
+                                                        <rect key="frame" x="0.0" y="21" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="dkE-eS-aTR"/>
                                                             <constraint firstAttribute="width" constant="15" id="wlo-vT-Ju5"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ok, I'm on my way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e23-fm-Jqd">
-                                                        <rect key="frame" x="31" y="18" width="191" height="21"/>
+                                                        <rect key="frame" x="23" y="18" width="199" height="21"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" constant="199" id="hIp-ZJ-hCd"/>
                                                             <constraint firstAttribute="height" constant="21" id="l4f-0D-Tce"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
@@ -450,8 +452,7 @@
                                                     <constraint firstItem="Oxb-qY-WMj" firstAttribute="centerY" secondItem="kEy-2G-jbd" secondAttribute="centerY" id="57M-rE-Gnz"/>
                                                     <constraint firstItem="BNR-6X-nc7" firstAttribute="centerY" secondItem="Oxb-qY-WMj" secondAttribute="centerY" id="6K7-CU-ypz"/>
                                                     <constraint firstItem="BNR-6X-nc7" firstAttribute="centerX" secondItem="Oxb-qY-WMj" secondAttribute="centerX" id="K21-bI-1Px"/>
-                                                    <constraint firstItem="Oxb-qY-WMj" firstAttribute="leading" secondItem="kEy-2G-jbd" secondAttribute="leading" constant="8" id="Kwn-MB-ETR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="e23-fm-Jqd" secondAttribute="trailing" constant="248" id="nap-d8-Jbr"/>
+                                                    <constraint firstItem="Oxb-qY-WMj" firstAttribute="leading" secondItem="kEy-2G-jbd" secondAttribute="leading" id="Kwn-MB-ETR"/>
                                                     <constraint firstItem="e23-fm-Jqd" firstAttribute="leading" secondItem="Oxb-qY-WMj" secondAttribute="trailing" constant="8" id="vyO-yB-E2w"/>
                                                 </constraints>
                                             </view>
@@ -475,6 +476,13 @@
                             <constraint firstItem="7qc-vV-Wqr" firstAttribute="centerY" secondItem="IdH-Fu-faA" secondAttribute="centerY" id="uwj-WN-3DE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="response1Label" destination="GJU-Un-Dot" id="Drt-3x-JVM"/>
+                        <outlet property="response2Label" destination="o1h-vB-CO4" id="Ir5-3j-JBb"/>
+                        <outlet property="response3Label" destination="fNW-a4-oKp" id="2ig-9c-Usl"/>
+                        <outlet property="response4Label" destination="e23-fm-Jqd" id="66V-pn-zbk"/>
+                        <outlet property="toNameLabel" destination="z8G-zB-2MT" id="z7f-wF-tzg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJR-6A-eAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -677,8 +685,8 @@
     </scenes>
     <resources>
         <image name="home-tab" width="30" height="30"/>
-        <image name="messages-tab" width="37" height="37"/>
-        <image name="profile-tab" width="37" height="37"/>
-        <image name="wallet-tab" width="37" height="37"/>
+        <image name="messages-tab" width="30" height="30"/>
+        <image name="profile-tab" width="30" height="30"/>
+        <image name="wallet-tab" width="30" height="30"/>
     </resources>
 </document>
