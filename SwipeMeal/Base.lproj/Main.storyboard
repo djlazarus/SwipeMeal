@@ -455,6 +455,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="42f-Ms-JCP" id="SE5-dI-VPX"/>
+                        <outlet property="mainMessageView" destination="7qc-vV-Wqr" id="vNt-Rp-zIv"/>
                         <outlet property="response1Label" destination="GJU-Un-Dot" id="Drt-3x-JVM"/>
                         <outlet property="response2Label" destination="o1h-vB-CO4" id="Ir5-3j-JBb"/>
                         <outlet property="response3Label" destination="fNW-a4-oKp" id="2ig-9c-Usl"/>

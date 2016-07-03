@@ -22,55 +22,24 @@
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadReplyViewController) name:@"didTapReplyButton" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteMessage) name:@"didTapDeleteButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadConfirmationViewController) name:@"didTapSendButton" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelTransaction) name:@"didTapCancelTransactionButton" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteMessage) name:@"didTapDeleteButton" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelTransaction) name:@"didTapCancelTransactionButton" object:nil];
     
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                             options:nil];
 
     self.pageViewController.view.frame = self.view.bounds;
-    
-    MessagesDetailChildViewController *initialViewController = [self viewControllerAtIndex:0];
-    NSArray *viewControllers = @[initialViewController];
-    
-    [self.pageViewController setViewControllers:viewControllers
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:YES
-                                     completion:nil];
-    
-    [self addChildViewController:self.pageViewController];
-    [self.view addSubview:self.pageViewController.view];
-    [self.pageViewController didMoveToParentViewController:self];
+    [self setViewControllerAtIndex:0];
 }
 
 - (void)loadReplyViewController {
-    MessagesDetailChildViewController *initialViewController = [self viewControllerAtIndex:1];
-    NSArray *viewControllers = @[initialViewController];
-    
-    [self.pageViewController setViewControllers:viewControllers
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:YES
-                                     completion:nil];
-    
-    [self addChildViewController:self.pageViewController];
-    [self.view addSubview:self.pageViewController.view];
-    [self.pageViewController didMoveToParentViewController:self];
+    [self setViewControllerAtIndex:1];
 }
 
 - (void)loadConfirmationViewController {
-    MessagesDetailChildViewController *initialViewController = [self viewControllerAtIndex:2];
-    NSArray *viewControllers = @[initialViewController];
-    
-    [self.pageViewController setViewControllers:viewControllers
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:YES
-                                     completion:nil];
-    
-    [self addChildViewController:self.pageViewController];
-    [self.view addSubview:self.pageViewController.view];
-    [self.pageViewController didMoveToParentViewController:self];
+    [self setViewControllerAtIndex:2];
 }
 
 - (void)deleteMessage {
@@ -81,7 +50,7 @@
 
 }
 
-- (MessagesDetailChildViewController *)viewControllerAtIndex:(NSInteger)index {
+- (void)setViewControllerAtIndex:(NSInteger)index {
     NSArray *viewControllersIDs = @[@"MessagesDetailChoiceViewController",
                                     @"MessagesDetailReplyViewController",
                                     @"MessagesDetailReplyConfirmViewController"];
@@ -91,7 +60,15 @@
     viewController.index = index;
     viewController.message = self.message;
     
-    return viewController;
+    NSArray *viewControllers = @[viewController];
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
 }
 
 

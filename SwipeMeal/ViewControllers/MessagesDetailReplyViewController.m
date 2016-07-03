@@ -10,6 +10,8 @@
 #import "SwipeMeal-Swift.h"
 
 @interface MessagesDetailReplyViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *mainMessageView;
 @property (weak, nonatomic) IBOutlet UILabel *toNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *response1Label;
 @property (weak, nonatomic) IBOutlet UILabel *response2Label;
@@ -36,6 +38,16 @@
     
     self.cancelButton.layer.borderWidth = 1.0;
     self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
+    
+    // Tap to close
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    UIView *tapView = [[UIView alloc] initWithFrame:self.view.frame];
+    [tapView addGestureRecognizer:recognizer];
+    [self.view insertSubview:tapView belowSubview:self.mainMessageView];
+}
+
+- (void)handleGesture:(UIGestureRecognizer*)gestureRecognizer {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapToCloseMessageDetail" object:nil];
 }
 
 - (IBAction)didTapSendButton:(UIButton *)sender {
