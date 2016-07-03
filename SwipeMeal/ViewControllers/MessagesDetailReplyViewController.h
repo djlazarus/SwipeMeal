@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Message.h"
+#import "MessagesDetailChildViewController.h"
 
-@interface MessagesDetailReplyViewController : UIViewController
-
-@property (strong, nonatomic) Message *message;
+@interface MessagesDetailReplyViewController : MessagesDetailChildViewController
 
 @end
