@@ -3,7 +3,7 @@ use_frameworks!
 
 target 'SwipeMeal' do
 
-  pod 'Firebase'
+  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
