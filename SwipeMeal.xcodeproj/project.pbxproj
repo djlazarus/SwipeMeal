@@ -11,6 +11,7 @@
 		1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */; };
 		1613C0911D28987000F7BC3B /* MessagesDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */; };
 		1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */; };
+		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		168656B41D1EB99F004CE47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168656B21D1EB99F004CE47D /* Main.storyboard */; };
 		168656BA1D1EC830004CE47D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656B91D1EC830004CE47D /* HomeViewController.m */; };
 		168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656BD1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m */; };
@@ -68,6 +69,8 @@
 		1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailChildViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailChildViewController.m; sourceTree = "<group>"; };
 		1613C0921D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyConfirmViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyConfirmViewController.h; sourceTree = "<group>"; };
 		1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyConfirmViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyConfirmViewController.m; sourceTree = "<group>"; };
+		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
+		164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyTableViewCell.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.m; sourceTree = "<group>"; };
 		168656B31D1EB99F004CE47D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		168656B71D1EC82F004CE47D /* SwipeMeal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwipeMeal-Bridging-Header.h"; sourceTree = "<group>"; };
 		168656B81D1EC830004CE47D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = SwipeMeal/ViewControllers/HomeViewController.h; sourceTree = "<group>"; };
@@ -148,12 +151,12 @@
 		1613C0951D28AE4600F7BC3B /* Child View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1613C08F1D28987000F7BC3B /* MessagesDetailChildViewController.h */,
-				1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */,
 				1613C08C1D2867FA00F7BC3B /* MessagesDetailChoiceViewController.h */,
 				1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */,
 				168656D51D204CB3004CE47D /* MessagesDetailReplyViewController.h */,
 				168656D61D204CB3004CE47D /* MessagesDetailReplyViewController.m */,
+				164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */,
+				164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */,
 				1613C0921D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.h */,
 				1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */,
 			);
@@ -182,6 +185,8 @@
 				168656CA1D1F29BD004CE47D /* MessagesTableViewCell.m */,
 				168656D21D204636004CE47D /* MessagesDetailViewController.h */,
 				168656D31D204636004CE47D /* MessagesDetailViewController.m */,
+				1613C08F1D28987000F7BC3B /* MessagesDetailChildViewController.h */,
+				1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */,
 				1613C0951D28AE4600F7BC3B /* Child View Controllers */,
 			);
 			name = Messages;
@@ -527,6 +532,7 @@
 				CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */,
 				CE6766901D09FE1B003D6EF0 /* SignInTextField.swift in Sources */,
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
+				164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */,
 				CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */,
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,

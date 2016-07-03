@@ -7,16 +7,14 @@
 //
 
 #import "MessagesDetailReplyViewController.h"
+#import "MessagesDetailReplyTableViewCell.h"
 #import "SwipeMeal-Swift.h"
 
-@interface MessagesDetailReplyViewController ()
+@interface MessagesDetailReplyViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *mainMessageView;
 @property (weak, nonatomic) IBOutlet UILabel *toNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *response1Label;
-@property (weak, nonatomic) IBOutlet UILabel *response2Label;
-@property (weak, nonatomic) IBOutlet UILabel *response3Label;
-@property (weak, nonatomic) IBOutlet UILabel *response4Label;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
@@ -28,11 +26,11 @@
     [super viewDidLoad];
 
     self.toNameLabel.text = [NSString stringWithFormat:@"To: %@", self.message.nameText];
-    self.response1Label.text = @"Ok, I'm on my way";
-    self.response2Label.text = @"Ok, I'm here";
-    self.response3Label.text = @"Ok, I'll be there at...";
-    self.response4Label.text = @"Cancel Transaction";
-   
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
+
+    self.sendButton.enabled = NO;
     self.sendButton.layer.borderWidth = 1.0;
     self.sendButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
     
@@ -44,6 +42,29 @@
     UIView *tapView = [[UIView alloc] initWithFrame:self.view.frame];
     [tapView addGestureRecognizer:recognizer];
     [self.view insertSubview:tapView belowSubview:self.mainMessageView];
+}
+
+- (NSArray *)rows {
+    NSArray *rows = @[@"Ok, I'm on my way", @"Ok, I'm here", @"Ok, I'll be there at..."];
+    return rows;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSInteger count = [[self rows] count];
+    return count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MessagesDetailReplyTableViewCell *cell = (MessagesDetailReplyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MessagesDetailReplyTableViewCell" forIndexPath:indexPath];
+    NSString *rowText = [[self rows] objectAtIndex:indexPath.row];
+    cell.mainText = rowText;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.sendButton.enabled = YES;
 }
 
 - (void)handleGesture:(UIGestureRecognizer*)gestureRecognizer {
