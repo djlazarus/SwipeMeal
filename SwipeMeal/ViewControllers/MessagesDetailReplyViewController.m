@@ -52,7 +52,9 @@
 }
 
 - (NSArray *)rows {
-    NSArray *rows = @[@"Ok, I'm on my way", @"Ok, I'm here", @"Ok, I'll be there at:"];
+    NSArray *rows = @[@"Ok, I'm on my way",
+                      @"Ok, I'm here",
+                      @"Ok, I'll be there at:"];
     return rows;
 }
 
@@ -95,9 +97,10 @@
 
 - (void)updateTime:(id)sender {
     if ([sender isKindOfClass:[UIDatePicker class]]) {
-        // Store the time in seconds
         self.replyDate = ((UIDatePicker *)sender).date;
-        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
 }
 
