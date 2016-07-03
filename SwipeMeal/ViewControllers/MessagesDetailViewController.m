@@ -8,8 +8,11 @@
 
 #import "MessagesDetailViewController.h"
 #import "MessagesDetailReplyViewController.h"
+#import "MessagesDetailChildViewController.h"
 
 @interface MessagesDetailViewController ()
+
+@property (strong, nonatomic) UIPageViewController *pageViewController;
 
 @end
 
@@ -18,19 +21,78 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadReplyViewController) name:@"didTapReplyButton" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteMessage) name:@"didTapDeleteButton" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadConfirmationViewController) name:@"didTapSendButton" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelTransaction) name:@"didTapCancelTransactionButton" object:nil];
     
-    [self performSegueWithIdentifier:@"MessagesDetailViewController_MessagesDetailReplyViewController" sender:nil];
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+                                                              navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                                            options:nil];
+
+    self.pageViewController.view.frame = self.view.bounds;
+    
+    MessagesDetailChildViewController *initialViewController = [self viewControllerAtIndex:0];
+    NSArray *viewControllers = @[initialViewController];
+    
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"MessagesDetailViewController_MessagesDetailReplyViewController"]) {
-        MessagesDetailReplyViewController *messagesDetailReplyViewController = (MessagesDetailReplyViewController *)[segue destinationViewController];
-        messagesDetailReplyViewController.message = self.message;
-    }
+- (void)loadReplyViewController {
+    MessagesDetailChildViewController *initialViewController = [self viewControllerAtIndex:1];
+    NSArray *viewControllers = @[initialViewController];
+    
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
 }
+
+- (void)loadConfirmationViewController {
+    MessagesDetailChildViewController *initialViewController = [self viewControllerAtIndex:2];
+    NSArray *viewControllers = @[initialViewController];
+    
+    [self.pageViewController setViewControllers:viewControllers
+                                      direction:UIPageViewControllerNavigationDirectionForward
+                                       animated:YES
+                                     completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
+}
+
+- (void)deleteMessage {
+    
+}
+
+- (void)cancelTransaction {
+
+}
+
+- (MessagesDetailChildViewController *)viewControllerAtIndex:(NSInteger)index {
+    NSArray *viewControllersIDs = @[@"MessagesDetailChoiceViewController",
+                                    @"MessagesDetailReplyViewController",
+                                    @"MessagesDetailReplyConfirmViewController"];
+    
+    NSString *viewControllerID = [viewControllersIDs objectAtIndex:index];
+    MessagesDetailChildViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:viewControllerID];
+    viewController.index = index;
+    viewController.message = self.message;
+    
+    return viewController;
+}
+
 
 @end

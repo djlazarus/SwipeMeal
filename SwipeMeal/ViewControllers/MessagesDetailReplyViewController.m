@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *response2Label;
 @property (weak, nonatomic) IBOutlet UILabel *response3Label;
 @property (weak, nonatomic) IBOutlet UILabel *response4Label;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -28,7 +30,20 @@
     self.response2Label.text = @"Ok, I'm here";
     self.response3Label.text = @"Ok, I'll be there at...";
     self.response4Label.text = @"Cancel Transaction";
+   
+    self.sendButton.layer.borderWidth = 1.0;
+    self.sendButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
     
+    self.cancelButton.layer.borderWidth = 1.0;
+    self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
+}
+
+- (IBAction)didTapSendButton:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapSendButton" object:nil];
+}
+
+- (IBAction)didTapCancelTransactionButton:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapCancelTransactionButton" object:nil];
 }
 
 @end

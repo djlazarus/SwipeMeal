@@ -57,10 +57,11 @@
 }
 
 - (IBAction)didTapReplyButton:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"MessagesDetailChoiceViewController_MessagesDetailReplyViewController" sender:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapReplyButton" object:nil];
 }
 
 - (IBAction)didTapDeleteButton:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapDeleteButton" object:nil];
 }
 
 @end

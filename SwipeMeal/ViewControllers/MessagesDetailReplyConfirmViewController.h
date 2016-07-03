@@ -1,5 +1,5 @@
 //
-//  MessagesDetailChoiceViewController.h
+//  MessagesDetailReplyConfirmViewController.h
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 7/2/16.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MessagesDetailChildViewController.h"
 
-@interface MessagesDetailChoiceViewController : MessagesDetailChildViewController
+@interface MessagesDetailReplyConfirmViewController : MessagesDetailChildViewController
 
 @end
