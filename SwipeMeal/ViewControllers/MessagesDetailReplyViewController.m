@@ -17,6 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIView *datePickerContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic) NSDate *replyDate;
 
 @end
 
@@ -37,6 +42,8 @@
     self.cancelButton.layer.borderWidth = 1.0;
     self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
     
+    [self.datePicker addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
+    
     // Tap to close
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     UIView *tapView = [[UIView alloc] initWithFrame:self.view.frame];
@@ -45,7 +52,7 @@
 }
 
 - (NSArray *)rows {
-    NSArray *rows = @[@"Ok, I'm on my way", @"Ok, I'm here", @"Ok, I'll be there at..."];
+    NSArray *rows = @[@"Ok, I'm on my way", @"Ok, I'm here", @"Ok, I'll be there at:"];
     return rows;
 }
 
@@ -56,15 +63,72 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessagesDetailReplyTableViewCell *cell = (MessagesDetailReplyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MessagesDetailReplyTableViewCell" forIndexPath:indexPath];
-    NSString *rowText = [[self rows] objectAtIndex:indexPath.row];
-    cell.mainText = rowText;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    NSString *rowText = [[self rows] objectAtIndex:indexPath.row];
+    NSString *timeString;
+    if (indexPath.row == 2) {
+        if (self.replyDate) {
+            timeString = [self timeStringFromTimeInterval:self.replyDate];
+            cell.mainText = [NSString stringWithFormat:@"%@ %@", rowText, timeString];
+        } else {
+            cell.mainText = rowText;
+        }
+    } else {
+         cell.mainText = rowText;
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+   
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Variable date/time row?
+    if (indexPath.row == 2) {
+        [self showDatePicker];
+    } else {
+        [self hideDatePicker];
+    }
+    
     self.sendButton.enabled = YES;
+}
+
+- (void)updateTime:(id)sender {
+    if ([sender isKindOfClass:[UIDatePicker class]]) {
+        // Store the time in seconds
+        self.replyDate = ((UIDatePicker *)sender).date;
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+- (NSString *)timeStringFromTimeInterval:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mm a"];
+    
+    NSString *timeString = [formatter stringFromDate:date];
+    return timeString;
+}
+
+- (void)showDatePicker {
+    [UIView animateWithDuration:0.25 animations:^{
+        self.datePicker.hidden = NO;
+        self.datePickerTopConstraint.constant = 40;
+        self.datePickerBottomConstraint.constant = 216;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        //
+    }];
+}
+
+- (void)hideDatePicker {
+    [UIView animateWithDuration:0.25 animations:^{
+        self.datePicker.hidden = YES;
+        self.datePickerTopConstraint.constant = 117;
+        self.datePickerBottomConstraint.constant = 0;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        //
+    }];
 }
 
 - (void)handleGesture:(UIGestureRecognizer*)gestureRecognizer {
