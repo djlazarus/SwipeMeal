@@ -148,6 +148,14 @@
             </objects>
             <point key="canvasLocation" x="803" y="61"/>
         </scene>
+        <!--SwipeListViewController-->
+        <scene sceneID="udh-Wp-gnm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Buying" referencedIdentifier="SwipeListViewController" id="Kq1-yO-zFw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4z-xt-J7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1461.5" y="-839"/>
+        </scene>
         <!--Messages Detail View Controller-->
         <scene sceneID="wnZ-Na-Bt6">
             <objects>
@@ -574,6 +582,7 @@
                                             <outlet property="headlineLabel" destination="neH-lM-KZG" id="a1S-qk-8u1"/>
                                             <outlet property="iconImageView" destination="azd-Ch-rT2" id="zIv-oh-i1U"/>
                                             <outlet property="subheadLabel" destination="3q7-Gu-vBh" id="huu-8h-843"/>
+                                            <segue destination="Kq1-yO-zFw" kind="show" identifier="Segue_HomeViewController_SwipeListViewController" id="nu2-uE-LNg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
