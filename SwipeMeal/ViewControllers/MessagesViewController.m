@@ -11,6 +11,7 @@
 #import "Message.h"
 #import "MessagesDetailViewController.h"
 #import "SwipeMeal-Swift.h"
+@import Firebase;
 
 @interface MessagesViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) NSMutableDictionary *messageHeights;
 @property (strong, nonatomic) Message *selectedMessage;
 @property (nonatomic) CGFloat defaultMessageHeight;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -28,8 +30,23 @@
     return UIStatusBarStyleLightContent;
 }
 
+//static func setTestValue(complete: Bool, forUser user: SwipeMealUser)
+//{
+//    let ref = FIRDatabase.database().reference()
+//    let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
+//    userInfoRef.updateChildValues([kUserConversationsPathName : complete])
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    // Get the database
+//    self.dbRef = [[FIRDatabase database] reference];
+//    
+//    // Message test
+//    NSString *message = @"Hello world!";
+//    NSString *userID = [FIRAuth auth].currentUser.uid;
+//    [self createNewMessage:userID messageBody:message];
     
     self.navBarView.translucent = NO;
     self.tabBarController.tabBar.tintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
@@ -43,6 +60,17 @@
     
     // Listen for notifications telling us that a message detail window has been tapped to close
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMessageDetail) name:@"didTapToCloseMessageDetail" object:nil];
+}
+
+- (void)createNewMessage:(NSString *)userID messageBody:(NSString *)body {
+    NSString *key = [[self.dbRef child:@"messages"] childByAutoId].key;
+    NSDictionary *message = @{@"uid":userID,
+                              @"body":body};
+    
+    NSDictionary *childUpdates = @{[@"/messages/" stringByAppendingString:key] : message,
+                                   [NSString stringWithFormat:@"/user-messages/%@/%@/", userID, key] : message};
+    
+    [self.dbRef updateChildValues:childUpdates];
 }
 
 - (void)closeMessageDetail {
