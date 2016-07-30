@@ -41,6 +41,77 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vq2-hR-S1A">
+                                                    <rect key="frame" x="344" y="24" width="158" height="53"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kimmy G." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuZ-Od-XRk">
+                                                            <rect key="frame" x="96" y="0.0" width="62" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="deK-1b-SKz">
+                                                            <rect key="frame" x="0.0" y="21" width="158" height="14"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buy-location" translatesAutoresizingMaskIntoConstraints="NO" id="YJm-sQ-COT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="14" id="3g6-o4-atb"/>
+                                                                        <constraint firstAttribute="width" constant="14" id="jN7-Wp-1Kr"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Dining Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyH-h0-0Pq">
+                                                                    <rect key="frame" x="18" y="0.0" width="92" height="14"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buy-time" translatesAutoresizingMaskIntoConstraints="NO" id="Nbw-hj-DXb">
+                                                                    <rect key="frame" x="114" y="0.0" width="14" height="14"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="14" id="ICV-R8-2Am"/>
+                                                                        <constraint firstAttribute="height" constant="14" id="Mhe-ph-iyt"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjy-6d-y3Q">
+                                                                    <rect key="frame" x="132" y="0.0" width="26" height="14"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9zc-KE-Rg9">
+                                                            <rect key="frame" x="70" y="39" width="88" height="14"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p6a-Yf-XNJ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="18" height="14"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rwx-a6-JzP">
+                                                                    <rect key="frame" x="18" y="0.0" width="17" height="14"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v3V-Dh-t71">
+                                                                    <rect key="frame" x="35" y="0.0" width="18" height="14"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bsM-bv-2RC">
+                                                                    <rect key="frame" x="53" y="0.0" width="17" height="14"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </imageView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KGe-W1-oVv">
+                                                                    <rect key="frame" x="70" y="0.0" width="18" height="14"/>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="88" id="8XD-Zf-tEl"/>
+                                                                <constraint firstAttribute="height" constant="14" id="khe-IF-38L"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zmy-et-7SE">
                                                     <rect key="frame" x="24" y="33" width="48" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -54,71 +125,29 @@
                                                         <constraint firstAttribute="width" constant="60" id="cBm-p0-ygF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kimmy G." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuZ-Od-XRk">
-                                                    <rect key="frame" x="440" y="20" width="62" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qjy-6d-y3Q">
-                                                    <rect key="frame" x="476" y="40" width="26" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Dining Hall" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyH-h0-0Pq">
-                                                    <rect key="frame" x="362" y="40" width="92" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buy-time" translatesAutoresizingMaskIntoConstraints="NO" id="Nbw-hj-DXb">
-                                                    <rect key="frame" x="458" y="40" width="14" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="ICV-R8-2Am"/>
-                                                        <constraint firstAttribute="height" constant="14" id="Mhe-ph-iyt"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buy-location" translatesAutoresizingMaskIntoConstraints="NO" id="YJm-sQ-COT">
-                                                    <rect key="frame" x="344" y="41" width="14" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="14" id="3g6-o4-atb"/>
-                                                        <constraint firstAttribute="width" constant="14" id="jN7-Wp-1Kr"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="9zc-KE-Rg9">
-                                                    <rect key="frame" x="422" y="63" width="80" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="8XD-Zf-tEl"/>
-                                                        <constraint firstAttribute="height" constant="14" id="khe-IF-38L"/>
-                                                    </constraints>
-                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Zmy-et-7SE" firstAttribute="centerY" secondItem="fx4-bN-u17" secondAttribute="centerY" id="3Wr-fI-6pY"/>
-                                                <constraint firstItem="qjy-6d-y3Q" firstAttribute="leading" secondItem="Nbw-hj-DXb" secondAttribute="trailing" constant="4" id="Eki-6b-HqL"/>
-                                                <constraint firstItem="Qe7-RN-CCK" firstAttribute="leading" secondItem="9zc-KE-Rg9" secondAttribute="trailing" constant="14" id="Euk-QU-FBU"/>
+                                                <constraint firstItem="vq2-hR-S1A" firstAttribute="centerY" secondItem="Qe7-RN-CCK" secondAttribute="centerY" id="48M-W2-9nG"/>
                                                 <constraint firstItem="Qe7-RN-CCK" firstAttribute="centerY" secondItem="fx4-bN-u17" secondAttribute="centerY" id="KbS-Kp-BFS"/>
-                                                <constraint firstItem="Nbw-hj-DXb" firstAttribute="leading" secondItem="IyH-h0-0Pq" secondAttribute="trailing" constant="4" id="PzA-k6-kyP"/>
-                                                <constraint firstItem="9zc-KE-Rg9" firstAttribute="top" secondItem="qjy-6d-y3Q" secondAttribute="bottom" constant="8" id="VH0-f2-uj6"/>
-                                                <constraint firstItem="Nbw-hj-DXb" firstAttribute="centerY" secondItem="qjy-6d-y3Q" secondAttribute="centerY" id="aal-ZF-rXF"/>
-                                                <constraint firstItem="xuZ-Od-XRk" firstAttribute="top" secondItem="Qe7-RN-CCK" secondAttribute="top" id="cc7-jG-Psp"/>
-                                                <constraint firstItem="IyH-h0-0Pq" firstAttribute="leading" secondItem="YJm-sQ-COT" secondAttribute="trailing" constant="4" id="e8C-yK-aza"/>
+                                                <constraint firstItem="Qe7-RN-CCK" firstAttribute="leading" secondItem="vq2-hR-S1A" secondAttribute="trailing" constant="14" id="VaG-on-IDn"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qe7-RN-CCK" secondAttribute="trailing" constant="24" id="ezG-Gg-FhL"/>
-                                                <constraint firstItem="Qe7-RN-CCK" firstAttribute="leading" secondItem="xuZ-Od-XRk" secondAttribute="trailing" constant="14" id="hqe-eT-NYp"/>
-                                                <constraint firstItem="IyH-h0-0Pq" firstAttribute="centerY" secondItem="Nbw-hj-DXb" secondAttribute="centerY" id="jjQ-XS-ESX"/>
                                                 <constraint firstItem="Zmy-et-7SE" firstAttribute="leading" secondItem="fx4-bN-u17" secondAttribute="leading" constant="24" id="ne1-jk-vfd"/>
-                                                <constraint firstItem="Qe7-RN-CCK" firstAttribute="leading" secondItem="qjy-6d-y3Q" secondAttribute="trailing" constant="14" id="oRs-QI-7ie"/>
-                                                <constraint firstItem="YJm-sQ-COT" firstAttribute="centerY" secondItem="IyH-h0-0Pq" secondAttribute="centerY" id="udj-1s-etl"/>
-                                                <constraint firstItem="qjy-6d-y3Q" firstAttribute="top" secondItem="xuZ-Od-XRk" secondAttribute="bottom" constant="3" id="ze4-RR-dBH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="locationImageView" destination="YJm-sQ-COT" id="d73-BG-hvQ"/>
                                             <outlet property="locationLabel" destination="IyH-h0-0Pq" id="Ydc-bY-Wqa"/>
                                             <outlet property="mainImageView" destination="Qe7-RN-CCK" id="xd4-Tv-zH4"/>
                                             <outlet property="nameLabel" destination="xuZ-Od-XRk" id="8Tz-dU-6VF"/>
                                             <outlet property="priceLabel" destination="Zmy-et-7SE" id="Wtg-MB-C96"/>
+                                            <outlet property="ratingImageView1" destination="KGe-W1-oVv" id="nrN-YF-ZG0"/>
+                                            <outlet property="ratingImageView2" destination="bsM-bv-2RC" id="89k-Ri-rwR"/>
+                                            <outlet property="ratingImageView3" destination="v3V-Dh-t71" id="kyg-0m-jMX"/>
+                                            <outlet property="ratingImageView4" destination="rwx-a6-JzP" id="7k3-9n-KSH"/>
+                                            <outlet property="ratingImageView5" destination="p6a-Yf-XNJ" id="zzL-11-XdV"/>
                                             <outlet property="ratingStackView" destination="9zc-KE-Rg9" id="ntW-au-WBP"/>
+                                            <outlet property="timeImageView" destination="Nbw-hj-DXb" id="FCR-Wd-ErT"/>
                                             <outlet property="timeLabel" destination="qjy-6d-y3Q" id="c8c-o4-TpF"/>
                                         </connections>
                                     </tableViewCell>
