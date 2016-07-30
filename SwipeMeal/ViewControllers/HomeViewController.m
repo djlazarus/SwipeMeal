@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeHeaderTableViewCell.h"
 #import "HomeMainTableViewCell.h"
+#import "SwipeListViewController.h"
 #import "SwipeMeal-Swift.h"
 
 typedef enum : NSUInteger {
@@ -90,6 +91,27 @@ typedef enum : NSUInteger {
     } else {
         HomeMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeMainTableViewCell" forIndexPath:indexPath];
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 1:
+            [self performSegueWithIdentifier:@"Segue_HomeViewController_SwipeListViewController" sender:nil];
+            break;
+            
+        case 2:
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_HomeViewController_SwipeListViewController"]) {
+        SwipeListViewController *swipeListViewController = (SwipeListViewController *)[segue destinationViewController];
+        // ?
     }
 }
 
