@@ -543,7 +543,6 @@
                                             <outlet property="headlineLabel" destination="neH-lM-KZG" id="a1S-qk-8u1"/>
                                             <outlet property="iconImageView" destination="azd-Ch-rT2" id="zIv-oh-i1U"/>
                                             <outlet property="subheadLabel" destination="3q7-Gu-vBh" id="huu-8h-843"/>
-                                            <segue destination="sPV-bV-ycX" kind="show" identifier="Segue_HomeViewController_SwipeListViewController" id="5G2-FL-xLS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -561,6 +560,7 @@
                     <navigationItem key="navigationItem" title="Swipes" id="wIo-sk-Jjx"/>
                     <connections>
                         <outlet property="tableView" destination="lMJ-Il-GgX" id="s87-WG-Y2I"/>
+                        <segue destination="sPV-bV-ycX" kind="show" identifier="Segue_HomeViewController_SwipeListViewController" id="5cR-VL-Pfx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGB-2k-TiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
