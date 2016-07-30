@@ -12,14 +12,21 @@
 
 @interface SwipeListViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBarView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation SwipeListViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navBarView.translucent = NO;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

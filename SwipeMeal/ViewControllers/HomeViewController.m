@@ -20,7 +20,6 @@ typedef enum : NSUInteger {
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UINavigationBar *navBarView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -34,7 +33,9 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navBarView.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationController.navigationBar.barTintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
     self.tabBarController.tabBar.tintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
     
     self.tableView.delegate = self;

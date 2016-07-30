@@ -17,11 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuD-u5-PCF" userLabel="Nav Bar View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhg-7d-xcA" userLabel="Status Bar Background View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                        <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBy-Kc-Uzz">
+                                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                        <color key="barTintColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textAttributes>
+                                        <items>
+                                            <navigationItem title="SwipeMeal" id="iFL-z6-pfE"/>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="9Mz-0w-vQb"/>
+                                    <constraint firstAttribute="trailing" secondItem="IBy-Kc-Uzz" secondAttribute="trailing" id="JD3-i8-ghG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nhg-7d-xcA" secondAttribute="trailing" id="MUN-4t-fnX"/>
+                                    <constraint firstAttribute="bottom" secondItem="IBy-Kc-Uzz" secondAttribute="bottom" id="TZW-xX-h7Y"/>
+                                    <constraint firstItem="IBy-Kc-Uzz" firstAttribute="top" secondItem="Nhg-7d-xcA" secondAttribute="bottom" id="bYb-0o-Le2"/>
+                                    <constraint firstItem="Nhg-7d-xcA" firstAttribute="top" secondItem="tuD-u5-PCF" secondAttribute="top" id="kI5-eN-rxM"/>
+                                    <constraint firstItem="Nhg-7d-xcA" firstAttribute="leading" secondItem="tuD-u5-PCF" secondAttribute="leading" id="oX2-JD-WIr"/>
+                                    <constraint firstItem="IBy-Kc-Uzz" firstAttribute="leading" secondItem="tuD-u5-PCF" secondAttribute="leading" id="wJk-k8-y0P"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyswipes" translatesAutoresizingMaskIntoConstraints="NO" id="m01-Rg-Pbh" userLabel="Top Image View">
-                                <rect key="frame" x="0.0" y="20" width="600" height="190"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="146"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPES NEAR ME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-pq-3AR">
-                                <rect key="frame" x="20" y="80" width="128" height="70"/>
+                                <rect key="frame" x="20" y="102" width="128" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="anE-25-7cc"/>
                                     <constraint firstAttribute="height" constant="70" id="r8u-ia-dms"/>
@@ -158,23 +188,27 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7q5-Rf-Afd" secondAttribute="trailing" id="3vK-6L-lPy"/>
                             <constraint firstItem="7q5-Rf-Afd" firstAttribute="height" secondItem="wKY-bB-Wqv" secondAttribute="height" multiplier="0.65" id="52l-Ao-GVz"/>
-                            <constraint firstItem="V3k-pq-3AR" firstAttribute="top" secondItem="D69-ou-trQ" secondAttribute="bottom" constant="60" id="6cn-Ov-AEj"/>
-                            <constraint firstItem="m01-Rg-Pbh" firstAttribute="top" secondItem="D69-ou-trQ" secondAttribute="bottom" id="8n0-pu-W3d"/>
+                            <constraint firstItem="m01-Rg-Pbh" firstAttribute="top" secondItem="tuD-u5-PCF" secondAttribute="bottom" id="CAf-gg-euJ"/>
                             <constraint firstAttribute="trailing" secondItem="m01-Rg-Pbh" secondAttribute="trailing" id="FcK-rr-KDH"/>
+                            <constraint firstItem="tuD-u5-PCF" firstAttribute="top" secondItem="D69-ou-trQ" secondAttribute="bottom" constant="-20" id="MZ3-bX-ccI"/>
                             <constraint firstItem="V3k-pq-3AR" firstAttribute="leading" secondItem="wKY-bB-Wqv" secondAttribute="leading" constant="20" id="T8H-Jj-ujE"/>
-                            <constraint firstItem="m01-Rg-Pbh" firstAttribute="height" secondItem="wKY-bB-Wqv" secondAttribute="height" multiplier="0.35" constant="-20" id="bvU-6S-DIT"/>
+                            <constraint firstItem="m01-Rg-Pbh" firstAttribute="height" secondItem="wKY-bB-Wqv" secondAttribute="height" multiplier="0.35" constant="-64" id="bvU-6S-DIT"/>
+                            <constraint firstItem="V3k-pq-3AR" firstAttribute="centerY" secondItem="m01-Rg-Pbh" secondAttribute="centerY" id="d3u-PN-Anf"/>
+                            <constraint firstAttribute="trailing" secondItem="tuD-u5-PCF" secondAttribute="trailing" id="duY-AQ-40i"/>
                             <constraint firstItem="Fki-de-zby" firstAttribute="top" secondItem="7q5-Rf-Afd" secondAttribute="bottom" id="ebI-5S-u3J"/>
+                            <constraint firstItem="tuD-u5-PCF" firstAttribute="leading" secondItem="wKY-bB-Wqv" secondAttribute="leading" id="hcq-HU-QuH"/>
                             <constraint firstItem="7q5-Rf-Afd" firstAttribute="leading" secondItem="wKY-bB-Wqv" secondAttribute="leading" id="hzY-Vo-Nvl"/>
                             <constraint firstItem="m01-Rg-Pbh" firstAttribute="leading" secondItem="wKY-bB-Wqv" secondAttribute="leading" id="z6I-dT-CSO"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navBarView" destination="IBy-Kc-Uzz" id="OTw-JT-Pds"/>
                         <outlet property="tableView" destination="7q5-Rf-Afd" id="lO8-G7-6zK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sW-ny-8rX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="879"/>
+            <point key="canvasLocation" x="1417" y="918"/>
         </scene>
     </scenes>
     <resources>
