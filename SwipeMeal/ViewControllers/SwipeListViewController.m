@@ -9,10 +9,12 @@
 #import "SwipeListViewController.h"
 #import "Swipe.h"
 #import "SwipeListTableViewCell.h"
+@import Firebase;
 
 @interface SwipeListViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -21,8 +23,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.dbRef = [[FIRDatabase database] reference];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    // Create a test Swipe
+    [self createNewSwipes];
+}
+
+- (void)createNewSwipes {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSString *key = [[self.dbRef child:@"swipes"] childByAutoId].key;
+    Swipe *swipe = [[self swipes] objectAtIndex:0];
+    NSDictionary *swipeDict = @{@"uid":userID,
+                                @"price":swipe.price,
+                                @"seller_name":swipe.sellerName,
+                                @"listing_time":@(swipe.listingTime),
+                                @"location_name":swipe.locationName,
+                                @"seller_rating":@(swipe.sellerRating)};
+    NSDictionary *childUpdates = @{[@"/swipes/" stringByAppendingString:key]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes/%@/%@/", userID, key]: swipeDict};
+    
+    [self.dbRef updateChildValues:childUpdates];
 }
 
 - (NSArray *)swipes {
