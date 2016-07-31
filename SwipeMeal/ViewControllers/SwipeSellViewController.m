@@ -7,6 +7,7 @@
 //
 
 #import "SwipeSellViewController.h"
+#import "SwipeSellDetailViewController.h"
 #import "Swipe.h"
 #import "SwipeMeal-Swift.h"
 
@@ -127,6 +128,19 @@
         //
     }];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_SwipeSellViewController_SwipeSellDetailViewController"]) {
+        SwipeSellDetailViewController *swipeSellDetailViewController = (SwipeSellDetailViewController *)[segue destinationViewController];
+        swipeSellDetailViewController.swipe = self.swipe;
+    }
+}
+
+- (IBAction)didTapContinueButton:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"Segue_SwipeSellViewController_SwipeSellDetailViewController" sender:nil];
+}
+
+#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     // Show the keyboard if editing the location text field.

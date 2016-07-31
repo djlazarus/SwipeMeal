@@ -11,6 +11,7 @@
 		1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */; };
 		1613C0911D28987000F7BC3B /* MessagesDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */; };
 		1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */; };
+		161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */; };
 		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		168656B41D1EB99F004CE47D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168656B21D1EB99F004CE47D /* Main.storyboard */; };
 		168656BA1D1EC830004CE47D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656B91D1EC830004CE47D /* HomeViewController.m */; };
@@ -75,6 +76,8 @@
 		1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailChildViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailChildViewController.m; sourceTree = "<group>"; };
 		1613C0921D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyConfirmViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyConfirmViewController.h; sourceTree = "<group>"; };
 		1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyConfirmViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyConfirmViewController.m; sourceTree = "<group>"; };
+		161D1B931D4E6F41005B7FC2 /* SwipeSellDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeSellDetailViewController.h; path = SwipeMeal/ViewControllers/SwipeSellDetailViewController.h; sourceTree = "<group>"; };
+		161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeSellDetailViewController.m; sourceTree = "<group>"; };
 		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
 		164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyTableViewCell.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.m; sourceTree = "<group>"; };
 		168656B31D1EB99F004CE47D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 			children = (
 				16EF77C61D4D958C00B16E70 /* SwipeSellViewController.h */,
 				16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */,
+				161D1B931D4E6F41005B7FC2 /* SwipeSellDetailViewController.h */,
+				161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */,
 			);
 			name = Selling;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				CE6766921D09FE25003D6EF0 /* ErrorPresenterViewController.swift in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE34EA571D1895F6003408EB /* UIColor+Extensions.swift in Sources */,
+				161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */,
 				168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */,
 				16ABC4BB1D4C04EC00A2AAA4 /* SwipeListViewController.m in Sources */,
 				CE34EA511D1870BB003408EB /* SwipeMealRoundedButton.swift in Sources */,
