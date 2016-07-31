@@ -561,6 +561,7 @@
                     <connections>
                         <outlet property="tableView" destination="lMJ-Il-GgX" id="s87-WG-Y2I"/>
                         <segue destination="sPV-bV-ycX" kind="show" identifier="Segue_HomeViewController_SwipeListViewController" id="5cR-VL-Pfx"/>
+                        <segue destination="lFQ-6l-ZqS" kind="show" identifier="Segue_HomeViewController_SwipeSellViewController" id="YqJ-m5-UFs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGB-2k-TiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -573,7 +574,15 @@
                 <viewControllerPlaceholder storyboardName="Buying" referencedIdentifier="SwipeListViewController" id="sPV-bV-ycX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEN-Y8-WDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190.5" y="-795"/>
+            <point key="canvasLocation" x="2190.5" y="-755"/>
+        </scene>
+        <!--SwipeSellViewController-->
+        <scene sceneID="nO4-La-qTc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Selling" referencedIdentifier="SwipeSellViewController" id="lFQ-6l-ZqS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Tr-S6-Gcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2191" y="-549"/>
         </scene>
         <!--Item-->
         <scene sceneID="HpS-Vc-v54">

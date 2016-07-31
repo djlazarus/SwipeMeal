@@ -34,7 +34,7 @@
 }
 
 - (void)setSwipe:(Swipe *)swipe {
-    self.priceLabel.text = [NSString stringWithFormat:@"$%@", swipe.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.price];
     self.mainImageView.image = swipe.sellerImage;
     self.nameLabel.text = swipe.sellerName;
     self.timeLabel.text = @"TIME";
