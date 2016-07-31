@@ -99,6 +99,7 @@ typedef enum : NSUInteger {
             break;
             
         case 2:
+            [self performSegueWithIdentifier:@"Segue_HomeViewController_SwipeSellViewController" sender:nil];
             break;
             
         default:
