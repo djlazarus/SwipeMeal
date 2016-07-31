@@ -560,7 +560,7 @@
                     <navigationItem key="navigationItem" title="Swipes" id="wIo-sk-Jjx"/>
                     <connections>
                         <outlet property="tableView" destination="lMJ-Il-GgX" id="s87-WG-Y2I"/>
-                        <segue destination="sPV-bV-ycX" kind="show" identifier="Segue_HomeViewController_SwipeListViewController" id="5cR-VL-Pfx"/>
+                        <segue destination="sPV-bV-ycX" kind="show" identifier="Segue_HomeViewController_SwipeBuyViewController" id="5cR-VL-Pfx"/>
                         <segue destination="lFQ-6l-ZqS" kind="show" identifier="Segue_HomeViewController_SwipeSellViewController" id="YqJ-m5-UFs"/>
                     </connections>
                 </viewController>
@@ -568,10 +568,10 @@
             </objects>
             <point key="canvasLocation" x="1517" y="-647"/>
         </scene>
-        <!--SwipeListViewController-->
+        <!--SwipeBuyViewController-->
         <scene sceneID="rhd-2l-DyO">
             <objects>
-                <viewControllerPlaceholder storyboardName="Buying" referencedIdentifier="SwipeListViewController" id="sPV-bV-ycX" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Buying" referencedIdentifier="SwipeBuyViewController" id="sPV-bV-ycX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEN-Y8-WDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2190.5" y="-755"/>

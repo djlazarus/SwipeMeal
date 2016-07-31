@@ -5,10 +5,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Swipe List View Controller-->
+        <!--Swipe Buy View Controller-->
         <scene sceneID="9HM-nU-2ad">
             <objects>
-                <viewController storyboardIdentifier="SwipeListViewController" id="9MD-RG-Z4Q" customClass="SwipeListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SwipeBuyViewController" id="9MD-RG-Z4Q" customClass="SwipeBuyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D69-ou-trQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Fki-de-zby"/>
