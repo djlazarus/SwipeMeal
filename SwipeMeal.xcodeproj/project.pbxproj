@@ -289,12 +289,12 @@
 		CE2782DF1CE7FFE800039014 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */,
 				CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */,
 				CE2782CF1CE7EA4200039014 /* SignIn.storyboard */,
 				CE1D775F1CF644620071D249 /* SignUp.storyboard */,
 				CE34EA451D146178003408EB /* Onboarding.storyboard */,
 				168656B21D1EB99F004CE47D /* Main.storyboard */,
+				16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
