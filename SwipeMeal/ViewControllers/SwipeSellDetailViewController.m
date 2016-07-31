@@ -7,6 +7,7 @@
 //
 
 #import "SwipeSellDetailViewController.h"
+@import Firebase;
 
 @interface SwipeSellDetailViewController ()
 
@@ -15,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *confirmTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *confirmLocationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -23,8 +25,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.dbRef = [[FIRDatabase database] reference];
+    self.swipe.sellerName = @"Jacob H.";
+    self.swipe.sellerRating = 5;
+    
     self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
-    self.confirmTimeLabel.text = [NSString stringWithFormat:@"%f", self.swipe.availableTime];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
+    self.confirmTimeLabel.text = [self timeStringFromDate:date];
     self.confirmLocationLabel.text = self.swipe.locationName;
 }
 
@@ -37,8 +44,31 @@
     self.topImageView.image = [UIImage imageWithData:data];
 }
 
-- (IBAction)didTapContinueButton:(UIButton *)sender {
+- (NSString *)timeStringFromDate:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mm a"];
     
+    NSString *timeString = [formatter stringFromDate:date];
+    return timeString;
+}
+
+- (void)createNewSwipe {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSString *key = [[self.dbRef child:@"swipes"] childByAutoId].key;
+    NSDictionary *swipeDict = @{@"uid":userID,
+                                @"price":@(self.swipe.price),
+                                @"seller_name":self.swipe.sellerName,
+                                @"listing_time":@(self.swipe.listingTime),
+                                @"location_name":self.swipe.locationName,
+                                @"seller_rating":@(self.swipe.sellerRating)};
+    NSDictionary *childUpdates = @{[@"/swipes/" stringByAppendingString:key]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes/%@/%@/", userID, key]: swipeDict};
+    
+    [self.dbRef updateChildValues:childUpdates];
+}
+
+- (IBAction)didTapContinueButton:(UIButton *)sender {
+    [self createNewSwipe];
 }
 
 @end

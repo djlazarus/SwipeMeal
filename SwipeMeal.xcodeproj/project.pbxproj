@@ -222,7 +222,7 @@
 			name = "Buying Swipes";
 			sourceTree = "<group>";
 		};
-		16EF77C91D4D959100B16E70 /* Selling */ = {
+		16EF77C91D4D959100B16E70 /* Selling Swipes */ = {
 			isa = PBXGroup;
 			children = (
 				16EF77C61D4D958C00B16E70 /* SwipeSellViewController.h */,
@@ -230,7 +230,7 @@
 				161D1B931D4E6F41005B7FC2 /* SwipeSellDetailViewController.h */,
 				161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */,
 			);
-			name = Selling;
+			name = "Selling Swipes";
 			sourceTree = "<group>";
 		};
 		CE1D77641CF76CBF0071D249 /* Extensions */ = {
@@ -329,7 +329,7 @@
 				CE34EA541D189233003408EB /* AddProfileImageViewController.swift */,
 				168656BB1D1EC9B7004CE47D /* Home */,
 				16ABC4BC1D4C04F600A2AAA4 /* Buying Swipes */,
-				16EF77C91D4D959100B16E70 /* Selling */,
+				16EF77C91D4D959100B16E70 /* Selling Swipes */,
 				168656C81D1F15BA004CE47D /* Messages */,
 			);
 			name = "View Controllers";
