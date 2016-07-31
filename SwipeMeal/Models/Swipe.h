@@ -11,11 +11,13 @@
 
 @interface Swipe : NSObject
 
-@property (strong, nonatomic) NSNumber *price;
+@property (nonatomic) NSInteger price;
 @property (strong, nonatomic) UIImage *sellerImage;
 @property (strong, nonatomic) NSString *sellerName;
 @property (strong, nonatomic) NSString *locationName;
+@property (nonatomic) NSTimeInterval availableTime;
 @property (nonatomic) NSTimeInterval listingTime;
 @property (nonatomic) NSInteger sellerRating;
+@property (nonatomic, getter=isValid) BOOL valid;
 
 @end

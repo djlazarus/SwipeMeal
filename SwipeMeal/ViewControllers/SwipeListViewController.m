@@ -65,7 +65,7 @@
     Swipe *swipe = [[Swipe alloc] init];
     swipe.sellerName = [attrs objectForKey:@"seller_name"];
     swipe.sellerRating = [[attrs objectForKey:@"seller_rating"] integerValue];
-    swipe.price = [attrs objectForKey:@"price"];
+    swipe.price = [[attrs objectForKey:@"price"] integerValue];
     swipe.locationName = [attrs objectForKey:@"location_name"];
     swipe.listingTime = [[attrs objectForKey:@"listing_time"] floatValue];
     
@@ -80,7 +80,7 @@
     NSString *key = [[self.dbRef child:@"swipes"] childByAutoId].key;
     Swipe *swipe = [[self swipes] objectAtIndex:1];
     NSDictionary *swipeDict = @{@"uid":userID,
-                                @"price":swipe.price,
+                                @"price":@(swipe.price),
                                 @"seller_name":swipe.sellerName,
                                 @"listing_time":@(swipe.listingTime),
                                 @"location_name":swipe.locationName,

@@ -10,4 +10,13 @@
 
 @implementation Swipe
 
+- (BOOL)isValid {
+    BOOL valid = NO;
+    if (self.price > 0 && self.locationName.length > 0 && self.availableTime > 0) {
+        valid = YES;
+    }
+    
+    return valid;
+}
+
 @end

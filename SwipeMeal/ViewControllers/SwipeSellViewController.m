@@ -7,6 +7,7 @@
 //
 
 #import "SwipeSellViewController.h"
+#import "Swipe.h"
 #import "SwipeMeal-Swift.h"
 
 @interface SwipeSellViewController () <UITextFieldDelegate>
@@ -20,9 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 
-@property (nonatomic) NSInteger price;
-@property (strong, nonatomic) NSString *location;
-@property (nonatomic) NSTimeInterval time;
+@property (strong, nonatomic) Swipe *swipe;
 
 @end
 
@@ -31,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Swipe
+    self.swipe = [[Swipe alloc] init];
+    
     // Slider
     [self.slider addTarget:self action:@selector(updatePrice:) forControlEvents:UIControlEventAllEvents];
     self.slider.thumbTintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
@@ -68,37 +70,34 @@
         [self hideDatePicker];
     }
     
-    self.price = slider.value;
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.price];
+    self.swipe.price = (NSInteger)slider.value;
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
+    
+    [self checkFormValidity];
+}
+
+- (void)updateLocation:(NSString *)location {
+    self.swipe.locationName = location;
     
     [self checkFormValidity];
 }
 
 - (void)updateTime:(UIDatePicker *)datePicker {
     // Store the time in seconds
-    self.time = [datePicker.date timeIntervalSince1970];
+    self.swipe.availableTime = [datePicker.date timeIntervalSince1970];
     self.timeTextField.text = [self timeStringFromDate:datePicker.date];
     
     [self checkFormValidity];
 }
 
 - (void)checkFormValidity {
-    if ([self formIsValid]) {
+    if (self.swipe.valid) {
         self.continueButton.enabled = YES;
         self.continueButton.backgroundColor = [[UIColor alloc] initWithHexString:@"6BB739"];
     } else {
         self.continueButton.enabled = NO;
         self.continueButton.backgroundColor = [UIColor lightGrayColor];
     }
-}
-
-- (BOOL)formIsValid {
-    BOOL valid = NO;
-    if (self.locationTextField.text.length > 0 && self.timeTextField.text.length > 0) {
-        valid = YES;
-    }
-    
-    return valid;
 }
 
 - (NSString *)timeStringFromDate:(NSDate *)date {
@@ -141,6 +140,12 @@
     [self.locationTextField resignFirstResponder];
     [self showDatePicker];
     return NO;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (textField == self.locationTextField) {
+        [self updateLocation:textField.text];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
