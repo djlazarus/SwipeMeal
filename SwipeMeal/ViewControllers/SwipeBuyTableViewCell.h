@@ -1,5 +1,5 @@
 //
-//  SwipeListTableViewCell.h
+//  SwipeBuyTableViewCell.h
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 7/29/16.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Swipe.h"
 
-@interface SwipeListTableViewCell : UITableViewCell
+@interface SwipeBuyTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) Swipe *swipe;
 

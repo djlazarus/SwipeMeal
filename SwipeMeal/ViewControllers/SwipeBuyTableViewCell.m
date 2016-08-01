@@ -1,14 +1,14 @@
 //
-//  SwipeListTableViewCell.m
+//  SwipeBuyTableViewCell.m
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 7/29/16.
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
-#import "SwipeListTableViewCell.h"
+#import "SwipeBuyTableViewCell.h"
 
-@interface SwipeListTableViewCell ()
+@interface SwipeBuyTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation SwipeListTableViewCell
+@implementation SwipeBuyTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

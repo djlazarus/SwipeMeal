@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
+		16114D161D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */; };
 		1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */; };
 		1613C0911D28987000F7BC3B /* MessagesDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */; };
 		1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */; };
@@ -26,7 +27,7 @@
 		168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656D61D204CB3004CE47D /* MessagesDetailReplyViewController.m */; };
 		16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */; };
 		16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */; };
-		16ABC4C21D4C3FDE00A2AAA4 /* SwipeListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeListTableViewCell.m */; };
+		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
 		16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EF77C31D4D955F00B16E70 /* Selling.storyboard */; };
 		16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */; };
@@ -71,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16114D141D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyDetailViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyDetailViewController.h; sourceTree = "<group>"; };
+		16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyDetailViewController.m; sourceTree = "<group>"; };
 		1613C08C1D2867FA00F7BC3B /* MessagesDetailChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailChoiceViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailChoiceViewController.h; sourceTree = "<group>"; };
 		1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailChoiceViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailChoiceViewController.m; sourceTree = "<group>"; };
 		1613C08F1D28987000F7BC3B /* MessagesDetailChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailChildViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailChildViewController.h; sourceTree = "<group>"; };
@@ -106,8 +109,8 @@
 		16ABC4B91D4C04EC00A2AAA4 /* SwipeBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyViewController.h; sourceTree = "<group>"; };
 		16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyViewController.m; sourceTree = "<group>"; };
 		16ABC4BE1D4C06A400A2AAA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Buying.storyboard; sourceTree = "<group>"; };
-		16ABC4C01D4C3FDE00A2AAA4 /* SwipeListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeListTableViewCell.h; path = SwipeMeal/ViewControllers/SwipeListTableViewCell.h; sourceTree = "<group>"; };
-		16ABC4C11D4C3FDE00A2AAA4 /* SwipeListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeListTableViewCell.m; path = SwipeMeal/ViewControllers/SwipeListTableViewCell.m; sourceTree = "<group>"; };
+		16ABC4C01D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyTableViewCell.h; path = SwipeMeal/ViewControllers/SwipeBuyTableViewCell.h; sourceTree = "<group>"; };
+		16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyTableViewCell.m; path = SwipeMeal/ViewControllers/SwipeBuyTableViewCell.m; sourceTree = "<group>"; };
 		16ABC4C31D4C40B700A2AAA4 /* Swipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swipe.h; path = SwipeMeal/Models/Swipe.h; sourceTree = "<group>"; };
 		16ABC4C41D4C40B800A2AAA4 /* Swipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swipe.m; path = SwipeMeal/Models/Swipe.m; sourceTree = "<group>"; };
 		16EF77C41D4D955F00B16E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Selling.storyboard; sourceTree = "<group>"; };
@@ -219,8 +222,10 @@
 			children = (
 				16ABC4B91D4C04EC00A2AAA4 /* SwipeBuyViewController.h */,
 				16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */,
-				16ABC4C01D4C3FDE00A2AAA4 /* SwipeListTableViewCell.h */,
-				16ABC4C11D4C3FDE00A2AAA4 /* SwipeListTableViewCell.m */,
+				16ABC4C01D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.h */,
+				16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */,
+				16114D141D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.h */,
+				16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */,
 			);
 			name = "Buying Swipes";
 			sourceTree = "<group>";
@@ -593,7 +598,7 @@
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,
 				168656D41D204636004CE47D /* MessagesDetailViewController.m in Sources */,
-				16ABC4C21D4C3FDE00A2AAA4 /* SwipeListTableViewCell.m in Sources */,
+				16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
 				168656CB1D1F29BD004CE47D /* MessagesTableViewCell.m in Sources */,
@@ -605,6 +610,7 @@
 				16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */,
 				16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */,
 				168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */,
+				16114D161D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m in Sources */,
 				CE1D776E1CF7708A0071D249 /* SignUpInfoValidator.swift in Sources */,
 				CE34EA4D1D185CB9003408EB /* SwipeMealNavigationController.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,

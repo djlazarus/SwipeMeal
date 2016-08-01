@@ -8,13 +8,15 @@
 
 #import "SwipeBuyViewController.h"
 #import "Swipe.h"
-#import "SwipeListTableViewCell.h"
+#import "SwipeBuyTableViewCell.h"
+#import "SwipeBuyDetailViewController.h"
 @import Firebase;
 
 @interface SwipeBuyViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *swipes;
+@property (strong, nonatomic) Swipe *selectedSwipe;
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
@@ -68,17 +70,34 @@
     return swipe;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_SwipeBuyViewController_SwipeBuyDetailViewController"]) {
+        SwipeBuyDetailViewController *swipeBuyDetailViewController = (SwipeBuyDetailViewController *)[segue destinationViewController];
+        swipeBuyDetailViewController.swipe = self.selectedSwipe;
+    }
+}
+
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger count = [self.swipes count];
     return count;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SwipeListTableViewCell *cell = (SwipeListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SwipeListTableViewCell"];
+    SwipeBuyTableViewCell *cell = (SwipeBuyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SwipeBuyTableViewCell"];
     Swipe *swipe = [self.swipes objectAtIndex:indexPath.row];
     cell.swipe = swipe;
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedSwipe = [self.swipes objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"Segue_SwipeBuyViewController_SwipeBuyDetailViewController" sender:nil];
+}
+
 
 @end
