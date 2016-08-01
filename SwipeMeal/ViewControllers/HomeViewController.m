@@ -38,6 +38,14 @@ typedef enum : NSUInteger {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor blackColor];
+    
+    // Listen for a notification telling us that a Swipe has been listed and the confirmation screen has been closed
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseListingConfirmation) name:@"didCloseListingConfirmation" object:nil];
+}
+
+- (void)didCloseListingConfirmation {
+    // Switch to Messages
+    self.tabBarController.selectedIndex = 1;
 }
 
 - (NSArray *)dataRows {
