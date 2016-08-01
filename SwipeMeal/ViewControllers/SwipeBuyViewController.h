@@ -1,5 +1,5 @@
 //
-//  SwipeListViewController.h
+//  SwipeBuyViewController.h
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 7/29/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SwipeListViewController : UIViewController
+@interface SwipeBuyViewController : UIViewController
 
 @end

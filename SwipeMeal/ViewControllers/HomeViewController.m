@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "HomeHeaderTableViewCell.h"
 #import "HomeMainTableViewCell.h"
-#import "SwipeListViewController.h"
+#import "SwipeBuyViewController.h"
 #import "SwipeMeal-Swift.h"
 
 typedef enum : NSUInteger {
@@ -38,6 +38,14 @@ typedef enum : NSUInteger {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor blackColor];
+    
+    // Listen for a notification telling us that a Swipe has been listed and the confirmation screen has been closed
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseListingConfirmation) name:@"didCloseListingConfirmation" object:nil];
+}
+
+- (void)didCloseListingConfirmation {
+    // Switch to Messages
+    self.tabBarController.selectedIndex = 1;
 }
 
 - (NSArray *)dataRows {
@@ -95,7 +103,7 @@ typedef enum : NSUInteger {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 1:
-            [self performSegueWithIdentifier:@"Segue_HomeViewController_SwipeListViewController" sender:nil];
+            [self performSegueWithIdentifier:@"Segue_HomeViewController_SwipeBuyViewController" sender:nil];
             break;
             
         case 2:
@@ -108,8 +116,8 @@ typedef enum : NSUInteger {
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"Segue_HomeViewController_SwipeListViewController"]) {
-        SwipeListViewController *swipeListViewController = (SwipeListViewController *)[segue destinationViewController];
+    if ([segue.identifier isEqualToString:@"Segue_HomeViewController_SwipeBuyViewController"]) {
+        SwipeBuyViewController *swipeBuyViewController = (SwipeBuyViewController *)[segue destinationViewController];
         // ?
     }
 }

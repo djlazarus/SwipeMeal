@@ -179,5 +179,55 @@
             </objects>
             <point key="canvasLocation" x="863" y="532"/>
         </scene>
+        <!--Swipe Sell Confirmation View Controller-->
+        <scene sceneID="Rbh-Uh-uhr">
+            <objects>
+                <viewController storyboardIdentifier="SwipeSellConfirmationViewController" id="ltr-zA-amC" customClass="SwipeSellConfirmationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="etO-Nz-lUD"/>
+                        <viewControllerLayoutGuide type="bottom" id="gh0-qv-BJC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pqO-Xm-2Kc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!  Your Swipe has been listed.  Keep up with your Swipe progress by reviewing your messages." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUK-sl-dIk">
+                                <rect key="frame" x="159" y="170" width="282" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="cnp-FN-CvU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6D-C7-wfM">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Fur-2g-0tr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Messages">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapMessagesButton:" destination="ltr-zA-amC" eventType="touchUpInside" id="VQu-3C-AU3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gh0-qv-BJC" firstAttribute="top" secondItem="H6D-C7-wfM" secondAttribute="bottom" id="7Rw-LL-gaG"/>
+                            <constraint firstItem="H6D-C7-wfM" firstAttribute="leading" secondItem="pqO-Xm-2Kc" secondAttribute="leading" id="Scn-O5-6Id"/>
+                            <constraint firstItem="SUK-sl-dIk" firstAttribute="top" secondItem="etO-Nz-lUD" secondAttribute="bottom" constant="150" id="iMP-9y-pNQ"/>
+                            <constraint firstAttribute="trailing" secondItem="H6D-C7-wfM" secondAttribute="trailing" id="ire-ZZ-jX3"/>
+                            <constraint firstItem="SUK-sl-dIk" firstAttribute="centerX" secondItem="pqO-Xm-2Kc" secondAttribute="centerX" id="m2u-cu-pIt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LEx-Zr-Ovz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1557" y="532"/>
+        </scene>
     </scenes>
 </document>

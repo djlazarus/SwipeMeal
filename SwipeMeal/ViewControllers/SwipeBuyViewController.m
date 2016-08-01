@@ -1,17 +1,17 @@
 //
-//  SwipeListViewController.m
+//  SwipeBuyViewController.m
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 7/29/16.
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
-#import "SwipeListViewController.h"
+#import "SwipeBuyViewController.h"
 #import "Swipe.h"
 #import "SwipeListTableViewCell.h"
 @import Firebase;
 
-@interface SwipeListViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SwipeBuyViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *swipes;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation SwipeListViewController
+@implementation SwipeBuyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -7,6 +7,7 @@
 //
 
 #import "SwipeSellDetailViewController.h"
+#import "SwipeSellConfirmationViewController.h"
 @import Firebase;
 
 @interface SwipeSellDetailViewController ()
@@ -64,7 +65,16 @@
     NSDictionary *childUpdates = @{[@"/swipes/" stringByAppendingString:key]: swipeDict,
                                    [NSString stringWithFormat:@"/user-swipes/%@/%@/", userID, key]: swipeDict};
     
-    [self.dbRef updateChildValues:childUpdates];
+    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
+            [self presentViewController:swipeSellConfirmationViewController animated:YES completion:^{
+                [self.navigationController popToRootViewControllerAnimated:NO];
+            }];
+        }
+    }];
 }
 
 - (IBAction)didTapContinueButton:(UIButton *)sender {
