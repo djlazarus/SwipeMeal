@@ -29,6 +29,15 @@
 		16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */; };
 		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
+		16D51EC11D5170C200E3C3F8 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EB91D5170C200E3C3F8 /* Montserrat-Black.otf */; };
+		16D51EC21D5170C200E3C3F8 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EBA1D5170C200E3C3F8 /* Montserrat-Bold.otf */; };
+		16D51EC31D5170C200E3C3F8 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EBB1D5170C200E3C3F8 /* Montserrat-ExtraBold.otf */; };
+		16D51EC41D5170C200E3C3F8 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EBC1D5170C200E3C3F8 /* Montserrat-Hairline.otf */; };
+		16D51EC51D5170C200E3C3F8 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EBD1D5170C200E3C3F8 /* Montserrat-Light.otf */; };
+		16D51EC61D5170C200E3C3F8 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EBE1D5170C200E3C3F8 /* Montserrat-Regular.otf */; };
+		16D51EC71D5170C200E3C3F8 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EBF1D5170C200E3C3F8 /* Montserrat-SemiBold.otf */; };
+		16D51EC81D5170C200E3C3F8 /* Montserrat-UltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16D51EC01D5170C200E3C3F8 /* Montserrat-UltraLight.otf */; };
+		16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */; };
 		16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EF77C31D4D955F00B16E70 /* Selling.storyboard */; };
 		16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */; };
 		CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A128B1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift */; };
@@ -113,6 +122,16 @@
 		16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyTableViewCell.m; path = SwipeMeal/ViewControllers/SwipeBuyTableViewCell.m; sourceTree = "<group>"; };
 		16ABC4C31D4C40B700A2AAA4 /* Swipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swipe.h; path = SwipeMeal/Models/Swipe.h; sourceTree = "<group>"; };
 		16ABC4C41D4C40B800A2AAA4 /* Swipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swipe.m; path = SwipeMeal/Models/Swipe.m; sourceTree = "<group>"; };
+		16D51EB91D5170C200E3C3F8 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		16D51EBA1D5170C200E3C3F8 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		16D51EBB1D5170C200E3C3F8 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		16D51EBC1D5170C200E3C3F8 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		16D51EBD1D5170C200E3C3F8 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		16D51EBE1D5170C200E3C3F8 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		16D51EBF1D5170C200E3C3F8 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		16D51EC01D5170C200E3C3F8 /* Montserrat-UltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-UltraLight.otf"; sourceTree = "<group>"; };
+		16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Utils.h"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.h"; sourceTree = "<group>"; };
+		16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Utils.m"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.m"; sourceTree = "<group>"; };
 		16EF77C41D4D955F00B16E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Selling.storyboard; sourceTree = "<group>"; };
 		16EF77C61D4D958C00B16E70 /* SwipeSellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeSellViewController.h; path = SwipeMeal/ViewControllers/SwipeSellViewController.h; sourceTree = "<group>"; };
 		16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellViewController.m; path = SwipeMeal/ViewControllers/SwipeSellViewController.m; sourceTree = "<group>"; };
@@ -230,6 +249,21 @@
 			name = "Buying Swipes";
 			sourceTree = "<group>";
 		};
+		16D51EC91D5170C700E3C3F8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				16D51EB91D5170C200E3C3F8 /* Montserrat-Black.otf */,
+				16D51EBA1D5170C200E3C3F8 /* Montserrat-Bold.otf */,
+				16D51EBB1D5170C200E3C3F8 /* Montserrat-ExtraBold.otf */,
+				16D51EBC1D5170C200E3C3F8 /* Montserrat-Hairline.otf */,
+				16D51EBD1D5170C200E3C3F8 /* Montserrat-Light.otf */,
+				16D51EBE1D5170C200E3C3F8 /* Montserrat-Regular.otf */,
+				16D51EBF1D5170C200E3C3F8 /* Montserrat-SemiBold.otf */,
+				16D51EC01D5170C200E3C3F8 /* Montserrat-UltraLight.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		16EF77C91D4D959100B16E70 /* Selling Swipes */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +285,8 @@
 				CE6766891D09D450003D6EF0 /* UIStoryboard+Extensions.swift */,
 				CE0A128B1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift */,
 				CE34EA561D1895F6003408EB /* UIColor+Extensions.swift */,
+				16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */,
+				16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2782D21CE7EA4200039014 /* Assets.xcassets */,
+				16D51EC91D5170C700E3C3F8 /* Fonts */,
 				CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */,
 				CE2782D71CE7EA4200039014 /* Info.plist */,
 				168656B71D1EC82F004CE47D /* SwipeMeal-Bridging-Header.h */,
@@ -496,15 +533,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D51EC31D5170C200E3C3F8 /* Montserrat-ExtraBold.otf in Resources */,
 				168656B41D1EB99F004CE47D /* Main.storyboard in Resources */,
 				CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */,
 				CE23E5601CF37DAB00B3161D /* GoogleService-Info.plist in Resources */,
 				CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */,
+				16D51EC51D5170C200E3C3F8 /* Montserrat-Light.otf in Resources */,
 				CE34EA471D146178003408EB /* Onboarding.storyboard in Resources */,
 				16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */,
+				16D51EC61D5170C200E3C3F8 /* Montserrat-Regular.otf in Resources */,
+				16D51EC71D5170C200E3C3F8 /* Montserrat-SemiBold.otf in Resources */,
+				16D51EC41D5170C200E3C3F8 /* Montserrat-Hairline.otf in Resources */,
+				16D51EC11D5170C200E3C3F8 /* Montserrat-Black.otf in Resources */,
+				16D51EC81D5170C200E3C3F8 /* Montserrat-UltraLight.otf in Resources */,
 				CE2782D11CE7EA4200039014 /* SignIn.storyboard in Resources */,
 				16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */,
 				CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */,
+				16D51EC21D5170C200E3C3F8 /* Montserrat-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +631,7 @@
 				1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */,
 				CE6766961D09FE2E003D6EF0 /* SignUpViewController.swift in Sources */,
 				CE34EA4F1D1861F3003408EB /* SwipeMealUserStorage.swift in Sources */,
+				16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */,
 				CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */,
 				CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */,
 				168656BA1D1EC830004CE47D /* HomeViewController.m in Sources */,
