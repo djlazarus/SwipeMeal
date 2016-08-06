@@ -1,14 +1,15 @@
 //
-//  SwipeListTableViewCell.m
+//  SwipeBuyTableViewCell.m
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 7/29/16.
 //  Copyright © 2016 Incipia. All rights reserved.
 //
 
-#import "SwipeListTableViewCell.h"
+#import "SwipeBuyTableViewCell.h"
+@import Firebase;
 
-@interface SwipeListTableViewCell ()
+@interface SwipeBuyTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
@@ -26,7 +27,7 @@
 
 @end
 
-@implementation SwipeListTableViewCell
+@implementation SwipeBuyTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -34,8 +35,9 @@
 }
 
 - (void)setSwipe:(Swipe *)swipe {
+    [self startDownloadingProfileImage];
+    
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.price];
-    self.mainImageView.image = swipe.sellerImage;
     self.nameLabel.text = swipe.sellerName;
     self.timeLabel.text = @"TIME";
     self.locationLabel.text = swipe.locationName;
@@ -55,6 +57,21 @@
         starImageView.image = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         starImageView.tintColor = [UIColor colorWithRed:184.0/255 green:184.0/255 blue:184.0/255 alpha:1.0];
     }
+}
+
+- (void)startDownloadingProfileImage {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    FIRStorage *storage = [FIRStorage storage];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", userID];
+    FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
+    [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            self.mainImageView.image = image;
+        } else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 @end
