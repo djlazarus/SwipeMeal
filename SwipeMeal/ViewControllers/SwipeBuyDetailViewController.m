@@ -8,6 +8,7 @@
 
 #import "SwipeBuyDetailViewController.h"
 #import "SwipeMeal-Swift.h"
+@import Firebase;
 
 @interface SwipeBuyDetailViewController ()
 
@@ -28,8 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self startDownloadingProfileImage];
+    
     self.nameLabel.text = self.swipe.sellerName;
-    self.mainImageView.image = [UIImage imageNamed:@"temp-greg"];
     self.swipesLabel.text = @"7";
     self.salesLabel.text = @"42";
     
@@ -40,6 +42,21 @@
         starImageView.image = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         starImageView.tintColor = [UIColor colorWithRed:184.0/255 green:184.0/255 blue:184.0/255 alpha:1.0];
     }
+}
+
+- (void)startDownloadingProfileImage {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    FIRStorage *storage = [FIRStorage storage];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", userID];
+    FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
+    [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            self.mainImageView.image = image;
+        } else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 @end
