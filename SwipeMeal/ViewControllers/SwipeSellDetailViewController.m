@@ -26,9 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Listen for a notification telling us that a Swipe has been either sold or listed and the confirmation screen has been closed
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseConfirmation) name:@"didCloseConfirmation" object:nil];
-    
     self.dbRef = [[FIRDatabase database] reference];
     self.swipe.sellerName = @"Jacob H.";
     self.swipe.sellerRating = 5;
@@ -76,10 +73,6 @@
             [self presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
         }
     }];
-}
-
-- (void)didCloseConfirmation {
-    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)didTapContinueButton:(UIButton *)sender {
