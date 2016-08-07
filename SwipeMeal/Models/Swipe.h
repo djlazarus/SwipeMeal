@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSString *locationName;
 @property (nonatomic) NSTimeInterval availableTime;
 @property (nonatomic) NSTimeInterval listingTime;
+@property (nonatomic) NSTimeInterval soldTime;
+@property (nonatomic) NSTimeInterval expireTime;
 @property (nonatomic) NSInteger sellerRating;
 @property (nonatomic, getter=isValid) BOOL valid;
 

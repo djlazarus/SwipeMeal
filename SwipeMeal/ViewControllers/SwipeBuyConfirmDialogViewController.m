@@ -7,7 +7,9 @@
 //
 
 #import "SwipeBuyConfirmDialogViewController.h"
+#import "SwipeBuyConfirmationViewController.h"
 #import "SwipeMeal-Swift.h"
+@import Firebase;
 
 @interface SwipeBuyConfirmDialogViewController ()
 @property (weak, nonatomic) IBOutlet CircularImageView *mainImageView;
@@ -17,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *acceptButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -24,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.dbRef = [[FIRDatabase database] reference];
     
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.price];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
@@ -37,7 +42,35 @@
     self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
 }
 
+- (void)buySwipe {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+    NSDictionary *swipeDict = @{@"uid":userID,
+                                @"sold_time":@(timestamp),
+                                @"price":@(self.swipe.price),
+                                @"seller_name":self.swipe.sellerName,
+                                @"listing_time":@(self.swipe.listingTime),
+                                @"location_name":self.swipe.locationName,
+                                @"seller_rating":@(self.swipe.sellerRating)};
+    NSDictionary *childUpdates = @{[@"/swipes-sold/" stringByAppendingString:self.swipe.swipeID]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes-sold/%@/%@/", userID, self.swipe.swipeID]: swipeDict};
+    
+    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            // Remove the listing
+            [[[self.dbRef child:@"swipes-listed"] child:self.swipe.swipeID] removeValue];
+            [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
+            
+            SwipeBuyConfirmationViewController *swipeBuyConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeBuyConfirmationViewController"];
+            [self presentViewController:swipeBuyConfirmationViewController animated:YES completion:nil];
+        }
+    }];
+}
+
 - (IBAction)didTapAcceptButton:(UIButton *)sender {
+    [self buySwipe];
 }
 
 - (IBAction)didTapCancelButton:(UIButton *)sender {

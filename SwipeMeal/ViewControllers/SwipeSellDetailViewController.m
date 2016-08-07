@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Listen for a notification telling us that a Swipe has been either sold or listed and the confirmation screen has been closed
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseConfirmation) name:@"didCloseConfirmation" object:nil];
+    
     self.dbRef = [[FIRDatabase database] reference];
     self.swipe.sellerName = @"Jacob H.";
     self.swipe.sellerRating = 5;
@@ -55,26 +58,28 @@
 
 - (void)createNewSwipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
-    NSString *key = [[self.dbRef child:@"swipes"] childByAutoId].key;
+    NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
     NSDictionary *swipeDict = @{@"uid":userID,
                                 @"price":@(self.swipe.price),
                                 @"seller_name":self.swipe.sellerName,
                                 @"listing_time":@(self.swipe.listingTime),
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
-    NSDictionary *childUpdates = @{[@"/swipes/" stringByAppendingString:key]: swipeDict,
-                                   [NSString stringWithFormat:@"/user-swipes/%@/%@/", userID, key]: swipeDict};
+    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, key]: swipeDict};
     
     [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
             NSLog(@"%@", error);
         } else {
             SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
-            [self presentViewController:swipeSellConfirmationViewController animated:YES completion:^{
-                [self.navigationController popToRootViewControllerAnimated:NO];
-            }];
+            [self presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
         }
     }];
+}
+
+- (void)didCloseConfirmation {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (IBAction)didTapContinueButton:(UIButton *)sender {

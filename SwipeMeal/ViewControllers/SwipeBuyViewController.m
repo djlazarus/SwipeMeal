@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dbRef = [[FIRDatabase database] referenceWithPath:@"/swipes/"];
+    self.dbRef = [[FIRDatabase database] referenceWithPath:@"/swipes-listed/"];
     self.swipeStore = [SwipeStore sharedSwipeStore];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

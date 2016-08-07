@@ -474,6 +474,91 @@
             </objects>
             <point key="canvasLocation" x="2031" y="1076"/>
         </scene>
+        <!--Swipe Buy Confirmation View Controller-->
+        <scene sceneID="CD9-XR-mtS">
+            <objects>
+                <viewController storyboardIdentifier="SwipeBuyConfirmationViewController" id="Hkd-za-R12" customClass="SwipeBuyConfirmationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UjC-Mn-cRq"/>
+                        <viewControllerLayoutGuide type="bottom" id="4TB-Fz-pas"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X2B-Pr-gZH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gdA-P6-wY9">
+                                <rect key="frame" x="159" y="180" width="282" height="141"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! You should head to:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVl-sp-14a">
+                                        <rect key="frame" x="0.0" y="0.0" width="282" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3i-C8-Xep">
+                                        <rect key="frame" x="0.0" y="39" width="282" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="so you can Swipe with:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXb-Dw-TsD">
+                                        <rect key="frame" x="0.0" y="78" width="282" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETp-sq-enU">
+                                        <rect key="frame" x="0.0" y="117" width="282" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8um-p2-Jtr">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jKJ-8j-U3H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Messages">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapMessagesButton:" destination="Hkd-za-R12" eventType="touchUpInside" id="op9-06-aeW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep up with your Swipe progress by reviewing your messages." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPD-f9-5Ux">
+                                <rect key="frame" x="159" y="414" width="282" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="JoL-A2-66X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qPD-f9-5Ux" firstAttribute="centerX" secondItem="X2B-Pr-gZH" secondAttribute="centerX" id="7GO-Vb-XNz"/>
+                            <constraint firstItem="gdA-P6-wY9" firstAttribute="centerY" secondItem="X2B-Pr-gZH" secondAttribute="centerY" constant="-50" id="Knk-od-8Eg"/>
+                            <constraint firstItem="8um-p2-Jtr" firstAttribute="leading" secondItem="X2B-Pr-gZH" secondAttribute="leading" id="LNg-MU-Tkc"/>
+                            <constraint firstItem="4TB-Fz-pas" firstAttribute="top" secondItem="8um-p2-Jtr" secondAttribute="bottom" id="M7e-XG-Hgu"/>
+                            <constraint firstItem="gdA-P6-wY9" firstAttribute="centerX" secondItem="X2B-Pr-gZH" secondAttribute="centerX" id="Sdy-0p-cwE"/>
+                            <constraint firstItem="8um-p2-Jtr" firstAttribute="top" secondItem="qPD-f9-5Ux" secondAttribute="bottom" constant="95" id="ysd-HM-UBh"/>
+                            <constraint firstAttribute="trailing" secondItem="8um-p2-Jtr" secondAttribute="trailing" id="z4n-R8-Yqd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="locationLabel" destination="Z3i-C8-Xep" id="oEg-Q0-N1a"/>
+                        <outlet property="sellerLabel" destination="ETp-sq-enU" id="2bI-Fh-Jet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wl4-w7-EEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2697" y="1076"/>
+        </scene>
     </scenes>
     <resources>
         <image name="buy-location" width="200" height="200"/>
