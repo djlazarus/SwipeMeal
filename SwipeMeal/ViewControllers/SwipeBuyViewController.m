@@ -37,14 +37,18 @@
 
 - (void)listenForEvents {
     [self.dbRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        Swipe *swipe = [self swipeWithSnapshot:snapshot];
-        if ([_swipeStore containsSwipeKey:swipe.swipeID]) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[self.swipeStore swipesSortedByPriceAscending] count] - 1 inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        } else {
-            [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
-            NSLog(@"ADDED: %@", swipe);
-            [self.tableView reloadData];
+        // Test for expired Swipe
+        if (![self snapshotIsExpired:snapshot]) {
+            // Build Swipe
+            Swipe *swipe = [self swipeWithSnapshot:snapshot];
+            if ([_swipeStore containsSwipeKey:swipe.swipeID]) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[self.swipeStore swipesSortedByPriceAscending] count] - 1 inSection:0];
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            } else {
+                [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
+                NSLog(@"ADDED: %@", swipe);
+                [self.tableView reloadData];
+            }
         }
     }];
     
@@ -56,6 +60,16 @@
     }];
 }
 
+- (BOOL)snapshotIsExpired:(FIRDataSnapshot *)snapshot {
+    NSTimeInterval expirationTimestamp = [[snapshot.value objectForKey:@"expiration_time"] floatValue];
+    NSTimeInterval currentTimestamp = [[NSDate date] timeIntervalSince1970];
+    if (currentTimestamp >= expirationTimestamp) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 - (Swipe *)swipeWithSnapshot:(FIRDataSnapshot *)snapshot {
     Swipe *swipe = [[Swipe alloc] init];
     swipe.swipeID = snapshot.key;
@@ -64,6 +78,7 @@
     swipe.price = [[snapshot.value objectForKey:@"price"] integerValue];
     swipe.locationName = [snapshot.value objectForKey:@"location_name"];
     swipe.listingTime = [[snapshot.value objectForKey:@"listing_time"] floatValue];
+    swipe.expireTime = [[snapshot.value objectForKey:@"expiration_time"] floatValue];
     
     return swipe;
 }

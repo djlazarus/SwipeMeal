@@ -56,10 +56,20 @@
 - (void)createNewSwipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
+    
+    // Listing timestamp
+    NSDate *listingDate = [NSDate date];
+    NSTimeInterval listingTimestamp = [listingDate timeIntervalSince1970];
+    
+    // Expiration timestamp
+    NSDate *expirationDate = [listingDate dateByAddingTimeInterval:30];
+    NSTimeInterval expirationTimestamp = [expirationDate timeIntervalSince1970];
+    
     NSDictionary *swipeDict = @{@"uid":userID,
                                 @"price":@(self.swipe.price),
                                 @"seller_name":self.swipe.sellerName,
-                                @"listing_time":@(self.swipe.listingTime),
+                                @"listing_time":@(listingTimestamp),
+                                @"expiration_time":@(expirationTimestamp),
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
     NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: swipeDict,
