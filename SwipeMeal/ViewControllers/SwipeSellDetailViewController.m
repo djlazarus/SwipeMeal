@@ -60,15 +60,16 @@
     // Listing timestamp
     NSDate *listingDate = [NSDate date];
     NSTimeInterval listingTimestamp = [listingDate timeIntervalSince1970];
-    
+
     // Expiration timestamp
-    NSDate *expirationDate = [listingDate dateByAddingTimeInterval:30];
+    NSDate *expirationDate = [[NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime] dateByAddingTimeInterval:60 * 60 * 24];
     NSTimeInterval expirationTimestamp = [expirationDate timeIntervalSince1970];
     
     NSDictionary *swipeDict = @{@"uid":userID,
                                 @"price":@(self.swipe.price),
                                 @"seller_name":self.swipe.sellerName,
                                 @"listing_time":@(listingTimestamp),
+                                @"available_time":@(self.swipe.availableTime),
                                 @"expiration_time":@(expirationTimestamp),
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
