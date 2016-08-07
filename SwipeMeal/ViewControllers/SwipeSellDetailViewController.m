@@ -55,24 +55,33 @@
 
 - (void)createNewSwipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
-    NSString *key = [[self.dbRef child:@"swipes"] childByAutoId].key;
+    NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
+    
+    // Listing timestamp
+    NSDate *listingDate = [NSDate date];
+    NSTimeInterval listingTimestamp = [listingDate timeIntervalSince1970];
+
+    // Expiration timestamp
+    NSDate *expirationDate = [[NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime] dateByAddingTimeInterval:60 * 60 * 24];
+    NSTimeInterval expirationTimestamp = [expirationDate timeIntervalSince1970];
+    
     NSDictionary *swipeDict = @{@"uid":userID,
                                 @"price":@(self.swipe.price),
                                 @"seller_name":self.swipe.sellerName,
-                                @"listing_time":@(self.swipe.listingTime),
+                                @"listing_time":@(listingTimestamp),
+                                @"available_time":@(self.swipe.availableTime),
+                                @"expiration_time":@(expirationTimestamp),
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
-    NSDictionary *childUpdates = @{[@"/swipes/" stringByAppendingString:key]: swipeDict,
-                                   [NSString stringWithFormat:@"/user-swipes/%@/%@/", userID, key]: swipeDict};
+    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, key]: swipeDict};
     
     [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
             NSLog(@"%@", error);
         } else {
             SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
-            [self presentViewController:swipeSellConfirmationViewController animated:YES completion:^{
-                [self.navigationController popToRootViewControllerAnimated:NO];
-            }];
+            [self presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
         }
     }];
 }

@@ -7,11 +7,13 @@
 //
 
 #import "SwipeBuyDetailViewController.h"
+#import "SwipeBuyConfirmDialogViewController.h"
 #import "SwipeMeal-Swift.h"
 @import Firebase;
 
 @interface SwipeBuyDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet SwipeMealAddProfileImageButton *buyButton;
 @property (weak, nonatomic) IBOutlet CircularImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *swipesLabel;
@@ -31,6 +33,7 @@
     
     [self startDownloadingProfileImage];
     
+    self.buyButton.backgroundColor = [[UIColor alloc] initWithHexString:@"6BB739"];
     self.nameLabel.text = self.swipe.sellerName;
     self.swipesLabel.text = @"7";
     self.salesLabel.text = @"42";
@@ -57,6 +60,17 @@
             NSLog(@"%@", error);
         }
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController"]) {
+        SwipeBuyConfirmDialogViewController *swipeBuyConfirmDialogViewController = (SwipeBuyConfirmDialogViewController *)[segue destinationViewController];
+        swipeBuyConfirmDialogViewController.swipe = self.swipe;
+    }
+}
+
+- (IBAction)didTapBuyButton:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController" sender:nil];
 }
 
 @end
