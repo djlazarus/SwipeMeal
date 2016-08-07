@@ -316,6 +316,19 @@
                                     <constraint firstItem="GXF-q2-1zP" firstAttribute="leading" secondItem="8a3-lx-a4i" secondAttribute="leading" constant="25" id="xAh-2a-xWB"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGQ-7k-rSQ" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="500" y="233" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="QBB-bp-Zzk"/>
+                                    <constraint firstAttribute="height" constant="70" id="cqm-ca-kCR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -323,9 +336,12 @@
                             <constraint firstItem="8a3-lx-a4i" firstAttribute="top" secondItem="YGc-AE-vLk" secondAttribute="bottom" id="NyP-dg-uI2"/>
                             <constraint firstAttribute="trailing" secondItem="8a3-lx-a4i" secondAttribute="trailing" id="VrI-At-uAv"/>
                             <constraint firstItem="8a3-lx-a4i" firstAttribute="height" secondItem="QoS-Rc-SaH" secondAttribute="height" multiplier="0.5" id="Xr1-cz-sCN"/>
+                            <constraint firstAttribute="trailing" secondItem="AGQ-7k-rSQ" secondAttribute="trailing" constant="30" id="n1U-tD-IVG"/>
+                            <constraint firstItem="AGQ-7k-rSQ" firstAttribute="centerY" secondItem="QoS-Rc-SaH" secondAttribute="centerY" id="oFk-pI-pkD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buyButton" destination="AGQ-7k-rSQ" id="weg-ry-Zhq"/>
                         <outlet property="mainImageView" destination="8DI-86-EDr" id="P7x-T3-QUF"/>
                         <outlet property="nameLabel" destination="DCk-T2-O7z" id="0fi-aW-7pp"/>
                         <outlet property="ratingImageView1" destination="G94-70-wGN" id="Jap-sl-SXb"/>

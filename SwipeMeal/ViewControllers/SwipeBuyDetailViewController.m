@@ -12,6 +12,7 @@
 
 @interface SwipeBuyDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet SwipeMealAddProfileImageButton *buyButton;
 @property (weak, nonatomic) IBOutlet CircularImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *swipesLabel;
@@ -31,6 +32,7 @@
     
     [self startDownloadingProfileImage];
     
+    self.buyButton.backgroundColor = [[UIColor alloc] initWithHexString:@"6BB739"];
     self.nameLabel.text = self.swipe.sellerName;
     self.swipesLabel.text = @"7";
     self.salesLabel.text = @"42";
