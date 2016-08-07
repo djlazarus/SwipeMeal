@@ -11,6 +11,7 @@
 
 @interface Swipe : NSObject
 
+@property (strong, nonatomic) NSString *swipeID;
 @property (nonatomic) NSInteger price;
 @property (strong, nonatomic) UIImage *sellerImage;
 @property (strong, nonatomic) NSString *sellerName;
