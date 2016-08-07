@@ -7,6 +7,7 @@
 //
 
 #import "SwipeBuyDetailViewController.h"
+#import "SwipeBuyConfirmDialogViewController.h"
 #import "SwipeMeal-Swift.h"
 @import Firebase;
 
@@ -59,6 +60,17 @@
             NSLog(@"%@", error);
         }
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController"]) {
+        SwipeBuyConfirmDialogViewController *swipeBuyConfirmDialogViewController = (SwipeBuyConfirmDialogViewController *)[segue destinationViewController];
+        swipeBuyConfirmDialogViewController.swipe = self.swipe;
+    }
+}
+
+- (IBAction)didTapBuyButton:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController" sender:nil];
 }
 
 @end
