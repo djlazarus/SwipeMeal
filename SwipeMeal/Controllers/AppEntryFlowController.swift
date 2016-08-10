@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import FirebaseAuth
 
 class AppEntryFlowController
 {
@@ -21,29 +22,46 @@ class AppEntryFlowController
    private let _profileImageViewController = AddProfileImageViewController.instantiate(.Onboarding)
    
 	private var _user: SwipeMealUser?
-	
 	private let _operationQueue = NSOperationQueue()
    
-   init()
-   {
+   init() {
       _signInViewController.delegate = self
       _signUpViewController.delegate = self
       _emailVerificationController.delegate = self
       _welcomeViewController.delegate = self
 		_profileImageViewController.delegate = self
-      
+		
       _emailVerificationController.modalPresentationStyle = .OverCurrentContext
-      
       _rootNavController.pushViewController(_signInViewController, animated: false)
    }
    
-   func initialViewController() -> UIViewController
-   {
+   func initialViewController() -> UIViewController {
+		if let user = SMAuthLayer.currentUser {
+			_user = user
+			if !user.emailVerified {
+				_presentEmailVerificationViewController(_signInViewController)
+			} else if !user.profileSetupComplete {
+				_rootNavController.pushViewController(_welcomeViewController, animated: false)
+			} else {
+				let sb = UIStoryboard(name: "Main", bundle: nil)
+				if let initialController = sb.instantiateInitialViewController() {
+					_rootNavController.setNavigationBarHidden(true, animated: false)
+					_rootNavController.viewControllers = [_signInViewController, initialController]
+				}
+			}
+		}
+		
+		FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
+			if user == nil {
+				self._rootNavController.setNavigationBarHidden(false, animated: true)
+				self._rootNavController.popToRootViewControllerAnimated(true)
+			}
+		})
+		
       return _rootNavController
    }
    
-   private func _startEmailVerification(user: SwipeMealUser, presentationContext: UIViewController, sendEmail: Bool = false)
-   {
+   private func _startEmailVerification(user: SwipeMealUser, presentationContext: UIViewController, sendEmail: Bool = false) {
       if sendEmail {
 			SwiftSpinner.show("Sending Verification Email...")
          user.sendEmailVerification({ (error) in
@@ -51,37 +69,30 @@ class AppEntryFlowController
 				SwiftSpinner.hide()
             if let error = error {
                presentationContext.present(error)
-            }
-            else {
+            } else {
                self._presentEmailVerificationViewController(presentationContext)
             }
          })
-      }
-      else {
+      } else {
          if user.emailVerified {
-         }
-         else {
+         } else {
             _presentEmailVerificationViewController(presentationContext)
          }
       }
    }
    
-   private func _startProfileSetup(user: SwipeMealUser, fromSignUp: Bool = false)
-   {
+   private func _startProfileSetup(user: SwipeMealUser, fromSignUp: Bool = false) {
       dispatch_async(dispatch_get_main_queue()) {
-         
          if fromSignUp {
             self._rootNavController.pushViewController(self._welcomeViewController, animated: false)
             self._signUpViewController.dismissViewControllerAnimated(true, completion: nil)
-         }
-         else {
+         } else {
             self._rootNavController.pushViewController(self._welcomeViewController, animated: true)
          }
       }
    }
    
-   private func _presentEmailVerificationViewController(context: UIViewController)
-   {
+   private func _presentEmailVerificationViewController(context: UIViewController) {
       dispatch_async(dispatch_get_main_queue(), {
          context.presentViewController(self._emailVerificationController, animated: true, completion: nil)
       })
@@ -89,15 +100,13 @@ class AppEntryFlowController
 }
 
 // MARK: - SignInViewControllerDelegate
-extension AppEntryFlowController: SignInViewControllerDelegate
-{
-   func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
-   {
+extension AppEntryFlowController: SignInViewControllerDelegate {
+	
+   func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton) {
       _rootNavController.presentViewController(_signUpViewController, animated: true, completion: nil)
    }
    
-   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
-	{
+   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String) {
 		SwiftSpinner.show("Signing In...")
 		
       let status = AuthenticateLoginStatus(email: email, password: password)
@@ -114,32 +123,28 @@ extension AppEntryFlowController: SignInViewControllerDelegate
          
          if !user.emailVerified {
             self._startEmailVerification(user, presentationContext: controller)
-         }
-         else if !user.profileSetupComplete {
+         } else if !user.profileSetupComplete {
             self._startProfileSetup(user)
-         }
-         else {
+         } else {
+				self._showHomeScreen()
          }
       }
 		
       authOp.start()
    }
    
-   func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
-   {
+   func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton) {
    }
 }
 
 // MARK: - SignUpViewControllerDelegate
 extension AppEntryFlowController: SignUpViewControllerDelegate
 {
-   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
-   {
+   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController) {
       controller.dismissViewControllerAnimated(true, completion: nil)
    }
    
-   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController)
-   {
+   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController) {
       let info = SignUpInfo(controller: controller)
       let status = CreateUserAccountStatus(info: info)
 		
@@ -184,8 +189,7 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
 // MARK: - EmailVerificationSentViewControllerDelegate
 extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
 {
-   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
-   {
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton) {
       if let user = _user {
 			SwiftSpinner.show("Resending Verification Email...")
          user.sendEmailVerification({ (error) in
@@ -197,8 +201,7 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
       }
    }
    
-   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
-   {
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton) {
       guard let user = _user else {
          controller.dismissViewControllerAnimated(true, completion: nil)
          return
@@ -210,14 +213,12 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
 			SwiftSpinner.hide()
          if let error = error {
             controller.present(error)
-         }
-         else {
+         } else {
             if user.emailVerified {
                controller.dismissViewControllerAnimated(true, completion: {
                   self._startProfileSetup(user, fromSignUp: true)
                })
-            }
-            else {
+            } else {
                guard let email = user.email else { return }
                controller.presentMessage("The email address \(email) has not been verified.")
             }
@@ -225,15 +226,14 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
       })
    }
    
-   func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController)
-   {
+   func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController) {
       controller.dismissViewControllerAnimated(true, completion: nil)
    }
 }
 
 // MARK: - WelcomeViewControllerDelegate
-extension AppEntryFlowController: WelcomeViewControllerDelegate
-{
+extension AppEntryFlowController: WelcomeViewControllerDelegate {
+	
    func welcomeViewControllerShouldFinish(controller: WelcomeViewController)
 	{
 		_profileImageViewController.resetImage()
@@ -243,10 +243,9 @@ extension AppEntryFlowController: WelcomeViewControllerDelegate
 }
 
 // MARK: - AddProfileImageViewControllerDelegate
-extension AppEntryFlowController: AddProfileImageViewControllerDelegate
-{
-	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController)
-	{
+extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
+	
+	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
 		
 		let addProfileImageOp = AddProfileImageOperation(presentationContext: controller, user: user)
@@ -255,8 +254,7 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate
 			if let image = addProfileImageOp.profileImage {
 				controller.updateImage(image)
 				controller.continueButtonEnabled = true
-			}
-			else {
+			} else {
 				controller.continueButtonEnabled = false
 			}
 		}
@@ -264,9 +262,20 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate
 		addProfileImageOp.start()
 	}
 	
-	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController)
-	{
+	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
 		SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
+		SMDatabaseLayer.addUserToRespectiveGroup(user)
+		
+		_showHomeScreen()
+	}
+	
+	private func _showHomeScreen(animated animated: Bool = true) {
+		dispatch_async(dispatch_get_main_queue()) {
+			let sb = UIStoryboard(name: "Main", bundle: nil)
+			guard let initialController = sb.instantiateInitialViewController() else { return }
+			self._rootNavController.setNavigationBarHidden(true, animated: animated)
+			self._rootNavController.pushViewController(initialController, animated: animated)
+		}
 	}
 }

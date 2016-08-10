@@ -10,7 +10,7 @@ import Foundation
 import FirebaseAuth
 
 extension FIRUser: SwipeMealUser
-{
+{	
    var profileSetupComplete: Bool {
       let storage = SwipeMealUserStorage(user: self)
       return storage.profileSetupComplete

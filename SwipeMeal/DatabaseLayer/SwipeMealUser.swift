@@ -11,6 +11,8 @@ import Foundation
 protocol SwipeMealUser
 {
    var providerID: String { get }
+	
+	var groupID: String? { get }
    
    /** @property uid
     @brief The provider's user ID for the user.
@@ -46,6 +48,10 @@ protocol SwipeMealUser
    func sendEmailVerification(completion: SendEmailVerificationCompletion?)
 }
 
-extension SwipeMealUser
-{
+extension SwipeMealUser {
+	var groupID: String? {
+		guard let email = email else { return nil }
+		guard let lastComponent = email.componentsSeparatedByString("@").last else { return nil }
+		return lastComponent.stringByReplacingOccurrencesOfString(".", withString: "-")
+	}
 }

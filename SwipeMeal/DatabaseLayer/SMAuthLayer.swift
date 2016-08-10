@@ -16,7 +16,7 @@ typealias ReloadUserProfileCompletion = (error: NSError?) -> Void
 typealias UpdateUserProfileCompletion = (error: NSError?) -> Void
 
 struct SMAuthLayer
-{
+{	
    static func createUser(email: String, password: String, completion: CreateUserCompletion?)
    {
       FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    {
       _registerForPushNotifications(application)
       FIRApp.configure()
+		
 		FIRDatabase.database().persistenceEnabled = true
       
       _observeFirebaseMessagingTokenRefresh()
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       
 //      let token = FIRInstanceID.instanceID().token()
 //      print("TOKEN: \(token)")
-      
+		
       return true
    }
    
@@ -61,21 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
       
       FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
-      print("Device Token:", tokenString)
+//      print("Device Token:", tokenString)
    }
    
    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
    {
-      print("Failed to register for remote notifications: \(error.description)")
+//      print("Failed to register for remote notifications: \(error.description)")
    }
    
    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
    {
       FIRMessaging.messaging().appDidReceiveMessage(userInfo)
       
-      print("Message ID: \(userInfo["gcm.message_id"])")
-      print(userInfo)
-      
+//      print("Message ID: \(userInfo["gcm.message_id"])")
+//      print(userInfo)
+		
       completionHandler(.NoData)
    }
    
@@ -112,10 +113,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       FIRMessaging.messaging().connectWithCompletion { (error) in
          
          if let error = error {
-            print("Could not connect to FCM: \(error.description)")
+//            print("Could not connect to FCM: \(error.description)")
          }
          else {
-            print("Connected to FCM successfully.")
+//            print("Connected to FCM successfully.")
          }
       }
    }
