@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
 		let branch = Branch.getInstance()
 		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
-			print("deep link data: \(branchLinkProperties.description)")
 		}
 		
 //      let token = FIRInstanceID.instanceID().token()
