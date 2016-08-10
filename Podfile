@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '9.1'
 use_frameworks!
 
 target 'SwipeMeal' do
@@ -10,5 +10,6 @@ target 'SwipeMeal' do
   pod 'Firebase/Database'
 
   pod 'SwiftSpinner'
+  pod 'IncipiaKit'
 
 end
