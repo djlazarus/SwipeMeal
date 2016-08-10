@@ -1,0 +1,6 @@
+framework module IncipiaKit {
+  umbrella header "IncipiaKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
