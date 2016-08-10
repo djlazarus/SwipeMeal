@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -27,12 +28,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
       _setupRootViewController()
 		_setupNavBarAppearance()
-      
+		
+		let branch = Branch.getInstance()
+		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
+			print("deep link data: \(branchLinkProperties.description)")
+		}
+		
 //      let token = FIRInstanceID.instanceID().token()
 //      print("TOKEN: \(token)")
 		
       return true
    }
+	
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+		return Branch.getInstance().handleDeepLink(url)
+	}
+	
+	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+		return Branch.getInstance().continueUserActivity(userActivity)
+	}
    
    func applicationDidBecomeActive(application: UIApplication)
    {
