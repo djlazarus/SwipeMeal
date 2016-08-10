@@ -9,8 +9,6 @@ target 'SwipeMeal' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
 
-  pod 'Stripe'
-
   pod 'SwiftSpinner'
 
 end

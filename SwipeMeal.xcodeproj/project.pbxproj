@@ -485,12 +485,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE2782DA1CE7EA4200039014 /* Build configuration list for PBXNativeTarget "SwipeMeal" */;
 			buildPhases = (
+				81B39880DF2E6F6DC5ABF358 /* 📦 Check Pods Manifest.lock */,
 				9723AC5683DF4F24CFB54F06 /* [CP] Check Pods Manifest.lock */,
 				CE2782C41CE7EA4200039014 /* Sources */,
 				CE2782C51CE7EA4200039014 /* Frameworks */,
 				CE2782C61CE7EA4200039014 /* Resources */,
 				4D8D160D0142F0CBCACDA989 /* [CP] Embed Pods Frameworks */,
 				389B4FA65B0C63E081BF34AD /* [CP] Copy Pods Resources */,
+				C2F0CA571C6135D5E87F64B7 /* 📦 Embed Pods Frameworks */,
+				49997C77579F3874B10B736C /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -586,6 +589,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		49997C77579F3874B10B736C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4D8D160D0142F0CBCACDA989 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,6 +619,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81B39880DF2E6F6DC5ABF358 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9723AC5683DF4F24CFB54F06 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,6 +647,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C2F0CA571C6135D5E87F64B7 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwipeMeal/Pods-SwipeMeal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
