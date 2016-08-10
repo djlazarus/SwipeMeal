@@ -24,8 +24,7 @@ class AppEntryFlowController
 	
 	private let _operationQueue = NSOperationQueue()
    
-   init()
-   {
+   init() {
       _signInViewController.delegate = self
       _signUpViewController.delegate = self
       _emailVerificationController.delegate = self
@@ -33,17 +32,14 @@ class AppEntryFlowController
 		_profileImageViewController.delegate = self
       
       _emailVerificationController.modalPresentationStyle = .OverCurrentContext
-      
       _rootNavController.pushViewController(_signInViewController, animated: false)
    }
    
-   func initialViewController() -> UIViewController
-   {
+   func initialViewController() -> UIViewController {
       return _rootNavController
    }
    
-   private func _startEmailVerification(user: SwipeMealUser, presentationContext: UIViewController, sendEmail: Bool = false)
-   {
+   private func _startEmailVerification(user: SwipeMealUser, presentationContext: UIViewController, sendEmail: Bool = false) {
       if sendEmail {
 			SwiftSpinner.show("Sending Verification Email...")
          user.sendEmailVerification({ (error) in
@@ -66,8 +62,7 @@ class AppEntryFlowController
       }
    }
    
-   private func _startProfileSetup(user: SwipeMealUser, fromSignUp: Bool = false)
-   {
+   private func _startProfileSetup(user: SwipeMealUser, fromSignUp: Bool = false) {
       dispatch_async(dispatch_get_main_queue()) {
          
          if fromSignUp {
@@ -80,8 +75,7 @@ class AppEntryFlowController
       }
    }
    
-   private func _presentEmailVerificationViewController(context: UIViewController)
-   {
+   private func _presentEmailVerificationViewController(context: UIViewController) {
       dispatch_async(dispatch_get_main_queue(), {
          context.presentViewController(self._emailVerificationController, animated: true, completion: nil)
       })
@@ -89,15 +83,13 @@ class AppEntryFlowController
 }
 
 // MARK: - SignInViewControllerDelegate
-extension AppEntryFlowController: SignInViewControllerDelegate
-{
-   func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
-   {
+extension AppEntryFlowController: SignInViewControllerDelegate {
+	
+   func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton) {
       _rootNavController.presentViewController(_signUpViewController, animated: true, completion: nil)
    }
    
-   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
-	{
+   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String) {
 		SwiftSpinner.show("Signing In...")
 		
       let status = AuthenticateLoginStatus(email: email, password: password)
@@ -125,21 +117,18 @@ extension AppEntryFlowController: SignInViewControllerDelegate
       authOp.start()
    }
    
-   func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
-   {
+   func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton) {
    }
 }
 
 // MARK: - SignUpViewControllerDelegate
 extension AppEntryFlowController: SignUpViewControllerDelegate
 {
-   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
-   {
+   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController) {
       controller.dismissViewControllerAnimated(true, completion: nil)
    }
    
-   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController)
-   {
+   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController) {
       let info = SignUpInfo(controller: controller)
       let status = CreateUserAccountStatus(info: info)
 		
@@ -184,8 +173,7 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
 // MARK: - EmailVerificationSentViewControllerDelegate
 extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
 {
-   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
-   {
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton) {
       if let user = _user {
 			SwiftSpinner.show("Resending Verification Email...")
          user.sendEmailVerification({ (error) in
@@ -197,8 +185,7 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
       }
    }
    
-   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
-   {
+   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton) {
       guard let user = _user else {
          controller.dismissViewControllerAnimated(true, completion: nil)
          return
@@ -225,15 +212,14 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
       })
    }
    
-   func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController)
-   {
+   func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController) {
       controller.dismissViewControllerAnimated(true, completion: nil)
    }
 }
 
 // MARK: - WelcomeViewControllerDelegate
-extension AppEntryFlowController: WelcomeViewControllerDelegate
-{
+extension AppEntryFlowController: WelcomeViewControllerDelegate {
+	
    func welcomeViewControllerShouldFinish(controller: WelcomeViewController)
 	{
 		_profileImageViewController.resetImage()
@@ -243,10 +229,9 @@ extension AppEntryFlowController: WelcomeViewControllerDelegate
 }
 
 // MARK: - AddProfileImageViewControllerDelegate
-extension AppEntryFlowController: AddProfileImageViewControllerDelegate
-{
-	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController)
-	{
+extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
+	
+	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
 		
 		let addProfileImageOp = AddProfileImageOperation(presentationContext: controller, user: user)
@@ -264,8 +249,7 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate
 		addProfileImageOp.start()
 	}
 	
-	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController)
-	{
+	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
 		SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
 	}
