@@ -21,7 +21,6 @@ class AppEntryFlowController
    private let _profileImageViewController = AddProfileImageViewController.instantiate(.Onboarding)
    
 	private var _user: SwipeMealUser?
-	
 	private let _operationQueue = NSOperationQueue()
    
    init() {
@@ -47,16 +46,13 @@ class AppEntryFlowController
 				SwiftSpinner.hide()
             if let error = error {
                presentationContext.present(error)
-            }
-            else {
+            } else {
                self._presentEmailVerificationViewController(presentationContext)
             }
          })
-      }
-      else {
+      } else {
          if user.emailVerified {
-         }
-         else {
+         } else {
             _presentEmailVerificationViewController(presentationContext)
          }
       }
@@ -68,8 +64,7 @@ class AppEntryFlowController
          if fromSignUp {
             self._rootNavController.pushViewController(self._welcomeViewController, animated: false)
             self._signUpViewController.dismissViewControllerAnimated(true, completion: nil)
-         }
-         else {
+         } else {
             self._rootNavController.pushViewController(self._welcomeViewController, animated: true)
          }
       }
@@ -106,11 +101,9 @@ extension AppEntryFlowController: SignInViewControllerDelegate {
          
          if !user.emailVerified {
             self._startEmailVerification(user, presentationContext: controller)
-         }
-         else if !user.profileSetupComplete {
+         } else if !user.profileSetupComplete {
             self._startProfileSetup(user)
-         }
-         else {
+         } else {
          }
       }
 		
@@ -197,14 +190,12 @@ extension AppEntryFlowController: EmailVerificationSentViewControllerDelegate
 			SwiftSpinner.hide()
          if let error = error {
             controller.present(error)
-         }
-         else {
+         } else {
             if user.emailVerified {
                controller.dismissViewControllerAnimated(true, completion: {
                   self._startProfileSetup(user, fromSignUp: true)
                })
-            }
-            else {
+            } else {
                guard let email = user.email else { return }
                controller.presentMessage("The email address \(email) has not been verified.")
             }
@@ -240,8 +231,7 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
 			if let image = addProfileImageOp.profileImage {
 				controller.updateImage(image)
 				controller.continueButtonEnabled = true
-			}
-			else {
+			} else {
 				controller.continueButtonEnabled = false
 			}
 		}
