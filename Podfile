@@ -11,5 +11,6 @@ target 'SwipeMeal' do
 
   pod 'SwiftSpinner'
   pod 'IncipiaKit'
+  pod 'Braintree'
 
 end
