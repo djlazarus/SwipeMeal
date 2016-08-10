@@ -155,6 +155,7 @@
 		CE1D776D1CF7708A0071D249 /* SignUpInfoValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpInfoValidator.swift; path = SwipeMeal/Utilities/SignUpInfoValidator.swift; sourceTree = "<group>"; };
 		CE1D77711CF777D70071D249 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Extensions.swift"; path = "SwipeMeal/UIKit-Extensions/UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		CE23E55F1CF37DAB00B3161D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SwipeMeal/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE24F0881D5BB3F9009B1E2E /* SwipeMeal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SwipeMeal.entitlements; sourceTree = "<group>"; };
 		CE2782C81CE7EA4200039014 /* SwipeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2782CB1CE7EA4200039014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2782D01CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignIn.storyboard; sourceTree = "<group>"; };
@@ -361,6 +362,7 @@
 		CE2782CA1CE7EA4200039014 /* SwipeMeal */ = {
 			isa = PBXGroup;
 			children = (
+				CE24F0881D5BB3F9009B1E2E /* SwipeMeal.entitlements */,
 				CE2782CB1CE7EA4200039014 /* AppDelegate.swift */,
 			);
 			path = SwipeMeal;
@@ -522,6 +524,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -883,9 +888,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SwipeMeal/SwipeMeal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -900,9 +906,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SwipeMeal/SwipeMeal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
