@@ -83,7 +83,6 @@ class AppEntryFlowController
    
    private func _startProfileSetup(user: SwipeMealUser, fromSignUp: Bool = false) {
       dispatch_async(dispatch_get_main_queue()) {
-         
          if fromSignUp {
             self._rootNavController.pushViewController(self._welcomeViewController, animated: false)
             self._signUpViewController.dismissViewControllerAnimated(true, completion: nil)
@@ -266,6 +265,7 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
 	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
 		SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
+		SMDatabaseLayer.addUserToRespectiveGroup(user)
 		
 		_showHomeScreen()
 	}

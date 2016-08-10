@@ -14,6 +14,7 @@ private let kProfileImagesPathName = "profileImages"
 
 private let kUsersPathName = "users"
 private let kUserInfoPathName = "userInfo"
+private let kUserGroupsPathName = "userGroups"
 private let kUserProfileSetupCompletePathName = "profileSetupComplete"
 
 typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> Void
@@ -62,5 +63,16 @@ struct SMDatabaseLayer
 			
 			callback(complete: complete)
 		})
+	}
+	
+	static func addUserToRespectiveGroup(user: SwipeMealUser) {
+		guard let groupID = user.groupID else { return }
+		
+		let ref = FIRDatabase.database().reference()
+		let userGroupRef = ref.child("\(kUserGroupsPathName)/\(groupID)")
+		userGroupRef.updateChildValues([user.uid : true])
+		
+		let userRef = ref.child(kUsersPathName).child(user.uid)
+		userRef.updateChildValues(["groupID" : groupID])
 	}
 }
