@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import FirebaseAuth
 
 class AppEntryFlowController
 {
@@ -29,12 +30,34 @@ class AppEntryFlowController
       _emailVerificationController.delegate = self
       _welcomeViewController.delegate = self
 		_profileImageViewController.delegate = self
-      
+		
       _emailVerificationController.modalPresentationStyle = .OverCurrentContext
       _rootNavController.pushViewController(_signInViewController, animated: false)
    }
    
    func initialViewController() -> UIViewController {
+		if let user = SMAuthLayer.currentUser {
+			_user = user
+			if !user.emailVerified {
+				_presentEmailVerificationViewController(_signInViewController)
+			} else if !user.profileSetupComplete {
+				_rootNavController.pushViewController(_welcomeViewController, animated: false)
+			} else {
+				let sb = UIStoryboard(name: "Main", bundle: nil)
+				if let initialController = sb.instantiateInitialViewController() {
+					_rootNavController.setNavigationBarHidden(true, animated: false)
+					_rootNavController.viewControllers = [_signInViewController, initialController]
+				}
+			}
+		}
+		
+		FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
+			if user == nil {
+				self._rootNavController.setNavigationBarHidden(false, animated: true)
+				self._rootNavController.popToRootViewControllerAnimated(true)
+			}
+		})
+		
       return _rootNavController
    }
    
@@ -104,6 +127,7 @@ extension AppEntryFlowController: SignInViewControllerDelegate {
          } else if !user.profileSetupComplete {
             self._startProfileSetup(user)
          } else {
+				self._showHomeScreen()
          }
       }
 		
@@ -242,5 +266,16 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
 	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
 		SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
+		
+		_showHomeScreen()
+	}
+	
+	private func _showHomeScreen(animated animated: Bool = true) {
+		dispatch_async(dispatch_get_main_queue()) {
+			let sb = UIStoryboard(name: "Main", bundle: nil)
+			guard let initialController = sb.instantiateInitialViewController() else { return }
+			self._rootNavController.setNavigationBarHidden(true, animated: animated)
+			self._rootNavController.pushViewController(initialController, animated: animated)
+		}
 	}
 }

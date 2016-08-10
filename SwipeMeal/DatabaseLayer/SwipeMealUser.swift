@@ -45,7 +45,3 @@ protocol SwipeMealUser
    func reload(completion: ReloadUserProfileCompletion?)
    func sendEmailVerification(completion: SendEmailVerificationCompletion?)
 }
-
-extension SwipeMealUser
-{
-}
