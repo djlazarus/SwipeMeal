@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,10 +14,50 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="oLl-Q0-xkZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landing-main" translatesAutoresizingMaskIntoConstraints="NO" id="iEh-oC-gYA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsp-5m-RtZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="493"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcD-pK-fWU">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="246.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe_meal_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yb5-te-KsY">
+                                                <rect key="frame" x="167" y="89" width="265" height="69"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="yb5-te-KsY" firstAttribute="centerX" secondItem="kcD-pK-fWU" secondAttribute="centerX" id="uNQ-yp-C3o"/>
+                                            <constraint firstItem="yb5-te-KsY" firstAttribute="centerY" secondItem="kcD-pK-fWU" secondAttribute="centerY" id="vvj-7T-Jfa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kcD-pK-fWU" firstAttribute="top" secondItem="xsp-5m-RtZ" secondAttribute="top" id="IA7-v6-HJH"/>
+                                    <constraint firstItem="kcD-pK-fWU" firstAttribute="leading" secondItem="xsp-5m-RtZ" secondAttribute="leading" id="IlD-Ol-fQq"/>
+                                    <constraint firstAttribute="trailing" secondItem="kcD-pK-fWU" secondAttribute="trailing" id="N8H-SO-TNd"/>
+                                    <constraint firstItem="kcD-pK-fWU" firstAttribute="height" secondItem="xsp-5m-RtZ" secondAttribute="height" multiplier="0.5" id="gzC-Tc-Tlf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iEh-oC-gYA" secondAttribute="trailing" id="16T-e8-tRb"/>
+                            <constraint firstAttribute="trailing" secondItem="xsp-5m-RtZ" secondAttribute="trailing" id="Euc-tR-iDS"/>
+                            <constraint firstItem="iEh-oC-gYA" firstAttribute="top" secondItem="oLl-Q0-xkZ" secondAttribute="top" id="F1g-LS-LyJ"/>
+                            <constraint firstItem="xsp-5m-RtZ" firstAttribute="top" secondItem="oLl-Q0-xkZ" secondAttribute="top" id="GdT-mi-04k"/>
+                            <constraint firstItem="xsp-5m-RtZ" firstAttribute="leading" secondItem="oLl-Q0-xkZ" secondAttribute="leading" id="RM9-4W-8Gm"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="xsp-5m-RtZ" secondAttribute="bottom" constant="107" id="TRM-KT-1Od"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="iEh-oC-gYA" secondAttribute="bottom" id="j0V-5D-iYz"/>
+                            <constraint firstItem="iEh-oC-gYA" firstAttribute="leading" secondItem="oLl-Q0-xkZ" secondAttribute="leading" id="vHu-iK-Hch"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +65,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="landing-main" width="1300" height="972"/>
+        <image name="swipe_meal_logo" width="265" height="69"/>
+    </resources>
 </document>

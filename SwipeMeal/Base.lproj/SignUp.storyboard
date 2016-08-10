@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="k48-6n-9Rx">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -38,12 +39,6 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register-sm" translatesAutoresizingMaskIntoConstraints="NO" id="RNi-By-tSb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Swipe Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-de-UNx">
-                                        <rect key="frame" x="78" y="128" width="258" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX6-mk-O5f">
                                         <rect key="frame" x="92" y="313" width="169.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -60,15 +55,22 @@
                                             <action selector="_signInButtonPressed" destination="k48-6n-9Rx" eventType="touchUpInside" id="l4R-td-g5B"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe_meal_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EbK-vA-766">
+                                        <rect key="frame" x="74.5" y="134.5" width="265" height="69"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="265" id="ajd-vi-nhh"/>
+                                            <constraint firstAttribute="height" constant="69" id="jbk-zT-5lN"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Ahf-de-UNx" firstAttribute="centerY" secondItem="XWO-fJ-Jsd" secondAttribute="centerY" id="7gj-zm-W4D"/>
+                                    <constraint firstItem="EbK-vA-766" firstAttribute="centerY" secondItem="XWO-fJ-Jsd" secondAttribute="centerY" id="9g1-oh-EgH"/>
                                     <constraint firstAttribute="bottom" secondItem="DX6-mk-O5f" secondAttribute="bottom" constant="8" id="FJo-JS-Emd"/>
                                     <constraint firstItem="RNi-By-tSb" firstAttribute="leading" secondItem="XWO-fJ-Jsd" secondAttribute="leading" id="XB3-aB-42w"/>
                                     <constraint firstItem="RNi-By-tSb" firstAttribute="top" secondItem="XWO-fJ-Jsd" secondAttribute="top" id="Xnh-Rw-X0f"/>
                                     <constraint firstItem="Pzy-vx-437" firstAttribute="centerY" secondItem="DX6-mk-O5f" secondAttribute="centerY" id="fDn-7C-8Sq"/>
-                                    <constraint firstItem="Ahf-de-UNx" firstAttribute="centerX" secondItem="XWO-fJ-Jsd" secondAttribute="centerX" id="gCR-XV-qhU"/>
+                                    <constraint firstItem="EbK-vA-766" firstAttribute="centerX" secondItem="XWO-fJ-Jsd" secondAttribute="centerX" id="ghK-zd-xKC"/>
                                     <constraint firstAttribute="bottom" secondItem="RNi-By-tSb" secondAttribute="bottom" id="tqz-3S-b8c"/>
                                     <constraint firstItem="Pzy-vx-437" firstAttribute="leading" secondItem="DX6-mk-O5f" secondAttribute="trailing" constant="8" id="xSW-kg-veK"/>
                                     <constraint firstAttribute="trailing" secondItem="RNi-By-tSb" secondAttribute="trailing" id="zBK-y9-A5w"/>
@@ -281,5 +283,6 @@
     </scenes>
     <resources>
         <image name="register-sm" width="1300" height="867"/>
+        <image name="swipe_meal_logo" width="265" height="69"/>
     </resources>
 </document>
