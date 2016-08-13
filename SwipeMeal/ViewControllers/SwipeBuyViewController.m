@@ -73,6 +73,7 @@
 - (Swipe *)swipeWithSnapshot:(FIRDataSnapshot *)snapshot {
     Swipe *swipe = [[Swipe alloc] init];
     swipe.swipeID = snapshot.key;
+    swipe.uid = [snapshot.value objectForKey:@"uid"];
     swipe.sellerName = [snapshot.value objectForKey:@"seller_name"];
     swipe.sellerRating = [[snapshot.value objectForKey:@"seller_rating"] integerValue];
     swipe.price = [[snapshot.value objectForKey:@"price"] integerValue];
