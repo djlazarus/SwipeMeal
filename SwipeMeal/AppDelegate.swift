@@ -124,11 +124,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private func _connectToFCM()
    {
       FIRMessaging.messaging().connectWithCompletion { (error) in
-         
-         if let error = error {
+         if let _ = error {
 //            print("Could not connect to FCM: \(error.description)")
-         }
-         else {
+         } else {
 //            print("Connected to FCM successfully.")
          }
       }
