@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) NSString *swipeID;
 @property (nonatomic) NSInteger price;
+@property (strong, nonatomic) NSString *uid;
 @property (strong, nonatomic) UIImage *sellerImage;
 @property (strong, nonatomic) NSString *sellerName;
 @property (strong, nonatomic) NSString *locationName;

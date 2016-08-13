@@ -35,7 +35,7 @@
 }
 
 - (void)setSwipe:(Swipe *)swipe {
-    [self startDownloadingProfileImage];
+    [self startDownloadingProfileImageForSwipe:swipe];
     
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.price];
     self.nameLabel.text = swipe.sellerName;
@@ -59,10 +59,9 @@
     }
 }
 
-- (void)startDownloadingProfileImage {
-    NSString *userID = [FIRAuth auth].currentUser.uid;
+- (void)startDownloadingProfileImageForSwipe:(Swipe *)swipe {
     FIRStorage *storage = [FIRStorage storage];
-    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", userID];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", swipe.uid];
     FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
     [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {
