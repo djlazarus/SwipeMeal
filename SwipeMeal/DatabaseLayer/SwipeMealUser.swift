@@ -54,4 +54,8 @@ extension SwipeMealUser {
 		guard let lastComponent = email.componentsSeparatedByString("@").last else { return nil }
 		return lastComponent.stringByReplacingOccurrencesOfString(".", withString: "-")
 	}
+	
+	func rate(userWithUID uid: String, value: Int) {
+		SMDatabaseLayer.add(rating: value, toUserWithUID: uid, fromUserWithUID: self.uid)
+	}
 }
