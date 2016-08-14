@@ -38,8 +38,8 @@
     [self.slider addTarget:self action:@selector(updatePrice:) forControlEvents:UIControlEventAllEvents];
     self.slider.thumbTintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
     self.slider.minimumTrackTintColor = [[UIColor alloc] initWithHexString:@"6BB739"];
-    self.slider.value = 4.0;
-    self.slider.minimumValue = 1.0;
+    self.slider.value = 7.0;
+    self.slider.minimumValue = 5.0;
     self.slider.maximumValue = 10.0;
     [self updatePrice:self.slider];
     
