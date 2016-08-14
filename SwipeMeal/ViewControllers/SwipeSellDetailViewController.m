@@ -27,8 +27,6 @@
     [super viewDidLoad];
     
     self.dbRef = [[FIRDatabase database] reference];
-    self.swipe.sellerName = @"Jacob H.";
-    self.swipe.sellerRating = 5;
     
     self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
@@ -55,6 +53,7 @@
 
 - (void)createNewSwipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSString *userName = [FIRAuth auth].currentUser.displayName;
     NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
     
     // Listing timestamp
@@ -66,11 +65,11 @@
     NSTimeInterval expirationTimestamp = [expirationDate timeIntervalSince1970];
     
     NSDictionary *swipeDict = @{@"uid":userID,
-                                @"price":@(self.swipe.price),
-                                @"seller_name":self.swipe.sellerName,
+                                @"seller_name":userName,
                                 @"listing_time":@(listingTimestamp),
-                                @"available_time":@(self.swipe.availableTime),
                                 @"expiration_time":@(expirationTimestamp),
+                                @"available_time":@(self.swipe.availableTime),
+                                @"price":@(self.swipe.price),
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
     NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: swipeDict,
