@@ -10,15 +10,14 @@
 #import "Swipe.h"
 #import "SwipeBuyTableViewCell.h"
 #import "SwipeBuyDetailViewController.h"
-#import "SwipeStore.h"
+#import "SwipeService.h"
 @import Firebase;
 
 @interface SwipeBuyViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) SwipeStore *swipeStore;
+@property (strong, nonatomic) SwipeService *swipeService;
 @property (strong, nonatomic) Swipe *selectedSwipe;
-@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -27,61 +26,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dbRef = [[FIRDatabase database] referenceWithPath:@"/swipes-listed/"];
-    self.swipeStore = [SwipeStore sharedSwipeStore];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    [self listenForEvents];
-}
-
-- (void)listenForEvents {
-    [self.dbRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        // Test for expired Swipe
-        if (![self snapshotIsExpired:snapshot]) {
-            // Build Swipe
-            Swipe *swipe = [self swipeWithSnapshot:snapshot];
-            if ([_swipeStore containsSwipeKey:swipe.swipeID]) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[self.swipeStore swipesSortedByPriceAscending] count] - 1 inSection:0];
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            } else {
-                [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
-                NSLog(@"ADDED: %@", swipe);
-                [self.tableView reloadData];
-            }
-        }
-    }];
-    
-    [self.dbRef observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        Swipe *swipe = [self swipeWithSnapshot:snapshot];
-        [self.swipeStore removeSwipe:swipe forKey:swipe.swipeID];
-        NSLog(@"REMOVED: %@", snapshot);
+    self.swipeService = [SwipeService sharedSwipeService];
+    [self.swipeService listenForEventsWithAddBlock:^{
+        [self.tableView reloadData];
+    } removeBlock:^{
+        [self.tableView reloadData];
+    } updateBlock:^{
         [self.tableView reloadData];
     }];
-}
-
-- (BOOL)snapshotIsExpired:(FIRDataSnapshot *)snapshot {
-    NSTimeInterval expirationTimestamp = [[snapshot.value objectForKey:@"expiration_time"] floatValue];
-    NSTimeInterval currentTimestamp = [[NSDate date] timeIntervalSince1970];
-    if (currentTimestamp >= expirationTimestamp) {
-        return YES;
-    }
     
-    return NO;
-}
-
-- (Swipe *)swipeWithSnapshot:(FIRDataSnapshot *)snapshot {
-    Swipe *swipe = [[Swipe alloc] init];
-    swipe.swipeID = snapshot.key;
-    swipe.uid = [snapshot.value objectForKey:@"uid"];
-    swipe.sellerName = [snapshot.value objectForKey:@"seller_name"];
-    swipe.sellerRating = [[snapshot.value objectForKey:@"seller_rating"] integerValue];
-    swipe.price = [[snapshot.value objectForKey:@"price"] integerValue];
-    swipe.locationName = [snapshot.value objectForKey:@"location_name"];
-    swipe.listingTime = [[snapshot.value objectForKey:@"listing_time"] floatValue];
-    swipe.expireTime = [[snapshot.value objectForKey:@"expiration_time"] floatValue];
-    
-    return swipe;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -94,7 +49,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count = [[self.swipeStore swipesSortedByPriceAscending] count];
+    NSInteger count = [self.swipeService.swipes count];
     return count;
 }
 
@@ -102,14 +57,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SwipeBuyTableViewCell *cell = (SwipeBuyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SwipeBuyTableViewCell"];
-    Swipe *swipe = [[self.swipeStore swipesSortedByPriceAscending] objectAtIndex:indexPath.row];
+    Swipe *swipe = [self.swipeService.swipes objectAtIndex:indexPath.row];
     cell.swipe = swipe;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedSwipe = [[self.swipeStore swipesSortedByPriceAscending] objectAtIndex:indexPath.row];
+    self.selectedSwipe = [self.swipeService.swipes objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"Segue_SwipeBuyViewController_SwipeBuyDetailViewController" sender:nil];
 }
 

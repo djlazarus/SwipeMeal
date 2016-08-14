@@ -8,6 +8,7 @@
 
 #import "SwipeSellDetailViewController.h"
 #import "SwipeSellConfirmationViewController.h"
+#import "SwipeService.h"
 @import Firebase;
 
 @interface SwipeSellDetailViewController ()
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *confirmTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *confirmLocationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
-@property (strong, nonatomic) FIRDatabaseReference *dbRef;
+@property (strong, nonatomic) SwipeService *swipeService;
 
 @end
 
@@ -26,8 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dbRef = [[FIRDatabase database] reference];
-    
+    self.swipeService = [SwipeService sharedSwipeService];
+
     self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
     self.confirmTimeLabel.text = [self timeStringFromDate:date];
@@ -54,7 +55,6 @@
 - (void)createNewSwipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSString *userName = [FIRAuth auth].currentUser.displayName;
-    NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
     
     // Listing timestamp
     NSDate *listingDate = [NSDate date];
@@ -72,16 +72,10 @@
                                 @"price":@(self.swipe.price),
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
-    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: swipeDict,
-                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, key]: swipeDict};
     
-    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
-            [self presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
-        }
+    [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^{
+        SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
+        [self presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
     }];
 }
 

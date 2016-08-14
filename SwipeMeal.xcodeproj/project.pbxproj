@@ -41,6 +41,7 @@
 		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
 		16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */; };
+		16DE213D1D60C93200D902EC /* SwipeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE213C1D60C93200D902EC /* SwipeService.m */; };
 		16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EF77C31D4D955F00B16E70 /* Selling.storyboard */; };
 		16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */; };
 		CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A128B1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift */; };
@@ -141,6 +142,8 @@
 		16ABC4C41D4C40B800A2AAA4 /* Swipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swipe.m; path = SwipeMeal/Models/Swipe.m; sourceTree = "<group>"; };
 		16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Utils.h"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.h"; sourceTree = "<group>"; };
 		16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Utils.m"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.m"; sourceTree = "<group>"; };
+		16DE213B1D60C93200D902EC /* SwipeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeService.h; path = SwipeMeal/Models/SwipeService.h; sourceTree = "<group>"; };
+		16DE213C1D60C93200D902EC /* SwipeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeService.m; path = SwipeMeal/Models/SwipeService.m; sourceTree = "<group>"; };
 		16EF77C41D4D955F00B16E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Selling.storyboard; sourceTree = "<group>"; };
 		16EF77C61D4D958C00B16E70 /* SwipeSellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeSellViewController.h; path = SwipeMeal/ViewControllers/SwipeSellViewController.h; sourceTree = "<group>"; };
 		16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellViewController.m; path = SwipeMeal/ViewControllers/SwipeSellViewController.m; sourceTree = "<group>"; };
@@ -314,6 +317,8 @@
 				168656CD1D1F2D53004CE47D /* Message.m */,
 				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
 				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
+				16DE213B1D60C93200D902EC /* SwipeService.h */,
+				16DE213C1D60C93200D902EC /* SwipeService.m */,
 				165304BB1D5698CA006A0760 /* SwipeStore.h */,
 				165304BC1D5698CA006A0760 /* SwipeStore.m */,
 			);
@@ -685,6 +690,7 @@
 				CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */,
 				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
 				CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */,
+				16DE213D1D60C93200D902EC /* SwipeService.m in Sources */,
 				1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */,
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
 				168656CE1D1F2D53004CE47D /* Message.m in Sources */,
