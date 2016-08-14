@@ -9,22 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Swipe.h"
 
-@protocol SwipeServiceDelegate;
-
 @interface SwipeService : NSObject
 
-@property (weak, nonatomic) id <SwipeServiceDelegate> delegate;
 @property (strong, nonatomic, readonly) NSArray *swipes;
 + (SwipeService *)sharedSwipeService;
-- (void)listenForEvents;
+- (void)listenForEventsWithAddBlock:(void(^)(void))addBlock removeBlock:(void(^)(void))removeBlock updateBlock:(void(^)(void))updateBlock;
 - (void)createNewSwipeWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock;
-
-@end
-
-@protocol SwipeServiceDelegate <NSObject>
-
-- (void)swipeServiceDidAddSwipe:(SwipeService *)service;
-- (void)swipeServiceDidRemoveSwipe:(SwipeService *)service;
-- (void)swipeService:(SwipeService *)service didUpdateSwipeAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -44,21 +44,18 @@
     return [self.swipeStore swipesSortedByPriceAscending];
 }
 
-- (void)listenForEvents {
+- (void)listenForEventsWithAddBlock:(void (^)(void))addBlock removeBlock:(void (^)(void))removeBlock updateBlock:(void (^)(void))updateBlock {
     [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         // Test for expired Swipe
         if (![self snapshotIsExpired:snapshot]) {
             // Build Swipe
             Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
             if ([self.swipeStore containsSwipeKey:swipe.swipeID]) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[[self.swipeStore swipesSortedByPriceAscending] count] - 1 inSection:0];
-                id <SwipeServiceDelegate> delegate = self.delegate;
-                [delegate swipeService:self didUpdateSwipeAtIndexPath:indexPath];
+                updateBlock();
             } else {
                 [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
                 NSLog(@"ADDED: %@", swipe);
-                id <SwipeServiceDelegate> delegate = self.delegate;
-                [delegate swipeServiceDidAddSwipe:self];
+                addBlock();
             }
         }
     }];
@@ -67,8 +64,7 @@
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
         [self.swipeStore removeSwipe:swipe forKey:swipe.swipeID];
         NSLog(@"REMOVED: %@", snapshot);
-        id <SwipeServiceDelegate> delegate = self.delegate;
-        [delegate swipeServiceDidRemoveSwipe:self];
+        removeBlock();
     }];
 }
 

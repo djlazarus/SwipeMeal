@@ -13,7 +13,7 @@
 #import "SwipeService.h"
 @import Firebase;
 
-@interface SwipeBuyViewController () <SwipeServiceDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SwipeBuyViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SwipeService *swipeService;
@@ -27,8 +27,13 @@
     [super viewDidLoad];
     
     self.swipeService = [SwipeService sharedSwipeService];
-    self.swipeService.delegate = self;
-    [self.swipeService listenForEvents];
+    [self.swipeService listenForEventsWithAddBlock:^{
+        [self.tableView reloadData];
+    } removeBlock:^{
+        [self.tableView reloadData];
+    } updateBlock:^{
+        [self.tableView reloadData];
+    }];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -39,20 +44,6 @@
         SwipeBuyDetailViewController *swipeBuyDetailViewController = (SwipeBuyDetailViewController *)[segue destinationViewController];
         swipeBuyDetailViewController.swipe = self.selectedSwipe;
     }
-}
-
-#pragma mark - SwipeServiceDelegate
-
-- (void)swipeServiceDidAddSwipe:(SwipeService *)service {
-    [self.tableView reloadData];
-}
-
-- (void)swipeServiceDidRemoveSwipe:(SwipeService *)service {
-    [self.tableView reloadData];
-}
-
-- (void)swipeService:(SwipeService *)service didUpdateSwipeAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - UITableViewDataSource
