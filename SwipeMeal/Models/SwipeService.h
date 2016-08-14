@@ -17,6 +17,7 @@
 @property (strong, nonatomic, readonly) NSArray *swipes;
 + (SwipeService *)sharedSwipeService;
 - (void)listenForEvents;
+- (void)createNewSwipeWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock;
 
 @end
 

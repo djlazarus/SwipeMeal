@@ -34,7 +34,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.swipeStore = [SwipeStore sharedSwipeStore];
-        self.dbRef = [[FIRDatabase database] referenceWithPath:@"/swipes-listed/"];
+        self.dbRef = [[FIRDatabase database] reference];
     }
     
     return self;
@@ -45,7 +45,7 @@
 }
 
 - (void)listenForEvents {
-    [self.dbRef observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         // Test for expired Swipe
         if (![self snapshotIsExpired:snapshot]) {
             // Build Swipe
@@ -63,7 +63,7 @@
         }
     }];
     
-    [self.dbRef observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
         [self.swipeStore removeSwipe:swipe forKey:swipe.swipeID];
         NSLog(@"REMOVED: %@", snapshot);
@@ -94,6 +94,21 @@
     swipe.expireTime = [[values objectForKey:@"expiration_time"] floatValue];
 
     return swipe;
+}
+
+- (void)createNewSwipeWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock {
+    NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: values,
+                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, key]: values};
+    
+    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            completionBlock();
+        }
+    }];
 }
 
 @end
