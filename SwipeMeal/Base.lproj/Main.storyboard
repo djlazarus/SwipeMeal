@@ -4,6 +4,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Messages-->
@@ -458,11 +460,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vCI-mN-pXO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cnR-IG-2Gd" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cnR-IG-2Gd" secondAttribute="height" multiplier="1:1" id="5n8-f0-BlN"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnw-NH-qrs" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="261" y="282" width="78" height="36"/>
+                                <rect key="frame" x="502" y="495" width="78" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Out">
-                                    <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_signOutButtonPressed" destination="0Z6-ud-fzI" eventType="touchUpInside" id="uq8-69-ugg"/>
@@ -471,11 +482,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Rnw-NH-qrs" firstAttribute="centerX" secondItem="P47-uA-fkC" secondAttribute="centerX" id="7DV-Qh-rkp"/>
-                            <constraint firstItem="Rnw-NH-qrs" firstAttribute="centerY" secondItem="P47-uA-fkC" secondAttribute="centerY" id="ePb-2i-Xdl"/>
+                            <constraint firstAttribute="trailing" secondItem="vCI-mN-pXO" secondAttribute="trailing" id="79e-nk-nuF"/>
+                            <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="vCI-mN-pXO" secondAttribute="bottom" id="AI0-XP-QSb"/>
+                            <constraint firstItem="vCI-mN-pXO" firstAttribute="top" secondItem="P47-uA-fkC" secondAttribute="top" id="F9S-ms-c3z"/>
+                            <constraint firstAttribute="trailing" secondItem="Rnw-NH-qrs" secondAttribute="trailing" constant="20" id="HKG-8m-vZl"/>
+                            <constraint firstItem="vCI-mN-pXO" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" id="bQn-aC-F2D"/>
+                            <constraint firstItem="cnR-IG-2Gd" firstAttribute="width" secondItem="P47-uA-fkC" secondAttribute="width" multiplier="0.5" id="l7A-qs-Ocl"/>
+                            <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="Rnw-NH-qrs" secondAttribute="bottom" constant="20" id="ofI-wq-IXj"/>
+                            <constraint firstItem="cnR-IG-2Gd" firstAttribute="centerX" secondItem="P47-uA-fkC" secondAttribute="centerX" id="r3N-NR-PfZ"/>
+                            <constraint firstItem="cnR-IG-2Gd" firstAttribute="centerY" secondItem="P47-uA-fkC" secondAttribute="centerY" id="zIx-bs-eFT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile-tab" selectedImage="profile-tab" id="OEx-Ik-LT8"/>
+                    <connections>
+                        <outlet property="_backgroundImageView" destination="vCI-mN-pXO" id="6a4-Ns-RrW"/>
+                        <outlet property="_centerImageView" destination="cnR-IG-2Gd" id="7t2-Ez-QN4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jz-zm-pvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
