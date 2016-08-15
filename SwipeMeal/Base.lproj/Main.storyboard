@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jnk-j2-2bd">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
@@ -448,7 +449,7 @@
         <!--Profile-->
         <scene sceneID="Qrc-hr-tsr">
             <objects>
-                <viewController id="0Z6-ud-fzI" sceneMemberID="viewController">
+                <viewController id="0Z6-ud-fzI" customClass="ProfileViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A9G-D2-QAx"/>
                         <viewControllerLayoutGuide type="bottom" id="tTl-Sa-Fqi"/>
@@ -456,7 +457,23 @@
                     <view key="view" contentMode="scaleToFill" id="P47-uA-fkC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnw-NH-qrs" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
+                                <rect key="frame" x="261" y="282" width="78" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_signOutButtonPressed" destination="0Z6-ud-fzI" eventType="touchUpInside" id="uq8-69-ugg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rnw-NH-qrs" firstAttribute="centerX" secondItem="P47-uA-fkC" secondAttribute="centerX" id="7DV-Qh-rkp"/>
+                            <constraint firstItem="Rnw-NH-qrs" firstAttribute="centerY" secondItem="P47-uA-fkC" secondAttribute="centerY" id="ePb-2i-Xdl"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile-tab" selectedImage="profile-tab" id="OEx-Ik-LT8"/>
                 </viewController>

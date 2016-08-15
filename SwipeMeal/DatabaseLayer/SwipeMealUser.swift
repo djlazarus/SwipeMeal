@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SwipeMealUser
-{
+{	
    var providerID: String { get }
 	
 	var groupID: String? { get }
@@ -46,6 +46,8 @@ protocol SwipeMealUser
 	
    func reload(completion: ReloadUserProfileCompletion?)
    func sendEmailVerification(completion: SendEmailVerificationCompletion?)
+	
+	func signOut()
 }
 
 extension SwipeMealUser {

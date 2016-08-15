@@ -41,4 +41,11 @@ extension FIRUser: SwipeMealUser
 		
 		changeRequest.commitChangesWithCompletion(completion)
 	}
+	
+	func signOut() {
+		do {
+			try FIRAuth.auth()?.signOut()
+		} catch {
+		}
+	}
 }
