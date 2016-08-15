@@ -67,6 +67,8 @@
             [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
             
             SwipeBuyConfirmationViewController *swipeBuyConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeBuyConfirmationViewController"];
+			  
+			  swipeBuyConfirmationViewController.swipe = self.swipe;
             [self presentViewController:swipeBuyConfirmationViewController animated:YES completion:nil];
         }
     }];
