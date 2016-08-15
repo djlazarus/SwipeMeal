@@ -16,6 +16,7 @@ private let kUsersPathName = "users"
 private let kUserInfoPathName = "userInfo"
 private let kUserGroupsPathName = "userGroups"
 private let kUserProfileSetupCompletePathName = "profileSetupComplete"
+private let kUserRatingsPathName = "ratings"
 
 typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> Void
 
@@ -23,9 +24,7 @@ struct SMDatabaseLayer
 {
 	static func upload(profileImage: UIImage, forSwipeMealUser user: SwipeMealUser, completion: UserDataUploadCompletion? = nil)
 	{
-		guard let imageData = UIImageJPEGRepresentation(profileImage, 0.5) else {
-			return
-		}
+		guard let imageData = UIImageJPEGRepresentation(profileImage, 0.5) else { return }
 		
 		let storage = FIRStorage.storage()
 		let imagesRef = storage.referenceForURL(kStorageURL).child(kProfileImagesPathName)
@@ -74,5 +73,37 @@ struct SMDatabaseLayer
 		
 		let userRef = ref.child(kUsersPathName).child(user.uid)
 		userRef.updateChildValues(["groupID" : groupID])
+	}
+	
+	static func generateFakeRatings(forUser user: SwipeMealUser) {
+		let fakeUIDs = ["uid1", "uid2", "uid3", "uid4", "uid5", "uid6", "uid7", "uid8"]
+		
+		fakeUIDs.forEach {
+			let randomRating = Int(arc4random_uniform(5))
+			add(rating: randomRating, toUserWithUID: user.uid, fromUserWithUID: $0)
+		}
+	}
+	
+	static func requestRatings(forUser user: SwipeMealUser, callback: (ratings: [String : Int]) -> Void) {
+		let ref = FIRDatabase.database().reference()
+		let userRatingsRef = ref.child("\(kUserRatingsPathName)/\(user.uid)")
+		
+		userRatingsRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+			var ratings: [String : Int] = [:]
+			let enumerator = snapshot.children
+			while let child = enumerator.nextObject() as? FIRDataSnapshot {
+				print(child)
+				if let value = child.value as? Int {
+					ratings[child.key] = value
+				}
+			}
+			callback(ratings: ratings)
+		})
+	}
+	
+	static func add(rating rating: Int, toUserWithUID toUID: String, fromUserWithUID fromUID: String) {
+		let ref = FIRDatabase.database().reference()
+		let userRatingsRef = ref.child("\(kUserRatingsPathName)/\(toUID)")
+		userRatingsRef.updateChildValues([fromUID : rating])
 	}
 }
