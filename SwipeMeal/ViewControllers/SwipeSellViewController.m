@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	self.topImageView.layer.masksToBounds = YES;
+	
     // Swipe
     self.swipe = [[Swipe alloc] init];
     
@@ -48,6 +50,7 @@
     self.timeTextField.delegate = self;
     
     // Date picker
+	
     [self.datePicker addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
     
     // Continue button
@@ -58,10 +61,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    CGSize size = self.topImageView.frame.size;
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://placehold.it/%@x%@", @(size.width), @(size.height)]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    self.topImageView.image = [UIImage imageWithData:data];
+//    CGSize size = self.topImageView.frame.size;
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://placehold.it/%@x%@", @(size.width), @(size.height)]];
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    self.topImageView.image = [UIImage imageWithData:data];
 }
 
 - (void)updatePrice:(UISlider *)slider {
@@ -115,6 +118,7 @@
         self.datePickerBottomConstraint.constant = 50;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
+		 [self updateTime:self.datePicker];
         //
     }];
 }

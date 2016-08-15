@@ -26,7 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+	
+	self.topImageView.layer.masksToBounds = YES;
     self.swipeService = [SwipeService sharedSwipeService];
 
     self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
@@ -37,11 +38,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    CGSize size = self.topImageView.frame.size;
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://placehold.it/%@x%@", @(size.width), @(size.height)]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    self.topImageView.image = [UIImage imageWithData:data];
+//    
+//    CGSize size = self.topImageView.frame.size;
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://placehold.it/%@x%@", @(size.width), @(size.height)]];
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    self.topImageView.image = [UIImage imageWithData:data];
 }
 
 - (NSString *)timeStringFromDate:(NSDate *)date {
@@ -75,7 +76,7 @@
     
     [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^{
         SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
-        [self presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
+        [self.tabBarController presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
     }];
 }
 

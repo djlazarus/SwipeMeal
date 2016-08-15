@@ -19,12 +19,18 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyswipes" translatesAutoresizingMaskIntoConstraints="NO" id="m01-Rg-Pbh" userLabel="Top Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVn-rB-Fig">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="214.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buyswipes" translatesAutoresizingMaskIntoConstraints="NO" id="m01-Rg-Pbh" userLabel="Top Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="214.5"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7q5-Rf-Afd">
-                                <rect key="frame" x="0.0" y="188" width="600" height="348"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7q5-Rf-Afd">
+                                <rect key="frame" x="0.0" y="214.5" width="600" height="321.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.51335989534487059" green="0.54273271003527923" blue="0.54755608974358982" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SwipeBuyTableViewCell" id="yaC-3C-tph" customClass="SwipeBuyTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="100"/>
@@ -146,7 +152,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SWIPES NEAR ME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3k-pq-3AR">
-                                <rect key="frame" x="20" y="59" width="128" height="70"/>
+                                <rect key="frame" x="20" y="72" width="128" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="anE-25-7cc"/>
                                     <constraint firstAttribute="height" constant="70" id="r8u-ia-dms"/>
@@ -159,10 +165,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7q5-Rf-Afd" secondAttribute="trailing" id="3vK-6L-lPy"/>
-                            <constraint firstItem="7q5-Rf-Afd" firstAttribute="height" secondItem="wKY-bB-Wqv" secondAttribute="height" multiplier="0.65" id="52l-Ao-GVz"/>
+                            <constraint firstItem="EVn-rB-Fig" firstAttribute="centerX" secondItem="m01-Rg-Pbh" secondAttribute="centerX" id="FUg-kV-Gdi"/>
                             <constraint firstAttribute="trailing" secondItem="m01-Rg-Pbh" secondAttribute="trailing" id="FcK-rr-KDH"/>
+                            <constraint firstItem="EVn-rB-Fig" firstAttribute="width" secondItem="m01-Rg-Pbh" secondAttribute="width" id="LDO-fg-0an"/>
+                            <constraint firstItem="EVn-rB-Fig" firstAttribute="height" secondItem="m01-Rg-Pbh" secondAttribute="height" id="RXE-Bo-wgZ"/>
                             <constraint firstItem="V3k-pq-3AR" firstAttribute="leading" secondItem="wKY-bB-Wqv" secondAttribute="leading" constant="20" id="T8H-Jj-ujE"/>
-                            <constraint firstItem="m01-Rg-Pbh" firstAttribute="height" secondItem="wKY-bB-Wqv" secondAttribute="height" multiplier="0.35" id="bvU-6S-DIT"/>
+                            <constraint firstItem="7q5-Rf-Afd" firstAttribute="top" secondItem="m01-Rg-Pbh" secondAttribute="bottom" id="ba9-z0-Efx"/>
+                            <constraint firstItem="m01-Rg-Pbh" firstAttribute="height" secondItem="wKY-bB-Wqv" secondAttribute="height" multiplier="0.4" id="bvU-6S-DIT"/>
+                            <constraint firstItem="EVn-rB-Fig" firstAttribute="centerY" secondItem="m01-Rg-Pbh" secondAttribute="centerY" id="cqZ-6y-8Zi"/>
                             <constraint firstItem="V3k-pq-3AR" firstAttribute="centerY" secondItem="m01-Rg-Pbh" secondAttribute="centerY" id="d3u-PN-Anf"/>
                             <constraint firstItem="Fki-de-zby" firstAttribute="top" secondItem="7q5-Rf-Afd" secondAttribute="bottom" id="ebI-5S-u3J"/>
                             <constraint firstItem="7q5-Rf-Afd" firstAttribute="leading" secondItem="wKY-bB-Wqv" secondAttribute="leading" id="hzY-Vo-Nvl"/>
@@ -195,10 +205,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-lx-a4i" userLabel="Top Half View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uu6-QD-dsf">
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uu6-QD-dsf">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-86-EDr" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8DI-86-EDr" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
                                         <rect key="frame" x="200" y="25" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="LTf-yy-jA4"/>
