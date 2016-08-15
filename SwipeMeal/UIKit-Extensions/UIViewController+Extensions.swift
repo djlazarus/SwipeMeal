@@ -10,49 +10,6 @@ import UIKit
 
 extension UIViewController
 {
-   private var errorPresenter: ErrorPresenterViewController {
-      for viewController in childViewControllers {
-         if let presenter = viewController as? ErrorPresenterViewController {
-            return presenter
-         }
-      }
-      return _createAndAddErrorPresenter()
-   }
-   
-   private func _createAndAddErrorPresenter() -> ErrorPresenterViewController
-   {
-      let errorPresenter = ErrorPresenterViewController()
-      addChildViewController(errorPresenter)
-      errorPresenter.didMoveToParentViewController(self)
-      
-      view.addSubview(errorPresenter.view)
-      return errorPresenter
-   }
-   
-   func present(status: SignUpInfoInvalidStatus)
-   {
-      dispatch_async(dispatch_get_main_queue()) { 
-         self.errorPresenter.presentStatus(status)
-      }
-   }
-   
-   func present(error: NSError)
-   {
-      dispatch_async(dispatch_get_main_queue()) {
-         self.errorPresenter.presentError(error)
-      }
-   }
-   
-   func presentMessage(message: String)
-   {
-      dispatch_async(dispatch_get_main_queue()) {
-         self.errorPresenter.presentMessage(message)
-      }
-   }
-}
-
-extension UIViewController
-{
    static var storyboardID: String {
       // Get the name of current class
       let classString = NSStringFromClass(self)

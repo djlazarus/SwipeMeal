@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSpinner
 import FirebaseAuth
+import IncipiaKit
 
 class AppEntryFlowController
 {

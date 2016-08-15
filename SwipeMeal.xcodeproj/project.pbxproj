@@ -70,7 +70,6 @@
 		CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67668B1D09FE08003D6EF0 /* UIProtocols.swift */; };
 		CE67668F1D09FE1B003D6EF0 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67668D1D09FE1B003D6EF0 /* BottomBorderTextField.swift */; };
 		CE6766901D09FE1B003D6EF0 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67668E1D09FE1B003D6EF0 /* SignInTextField.swift */; };
-		CE6766921D09FE25003D6EF0 /* ErrorPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766911D09FE25003D6EF0 /* ErrorPresenterViewController.swift */; };
 		CE6766951D09FE2E003D6EF0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766931D09FE2E003D6EF0 /* SignInViewController.swift */; };
 		CE6766961D09FE2E003D6EF0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766941D09FE2E003D6EF0 /* SignUpViewController.swift */; };
 		CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766971D09FE38003D6EF0 /* BaseOperation.swift */; };
@@ -180,7 +179,6 @@
 		CE67668B1D09FE08003D6EF0 /* UIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIProtocols.swift; path = SwipeMeal/CustomUI/UIProtocols.swift; sourceTree = "<group>"; };
 		CE67668D1D09FE1B003D6EF0 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomBorderTextField.swift; path = SwipeMeal/CustomUI/BottomBorderTextField.swift; sourceTree = "<group>"; };
 		CE67668E1D09FE1B003D6EF0 /* SignInTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInTextField.swift; path = SwipeMeal/CustomUI/SignInTextField.swift; sourceTree = "<group>"; };
-		CE6766911D09FE25003D6EF0 /* ErrorPresenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorPresenterViewController.swift; path = SwipeMeal/ViewControllers/ErrorPresenterViewController.swift; sourceTree = "<group>"; };
 		CE6766931D09FE2E003D6EF0 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = SwipeMeal/ViewControllers/SignInViewController.swift; sourceTree = "<group>"; };
 		CE6766941D09FE2E003D6EF0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = SwipeMeal/ViewControllers/SignUpViewController.swift; sourceTree = "<group>"; };
 		CE6766971D09FE38003D6EF0 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseOperation.swift; path = SwipeMeal/Operations/BaseOperation.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1D776D1CF7708A0071D249 /* SignUpInfoValidator.swift */,
-				CE6766911D09FE25003D6EF0 /* ErrorPresenterViewController.swift */,
 				CE34EA4E1D1861F3003408EB /* SwipeMealUserStorage.swift */,
 			);
 			name = Utilities;
@@ -706,7 +703,6 @@
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
 				168656CE1D1F2D53004CE47D /* Message.m in Sources */,
 				CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */,
-				CE6766921D09FE25003D6EF0 /* ErrorPresenterViewController.swift in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE34EA571D1895F6003408EB /* UIColor+Extensions.swift in Sources */,
 				161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */,
