@@ -56,6 +56,7 @@
 		CE2782D11CE7EA4200039014 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782CF1CE7EA4200039014 /* SignIn.storyboard */; };
 		CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D21CE7EA4200039014 /* Assets.xcassets */; };
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
+		CE3203DB1D621BB900746B03 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203DA1D621BB900746B03 /* ProfileViewController.swift */; };
 		CE34EA471D146178003408EB /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34EA451D146178003408EB /* Onboarding.storyboard */; };
 		CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA481D146266003408EB /* WelcomeViewController.swift */; };
 		CE34EA4B1D185BD7003408EB /* SwipeMealNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */; };
@@ -165,6 +166,7 @@
 		CE2782D21CE7EA4200039014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SwipeMeal/Assets.xcassets; sourceTree = "<group>"; };
 		CE2782D51CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2782D71CE7EA4200039014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwipeMeal/Info.plist; sourceTree = "<group>"; };
+		CE3203DA1D621BB900746B03 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = SwipeMeal/ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		CE34EA461D146178003408EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		CE34EA481D146266003408EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = SwipeMeal/ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealNavigationBar.swift; path = SwipeMeal/CustomUI/SwipeMealNavigationBar.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				16ABC4BC1D4C04F600A2AAA4 /* Buying Swipes */,
 				16EF77C91D4D959100B16E70 /* Selling Swipes */,
 				168656C81D1F15BA004CE47D /* Messages */,
+				CE3203D91D621B9E00746B03 /* Profile */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -413,6 +416,14 @@
 				168656B71D1EC82F004CE47D /* SwipeMeal-Bridging-Header.h */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CE3203D91D621B9E00746B03 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CE3203DA1D621BB900746B03 /* ProfileViewController.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		CE4E37A51CF60A06000D3E24 /* Custom UI */ = {
@@ -723,6 +734,7 @@
 				16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
+				CE3203DB1D621BB900746B03 /* ProfileViewController.swift in Sources */,
 				168656CB1D1F29BD004CE47D /* MessagesTableViewCell.m in Sources */,
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,
 				1694222A1D577496002981A9 /* SwipeBuyConfirmationViewController.m in Sources */,
