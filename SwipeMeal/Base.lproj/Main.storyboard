@@ -464,13 +464,52 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cnR-IG-2Gd" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <rect key="frame" x="150" y="90" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cnR-IG-2Gd" secondAttribute="height" multiplier="1:1" id="5n8-f0-BlN"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnw-NH-qrs" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="502" y="495" width="78" height="36"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whb-Zk-GED">
+                                <rect key="frame" x="0.0" y="501" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQa-Sz-RwH">
+                                        <rect key="frame" x="20" y="12" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CQa-Sz-RwH" secondAttribute="height" multiplier="1:1" id="8dZ-40-hdO"/>
+                                        </constraints>
+                                        <state key="normal" image="profile-edit"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="CQa-Sz-RwH" firstAttribute="leading" secondItem="Whb-Zk-GED" secondAttribute="leading" constant="20" id="5Hh-eQ-gag"/>
+                                    <constraint firstItem="CQa-Sz-RwH" firstAttribute="centerY" secondItem="Whb-Zk-GED" secondAttribute="centerY" id="cns-bC-iFv"/>
+                                    <constraint firstAttribute="height" constant="50" id="sWL-4j-XvL"/>
+                                    <constraint firstItem="CQa-Sz-RwH" firstAttribute="height" secondItem="Whb-Zk-GED" secondAttribute="height" multiplier="0.5" id="ueB-Rq-puo"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="★★★★★" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y03-IC-cdM">
+                                <rect key="frame" x="20" y="469" width="100" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gregory K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfE-4B-rKp">
+                                <rect key="frame" x="20" y="420" width="150.5" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwm-4m-00A">
+                                <rect key="frame" x="20" y="20" width="41" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="56b-a2-SrS"/>
+                                    <constraint firstAttribute="height" constant="56" id="PeA-YN-AKY"/>
+                                </constraints>
+                                <state key="normal" image="profile-hamburger"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnw-NH-qrs">
+                                <rect key="frame" x="502" y="507" width="78" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Out">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -482,21 +521,32 @@
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="kfE-4B-rKp" firstAttribute="leading" secondItem="Y03-IC-cdM" secondAttribute="leading" id="4lT-Vz-3eX"/>
                             <constraint firstAttribute="trailing" secondItem="vCI-mN-pXO" secondAttribute="trailing" id="79e-nk-nuF"/>
+                            <constraint firstItem="hwm-4m-00A" firstAttribute="top" secondItem="A9G-D2-QAx" secondAttribute="bottom" id="95B-NX-QTl"/>
                             <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="vCI-mN-pXO" secondAttribute="bottom" id="AI0-XP-QSb"/>
                             <constraint firstItem="vCI-mN-pXO" firstAttribute="top" secondItem="P47-uA-fkC" secondAttribute="top" id="F9S-ms-c3z"/>
                             <constraint firstAttribute="trailing" secondItem="Rnw-NH-qrs" secondAttribute="trailing" constant="20" id="HKG-8m-vZl"/>
+                            <constraint firstItem="Y03-IC-cdM" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" constant="20" id="Wox-1M-VHm"/>
                             <constraint firstItem="vCI-mN-pXO" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" id="bQn-aC-F2D"/>
+                            <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="Whb-Zk-GED" secondAttribute="bottom" id="djA-Zo-QNm"/>
+                            <constraint firstItem="Y03-IC-cdM" firstAttribute="top" secondItem="kfE-4B-rKp" secondAttribute="bottom" constant="8" id="h5X-HA-kpq"/>
+                            <constraint firstItem="Whb-Zk-GED" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" id="kSb-Bg-tQc"/>
                             <constraint firstItem="cnR-IG-2Gd" firstAttribute="width" secondItem="P47-uA-fkC" secondAttribute="width" multiplier="0.5" id="l7A-qs-Ocl"/>
-                            <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="Rnw-NH-qrs" secondAttribute="bottom" constant="20" id="ofI-wq-IXj"/>
+                            <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="Rnw-NH-qrs" secondAttribute="bottom" constant="8" id="ofI-wq-IXj"/>
+                            <constraint firstAttribute="trailing" secondItem="Whb-Zk-GED" secondAttribute="trailing" id="phP-sl-COM"/>
                             <constraint firstItem="cnR-IG-2Gd" firstAttribute="centerX" secondItem="P47-uA-fkC" secondAttribute="centerX" id="r3N-NR-PfZ"/>
-                            <constraint firstItem="cnR-IG-2Gd" firstAttribute="centerY" secondItem="P47-uA-fkC" secondAttribute="centerY" id="zIx-bs-eFT"/>
+                            <constraint firstItem="hwm-4m-00A" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" constant="20" id="rPQ-Gq-lqG"/>
+                            <constraint firstItem="cnR-IG-2Gd" firstAttribute="centerY" secondItem="P47-uA-fkC" secondAttribute="centerY" constant="-60" id="zIx-bs-eFT"/>
+                            <constraint firstItem="Whb-Zk-GED" firstAttribute="top" secondItem="Y03-IC-cdM" secondAttribute="bottom" constant="8" id="zzG-bx-JGF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile-tab" selectedImage="profile-tab" id="OEx-Ik-LT8"/>
                     <connections>
                         <outlet property="_backgroundImageView" destination="vCI-mN-pXO" id="6a4-Ns-RrW"/>
                         <outlet property="_centerImageView" destination="cnR-IG-2Gd" id="7t2-Ez-QN4"/>
+                        <outlet property="_nameLabel" destination="kfE-4B-rKp" id="Ms8-59-6hs"/>
+                        <outlet property="_ratingLabel" destination="Y03-IC-cdM" id="CjW-EC-HMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jz-zm-pvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -722,6 +772,8 @@
     <resources>
         <image name="home-tab" width="30" height="30"/>
         <image name="messages-tab" width="30" height="30"/>
+        <image name="profile-edit" width="200" height="200"/>
+        <image name="profile-hamburger" width="200" height="200"/>
         <image name="profile-tab" width="30" height="30"/>
         <image name="wallet-tab" width="30" height="30"/>
     </resources>

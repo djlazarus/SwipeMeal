@@ -12,6 +12,8 @@ import IncipiaKit
 
 class ProfileViewController: UIViewController {
 	
+	@IBOutlet private var _nameLabel: UILabel!
+	@IBOutlet private var _ratingLabel: UILabel!
 	@IBOutlet private var _backgroundImageView: UIImageView!
 	@IBOutlet private var _centerImageView: CircularImageView!
 	
@@ -32,6 +34,8 @@ class ProfileViewController: UIViewController {
 			self._centerImageView.image = image
 			self._backgroundImageView.image = image?.applyBlur(withRadius: 4, tintColor: nil, saturationDeltaFactor: 1.2)
 		}
+		
+		_nameLabel.text = user.displayName
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
