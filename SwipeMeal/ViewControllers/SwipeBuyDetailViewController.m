@@ -27,6 +27,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImageView4;
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImageView5;
 
+@property (weak, nonatomic) IBOutlet UILabel *bottomPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bottomTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLocationLabel;
+
 @end
 
 @implementation SwipeBuyDetailViewController
@@ -48,6 +52,9 @@
         starImageView.image = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         starImageView.tintColor = [UIColor colorWithRed:184.0/255 green:184.0/255 blue:184.0/255 alpha:1.0];
     }
+	
+	self.bottomPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)_swipe.price];
+	self.bottomLocationLabel.text = _swipe.locationName;
 }
 
 - (void)startDownloadingProfileImage {
