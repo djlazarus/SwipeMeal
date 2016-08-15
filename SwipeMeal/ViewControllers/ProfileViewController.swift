@@ -17,12 +17,28 @@ class ProfileViewController: UIViewController {
 	@IBOutlet private var _backgroundImageView: UIImageView!
 	@IBOutlet private var _centerImageView: CircularImageView!
 	
+	private var _profileImage: UIImage?
+	
+	private let _editProfileImageVC = EditProfileImageViewController.instantiate(fromStoryboard: "Main")
+	
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		_backgroundImageView.alpha = 0.5
 		guard let user = SMAuthLayer.currentUser else { return }
+		_syncProfileImageViews(withUser: user)
+		
+		_nameLabel.text = user.displayName
+		_editProfileImageVC.delegate = self
+	}
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return .LightContent
+	}
+	
+	// MARK: - Private
+	private func _syncProfileImageViews(withUser user: SwipeMealUser) {
 		
 		let storage = FIRStorage.storage()
 		let path = "profileImages/\(user.uid).jpg"
@@ -30,20 +46,47 @@ class ProfileViewController: UIViewController {
 		pathRef.dataWithMaxSize(1024 * 1024) { (data, error) in
 			
 			guard let data = data else { return }
-			let image = UIImage(data: data)
-			self._centerImageView.image = image
-			self._backgroundImageView.image = image?.applyBlur(withRadius: 4, tintColor: nil, saturationDeltaFactor: 1.2)
+			self._profileImage = UIImage(data: data)
+			self._updateProfileImageViews()
 		}
-		
-		_nameLabel.text = user.displayName
 	}
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+	private func _updateProfileImageViews() {
+		_centerImageView.image = _profileImage
+		_backgroundImageView.image = _profileImage?.applyBlur(withRadius: 4, tintColor: nil, saturationDeltaFactor: 1.2)
 	}
 	
 	// MARK: - Actions
 	@IBAction private func _signOutButtonPressed() {
 		SMAuthLayer.currentUser?.signOut()
+	}
+	
+	@IBAction private func _editProfileImageButtonPressed() {
+		if let image = _profileImage {
+			_editProfileImageVC.updateImage(image)
+		}
+		tabBarController?.presentViewController(_editProfileImageVC, animated: true, completion: nil)
+	}
+}
+
+extension ProfileViewController: EditProfileImageViewControllerDelegate {
+	func editProfileImageViewControllerAddImagePressed(controller: EditProfileImageViewController) {
+		
+		guard let user = SMAuthLayer.currentUser else { return }
+		
+		let addProfileImageOp = AddProfileImageOperation(presentationContext: controller, user: user)
+		addProfileImageOp.completionBlock = {
+			if let image = addProfileImageOp.profileImage {
+				controller.updateImage(image)
+				self._profileImage = image
+				self._updateProfileImageViews()
+			}
+		}
+		
+		addProfileImageOp.start()
+	}
+	
+	func editProfileImageViewControllerSavePressed(controller: EditProfileImageViewController) {
+		controller.dismissViewControllerAnimated(true, completion: nil)
 	}
 }

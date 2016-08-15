@@ -478,6 +478,9 @@
                                             <constraint firstAttribute="width" secondItem="CQa-Sz-RwH" secondAttribute="height" multiplier="1:1" id="8dZ-40-hdO"/>
                                         </constraints>
                                         <state key="normal" image="profile-edit"/>
+                                        <connections>
+                                            <action selector="_editProfileImageButtonPressed" destination="0Z6-ud-fzI" eventType="touchUpInside" id="Rbh-3X-rNK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
@@ -777,6 +780,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3T4-MQ-3Sa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3583" y="61"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="fjw-tQ-StF">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileImageViewController" title="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VhG-Gb-l3p" customClass="EditProfileImageViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zwt-lm-NcK"/>
+                        <viewControllerLayoutGuide type="bottom" id="UQ3-g3-WXM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h3z-wK-Mvw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-Kl-asr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZH-i2-jYk">
+                                        <rect key="frame" x="135.5" y="21" width="49" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="lZH-i2-jYk" firstAttribute="centerX" secondItem="KYD-Kl-asr" secondAttribute="centerX" id="CML-go-9om"/>
+                                    <constraint firstAttribute="height" constant="64" id="Lzl-Ep-368"/>
+                                    <constraint firstItem="lZH-i2-jYk" firstAttribute="centerY" secondItem="KYD-Kl-asr" secondAttribute="centerY" id="dnd-Th-ZBt"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUi-Et-t3i">
+                                <rect key="frame" x="0.0" y="484" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JHO-pA-0b3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_saveButtonPressed" destination="VhG-Gb-l3p" eventType="touchUpInside" id="jGi-RM-bqY"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3og-kB-Bum">
+                                <rect key="frame" x="0.0" y="112" width="320" height="372"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW6-cI-mXu" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                                        <rect key="frame" x="64" y="90" width="192" height="192"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="oW6-cI-mXu" secondAttribute="height" multiplier="1:1" id="4LI-co-HvO"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-jb-efd" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
+                                        <rect key="frame" x="216" y="162" width="48" height="48"/>
+                                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="asY-DV-ce0"/>
+                                            <constraint firstAttribute="height" constant="48" id="pYs-FD-8oL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="_addImageButtonPressed" destination="VhG-Gb-l3p" eventType="touchUpInside" id="M4x-dN-28h"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="centerY" secondItem="3og-kB-Bum" secondAttribute="centerY" id="K03-sJ-xma"/>
+                                    <constraint firstItem="Jhq-jb-efd" firstAttribute="centerY" secondItem="oW6-cI-mXu" secondAttribute="centerY" id="PYM-09-uYW"/>
+                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="width" secondItem="3og-kB-Bum" secondAttribute="width" multiplier="0.6" id="dwg-pp-NBC"/>
+                                    <constraint firstItem="Jhq-jb-efd" firstAttribute="leading" secondItem="oW6-cI-mXu" secondAttribute="trailing" constant="-40" id="jBF-Y2-hhD"/>
+                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="centerX" secondItem="3og-kB-Bum" secondAttribute="centerX" id="sHU-zu-RdD"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit your Swipe Meal profile image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztw-dX-LLs">
+                                <rect key="frame" x="25" y="94" width="270" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ztw-dX-LLs" firstAttribute="top" secondItem="KYD-Kl-asr" secondAttribute="bottom" constant="30" id="H3y-dQ-F8f"/>
+                            <constraint firstAttribute="trailing" secondItem="iUi-Et-t3i" secondAttribute="trailing" id="HVU-5Y-zF5"/>
+                            <constraint firstAttribute="trailing" secondItem="ztw-dX-LLs" secondAttribute="trailing" constant="25" id="MvJ-MX-ibl"/>
+                            <constraint firstAttribute="trailing" secondItem="3og-kB-Bum" secondAttribute="trailing" id="QfN-TQ-e9u"/>
+                            <constraint firstItem="KYD-Kl-asr" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="U0L-MV-KrS"/>
+                            <constraint firstItem="iUi-Et-t3i" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="XfJ-np-wGu"/>
+                            <constraint firstItem="3og-kB-Bum" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="bhS-cF-CB0"/>
+                            <constraint firstItem="3og-kB-Bum" firstAttribute="top" secondItem="ztw-dX-LLs" secondAttribute="bottom" id="e9n-xo-wlF"/>
+                            <constraint firstAttribute="trailing" secondItem="KYD-Kl-asr" secondAttribute="trailing" id="gLg-MJ-fk7"/>
+                            <constraint firstItem="iUi-Et-t3i" firstAttribute="top" secondItem="3og-kB-Bum" secondAttribute="bottom" id="lb3-0e-sTP"/>
+                            <constraint firstItem="KYD-Kl-asr" firstAttribute="top" secondItem="h3z-wK-Mvw" secondAttribute="top" id="oBO-FQ-BmC"/>
+                            <constraint firstItem="ztw-dX-LLs" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" constant="25" id="oZ2-Sq-cvb"/>
+                            <constraint firstItem="UQ3-g3-WXM" firstAttribute="top" secondItem="iUi-Et-t3i" secondAttribute="bottom" constant="34" id="qhi-7N-KVA"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="_continueButton" destination="iUi-Et-t3i" id="EZO-fQ-NgL"/>
+                        <outlet property="_imageView" destination="oW6-cI-mXu" id="ho2-MJ-hwV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qj6-L4-4ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="1389"/>
         </scene>
     </scenes>
     <resources>

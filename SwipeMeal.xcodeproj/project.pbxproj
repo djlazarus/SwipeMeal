@@ -57,6 +57,7 @@
 		CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D21CE7EA4200039014 /* Assets.xcassets */; };
 		CE2782D61CE7EA4200039014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2782D41CE7EA4200039014 /* LaunchScreen.storyboard */; };
 		CE3203DB1D621BB900746B03 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203DA1D621BB900746B03 /* ProfileViewController.swift */; };
+		CE3203DD1D626E0B00746B03 /* EditProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3203DC1D626E0B00746B03 /* EditProfileImageViewController.swift */; };
 		CE34EA471D146178003408EB /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE34EA451D146178003408EB /* Onboarding.storyboard */; };
 		CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA481D146266003408EB /* WelcomeViewController.swift */; };
 		CE34EA4B1D185BD7003408EB /* SwipeMealNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */; };
@@ -166,6 +167,7 @@
 		CE2782D51CE7EA4200039014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2782D71CE7EA4200039014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SwipeMeal/Info.plist; sourceTree = "<group>"; };
 		CE3203DA1D621BB900746B03 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = SwipeMeal/ViewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
+		CE3203DC1D626E0B00746B03 /* EditProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileImageViewController.swift; path = SwipeMeal/ViewControllers/EditProfileImageViewController.swift; sourceTree = "<group>"; };
 		CE34EA461D146178003408EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		CE34EA481D146266003408EB /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeViewController.swift; path = SwipeMeal/ViewControllers/WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE34EA4A1D185BD7003408EB /* SwipeMealNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealNavigationBar.swift; path = SwipeMeal/CustomUI/SwipeMealNavigationBar.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		CE3203D91D621B9E00746B03 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CE3203DC1D626E0B00746B03 /* EditProfileImageViewController.swift */,
 				CE3203DA1D621BB900746B03 /* ProfileViewController.swift */,
 			);
 			name = Profile;
@@ -735,6 +738,7 @@
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,
 				1694222A1D577496002981A9 /* SwipeBuyConfirmationViewController.m in Sources */,
 				161D1B981D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m in Sources */,
+				CE3203DD1D626E0B00746B03 /* EditProfileImageViewController.swift in Sources */,
 				CE34EA531D187276003408EB /* CircularImageView.swift in Sources */,
 				168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */,
 				168656D11D202F18004CE47D /* CircularIndicatorView.m in Sources */,
