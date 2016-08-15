@@ -707,11 +707,12 @@
         <scene sceneID="gKW-yL-0wK">
             <objects>
                 <tabBarController id="jnk-j2-2bd" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="BxJ-nd-1Jw">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="BxJ-nd-1Jw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.2196078431372549" green="0.21568627450980393" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Vue-dJ-dIH" kind="relationship" relationship="viewControllers" id="Zur-IY-Ehr"/>
@@ -897,11 +898,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home-tab" width="30" height="30"/>
-        <image name="messages-tab" width="30" height="30"/>
+        <image name="home-tab" width="22" height="24"/>
+        <image name="messages-tab" width="27" height="24"/>
         <image name="profile-edit" width="200" height="200"/>
         <image name="profile-hamburger" width="200" height="200"/>
-        <image name="profile-tab" width="30" height="30"/>
-        <image name="wallet-tab" width="30" height="30"/>
+        <image name="profile-tab" width="25" height="25"/>
+        <image name="wallet-tab" width="25" height="25"/>
     </resources>
 </document>

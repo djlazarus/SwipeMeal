@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
 		}
 		
-//      let token = FIRInstanceID.instanceID().token()
-//      print("TOKEN: \(token)")
+      let token = FIRInstanceID.instanceID().token()
+      print("TOKEN: \(token)")
 		
       return true
    }
@@ -74,20 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
       
       FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
-//      print("Device Token:", tokenString)
+      print("Device Token:", tokenString)
    }
    
    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
    {
-//      print("Failed to register for remote notifications: \(error.description)")
+      print("Failed to register for remote notifications: \(error.description)")
    }
    
    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
    {
       FIRMessaging.messaging().appDidReceiveMessage(userInfo)
       
-//      print("Message ID: \(userInfo["gcm.message_id"])")
-//      print(userInfo)
+      print("Message ID: \(userInfo["gcm.message_id"])")
+      print(userInfo)
 		
       completionHandler(.NoData)
    }
@@ -123,10 +123,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    private func _connectToFCM()
    {
       FIRMessaging.messaging().connectWithCompletion { (error) in
-         if let _ = error {
-//            print("Could not connect to FCM: \(error.description)")
+         if let error = error {
+            print("Could not connect to FCM: \(error.description)")
          } else {
-//            print("Connected to FCM successfully.")
+            print("Connected to FCM successfully.")
          }
       }
    }
@@ -139,9 +139,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    
    internal func tokenRefreshed(notification: NSNotification)
    {
-//      let refreshedToken = FIRInstanceID.instanceID().token()
-//      print("InstanceID token: \(refreshedToken)")
-      
+      let refreshedToken = FIRInstanceID.instanceID().token()
+      print("InstanceID token: \(refreshedToken)")
+		
       _connectToFCM()
    }
 }
