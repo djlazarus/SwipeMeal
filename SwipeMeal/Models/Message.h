@@ -13,6 +13,9 @@
 
 @property (strong, nonatomic) UIImage *mainImage;
 @property (strong, nonatomic) NSString *nameText;
+@property (strong, nonatomic) NSString *fromUID;
+@property (strong, nonatomic) NSString *toUID;
+@property (strong, nonatomic) NSString *swipeID;
 @property (strong, nonatomic) NSString *dateTimeText;
 @property (strong, nonatomic) NSString *messageText;
 @property (nonatomic, getter=isUnread) BOOL unread;

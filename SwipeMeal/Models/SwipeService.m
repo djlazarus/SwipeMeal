@@ -54,7 +54,7 @@
                 updateBlock();
             } else {
                 [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
-                NSLog(@"ADDED: %@", swipe);
+                NSLog(@"Added Swipe: %@", swipe);
                 addBlock();
             }
         }
@@ -63,7 +63,7 @@
     [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
         [self.swipeStore removeSwipe:swipe forKey:swipe.swipeID];
-        NSLog(@"REMOVED: %@", snapshot);
+        NSLog(@"Removed Swipe: %@", snapshot);
         removeBlock();
     }];
 }

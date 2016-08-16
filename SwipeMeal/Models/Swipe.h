@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIImage *sellerImage;
 @property (strong, nonatomic) NSString *sellerName;
 @property (strong, nonatomic) NSString *locationName;
+@property (strong, nonatomic) NSArray *messages;
 @property (nonatomic) NSTimeInterval availableTime;
 @property (nonatomic) NSTimeInterval listingTime;
 @property (nonatomic) NSTimeInterval soldTime;
