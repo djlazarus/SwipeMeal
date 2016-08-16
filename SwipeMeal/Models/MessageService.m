@@ -41,7 +41,7 @@
 }
 
 - (NSArray *)messages {
-    return [self.messageStore messagesSortedByPriceAscending];
+    return [self.messageStore messagesSortedByDateDescending];
 }
 
 - (void)listenForEventsWithAddBlock:(void (^)(void))addBlock removeBlock:(void (^)(void))removeBlock updateBlock:(void (^)(void))updateBlock {

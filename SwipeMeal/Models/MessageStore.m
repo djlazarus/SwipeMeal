@@ -53,8 +53,21 @@
     return message;
 }
 
-- (NSArray *)messagesSortedByPriceAscending {
-    return nil;
+- (NSArray *)messagesSortedByDateDescending {
+    NSArray *messageKeys = [_messagesByMessageID keysSortedByValueUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        Message *message1 = (Message *)obj1;
+        Message *message2 = (Message *)obj2;
+        
+        return [@(message2.timestamp) compare:@(message1.timestamp)];
+    }];
+    
+    NSMutableArray *messages = [NSMutableArray array];
+    for (NSString *key in messageKeys) {
+        Message *message = [_messagesByMessageID objectForKey:key];
+        [messages addObject:message];
+    }
+    
+    return messages;
 }
 
 @end

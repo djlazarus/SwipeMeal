@@ -16,6 +16,6 @@
 - (void)addMessage:(Message *)message forKey:(NSString *)key;
 - (void)removeMessage:(Message *)message forKey:(NSString *)key;
 - (Message *)messageForKey:(NSString *)key;
-- (NSArray *)messagesSortedByPriceAscending;
+- (NSArray *)messagesSortedByDateDescending;
 
 @end
