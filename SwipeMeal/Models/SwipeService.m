@@ -107,4 +107,21 @@
     }];
 }
 
+//- (void)buySwipe:(Swipe *)swipe withValues:(NSDictionary *)values completionBlock:(void (^)(void))completionBlock {
+//    NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
+//    NSString *userID = [FIRAuth auth].currentUser.uid;
+//    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: values,
+//                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, key]: values};
+//    
+//    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+//        if (error) {
+//            NSLog(@"%@", error);
+//        } else {
+//            // Remove the listing
+//            [[[self.dbRef child:@"swipes-listed"] child:self.swipe.swipeID] removeValue];
+//            [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
+//        }
+//    }];
+//}
+
 @end

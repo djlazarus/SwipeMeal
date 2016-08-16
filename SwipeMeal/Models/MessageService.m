@@ -44,36 +44,55 @@
     return [self.messageStore messagesSortedByPriceAscending];
 }
 
-//- (void)listenForEventsWithAddBlock:(void (^)(void))addBlock removeBlock:(void (^)(void))removeBlock updateBlock:(void (^)(void))updateBlock {
-//    [[self.dbRef child:@"/messages/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        // Build Message
-//        Message *message = [self swipeWithKey:snapshot.key values:snapshot.value];
-//        if ([self.swipeStore containsSwipeKey:swipe.swipeID]) {
-//            updateBlock();
-//        } else {
-//            [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
-//            NSLog(@"Added Swipe: %@", swipe);
-//            addBlock();
-//        }
-//    }];
-//    
-//    [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-//        [self.swipeStore removeSwipe:swipe forKey:swipe.swipeID];
-//        NSLog(@"Removed Swipe: %@", snapshot);
-//        removeBlock();
-//    }];
-//}
+- (void)listenForEventsWithAddBlock:(void (^)(void))addBlock removeBlock:(void (^)(void))removeBlock updateBlock:(void (^)(void))updateBlock {
+    [[self.dbRef child:@"/messages/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        // Build Message
+        Message *message = [self messageWithKey:snapshot.key values:snapshot.value];
+        if ([self.messageStore containsMessageKey:message.messageID]) {
+            updateBlock();
+        } else {
+            [self.messageStore addMessage:message forKey:message.messageID];
+            NSLog(@"Added Message: %@", message);
+            addBlock();
+        }
+    }];
+    
+    [[self.dbRef child:@"/messages/"] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Message *message = [self messageWithKey:snapshot.key values:snapshot.value];
+        [self.messageStore removeMessage:message forKey:message.messageID];
+        NSLog(@"Removed Message: %@", snapshot);
+        removeBlock();
+    }];
+}
 
 - (Message *)messageWithKey:(NSString *)key values:(NSDictionary *)values {
     Message *message = [[Message alloc] init];
-    message.unread = [[values objectForKey:@"unread"] boolValue];
-//    message.mainImage = [UIImage imageNamed:@"temp-gabe"];
-//    message.nameText = @"Gabe Kwakyi";
-//    message.dateTimeText = @"9:41a";
+    message.messageID = key;
     message.messageText = [values objectForKey:@"body"];
+    message.toUID = [values objectForKey:@"to_uid"];
+    message.fromUID = [values objectForKey:@"from_uid"];
+    message.swipeID = [values objectForKey:@"swipe_id"];
+    message.unread = [[values objectForKey:@"unread"] boolValue];
+    message.timestamp = [[values objectForKey:@"timestamp"] integerValue];
 
     return message;
+}
+
+- (void)createNewMessageWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock {
+    NSString *key = [[self.dbRef child:@"messages"] childByAutoId].key;
+    NSString *fromUserID = [FIRAuth auth].currentUser.uid;
+    NSDictionary *childUpdates = @{[@"/messages/" stringByAppendingString:key]: values,
+                                   [NSString stringWithFormat:@"/user-messages/%@/%@/", fromUserID, key]: values};
+    
+    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            if (completionBlock) {
+                completionBlock();
+            }
+        }
+    }];
 }
 
 @end
