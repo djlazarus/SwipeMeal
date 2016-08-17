@@ -73,11 +73,13 @@
             [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
             
             // Create initial message
+            NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
             NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
                                             @"from_uid":userID,
                                             @"to_uid":self.swipe.uid,
                                             @"timestamp":@(timestamp),
-                                            @"unread":@(YES)};
+                                            @"unread":@(YES),
+                                            @"body":body};
             [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:nil];
             
             SwipeBuyConfirmationViewController *swipeBuyConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeBuyConfirmationViewController"];

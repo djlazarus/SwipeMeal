@@ -15,5 +15,6 @@
 + (MessageService *)sharedMessageService;
 - (void)listenForEventsWithAddBlock:(void(^)(void))addBlock removeBlock:(void(^)(void))removeBlock updateBlock:(void(^)(void))updateBlock;
 - (void)createNewMessageWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock;
+- (void)replaceMessageWithKey:(NSString *)key withMessage:(Message *)message;
 
 @end

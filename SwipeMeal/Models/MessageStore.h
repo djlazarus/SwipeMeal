@@ -14,7 +14,7 @@
 + (MessageStore *)sharedMessageStore;
 - (BOOL)containsMessageKey:(NSString *)key;
 - (void)addMessage:(Message *)message forKey:(NSString *)key;
-- (void)removeMessage:(Message *)message forKey:(NSString *)key;
+- (void)removeMessageForKey:(NSString *)key;
 - (Message *)messageForKey:(NSString *)key;
 - (NSArray *)messagesSortedByDateDescending;
 

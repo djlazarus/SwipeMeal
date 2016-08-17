@@ -44,8 +44,16 @@
     return [self.messageStore messagesSortedByDateDescending];
 }
 
+- (void)replaceMessageWithKey:(NSString *)key withMessage:(Message *)message {
+    if ([self.messageStore containsMessageKey:key]) {
+        [self.messageStore removeMessageForKey:key];
+        [self.messageStore addMessage:message forKey:key];
+    }
+}
+
 - (void)listenForEventsWithAddBlock:(void (^)(void))addBlock removeBlock:(void (^)(void))removeBlock updateBlock:(void (^)(void))updateBlock {
-    [[self.dbRef child:@"/messages/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    [[[self.dbRef child:@"/user-messages/"] child:userID] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         // Build Message
         Message *message = [self messageWithKey:snapshot.key values:snapshot.value];
         if ([self.messageStore containsMessageKey:message.messageID]) {
@@ -57,9 +65,9 @@
         }
     }];
     
-    [[self.dbRef child:@"/messages/"] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[[self.dbRef child:@"/user-messages/"] child:userID] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Message *message = [self messageWithKey:snapshot.key values:snapshot.value];
-        [self.messageStore removeMessage:message forKey:message.messageID];
+        [self.messageStore removeMessageForKey:message.messageID];
         NSLog(@"Removed Message: %@", snapshot);
         removeBlock();
     }];

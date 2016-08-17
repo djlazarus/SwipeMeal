@@ -44,7 +44,7 @@
     [_messagesByMessageID setObject:message forKey:key];
 }
 
-- (void)removeMessage:(Message *)message forKey:(NSString *)key {
+- (void)removeMessageForKey:(NSString *)key {
     [_messagesByMessageID removeObjectForKey:key];
 }
 

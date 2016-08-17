@@ -12,6 +12,7 @@
 #import "MessagesDetailViewController.h"
 #import "MessageService.h"
 #import "SwipeMeal-Swift.h"
+@import Firebase;
 
 @interface MessagesViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -38,6 +39,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
     
     // Set the default height for a message
     self.defaultMessageHeight = 60.0; // 60 == message cell's main image
@@ -83,8 +85,14 @@
     [cell setUpWithMessage:message];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    // Cell background color
     if (indexPath.row % 2) {
         cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
+    }
+    
+    // Image
+    if (!message.mainImage) {
+        [self startDownloadingProfileImageForUserID:message.fromUID atIndexPath:indexPath];
     }
     
     // Force cell layout so we get an accurate message height.
@@ -109,6 +117,23 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"MessagesViewController_MessagesDetailViewController" sender:nil];
     });
+}
+
+- (void)startDownloadingProfileImageForUserID:(NSString *)userID atIndexPath:(NSIndexPath *)indexPath {
+    FIRStorage *storage = [FIRStorage storage];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", userID];
+    FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
+    [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            Message *message = [self.messageService.messages objectAtIndex:indexPath.row];
+            message.mainImage = image;
+            
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        } else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
