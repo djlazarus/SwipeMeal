@@ -92,7 +92,7 @@
     return swipe;
 }
 
-- (void)createNewSwipeWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock {
+- (void)createNewSwipeWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(NSString *swipeKey))completionBlock {
     NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: values,
@@ -102,7 +102,7 @@
         if (error) {
             NSLog(@"%@", error);
         } else {
-            completionBlock();
+            completionBlock(key);
         }
     }];
 }

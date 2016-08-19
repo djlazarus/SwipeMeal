@@ -9,6 +9,7 @@
 #import "SwipeSellDetailViewController.h"
 #import "SwipeSellConfirmationViewController.h"
 #import "SwipeService.h"
+#import "MessageService.h"
 @import Firebase;
 
 @interface SwipeSellDetailViewController ()
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *confirmLocationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (strong, nonatomic) SwipeService *swipeService;
+@property (strong, nonatomic) MessageService *messageService;
 
 @end
 
@@ -29,6 +31,7 @@
 	
 	self.topImageView.layer.masksToBounds = YES;
     self.swipeService = [SwipeService sharedSwipeService];
+    self.messageService = [MessageService sharedMessageService];
 
     self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
@@ -74,9 +77,19 @@
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.sellerRating)};
     
-    [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^{
-        SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
-        [self.tabBarController presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
+    [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^(NSString *swipeKey) {
+        // Create initial message
+        NSString *body = @"Your Swipe has been posted. You can accept Swipe requests via Messages.";
+        NSDictionary *messageValues = @{@"swipe_id":swipeKey,
+                                        @"from_uid":userID,
+                                        @"to_uid":userID,
+                                        @"timestamp":@(listingTimestamp),
+                                        @"unread":@(YES),
+                                        @"body":body};
+        [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:^{
+            SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];
+            [self.tabBarController presentViewController:swipeSellConfirmationViewController animated:YES completion:nil];
+        }];
     }];
 }
 
