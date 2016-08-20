@@ -33,7 +33,7 @@
     
     self.mainImageView.image = self.message.mainImage;
     self.dateTimeLabel.text = self.message.dateTimeText;
-    self.nameLabel.text = self.message.nameText;
+    self.nameLabel.text = self.message.fromName;
     self.messageLabel.text = self.message.messageText;
     
     if (self.message.canReply) {

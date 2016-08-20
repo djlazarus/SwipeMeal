@@ -52,6 +52,7 @@
 }
 
 - (void)buySwipe {
+    NSString *userName = [FIRAuth auth].currentUser.displayName;
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
     NSDictionary *swipeDict = @{@"uid":userID,
@@ -76,6 +77,7 @@
             NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
             NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
                                             @"from_uid":userID,
+                                            @"from_name":userName,
                                             @"to_uid":self.swipe.uid,
                                             @"timestamp":@(timestamp),
                                             @"unread":@(YES),

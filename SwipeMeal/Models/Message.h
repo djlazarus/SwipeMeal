@@ -13,8 +13,8 @@
 
 @property (strong, nonatomic) NSString *messageID;
 @property (strong, nonatomic) UIImage *mainImage;
-@property (strong, nonatomic) NSString *nameText;
 @property (strong, nonatomic) NSString *fromUID;
+@property (strong, nonatomic) NSString *fromName;
 @property (strong, nonatomic) NSString *toUID;
 @property (strong, nonatomic) NSString *swipeID;
 @property (strong, nonatomic) NSString *dateTimeText;

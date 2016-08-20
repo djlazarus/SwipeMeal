@@ -82,6 +82,7 @@
         NSString *body = @"Your Swipe has been posted. You can accept Swipe requests via Messages.";
         NSDictionary *messageValues = @{@"swipe_id":swipeKey,
                                         @"from_uid":kSwipeMealSystemUserID,
+                                        @"from_name":@"Swipe Crew",
                                         @"to_uid":userID,
                                         @"timestamp":@(listingTimestamp),
                                         @"unread":@(YES),

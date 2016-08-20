@@ -88,6 +88,7 @@ NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
     message.messageText = [values objectForKey:@"body"];
     message.toUID = [values objectForKey:@"to_uid"];
     message.fromUID = [values objectForKey:@"from_uid"];
+    message.fromName = [values objectForKey:@"from_name"];
     message.swipeID = [values objectForKey:@"swipe_id"];
     message.unread = [[values objectForKey:@"unread"] boolValue];
     message.timestamp = [[values objectForKey:@"timestamp"] integerValue];
@@ -97,7 +98,7 @@ NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
     if ([message.fromUID isEqualToString:kSwipeMealSystemUserID]) {
         message.canReply = NO;
     }
-
+    
     return message;
 }
 
