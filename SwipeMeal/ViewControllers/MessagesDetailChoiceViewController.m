@@ -8,6 +8,7 @@
 
 #import "MessagesDetailChoiceViewController.h"
 #import "MessagesDetailReplyViewController.h"
+#import "MessageService.h"
 #import "SwipeMeal-Swift.h"
 
 @interface MessagesDetailChoiceViewController ()
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) MessageService *messageService;
 
 @end
 
@@ -26,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.messageService = [MessageService sharedMessageService];
     
     self.mainImageView.image = self.message.mainImage;
     self.dateTimeLabel.text = self.message.dateTimeText;
@@ -66,7 +70,9 @@
 }
 
 - (IBAction)didTapDeleteButton:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapDeleteButton" object:nil];
+    [self.messageService removeMessageWithKey:self.message.messageID completionBlock:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 @end

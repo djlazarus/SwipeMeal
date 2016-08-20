@@ -18,5 +18,6 @@ extern NSString * const kSwipeMealSystemUserID;
 - (void)listenForEventsWithAddBlock:(void(^)(void))addBlock removeBlock:(void(^)(void))removeBlock updateBlock:(void(^)(void))updateBlock;
 - (void)createNewMessageWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock;
 - (void)replaceMessageWithKey:(NSString *)key withMessage:(Message *)message;
+- (void)removeMessageWithKey:(NSString *)key completionBlock:(void (^)(void))completionBlock;
 
 @end

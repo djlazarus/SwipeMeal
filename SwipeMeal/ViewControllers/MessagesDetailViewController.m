@@ -23,9 +23,8 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadReplyViewController) name:@"didTapReplyButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadConfirmationViewController) name:@"didTapSendButton" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteMessage) name:@"didTapDeleteButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelTransaction) name:@"didTapCancelTransactionButton" object:nil];
-    
+
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                               navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                             options:nil];
@@ -40,10 +39,6 @@
 
 - (void)loadConfirmationViewController {
     [self setViewControllerAtIndex:2];
-}
-
-- (void)deleteMessage {
-    
 }
 
 - (void)cancelTransaction {

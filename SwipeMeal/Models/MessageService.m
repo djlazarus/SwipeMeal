@@ -75,6 +75,13 @@ NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
     }];
 }
 
+- (void)removeMessageWithKey:(NSString *)key completionBlock:(void (^)(void))completionBlock {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    [[[[self.dbRef child:@"/user-messages/"] child:userID] child:key] removeValue];
+    [[[self.dbRef child:@"/messages/"] child:key] removeValue];
+    completionBlock();
+}
+
 - (Message *)messageWithKey:(NSString *)key values:(NSDictionary *)values {
     Message *message = [[Message alloc] init];
     message.messageID = key;
