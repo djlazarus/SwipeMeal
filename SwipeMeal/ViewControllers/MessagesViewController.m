@@ -10,7 +10,9 @@
 #import "MessagesTableViewCell.h"
 #import "Message.h"
 #import "MessagesDetailViewController.h"
+#import "MessageService.h"
 #import "SwipeMeal-Swift.h"
+@import Firebase;
 
 @interface MessagesViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableDictionary *messageHeights;
 @property (strong, nonatomic) Message *selectedMessage;
+@property (strong, nonatomic) MessageService *messageService;
 @property (nonatomic) CGFloat defaultMessageHeight;
 
 @end
@@ -36,6 +39,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
     
     // Set the default height for a message
     self.defaultMessageHeight = 60.0; // 60 == message cell's main image
@@ -43,41 +47,24 @@
     
     // Listen for notifications telling us that a message detail window has been tapped to close
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMessageDetail) name:@"didTapToCloseMessageDetail" object:nil];
+    
+    self.messageService = [MessageService sharedMessageService];
+    [self.messageService listenForEventsWithAddBlock:^{
+        [self.tableView reloadData];
+    } removeBlock:^{
+        [self.tableView reloadData];
+    } updateBlock:^{
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)closeMessageDetail {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSArray *)messages {
-    Message *msg1 = [[Message alloc] init];
-    msg1.unread = YES;
-    msg1.mainImage = [UIImage imageNamed:@"temp-gabe"];
-    msg1.nameText = @"Gabe Kwakyi";
-    msg1.dateTimeText = @"9:41a";
-    msg1.messageText = @"I just received your Swipe request. I'm currently on my way to the main dining hall. I just received your Swipe request. I'm currently on my way to the main dining hall.";
-    
-    Message *msg2 = [[Message alloc] init];
-    msg2.unread = NO;
-    msg2.mainImage = [UIImage imageNamed:@"temp-greg"];
-    msg2.nameText = @"Gregory Klein";
-    msg2.dateTimeText = @"5/6/16";
-    msg2.messageText = @"$15 has been deposited into your Swipes Wallet. You can deposit those funds into PayPal or use them for future Swipes. $15 has been deposited into your Swipes Wallet. You can deposit those funds into PayPal or use them for future Swipes. $15 has been deposited into your Swipes Wallet. You can deposit those funds into PayPal or use them for future Swipes.";
-    
-    Message *msg3 = [[Message alloc] init];
-    msg3.unread = NO;
-    msg3.mainImage = [UIImage imageNamed:@"temp-gabe"];
-    msg3.nameText = @"Gabe Kwakyi";
-    msg3.dateTimeText = @"5/2/16";
-    msg3.messageText = @"Where are you?";
-
-    NSArray *messages = @[msg1, msg2, msg3];
-    return messages;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *rows = [self messages];
-    return [rows count];
+    NSInteger count = [self.messageService.messages count];
+    return count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,13 +80,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessagesTableViewCell *cell = (MessagesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MessagesTableViewCell" forIndexPath:indexPath];
-    Message *message = [[self messages] objectAtIndex:indexPath.row];
+    Message *message = [self.messageService.messages objectAtIndex:indexPath.row];
     
     [cell setUpWithMessage:message];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    if (indexPath.row % 2) {
-        cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
+
+    // Image
+    if (!message.mainImage) {
+        [self startDownloadingProfileImageForUserID:message.fromUID atIndexPath:indexPath];
     }
     
     // Force cell layout so we get an accurate message height.
@@ -113,17 +101,39 @@
         // Reload this row so the cell gets a proper height.
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
+
+    // Cell background color
+    if (indexPath.row % 2) {
+        cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Message *message = [[self messages] objectAtIndex:indexPath.row];
+    Message *message = [self.messageService.messages objectAtIndex:indexPath.row];
     self.selectedMessage = message;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"MessagesViewController_MessagesDetailViewController" sender:nil];
     });
+}
+
+- (void)startDownloadingProfileImageForUserID:(NSString *)userID atIndexPath:(NSIndexPath *)indexPath {
+    FIRStorage *storage = [FIRStorage storage];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", userID];
+    FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
+    [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:data];
+            Message *message = [self.messageService.messages objectAtIndex:indexPath.row];
+            message.mainImage = image;
+            
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        } else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

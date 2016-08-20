@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.toNameLabel.text = [NSString stringWithFormat:@"To: %@", self.message.nameText];
+    self.toNameLabel.text = [NSString stringWithFormat:@"To: %@", self.message.fromName];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];

@@ -34,6 +34,8 @@
 		168656D11D202F18004CE47D /* CircularIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656D01D202F18004CE47D /* CircularIndicatorView.m */; };
 		168656D41D204636004CE47D /* MessagesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656D31D204636004CE47D /* MessagesDetailViewController.m */; };
 		168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 168656D61D204CB3004CE47D /* MessagesDetailReplyViewController.m */; };
+		168788FC1D63A66F0093A25D /* MessageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 168788FB1D63A66F0093A25D /* MessageService.m */; };
+		168788FF1D63A7A90093A25D /* MessageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 168788FE1D63A7A90093A25D /* MessageStore.m */; };
 		1694222A1D577496002981A9 /* SwipeBuyConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */; };
 		1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694222C1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m */; };
 		16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */; };
@@ -130,6 +132,10 @@
 		168656D31D204636004CE47D /* MessagesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailViewController.m; sourceTree = "<group>"; };
 		168656D51D204CB3004CE47D /* MessagesDetailReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyViewController.h; sourceTree = "<group>"; };
 		168656D61D204CB3004CE47D /* MessagesDetailReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyViewController.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyViewController.m; sourceTree = "<group>"; };
+		168788FA1D63A66F0093A25D /* MessageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageService.h; path = SwipeMeal/Models/MessageService.h; sourceTree = "<group>"; };
+		168788FB1D63A66F0093A25D /* MessageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageService.m; path = SwipeMeal/Models/MessageService.m; sourceTree = "<group>"; };
+		168788FD1D63A7A90093A25D /* MessageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageStore.h; path = SwipeMeal/Models/MessageStore.h; sourceTree = "<group>"; };
+		168788FE1D63A7A90093A25D /* MessageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageStore.m; path = SwipeMeal/Models/MessageStore.m; sourceTree = "<group>"; };
 		169422281D577496002981A9 /* SwipeBuyConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyConfirmationViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyConfirmationViewController.h; sourceTree = "<group>"; };
 		169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyConfirmationViewController.m; sourceTree = "<group>"; };
 		1694222B1D577629002981A9 /* SwipeBuyConfirmDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyConfirmDialogViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyConfirmDialogViewController.h; sourceTree = "<group>"; };
@@ -315,14 +321,18 @@
 			children = (
 				CE1D776A1CF76FB30071D249 /* SignUpInfo.swift */,
 				CE0A128D1D10981A00BB3AFD /* SwipeMealErrors.swift */,
-				168656CC1D1F2D53004CE47D /* Message.h */,
-				168656CD1D1F2D53004CE47D /* Message.m */,
-				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
-				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
 				16DE213B1D60C93200D902EC /* SwipeService.h */,
 				16DE213C1D60C93200D902EC /* SwipeService.m */,
 				165304BB1D5698CA006A0760 /* SwipeStore.h */,
 				165304BC1D5698CA006A0760 /* SwipeStore.m */,
+				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
+				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
+				168788FA1D63A66F0093A25D /* MessageService.h */,
+				168788FB1D63A66F0093A25D /* MessageService.m */,
+				168788FD1D63A7A90093A25D /* MessageStore.h */,
+				168788FE1D63A7A90093A25D /* MessageStore.m */,
+				168656CC1D1F2D53004CE47D /* Message.h */,
+				168656CD1D1F2D53004CE47D /* Message.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -699,6 +709,7 @@
 				CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */,
 				CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */,
 				CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */,
+				168788FF1D63A7A90093A25D /* MessageStore.m in Sources */,
 				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
 				CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */,
 				16DE213D1D60C93200D902EC /* SwipeService.m in Sources */,
@@ -716,6 +727,7 @@
 				1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */,
 				CE6766961D09FE2E003D6EF0 /* SignUpViewController.swift in Sources */,
 				CE34EA4F1D1861F3003408EB /* SwipeMealUserStorage.swift in Sources */,
+				168788FC1D63A66F0093A25D /* MessageService.m in Sources */,
 				16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */,
 				CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */,
 				CE67669A1D09FE38003D6EF0 /* BaseOperation.swift in Sources */,

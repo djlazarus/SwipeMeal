@@ -31,7 +31,7 @@
     }
     
     self.mainImageView.image = message.mainImage;
-    self.nameLabel.text = message.nameText;
+    self.nameLabel.text = message.fromName;
     self.dateTimeLabel.text = message.dateTimeText;
     self.messageLabel.text = message.messageText;
 }

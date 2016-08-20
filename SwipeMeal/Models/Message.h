@@ -11,10 +11,16 @@
 
 @interface Message : NSObject
 
+@property (strong, nonatomic) NSString *messageID;
 @property (strong, nonatomic) UIImage *mainImage;
-@property (strong, nonatomic) NSString *nameText;
+@property (strong, nonatomic) NSString *fromUID;
+@property (strong, nonatomic) NSString *fromName;
+@property (strong, nonatomic) NSString *toUID;
+@property (strong, nonatomic) NSString *swipeID;
 @property (strong, nonatomic) NSString *dateTimeText;
 @property (strong, nonatomic) NSString *messageText;
+@property (nonatomic) NSTimeInterval timestamp;
+@property (nonatomic) BOOL canReply;
 @property (nonatomic, getter=isUnread) BOOL unread;
 
 @end

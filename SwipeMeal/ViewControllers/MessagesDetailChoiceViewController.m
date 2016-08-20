@@ -8,6 +8,7 @@
 
 #import "MessagesDetailChoiceViewController.h"
 #import "MessagesDetailReplyViewController.h"
+#import "MessageService.h"
 #import "SwipeMeal-Swift.h"
 
 @interface MessagesDetailChoiceViewController ()
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (strong, nonatomic) MessageService *messageService;
 
 @end
 
@@ -27,13 +29,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.messageService = [MessageService sharedMessageService];
+    
     self.mainImageView.image = self.message.mainImage;
     self.dateTimeLabel.text = self.message.dateTimeText;
-    self.nameLabel.text = self.message.nameText;
+    self.nameLabel.text = self.message.fromName;
     self.messageLabel.text = self.message.messageText;
     
-    self.replyButton.layer.borderWidth = 1.0;
-    self.replyButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+    if (self.message.canReply) {
+        self.replyButton.hidden = NO;
+        self.replyButton.layer.borderWidth = 1.0;
+        self.replyButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+    } else {
+        self.replyButton.hidden = YES;
+    }
     
     self.deleteButton.layer.borderWidth = 1.0;
     self.deleteButton.layer.borderColor = [UIColor redColor].CGColor;
@@ -61,7 +70,9 @@
 }
 
 - (IBAction)didTapDeleteButton:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapDeleteButton" object:nil];
+    [self.messageService removeMessageWithKey:self.message.messageID completionBlock:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 @end

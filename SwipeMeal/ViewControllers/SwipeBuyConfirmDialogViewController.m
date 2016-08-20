@@ -8,6 +8,8 @@
 
 #import "SwipeBuyConfirmDialogViewController.h"
 #import "SwipeBuyConfirmationViewController.h"
+#import "SwipeService.h"
+#import "MessageService.h"
 #import "SwipeMeal-Swift.h"
 @import Firebase;
 
@@ -20,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *acceptButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
+@property (strong, nonatomic) SwipeService *swipeService;
+@property (strong, nonatomic) MessageService *messageService;
 
 @end
 
@@ -32,6 +36,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseConfirmation) name:@"didCloseConfirmation" object:nil];
 
     self.dbRef = [[FIRDatabase database] reference];
+    self.swipeService = [SwipeService sharedSwipeService];
+    self.messageService = [MessageService sharedMessageService];
     
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.price];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
@@ -46,6 +52,7 @@
 }
 
 - (void)buySwipe {
+    NSString *userName = [FIRAuth auth].currentUser.displayName;
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
     NSDictionary *swipeDict = @{@"uid":userID,
@@ -66,9 +73,19 @@
             [[[self.dbRef child:@"swipes-listed"] child:self.swipe.swipeID] removeValue];
             [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
             
+            // Create initial message
+            NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
+            NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
+                                            @"from_uid":userID,
+                                            @"from_name":userName,
+                                            @"to_uid":self.swipe.uid,
+                                            @"timestamp":@(timestamp),
+                                            @"unread":@(YES),
+                                            @"body":body};
+            [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:nil];
+            
             SwipeBuyConfirmationViewController *swipeBuyConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeBuyConfirmationViewController"];
-			  
-			  swipeBuyConfirmationViewController.swipe = self.swipe;
+            swipeBuyConfirmationViewController.swipe = self.swipe;
             [self presentViewController:swipeBuyConfirmationViewController animated:YES completion:nil];
         }
     }];
