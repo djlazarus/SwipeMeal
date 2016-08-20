@@ -10,6 +10,8 @@
 #import "MessageStore.h"
 @import Firebase;
 
+NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
+
 @interface MessageService ()
 
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
@@ -82,6 +84,12 @@
     message.swipeID = [values objectForKey:@"swipe_id"];
     message.unread = [[values objectForKey:@"unread"] boolValue];
     message.timestamp = [[values objectForKey:@"timestamp"] integerValue];
+    message.canReply = YES;
+    
+    // Disable reply if this is message is from the system user.
+    if ([message.fromUID isEqualToString:kSwipeMealSystemUserID]) {
+        message.canReply = NO;
+    }
 
     return message;
 }

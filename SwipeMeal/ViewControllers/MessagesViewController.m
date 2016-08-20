@@ -84,12 +84,7 @@
     
     [cell setUpWithMessage:message];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    // Cell background color
-    if (indexPath.row % 2) {
-        cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
-    }
-    
+
     // Image
     if (!message.mainImage) {
         [self startDownloadingProfileImageForUserID:message.fromUID atIndexPath:indexPath];
@@ -105,6 +100,11 @@
         [self.messageHeights setObject:@(cell.messageHeight) forKey:indexPath];
         // Reload this row so the cell gets a proper height.
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
+
+    // Cell background color
+    if (indexPath.row % 2) {
+        cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1];
     }
     
     return cell;

@@ -32,8 +32,13 @@
     self.nameLabel.text = self.message.nameText;
     self.messageLabel.text = self.message.messageText;
     
-    self.replyButton.layer.borderWidth = 1.0;
-    self.replyButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+    if (self.message.canReply) {
+        self.replyButton.hidden = NO;
+        self.replyButton.layer.borderWidth = 1.0;
+        self.replyButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+    } else {
+        self.replyButton.hidden = YES;
+    }
     
     self.deleteButton.layer.borderWidth = 1.0;
     self.deleteButton.layer.borderColor = [UIColor redColor].CGColor;
