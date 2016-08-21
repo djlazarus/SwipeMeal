@@ -8,7 +8,9 @@
 
 #import "MessagesDetailReplyViewController.h"
 #import "MessagesDetailReplyTableViewCell.h"
+#import "MessageService.h"
 #import "SwipeMeal-Swift.h"
+@import Firebase;
 
 @interface MessagesDetailReplyViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -22,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerBottomConstraint;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic) NSDate *replyDate;
+@property (nonatomic) NSInteger selectedIndex;
+@property (strong, nonatomic) MessageService *messageService;
 
 @end
 
@@ -30,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.messageService = [MessageService sharedMessageService];
+    
     self.toNameLabel.text = [NSString stringWithFormat:@"To: %@", self.message.fromName];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -91,6 +97,7 @@
     }
     
     self.sendButton.enabled = YES;
+    self.selectedIndex = indexPath.row;
 }
 
 - (void)updateTime:(id)sender {
@@ -131,12 +138,36 @@
     }];
 }
 
+- (void)sendMessage {
+    NSString *body = [[self rows] objectAtIndex:self.selectedIndex];
+    // Add the date if needed
+    if (self.selectedIndex == 2) {
+        body = [body stringByAppendingString:[NSString stringWithFormat:@" %@", self.replyDate]];
+    }
+    
+    NSString *userName = [FIRAuth auth].currentUser.displayName;
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+    NSDictionary *messageValues = @{@"swipe_id":self.message.swipeID,
+                                    @"from_uid":userID,
+                                    @"from_name":userName,
+                                    @"to_uid":self.message.fromUID,
+                                    @"timestamp":@(timestamp),
+                                    @"unread":@(YES),
+                                    @"is_offer_message":@(NO),
+                                    @"body":body};
+    
+    [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapSendButton" object:nil];
+    }];
+}
+
 - (void)handleGesture:(UIGestureRecognizer*)gestureRecognizer {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapToCloseMessageDetail" object:nil];
 }
 
 - (IBAction)didTapSendButton:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapSendButton" object:nil];
+    [self sendMessage];
 }
 
 - (IBAction)didTapCancelTransactionButton:(UIButton *)sender {
