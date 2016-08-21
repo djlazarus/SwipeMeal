@@ -91,6 +91,7 @@ NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
     message.fromName = [values objectForKey:@"from_name"];
     message.swipeID = [values objectForKey:@"swipe_id"];
     message.unread = [[values objectForKey:@"unread"] boolValue];
+    message.offerMessage = [[values objectForKey:@"is_offer_message"] boolValue];
     message.timestamp = [[values objectForKey:@"timestamp"] integerValue];
     message.canReply = YES;
     

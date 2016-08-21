@@ -9,10 +9,12 @@
 #import "MessagesDetailViewController.h"
 #import "MessagesDetailReplyViewController.h"
 #import "MessagesDetailChildViewController.h"
+#import "SwipeService.h"
 
 @interface MessagesDetailViewController ()
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonnull) SwipeService *swipeService;
 
 @end
 
@@ -21,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buySwipe) name:@"didTapAcceptButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadReplyViewController) name:@"didTapReplyButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadConfirmationViewController) name:@"didTapSendButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelTransaction) name:@"didTapCancelTransactionButton" object:nil];
@@ -31,6 +34,15 @@
 
     self.pageViewController.view.frame = self.view.bounds;
     [self setViewControllerAtIndex:0];
+    
+    self.swipeService = [SwipeService sharedSwipeService];
+}
+
+- (void)buySwipe {
+    Swipe *swipe = [self.swipeService swipeForKey:self.message.swipeID];
+    [self.swipeService buySwipe:swipe withCompletionBlock:^{
+        [self loadReplyViewController];
+    }];
 }
 
 - (void)loadReplyViewController {

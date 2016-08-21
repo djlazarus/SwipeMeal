@@ -51,43 +51,26 @@
     self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
 }
 
-- (void)buySwipe {
+- (void)notifySwipeSeller {
     NSString *userName = [FIRAuth auth].currentUser.displayName;
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
-    NSDictionary *swipeDict = @{@"uid":userID,
-                                @"sold_time":@(timestamp),
-                                @"price":@(self.swipe.price),
-                                @"seller_name":self.swipe.sellerName,
-                                @"listing_time":@(self.swipe.listingTime),
-                                @"location_name":self.swipe.locationName,
-                                @"seller_rating":@(self.swipe.sellerRating)};
-    NSDictionary *childUpdates = @{[@"/swipes-sold/" stringByAppendingString:self.swipe.swipeID]: swipeDict,
-                                   [NSString stringWithFormat:@"/user-swipes-sold/%@/%@/", userID, self.swipe.swipeID]: swipeDict};
+
+    // Create initial message
+    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
+    NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
+                                    @"from_uid":userID,
+                                    @"from_name":userName,
+                                    @"to_uid":self.swipe.uid,
+                                    @"timestamp":@(timestamp),
+                                    @"unread":@(YES),
+                                    @"is_offer_message":@(YES),
+                                    @"body":body};
     
-    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            // Remove the listing
-            [[[self.dbRef child:@"swipes-listed"] child:self.swipe.swipeID] removeValue];
-            [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
-            
-            // Create initial message
-            NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
-            NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
-                                            @"from_uid":userID,
-                                            @"from_name":userName,
-                                            @"to_uid":self.swipe.uid,
-                                            @"timestamp":@(timestamp),
-                                            @"unread":@(YES),
-                                            @"body":body};
-            [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:nil];
-            
-            SwipeBuyConfirmationViewController *swipeBuyConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeBuyConfirmationViewController"];
-            swipeBuyConfirmationViewController.swipe = self.swipe;
-            [self presentViewController:swipeBuyConfirmationViewController animated:YES completion:nil];
-        }
+    [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:^{
+        SwipeBuyConfirmationViewController *swipeBuyConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeBuyConfirmationViewController"];
+        swipeBuyConfirmationViewController.swipe = self.swipe;
+        [self presentViewController:swipeBuyConfirmationViewController animated:YES completion:nil];
     }];
 }
 
@@ -96,7 +79,7 @@
 }
 
 - (IBAction)didTapAcceptButton:(UIButton *)sender {
-    [self buySwipe];
+    [self notifySwipeSeller];
 }
 
 - (IBAction)didTapCancelButton:(UIButton *)sender {

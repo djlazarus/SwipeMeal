@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *messageText;
 @property (nonatomic) NSTimeInterval timestamp;
 @property (nonatomic) BOOL canReply;
+@property (nonatomic, getter=isOfferMessage) BOOL offerMessage;
 @property (nonatomic, getter=isUnread) BOOL unread;
 
 @end

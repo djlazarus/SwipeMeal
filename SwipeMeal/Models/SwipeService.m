@@ -44,6 +44,10 @@
     return [self.swipeStore swipesSortedByPriceAscending];
 }
 
+- (Swipe *)swipeForKey:(NSString *)key {
+    return [self.swipeStore swipeForKey:key];
+}
+
 - (void)listenForEventsWithAddBlock:(void (^)(void))addBlock removeBlock:(void (^)(void))removeBlock updateBlock:(void (^)(void))updateBlock {
     [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         // Test for expired Swipe
@@ -107,21 +111,30 @@
     }];
 }
 
-//- (void)buySwipe:(Swipe *)swipe withValues:(NSDictionary *)values completionBlock:(void (^)(void))completionBlock {
-//    NSString *key = [[self.dbRef child:@"swipes-listed"] childByAutoId].key;
-//    NSString *userID = [FIRAuth auth].currentUser.uid;
-//    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:key]: values,
-//                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, key]: values};
-//    
-//    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-//        if (error) {
-//            NSLog(@"%@", error);
-//        } else {
-//            // Remove the listing
-//            [[[self.dbRef child:@"swipes-listed"] child:self.swipe.swipeID] removeValue];
-//            [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:self.swipe.swipeID] removeValue];
-//        }
-//    }];
-//}
+- (void)buySwipe:(Swipe *)swipe withCompletionBlock:(void (^)(void))completionBlock {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+    NSDictionary *swipeDict = @{@"uid":userID,
+                                @"sold_time":@(timestamp),
+                                @"price":@(swipe.price),
+                                @"seller_name":swipe.sellerName,
+                                @"listing_time":@(swipe.listingTime),
+                                @"location_name":swipe.locationName,
+                                @"seller_rating":@(swipe.sellerRating)};
+    NSDictionary *childUpdates = @{[@"/swipes-sold/" stringByAppendingString:swipe.swipeID]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes-sold/%@/%@/", userID, swipe.swipeID]: swipeDict};
+    
+    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            // Remove the listing
+            [[[self.dbRef child:@"swipes-listed"] child:swipe.swipeID] removeValue];
+            [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:swipe.swipeID] removeValue];
+            
+            completionBlock();
+        }
+    }];
+}
 
 @end

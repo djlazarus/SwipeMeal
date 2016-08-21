@@ -86,6 +86,7 @@
                                         @"to_uid":userID,
                                         @"timestamp":@(listingTimestamp),
                                         @"unread":@(YES),
+                                        @"is_offer_message":@(NO),
                                         @"body":body};
         [self.messageService createNewMessageWithValues:messageValues withCompletionBlock:^{
             SwipeSellConfirmationViewController *swipeSellConfirmationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SwipeSellConfirmationViewController"];

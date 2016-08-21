@@ -18,8 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (weak, nonatomic) IBOutlet UIButton *replyButton;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *button1;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
 @property (strong, nonatomic) MessageService *messageService;
 
 @end
@@ -36,16 +36,24 @@
     self.nameLabel.text = self.message.fromName;
     self.messageLabel.text = self.message.messageText;
     
-    if (self.message.canReply) {
-        self.replyButton.hidden = NO;
-        self.replyButton.layer.borderWidth = 1.0;
-        self.replyButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+    if (self.message.isOfferMessage) {
+        [self.button1 setTitle:@"Accept" forState:UIControlStateNormal];
+        [self.button2 setTitle:@"Decline" forState:UIControlStateNormal];
     } else {
-        self.replyButton.hidden = YES;
+        if (self.message.canReply) {
+            self.button1.hidden = NO;
+            self.button1.layer.borderWidth = 1.0;
+            self.button1.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+        } else {
+            self.button1.hidden = YES;
+        }
     }
     
-    self.deleteButton.layer.borderWidth = 1.0;
-    self.deleteButton.layer.borderColor = [UIColor redColor].CGColor;
+    self.button1.layer.borderWidth = 1.0;
+    self.button1.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
+    
+    self.button2.layer.borderWidth = 1.0;
+    self.button2.layer.borderColor = [UIColor redColor].CGColor;
     
     // Tap to close
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
@@ -65,14 +73,24 @@
     }
 }
 
-- (IBAction)didTapReplyButton:(UIButton *)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapReplyButton" object:nil];
+- (IBAction)didTapButton1:(UIButton *)sender {
+    if (self.message.isOfferMessage) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapAcceptButton" object:nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didTapReplyButton" object:nil];
+    }
 }
 
-- (IBAction)didTapDeleteButton:(UIButton *)sender {
-    [self.messageService removeMessageWithKey:self.message.messageID completionBlock:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
+- (IBAction)didTapButton2:(UIButton *)sender {
+    if (self.message.isOfferMessage) {
+        [self.messageService removeMessageWithKey:self.message.messageID completionBlock:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    } else {
+        [self.messageService removeMessageWithKey:self.message.messageID completionBlock:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
 }
 
 @end

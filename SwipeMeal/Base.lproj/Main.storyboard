@@ -216,7 +216,7 @@
                                                     <color key="titleColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapReplyButton:" destination="adq-Uf-5VP" eventType="touchUpInside" id="ru8-Qt-tGd"/>
+                                                    <action selector="didTapButton1:" destination="adq-Uf-5VP" eventType="touchUpInside" id="Iie-Lu-brD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0y-VM-kzA">
@@ -226,7 +226,7 @@
                                                     <color key="titleColor" red="0.98638862370000002" green="0.085617430509999995" blue="0.1609951556" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didTapDeleteButton:" destination="adq-Uf-5VP" eventType="touchUpInside" id="YIq-GF-eRG"/>
+                                                    <action selector="didTapButton2:" destination="adq-Uf-5VP" eventType="touchUpInside" id="sFt-qT-Hx0"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -261,13 +261,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="Pb2-5w-kUU" id="ebA-Gs-Poe"/>
+                        <outlet property="button2" destination="v0y-VM-kzA" id="i9u-2Y-oFb"/>
                         <outlet property="dateTimeLabel" destination="bXx-AB-Y1e" id="H4U-8L-GNp"/>
-                        <outlet property="deleteButton" destination="v0y-VM-kzA" id="CSI-se-REa"/>
                         <outlet property="mainImageView" destination="a3G-X0-LIk" id="9O8-t7-dVl"/>
                         <outlet property="mainMessageView" destination="kFh-KF-I2l" id="RKF-Kl-cUl"/>
                         <outlet property="messageLabel" destination="ncz-ja-pT3" id="CEB-rN-t9q"/>
                         <outlet property="nameLabel" destination="6sY-YF-uq3" id="hTj-x3-fxa"/>
-                        <outlet property="replyButton" destination="Pb2-5w-kUU" id="j23-8j-3dJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whc-g6-riD" userLabel="First Responder" sceneMemberID="firstResponder"/>
