@@ -1,26 +1,4 @@
 PODS:
-  - Braintree (4.5.0):
-    - Braintree/Card (= 4.5.0)
-    - Braintree/Core (= 4.5.0)
-    - Braintree/PayPal (= 4.5.0)
-    - Braintree/UI (= 4.5.0)
-  - Braintree/Card (4.5.0):
-    - Braintree/Core
-  - Braintree/Core (4.5.0)
-  - Braintree/PayPal (4.5.0):
-    - Braintree/Core
-    - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.5.0):
-    - Braintree/Core
-    - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.5.0):
-    - Braintree/Core
-    - Braintree/PayPalDataCollector
-    - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.5.0)
-  - Braintree/UI (4.5.0):
-    - Braintree/Card
-    - Braintree/Core
   - Branch (0.12.5):
     - Branch/Core (= 0.12.5)
     - Branch/without-IDFA (= 0.12.5)
@@ -80,7 +58,6 @@ PODS:
   - SwiftSpinner (0.9.5)
 
 DEPENDENCIES:
-  - Braintree
   - Branch
   - Firebase/Auth
   - Firebase/Core
@@ -91,7 +68,6 @@ DEPENDENCIES:
   - SwiftSpinner
 
 SPEC CHECKSUMS:
-  Braintree: 7bcebecbcfe5210ed4438a97638c230d2521b54d
   Branch: 42307809efa9f23a55f40d8375ef8193bfe62b7c
   Firebase: 6250071f0e2440a5c4c67b8cb6b868f868237ac3
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
@@ -109,6 +85,6 @@ SPEC CHECKSUMS:
   IncipiaKit: c4e741526ff20af3ffc3d4798b01f70dfcf5a635
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
 
-PODFILE CHECKSUM: 56501ad57ab9e42311a67a5d7570cf9623a8ea57
+PODFILE CHECKSUM: 89ccfacf130cd5771e0119c5cdc608a9cdf4a340
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
