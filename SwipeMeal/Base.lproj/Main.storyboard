@@ -429,25 +429,6 @@
             </objects>
             <point key="canvasLocation" x="2901" y="61"/>
         </scene>
-        <!--Wallet-->
-        <scene sceneID="cOu-Kd-X2d">
-            <objects>
-                <viewController id="S5P-7c-M9X" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XIy-ga-ybb"/>
-                        <viewControllerLayoutGuide type="bottom" id="IU1-Ct-BCS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LcK-od-77Q">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Wallet" image="wallet-tab" selectedImage="wallet-tab" id="Le2-5o-mLu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ahG-iC-ogK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="803" y="732"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="Qrc-hr-tsr">
             <objects>
@@ -590,8 +571,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fW1-TC-DfV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="146"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fW1-TC-DfV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="145"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -686,11 +667,11 @@
             </objects>
             <point key="canvasLocation" x="2191" y="-549"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="HpS-Vc-v54">
             <objects>
                 <navigationController id="Vue-dJ-dIH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xbn-0t-JF1"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-tab" selectedImage="home-tab" id="xbn-0t-JF1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jeG-oY-4E7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -717,7 +698,7 @@
                     <connections>
                         <segue destination="Vue-dJ-dIH" kind="relationship" relationship="viewControllers" id="Zur-IY-Ehr"/>
                         <segue destination="gz2-Bp-Byv" kind="relationship" relationship="viewControllers" id="BSS-gH-tqL"/>
-                        <segue destination="S5P-7c-M9X" kind="relationship" relationship="viewControllers" id="t8J-ES-tGU"/>
+                        <segue destination="HpA-31-3Xp" kind="relationship" relationship="viewControllers" id="lNr-QK-d6e"/>
                         <segue destination="0Z6-ud-fzI" kind="relationship" relationship="viewControllers" id="7oQ-Ih-8N0"/>
                     </connections>
                 </tabBarController>
@@ -895,6 +876,165 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj6-L4-4ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1386" y="1389"/>
+        </scene>
+        <!--Wallet-->
+        <scene sceneID="YpC-y0-7Py">
+            <objects>
+                <navigationController id="HpA-31-3Xp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wallet" image="wallet-tab" selectedImage="wallet-tab" id="oQm-Ja-TMx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FXN-lu-Mhk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="G5m-ws-OEG" kind="relationship" relationship="rootViewController" id="wDR-Ir-wok"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZP-Cm-X1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="732"/>
+        </scene>
+        <!--Wallet-->
+        <scene sceneID="sUk-yk-MbG">
+            <objects>
+                <viewController id="G5m-ws-OEG" customClass="WalletViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ne9-VD-qzy"/>
+                        <viewControllerLayoutGuide type="bottom" id="RkU-fP-cpd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MIA-TF-CnP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="145" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vQR-TZ-Tm9">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.20814983980000001" green="0.2200595092" blue="0.22201522439999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WalletHeaderTableViewCell" id="MV0-Tc-got" customClass="WalletHeaderTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MV0-Tc-got" id="V8V-ND-LKT">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Der-Cx-8Ya">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="145"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU HAVE $225 IN YOUR WALLET" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2P-xq-cNM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="146"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="K2P-xq-cNM" secondAttribute="trailing" id="EIP-HL-M1z"/>
+                                                <constraint firstAttribute="trailing" secondItem="Der-Cx-8Ya" secondAttribute="trailing" id="KNA-rf-aZX"/>
+                                                <constraint firstAttribute="bottom" secondItem="Der-Cx-8Ya" secondAttribute="bottom" constant="-1" id="QkL-fc-5n4"/>
+                                                <constraint firstItem="K2P-xq-cNM" firstAttribute="leading" secondItem="V8V-ND-LKT" secondAttribute="leading" id="TQk-AZ-1j7"/>
+                                                <constraint firstItem="Der-Cx-8Ya" firstAttribute="top" secondItem="V8V-ND-LKT" secondAttribute="top" id="hHh-d1-iha"/>
+                                                <constraint firstItem="Der-Cx-8Ya" firstAttribute="leading" secondItem="V8V-ND-LKT" secondAttribute="leading" id="lY1-hs-TLR"/>
+                                                <constraint firstItem="K2P-xq-cNM" firstAttribute="top" secondItem="V8V-ND-LKT" secondAttribute="top" id="wSJ-L0-9Om"/>
+                                                <constraint firstAttribute="bottom" secondItem="K2P-xq-cNM" secondAttribute="bottom" constant="-2" id="ySR-Vo-45V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mainImageView" destination="Der-Cx-8Ya" id="Naf-ux-P8u"/>
+                                            <outlet property="mainLabel" destination="K2P-xq-cNM" id="uvr-Yv-xQb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WalletMainTableViewCell" id="Lsa-JZ-6d7" customClass="WalletMainTableViewCell">
+                                        <rect key="frame" x="0.0" y="237" width="600" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lsa-JZ-6d7" id="JCp-2P-NOe">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O19-oT-rFg" userLabel="Icon Image View">
+                                                    <rect key="frame" x="15" y="47" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="t9E-sx-Iks"/>
+                                                        <constraint firstAttribute="width" constant="50" id="zHQ-Ig-ryw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2b-JF-MRI">
+                                                    <rect key="frame" x="100" y="47" width="221" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending SwipeMeal transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKr-hK-erG">
+                                                    <rect key="frame" x="100" y="80" width="210" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aKr-hK-erG" firstAttribute="leading" secondItem="O19-oT-rFg" secondAttribute="trailing" constant="35" id="8bo-Op-xkU"/>
+                                                <constraint firstItem="R2b-JF-MRI" firstAttribute="leading" secondItem="O19-oT-rFg" secondAttribute="trailing" constant="35" id="EtS-El-mj3"/>
+                                                <constraint firstItem="O19-oT-rFg" firstAttribute="centerY" secondItem="JCp-2P-NOe" secondAttribute="centerY" id="Jnm-xQ-Xhn"/>
+                                                <constraint firstItem="R2b-JF-MRI" firstAttribute="top" secondItem="JCp-2P-NOe" secondAttribute="top" constant="47" id="JoC-Dx-7nI"/>
+                                                <constraint firstItem="aKr-hK-erG" firstAttribute="top" secondItem="R2b-JF-MRI" secondAttribute="bottom" constant="5" id="b7D-Wq-3aC"/>
+                                                <constraint firstItem="O19-oT-rFg" firstAttribute="leading" secondItem="JCp-2P-NOe" secondAttribute="leading" constant="15" id="zjH-Pq-6CF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="headlineLabel" destination="R2b-JF-MRI" id="tsq-ID-ggs"/>
+                                            <outlet property="iconImageView" destination="O19-oT-rFg" id="jjJ-gA-NxE"/>
+                                            <outlet property="subheadLabel" destination="aKr-hK-erG" id="dGV-1L-xaE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12141426280000001" green="0.12141426280000001" blue="0.12141426280000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vQR-TZ-Tm9" secondAttribute="trailing" id="34B-ur-Xbm"/>
+                            <constraint firstItem="RkU-fP-cpd" firstAttribute="top" secondItem="vQR-TZ-Tm9" secondAttribute="bottom" id="krb-jh-m4S"/>
+                            <constraint firstItem="vQR-TZ-Tm9" firstAttribute="top" secondItem="ne9-VD-qzy" secondAttribute="bottom" id="vnw-zY-I6u"/>
+                            <constraint firstItem="vQR-TZ-Tm9" firstAttribute="leading" secondItem="MIA-TF-CnP" secondAttribute="leading" id="w1X-2C-QsZ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-tab" selectedImage="home-tab" id="1t0-ps-lnp"/>
+                    <navigationItem key="navigationItem" title="Wallet" id="3k1-lD-iNa"/>
+                    <connections>
+                        <outlet property="tableView" destination="vQR-TZ-Tm9" id="d21-nE-oVy"/>
+                        <segue destination="3y1-wz-ByE" kind="show" identifier="Segue_WalletViewController_TransactionsViewController" id="kJA-DY-EMi"/>
+                        <segue destination="uOD-UW-NrJ" kind="show" identifier="Segue_WalletViewController_CashOutViewController" id="n9Z-j8-6gj"/>
+                        <segue destination="L3o-a5-Y0d" kind="presentation" identifier="Segue_WalletViewController_UpdateCardViewController" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="5Xu-Hc-340"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bX-A3-OvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1517" y="732"/>
+        </scene>
+        <!--TransactionsViewController-->
+        <scene sceneID="18l-h9-rYQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WalletTransactions" referencedIdentifier="TransactionsViewController" id="3y1-wz-ByE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxZ-h5-DxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2105" y="582"/>
+        </scene>
+        <!--CashOutViewController-->
+        <scene sceneID="luH-sE-sKN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WalletCashOut" referencedIdentifier="CashOutViewController" id="uOD-UW-NrJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkY-Fv-BK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2092.5" y="732"/>
+        </scene>
+        <!--UpdateCardViewController-->
+        <scene sceneID="PDd-0L-vGb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WalletUpdateCard" referencedIdentifier="UpdateCardViewController" id="L3o-a5-Y0d" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwT-hE-Hh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2102.5" y="881"/>
         </scene>
     </scenes>
     <resources>

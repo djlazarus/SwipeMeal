@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Branch
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -35,8 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
       let token = FIRInstanceID.instanceID().token()
       print("TOKEN: \(token)")
+    
+    // Stripe
+    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
 		
-      return true
+    return true
    }
 	
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
