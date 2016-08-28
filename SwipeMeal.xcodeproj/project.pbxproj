@@ -23,6 +23,7 @@
 		1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */; };
 		161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */; };
 		161D1B981D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */; };
+		163E81D81D71DD2F0069451D /* StripeAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E81D71D71DD2F0069451D /* StripeAPIClient.m */; };
 		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A81D569640006A0760 /* Montserrat-Black.otf */; };
 		165304B11D569640006A0760 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A91D569640006A0760 /* Montserrat-Bold.otf */; };
@@ -124,6 +125,8 @@
 		161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeSellDetailViewController.m; sourceTree = "<group>"; };
 		161D1B961D4E9051005B7FC2 /* SwipeSellConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeSellConfirmationViewController.h; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.h; sourceTree = "<group>"; };
 		161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.m; sourceTree = "<group>"; };
+		163E81D61D71DD2F0069451D /* StripeAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripeAPIClient.h; sourceTree = "<group>"; };
+		163E81D71D71DD2F0069451D /* StripeAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripeAPIClient.m; sourceTree = "<group>"; };
 		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
 		164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyTableViewCell.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.m; sourceTree = "<group>"; };
 		165304A81D569640006A0760 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 			children = (
 				CE24F0881D5BB3F9009B1E2E /* SwipeMeal.entitlements */,
 				CE2782CB1CE7EA4200039014 /* AppDelegate.swift */,
+				163E81D61D71DD2F0069451D /* StripeAPIClient.h */,
+				163E81D71D71DD2F0069451D /* StripeAPIClient.m */,
 			);
 			path = SwipeMeal;
 			sourceTree = "<group>";
@@ -793,6 +798,7 @@
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
 				168656CE1D1F2D53004CE47D /* Message.m in Sources */,
 				CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */,
+				163E81D81D71DD2F0069451D /* StripeAPIClient.m in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE34EA571D1895F6003408EB /* UIColor+Extensions.swift in Sources */,
 				160F80171D6E426C00D696E7 /* WalletHeaderTableViewCell.m in Sources */,

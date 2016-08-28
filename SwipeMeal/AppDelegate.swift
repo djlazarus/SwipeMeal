@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       print("TOKEN: \(token)")
     
     // Stripe
-    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_CiqahQUNPeDYwZMeR1V6KMKV"
 		
     return true
    }

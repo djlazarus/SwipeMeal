@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - Branch (0.12.5):
     - Branch/Core (= 0.12.5)
     - Branch/without-IDFA (= 0.12.5)
@@ -59,6 +74,7 @@ PODS:
   - SwiftSpinner (0.9.5)
 
 DEPENDENCIES:
+  - AFNetworking
   - Branch
   - Firebase/Auth
   - Firebase/Core
@@ -70,6 +86,7 @@ DEPENDENCIES:
   - SwiftSpinner
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Branch: 42307809efa9f23a55f40d8375ef8193bfe62b7c
   Firebase: 6250071f0e2440a5c4c67b8cb6b868f868237ac3
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
@@ -88,6 +105,6 @@ SPEC CHECKSUMS:
   Stripe: c3e325e0309dcdcb478191dbd298082823a210c1
   SwiftSpinner: c6585a0ae5c67eb33e737695cce88f0262008cce
 
-PODFILE CHECKSUM: 0d75e1ea1daa9f58dca3eb9479fd1b62bdd35d56
+PODFILE CHECKSUM: 448428d830f3dd95fbf9a3f475ed3be97a3719a3
 
 COCOAPODS: 1.0.1

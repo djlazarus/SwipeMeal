@@ -9,6 +9,7 @@
 #import "WalletViewController.h"
 #import "WalletHeaderTableViewCell.h"
 #import "WalletMainTableViewCell.h"
+#import "StripeAPIClient.h"
 #import "SwipeMeal-Swift.h"
 
 @import IncipiaKit;
@@ -30,6 +31,9 @@ typedef enum : NSUInteger {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    StripeAPIClient *apiClient = [[StripeAPIClient alloc] init];
+    [apiClient test];
     
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleLightContent;
     self.navigationController.navigationBar.translucent = NO;
@@ -85,7 +89,7 @@ typedef enum : NSUInteger {
     if ([cellType isEqual:@(WalletCellTypeHeader)]) {
         WalletHeaderTableViewCell *cell = (WalletHeaderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"WalletHeaderTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.mainText = [NSString stringWithFormat:@"YOU HAVE $%@ IN YOUR WALLET", @255];
+        cell.mainText = [NSString stringWithFormat:@"YOU HAVE $%@ IN YOUR WALLET", @225];
         return cell;
     } else if ([cellType isEqual:@(WalletCellTypePendingTransactions)]) {
         WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
