@@ -12,13 +12,16 @@
 NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
 
 // Payment server environment
+NSString * const kPaymentServerEndpoint = @"https://api.swipemeal.com/v1";
+NSString * const kPaymentServerDevParameter = @"dev";
+
 #ifdef DEBUG
-#define PAYMENT_SERVER_ENDPOINT @"https://dev.api.swipemeal.com/v1";
+#define PAYMENT_SERVER_DEV_VALUE @"1";
 #else
-#define PAYMENT_SERVER_ENDPOINT @"https://api.swipemeal.com/v1";
+#define PAYMENT_SERVER_DEV_VALUE @"0";
 #endif
 
-NSString * const kPaymentServerEndpoint = PAYMENT_SERVER_ENDPOINT;
+NSString * const kPaymentServerDevValue = PAYMENT_SERVER_DEV_VALUE;
 
 @implementation Constants
 

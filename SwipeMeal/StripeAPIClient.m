@@ -18,14 +18,14 @@
 @implementation StripeAPIClient
 
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID buyerID:(NSString *)buyerID sellerID:(NSString *)sellerID completionBlock:(void (^)(void))completionBlock {
-    NSString *test = kPaymentServerEndpoint;
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
     NSDictionary *params = @{@"swipe_id":swipeID,
                              @"buyer":buyerID,
                              @"seller":sellerID,
-                             @"dev":@1};
-    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:@"https://api.swipemeal.com/v1/swipe/buy" parameters:params error:nil];
+                             kPaymentServerDevParameter:kPaymentServerDevValue};
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/swipe/buy"];
+    NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlString parameters:params error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (error) {

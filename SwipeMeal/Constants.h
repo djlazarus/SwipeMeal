@@ -10,6 +10,8 @@
 
 extern NSString * const kSwipeMealSystemUserID;
 extern NSString * const kPaymentServerEndpoint;
+extern NSString * const kPaymentServerDevParameter;
+extern NSString * const kPaymentServerDevValue;
 
 @interface Constants : NSObject
 
