@@ -23,6 +23,7 @@
 		1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */; };
 		161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */; };
 		161D1B981D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */; };
+		1625E05F1D7475CF00B852CF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E05E1D7475CF00B852CF /* Constants.m */; };
 		163E81D81D71DD2F0069451D /* StripeAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E81D71D71DD2F0069451D /* StripeAPIClient.m */; };
 		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A81D569640006A0760 /* Montserrat-Black.otf */; };
@@ -125,6 +126,8 @@
 		161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeSellDetailViewController.m; sourceTree = "<group>"; };
 		161D1B961D4E9051005B7FC2 /* SwipeSellConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeSellConfirmationViewController.h; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.h; sourceTree = "<group>"; };
 		161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.m; sourceTree = "<group>"; };
+		1625E05D1D7475CF00B852CF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1625E05E1D7475CF00B852CF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		163E81D61D71DD2F0069451D /* StripeAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripeAPIClient.h; sourceTree = "<group>"; };
 		163E81D71D71DD2F0069451D /* StripeAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripeAPIClient.m; sourceTree = "<group>"; };
 		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
@@ -426,11 +429,11 @@
 				CE1D77641CF76CBF0071D249 /* Extensions */,
 				CE1D77671CF76D0E0071D249 /* Models */,
 				CE4E37AD1CF637E8000D3E24 /* Operations */,
-				CE2782E11CE8000500039014 /* Resources */,
 				CE4E37A81CF60CB7000D3E24 /* UI Protocols */,
 				CE1D776C1CF770730071D249 /* Utilities */,
 				CE2782E01CE7FFEF00039014 /* View Controllers */,
 				CE2782DF1CE7FFE800039014 /* Storyboards */,
+				CE2782E11CE8000500039014 /* Resources */,
 				E6476D2A82ECE8382B3DCD72 /* Frameworks */,
 				D07A19302079A42674FF8D91 /* Pods */,
 				CE2782C91CE7EA4200039014 /* Products */,
@@ -450,6 +453,8 @@
 			children = (
 				CE24F0881D5BB3F9009B1E2E /* SwipeMeal.entitlements */,
 				CE2782CB1CE7EA4200039014 /* AppDelegate.swift */,
+				1625E05D1D7475CF00B852CF /* Constants.h */,
+				1625E05E1D7475CF00B852CF /* Constants.m */,
 				163E81D61D71DD2F0069451D /* StripeAPIClient.h */,
 				163E81D71D71DD2F0069451D /* StripeAPIClient.m */,
 			);
@@ -840,6 +845,7 @@
 				CE34EA531D187276003408EB /* CircularImageView.swift in Sources */,
 				168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */,
 				168656D11D202F18004CE47D /* CircularIndicatorView.m in Sources */,
+				1625E05F1D7475CF00B852CF /* Constants.m in Sources */,
 				16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */,
 				16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */,
 				168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */,

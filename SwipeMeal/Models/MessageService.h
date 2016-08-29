@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Message.h"
 
-extern NSString * const kSwipeMealSystemUserID;
-
 @interface MessageService : NSObject
 
 @property (strong, nonatomic, readonly) NSArray *messages;

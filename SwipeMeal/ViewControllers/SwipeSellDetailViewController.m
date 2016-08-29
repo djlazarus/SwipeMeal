@@ -10,6 +10,7 @@
 #import "SwipeSellConfirmationViewController.h"
 #import "SwipeService.h"
 #import "MessageService.h"
+#import "Constants.h"
 @import Firebase;
 
 @interface SwipeSellDetailViewController ()

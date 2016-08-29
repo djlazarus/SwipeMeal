@@ -33,7 +33,9 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
     
     StripeAPIClient *apiClient = [[StripeAPIClient alloc] init];
-    [apiClient test];
+    [apiClient requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^{
+        //
+    }];
     
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleLightContent;
     self.navigationController.navigationBar.translucent = NO;

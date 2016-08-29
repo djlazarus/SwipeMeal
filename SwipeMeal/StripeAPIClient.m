@@ -8,6 +8,7 @@
 
 #import "StripeAPIClient.h"
 #import "AFNetworking/AFNetworking.h"
+#import "Constants.h"
 @import Stripe;
 
 @interface StripeAPIClient () <STPBackendAPIAdapter>
@@ -17,6 +18,7 @@
 @implementation StripeAPIClient
 
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID buyerID:(NSString *)buyerID sellerID:(NSString *)sellerID completionBlock:(void (^)(void))completionBlock {
+    NSString *test = kPaymentServerEndpoint;
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
     NSDictionary *params = @{@"swipe_id":swipeID,
