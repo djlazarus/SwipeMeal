@@ -24,6 +24,7 @@
 		161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */; };
 		161D1B981D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */; };
 		1625E05F1D7475CF00B852CF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E05E1D7475CF00B852CF /* Constants.m */; };
+		1625E0621D74D8D500B852CF /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */; };
 		163E81D81D71DD2F0069451D /* StripeAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E81D71D71DD2F0069451D /* StripeAPIClient.m */; };
 		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A81D569640006A0760 /* Montserrat-Black.otf */; };
@@ -128,6 +129,8 @@
 		161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.m; sourceTree = "<group>"; };
 		1625E05D1D7475CF00B852CF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1625E05E1D7475CF00B852CF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		1625E0601D74D8D500B852CF /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionTableViewCell.h; path = SwipeMeal/ViewControllers/TransactionTableViewCell.h; sourceTree = "<group>"; };
+		1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionTableViewCell.m; path = SwipeMeal/ViewControllers/TransactionTableViewCell.m; sourceTree = "<group>"; };
 		163E81D61D71DD2F0069451D /* StripeAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripeAPIClient.h; sourceTree = "<group>"; };
 		163E81D71D71DD2F0069451D /* StripeAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripeAPIClient.m; sourceTree = "<group>"; };
 		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 			children = (
 				160F802A1D6E4F5000D696E7 /* TransactionsViewController.h */,
 				160F802B1D6E4F5000D696E7 /* TransactionsViewController.m */,
+				1625E0601D74D8D500B852CF /* TransactionTableViewCell.h */,
+				1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */,
 			);
 			name = Transactions;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,
 				168656D41D204636004CE47D /* MessagesDetailViewController.m in Sources */,
 				165304BD1D5698CA006A0760 /* SwipeStore.m in Sources */,
+				1625E0621D74D8D500B852CF /* TransactionTableViewCell.m in Sources */,
 				16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
