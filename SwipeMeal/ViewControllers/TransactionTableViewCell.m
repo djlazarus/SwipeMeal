@@ -28,8 +28,8 @@
 
 - (void)setUpWithSwipe:(Swipe *)swipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
-    if ([userID isEqualToString:swipe.uid]) {
-        self.nameLabel.text = swipe.sellerName;
+    if ([userID isEqualToString:swipe.listingUserID]) {
+        self.nameLabel.text = swipe.listingUserName;
     }
 }
 

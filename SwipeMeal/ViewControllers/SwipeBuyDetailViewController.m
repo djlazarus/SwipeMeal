@@ -36,17 +36,17 @@
     [self startDownloadingProfileImage];
     
     self.buyButton.backgroundColor = [[UIColor alloc] initWithHexString:@"6BB739"];
-    self.nameLabel.text = self.swipe.sellerName;
+    self.nameLabel.text = self.swipe.listingUserName;
     self.swipesLabel.text = @"7";
     self.salesLabel.text = @"42";
 	
-	self.bottomPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)_swipe.price];
+	self.bottomPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)_swipe.listPrice];
 	self.bottomLocationLabel.text = _swipe.locationName;
 }
 
 - (void)startDownloadingProfileImage {
     FIRStorage *storage = [FIRStorage storage];
-    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", _swipe.uid];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", _swipe.listingUserID];
     FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
     [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {

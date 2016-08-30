@@ -34,7 +34,7 @@
     self.swipeService = [SwipeService sharedSwipeService];
     self.messageService = [MessageService sharedMessageService];
 
-    self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
+    self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.listPrice];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
     self.confirmTimeLabel.text = [self timeStringFromDate:date];
     self.confirmLocationLabel.text = self.swipe.locationName;
@@ -74,9 +74,9 @@
                                 @"listing_time":@(listingTimestamp),
                                 @"expiration_time":@(expirationTimestamp),
                                 @"available_time":@(self.swipe.availableTime),
-                                @"price":@(self.swipe.price),
+                                @"price":@(self.swipe.listPrice),
                                 @"location_name":self.swipe.locationName,
-                                @"seller_rating":@(self.swipe.sellerRating)};
+                                @"seller_rating":@(self.swipe.listingUserRating)};
     
     [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^(NSString *swipeKey) {
         // Create initial message

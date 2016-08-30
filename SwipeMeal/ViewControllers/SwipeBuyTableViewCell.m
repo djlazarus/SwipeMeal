@@ -37,8 +37,8 @@
 - (void)setSwipe:(Swipe *)swipe {
     [self startDownloadingProfileImageForSwipe:swipe];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.price];
-    self.nameLabel.text = swipe.sellerName;
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.listPrice];
+    self.nameLabel.text = swipe.listingUserName;
     self.timeLabel.text = @"TIME";
     self.locationLabel.text = swipe.locationName;
 
@@ -51,7 +51,7 @@
     self.timeImageView.tintColor = [UIColor colorWithRed:184.0/255 green:184.0/255 blue:184.0/255 alpha:1.0];
     
     NSArray *stars = @[self.ratingImageView1, self.ratingImageView2, self.ratingImageView3, self.ratingImageView4, self.ratingImageView5];
-    for (int i = 0; i < swipe.sellerRating; i++) {
+    for (int i = 0; i < swipe.listingUserRating; i++) {
         UIImage *starImage = [UIImage imageNamed:@"buy-star"];
         UIImageView *starImageView = [stars objectAtIndex:i];
         starImageView.image = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -61,7 +61,7 @@
 
 - (void)startDownloadingProfileImageForSwipe:(Swipe *)swipe {
     FIRStorage *storage = [FIRStorage storage];
-    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", swipe.uid];
+    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", swipe.listingUserID];
     FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
     [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {

@@ -74,8 +74,8 @@
         [self hideDatePicker];
     }
     
-    self.swipe.price = (NSInteger)slider.value;
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.price];
+    self.swipe.listPrice = (NSInteger)slider.value;
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.listPrice];
     
     [self checkFormValidity];
 }

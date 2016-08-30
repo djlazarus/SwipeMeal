@@ -55,6 +55,7 @@
 		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
 		16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */; };
+		16DC17F41D7630EB00E79CBB /* SwipeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */; };
 		16DE213D1D60C93200D902EC /* SwipeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE213C1D60C93200D902EC /* SwipeService.m */; };
 		16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EF77C31D4D955F00B16E70 /* Selling.storyboard */; };
 		16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */; };
@@ -182,6 +183,8 @@
 		16ABC4C41D4C40B800A2AAA4 /* Swipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swipe.m; path = SwipeMeal/Models/Swipe.m; sourceTree = "<group>"; };
 		16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Utils.h"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.h"; sourceTree = "<group>"; };
 		16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Utils.m"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.m"; sourceTree = "<group>"; };
+		16DC17F21D7630EB00E79CBB /* SwipeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeTransaction.h; path = SwipeMeal/Models/SwipeTransaction.h; sourceTree = "<group>"; };
+		16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeTransaction.m; path = SwipeMeal/Models/SwipeTransaction.m; sourceTree = "<group>"; };
 		16DE213B1D60C93200D902EC /* SwipeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeService.h; path = SwipeMeal/Models/SwipeService.h; sourceTree = "<group>"; };
 		16DE213C1D60C93200D902EC /* SwipeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeService.m; path = SwipeMeal/Models/SwipeService.m; sourceTree = "<group>"; };
 		16EF77C41D4D955F00B16E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Selling.storyboard; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 				165304BC1D5698CA006A0760 /* SwipeStore.m */,
 				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
 				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
+				16DC17F21D7630EB00E79CBB /* SwipeTransaction.h */,
+				16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */,
 				168788FA1D63A66F0093A25D /* MessageService.h */,
 				168788FB1D63A66F0093A25D /* MessageService.m */,
 				168788FD1D63A7A90093A25D /* MessageStore.h */,
@@ -832,6 +837,7 @@
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */,
 				160F80141D6E413500D696E7 /* WalletViewController.m in Sources */,
+				16DC17F41D7630EB00E79CBB /* SwipeTransaction.m in Sources */,
 				CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */,
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,

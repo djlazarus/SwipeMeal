@@ -39,9 +39,9 @@
     self.swipeService = [SwipeService sharedSwipeService];
     self.messageService = [MessageService sharedMessageService];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.listPrice];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
-    self.sellerLabel.text = [NSString stringWithFormat:@"Sold by: %@", self.swipe.sellerName];
+    self.sellerLabel.text = [NSString stringWithFormat:@"Sold by: %@", self.swipe.listingUserName];
     self.timeLabel.text = [NSString stringWithFormat:@"Available: %f", self.swipe.availableTime];
     
     self.acceptButton.layer.borderWidth = 1.0;
@@ -57,11 +57,11 @@
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
 
     // Create initial message
-    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
+    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.listPrice];
     NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
                                     @"from_uid":userID,
                                     @"from_name":userName,
-                                    @"to_uid":self.swipe.uid,
+                                    @"to_uid":self.swipe.listingUserID,
                                     @"timestamp":@(timestamp),
                                     @"unread":@(YES),
                                     @"is_offer_message":@(YES),

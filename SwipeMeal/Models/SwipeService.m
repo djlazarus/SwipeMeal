@@ -85,10 +85,10 @@
 - (Swipe *)swipeWithKey:(NSString *)key values:(NSDictionary *)values {
     Swipe *swipe = [[Swipe alloc] init];
     swipe.swipeID = key;
-    swipe.uid = [values objectForKey:@"uid"];
-    swipe.sellerName = [values objectForKey:@"seller_name"];
-    swipe.sellerRating = [[values objectForKey:@"seller_rating"] integerValue];
-    swipe.price = [[values objectForKey:@"price"] integerValue];
+    swipe.listingUserID = [values objectForKey:@"uid"];
+    swipe.listingUserName = [values objectForKey:@"seller_name"];
+    swipe.listingUserRating = [[values objectForKey:@"seller_rating"] integerValue];
+    swipe.listPrice = [[values objectForKey:@"price"] integerValue];
     swipe.locationName = [values objectForKey:@"location_name"];
     swipe.listingTime = [[values objectForKey:@"listing_time"] floatValue];
     swipe.expireTime = [[values objectForKey:@"expiration_time"] floatValue];
@@ -116,11 +116,11 @@
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
     NSDictionary *swipeDict = @{@"uid":userID,
                                 @"sold_time":@(timestamp),
-                                @"price":@(swipe.price),
-                                @"seller_name":swipe.sellerName,
+                                @"price":@(swipe.listPrice),
+                                @"seller_name":swipe.listingUserName,
                                 @"listing_time":@(swipe.listingTime),
                                 @"location_name":swipe.locationName,
-                                @"seller_rating":@(swipe.sellerRating)};
+                                @"seller_rating":@(swipe.listingUserRating)};
     NSDictionary *childUpdates = @{[@"/swipes-sold/" stringByAppendingString:swipe.swipeID]: swipeDict,
                                    [NSString stringWithFormat:@"/user-swipes-sold/%@/%@/", userID, swipe.swipeID]: swipeDict};
     
