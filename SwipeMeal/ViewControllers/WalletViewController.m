@@ -10,6 +10,7 @@
 #import "WalletHeaderTableViewCell.h"
 #import "WalletMainTableViewCell.h"
 #import "StripePaymentService.h"
+#import "SwipeTransaction.h"
 #import "SwipeMeal-Swift.h"
 @import Stripe;
 @import IncipiaKit;
@@ -126,8 +127,12 @@ typedef enum : NSUInteger {
             break;
             
         case 3: {
-            STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] init];
+            STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
+            config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
+            
+            STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
             addCardViewController.delegate = self;
+
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
             break;
@@ -146,12 +151,12 @@ typedef enum : NSUInteger {
 
 - (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
     StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
-    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(NSString *stripeTransactionID, NSError *error) {
+    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(SwipeTransaction *transaction, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
         } else {
-            // Create a SwipeTransaction object and save to Firebase
-            NSLog(@"%@", stripeTransactionID);
+            // save to Firebase
+            NSLog(@"%@", transaction);
         }
     }];
 }

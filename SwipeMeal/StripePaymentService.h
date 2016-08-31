@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SwipeTransaction.h"
 
 @interface StripePaymentService : NSObject
 
@@ -15,6 +16,6 @@
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID
                            buyerID:(NSString *)buyerID
                           sellerID:(NSString *)sellerID
-                   completionBlock:(void (^)(NSString *stripeTransactionID, NSError *error))completionBlock;
+                   completionBlock:(void (^)(SwipeTransaction *transaction, NSError *error))completionBlock;
 
 @end

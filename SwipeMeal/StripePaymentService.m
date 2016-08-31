@@ -9,7 +9,6 @@
 #import "StripePaymentService.h"
 #import "AFNetworking/AFNetworking.h"
 #import "Constants.h"
-#import "SwipeTransaction.h"
 @import Stripe;
 
 @interface StripePaymentService ()
@@ -30,7 +29,7 @@
     return paymentService;
 }
 
-- (void)requestPurchaseWithSwipeID:(NSString *)swipeID buyerID:(NSString *)buyerID sellerID:(NSString *)sellerID completionBlock:(void (^)(NSString *, NSError *))completionBlock {
+- (void)requestPurchaseWithSwipeID:(NSString *)swipeID buyerID:(NSString *)buyerID sellerID:(NSString *)sellerID completionBlock:(void (^)(SwipeTransaction *transaction, NSError *error))completionBlock {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
     NSDictionary *params = @{@"swipe_id":swipeID,
@@ -48,10 +47,11 @@
             NSLog(@"%@", responseObject);
             SwipeTransaction *transaction = [[SwipeTransaction alloc] init];
             transaction.swipeTransactionID = @"";
+            transaction.stripeTransactionID = @"";
             transaction.sellerID = sellerID;
             transaction.buyerID = buyerID;
             
-            completionBlock(transaction.swipeTransactionID, nil);
+            completionBlock(transaction, nil);
         }
     }];
 
