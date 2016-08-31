@@ -1006,7 +1006,6 @@
                         <outlet property="tableView" destination="vQR-TZ-Tm9" id="d21-nE-oVy"/>
                         <segue destination="3y1-wz-ByE" kind="show" identifier="Segue_WalletViewController_TransactionsViewController" id="kJA-DY-EMi"/>
                         <segue destination="uOD-UW-NrJ" kind="show" identifier="Segue_WalletViewController_CashOutViewController" id="n9Z-j8-6gj"/>
-                        <segue destination="L3o-a5-Y0d" kind="presentation" identifier="Segue_WalletViewController_UpdateCardViewController" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="5Xu-Hc-340"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bX-A3-OvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1028,14 +1027,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkY-Fv-BK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2092.5" y="732"/>
-        </scene>
-        <!--UpdateCardViewController-->
-        <scene sceneID="PDd-0L-vGb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="WalletUpdateCard" referencedIdentifier="UpdateCardViewController" id="L3o-a5-Y0d" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dwT-hE-Hh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2102.5" y="881"/>
         </scene>
     </scenes>
     <resources>

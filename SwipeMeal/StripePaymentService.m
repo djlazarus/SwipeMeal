@@ -18,6 +18,18 @@
 
 @implementation StripePaymentService
 
++ (StripePaymentService *)sharedPaymentService {
+    static StripePaymentService *paymentService = nil;
+    if (!paymentService) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            paymentService = [[StripePaymentService alloc] init];
+        });
+    }
+    
+    return paymentService;
+}
+
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID buyerID:(NSString *)buyerID sellerID:(NSString *)sellerID completionBlock:(void (^)(NSString *, NSError *))completionBlock {
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];

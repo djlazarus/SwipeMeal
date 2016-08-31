@@ -13,10 +13,8 @@
 		160F801A1D6E428600D696E7 /* WalletMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */; };
 		160F80201D6E4D7700D696E7 /* WalletTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160F801E1D6E4D7700D696E7 /* WalletTransactions.storyboard */; };
 		160F80231D6E4D9500D696E7 /* WalletCashOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160F80211D6E4D9500D696E7 /* WalletCashOut.storyboard */; };
-		160F80261D6E4DC000D696E7 /* WalletUpdateCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160F80241D6E4DC000D696E7 /* WalletUpdateCard.storyboard */; };
 		160F802C1D6E4F5000D696E7 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F802B1D6E4F5000D696E7 /* TransactionsViewController.m */; };
 		160F802F1D6E4F6000D696E7 /* CashOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F802E1D6E4F6000D696E7 /* CashOutViewController.m */; };
-		160F80321D6E4F6F00D696E7 /* UpdateCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F80311D6E4F6F00D696E7 /* UpdateCardViewController.m */; };
 		16114D161D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */; };
 		1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */; };
 		1613C0911D28987000F7BC3B /* MessagesDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */; };
@@ -110,13 +108,10 @@
 		160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WalletMainTableViewCell.m; path = SwipeMeal/ViewControllers/WalletMainTableViewCell.m; sourceTree = "<group>"; };
 		160F801F1D6E4D7700D696E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/WalletTransactions.storyboard; sourceTree = "<group>"; };
 		160F80221D6E4D9500D696E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/WalletCashOut.storyboard; sourceTree = "<group>"; };
-		160F80251D6E4DC000D696E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/WalletUpdateCard.storyboard; sourceTree = "<group>"; };
 		160F802A1D6E4F5000D696E7 /* TransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsViewController.h; path = SwipeMeal/ViewControllers/TransactionsViewController.h; sourceTree = "<group>"; };
 		160F802B1D6E4F5000D696E7 /* TransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsViewController.m; path = SwipeMeal/ViewControllers/TransactionsViewController.m; sourceTree = "<group>"; };
 		160F802D1D6E4F6000D696E7 /* CashOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashOutViewController.h; path = SwipeMeal/ViewControllers/CashOutViewController.h; sourceTree = "<group>"; };
 		160F802E1D6E4F6000D696E7 /* CashOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashOutViewController.m; path = SwipeMeal/ViewControllers/CashOutViewController.m; sourceTree = "<group>"; };
-		160F80301D6E4F6F00D696E7 /* UpdateCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateCardViewController.h; path = SwipeMeal/ViewControllers/UpdateCardViewController.h; sourceTree = "<group>"; };
-		160F80311D6E4F6F00D696E7 /* UpdateCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateCardViewController.m; path = SwipeMeal/ViewControllers/UpdateCardViewController.m; sourceTree = "<group>"; };
 		16114D141D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyDetailViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyDetailViewController.h; sourceTree = "<group>"; };
 		16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyDetailViewController.m; sourceTree = "<group>"; };
 		1613C08C1D2867FA00F7BC3B /* MessagesDetailChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailChoiceViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailChoiceViewController.h; sourceTree = "<group>"; };
@@ -263,7 +258,6 @@
 				160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */,
 				160F80271D6E4EF600D696E7 /* Transactions */,
 				160F80281D6E4F0200D696E7 /* Cash Out */,
-				160F80291D6E4F2300D696E7 /* Update Card */,
 			);
 			name = Wallet;
 			sourceTree = "<group>";
@@ -286,15 +280,6 @@
 				160F802E1D6E4F6000D696E7 /* CashOutViewController.m */,
 			);
 			name = "Cash Out";
-			sourceTree = "<group>";
-		};
-		160F80291D6E4F2300D696E7 /* Update Card */ = {
-			isa = PBXGroup;
-			children = (
-				160F80301D6E4F6F00D696E7 /* UpdateCardViewController.h */,
-				160F80311D6E4F6F00D696E7 /* UpdateCardViewController.m */,
-			);
-			name = "Update Card";
 			sourceTree = "<group>";
 		};
 		1613C0951D28AE4600F7BC3B /* Child View Controllers */ = {
@@ -512,7 +497,6 @@
 				16EF77C31D4D955F00B16E70 /* Selling.storyboard */,
 				160F801E1D6E4D7700D696E7 /* WalletTransactions.storyboard */,
 				160F80211D6E4D9500D696E7 /* WalletCashOut.storyboard */,
-				160F80241D6E4DC000D696E7 /* WalletUpdateCard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -718,7 +702,6 @@
 				165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */,
 				165304B71D569640006A0760 /* Montserrat-UltraLight.otf in Resources */,
 				CE2782D11CE7EA4200039014 /* SignIn.storyboard in Resources */,
-				160F80261D6E4DC000D696E7 /* WalletUpdateCard.storyboard in Resources */,
 				16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */,
 				CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */,
 				165304B11D569640006A0760 /* Montserrat-Bold.otf in Resources */,
@@ -836,7 +819,6 @@
 				168788FF1D63A7A90093A25D /* MessageStore.m in Sources */,
 				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
 				CE34EA491D146266003408EB /* WelcomeViewController.swift in Sources */,
-				160F80321D6E4F6F00D696E7 /* UpdateCardViewController.m in Sources */,
 				16DE213D1D60C93200D902EC /* SwipeService.m in Sources */,
 				1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */,
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
@@ -916,14 +898,6 @@
 				160F80221D6E4D9500D696E7 /* Base */,
 			);
 			name = WalletCashOut.storyboard;
-			sourceTree = "<group>";
-		};
-		160F80241D6E4DC000D696E7 /* WalletUpdateCard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				160F80251D6E4DC000D696E7 /* Base */,
-			);
-			name = WalletUpdateCard.storyboard;
 			sourceTree = "<group>";
 		};
 		168656B21D1EB99F004CE47D /* Main.storyboard */ = {

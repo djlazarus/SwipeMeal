@@ -10,6 +10,8 @@
 
 @interface StripePaymentService : NSObject
 
++ (StripePaymentService *)sharedPaymentService;
+
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID
                            buyerID:(NSString *)buyerID
                           sellerID:(NSString *)sellerID

@@ -11,7 +11,7 @@
 #import "WalletMainTableViewCell.h"
 #import "StripePaymentService.h"
 #import "SwipeMeal-Swift.h"
-
+@import Stripe;
 @import IncipiaKit;
 
 typedef enum : NSUInteger {
@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
     WalletCellTypeUpdateCreditCard
 } WalletCellType;
 
-@interface WalletViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface WalletViewController () <STPAddCardViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -31,16 +31,7 @@ typedef enum : NSUInteger {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    StripePaymentService *paymentService = [[StripePaymentService alloc] init];
-    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(NSString *stripeTransactionID, NSError *error) {
-        if (error) {
-            // do something
-        } else {
-            // Create a SwipeTransaction object and save to Firebase
-        }
-    }];
-    
+
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleLightContent;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
@@ -53,7 +44,7 @@ typedef enum : NSUInteger {
     
     // Listen for a notification telling us that a Swipe has been either sold or listed and the confirmation screen has been closed
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseConfirmation) name:@"didCloseConfirmation" object:nil];
-    
+
     UIColor* color = [[UIColor alloc] initWithHexString:@"272D2F"];
     UIImage* tabBarBackgroundImage = [UIImage imageWithColor:color];
     [self.tabBarController.tabBar setBackgroundImage:tabBarBackgroundImage];
@@ -134,20 +125,35 @@ typedef enum : NSUInteger {
             [self performSegueWithIdentifier:@"Segue_WalletViewController_CashOutViewController" sender:nil];
             break;
             
-        case 3:
-            [self performSegueWithIdentifier:@"Segue_WalletViewController_UpdateCardViewController" sender:nil];
+        case 3: {
+            STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] init];
+            addCardViewController.delegate = self;
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
             break;
+        }
             
         default:
             break;
     }
 }
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqualToString:@"Segue_HomeViewController_SwipeBuyViewController"]) {
-//        SwipeBuyViewController *swipeBuyViewController = (SwipeBuyViewController *)[segue destinationViewController];
-//        // ?
-//    }
-//}
+#pragma mark - STPAddCardViewControllerDelegate
+
+- (void)addCardViewControllerDidCancel:(STPAddCardViewController *)addCardViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
+    StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(NSString *stripeTransactionID, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            // Create a SwipeTransaction object and save to Firebase
+            NSLog(@"%@", stripeTransactionID);
+        }
+    }];
+}
 
 @end

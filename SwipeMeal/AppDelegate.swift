@@ -37,8 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       let token = FIRInstanceID.instanceID().token()
       print("TOKEN: \(token)")
     
-    // Stripe
+    // Stripe setup
     STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_CiqahQUNPeDYwZMeR1V6KMKV"
+    STPTheme.defaultTheme().accentColor = UIColor(hexString: "6BB739");
+    STPTheme.defaultTheme().secondaryForegroundColor = UIColor(hexString: "6BB739");
 		
     return true
    }
