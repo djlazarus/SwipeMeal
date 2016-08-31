@@ -10,13 +10,11 @@
 
 @interface SwipeTransaction : NSObject
 
-@property (strong, nonatomic) NSString *transactionID;
+@property (strong, nonatomic) NSString *swipeTransactionID;
+@property (strong, nonatomic) NSString *stripeTransactionID;
 @property (strong, nonatomic) NSString *swipeID;
 @property (strong, nonatomic) NSString *sellerID;
-@property (strong, nonatomic) NSString *sellerName;
 @property (strong, nonatomic) NSString *buyerID;
-@property (strong, nonatomic) NSString *buyerName;
-@property (strong, nonatomic) NSString *locationName;
 @property (nonatomic) NSInteger salePrice;
 @property (nonatomic) NSTimeInterval timestamp;
 

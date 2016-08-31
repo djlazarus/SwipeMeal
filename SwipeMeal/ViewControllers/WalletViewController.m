@@ -9,7 +9,7 @@
 #import "WalletViewController.h"
 #import "WalletHeaderTableViewCell.h"
 #import "WalletMainTableViewCell.h"
-#import "StripeAPIClient.h"
+#import "StripePaymentService.h"
 #import "SwipeMeal-Swift.h"
 
 @import IncipiaKit;
@@ -32,9 +32,13 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    StripeAPIClient *apiClient = [[StripeAPIClient alloc] init];
-    [apiClient requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^{
-        //
+    StripePaymentService *paymentService = [[StripePaymentService alloc] init];
+    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(NSString *stripeTransactionID, NSError *error) {
+        if (error) {
+            // do something
+        } else {
+            // Create a SwipeTransaction object and save to Firebase
+        }
     }];
     
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleLightContent;

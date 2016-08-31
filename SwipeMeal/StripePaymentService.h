@@ -1,5 +1,5 @@
 //
-//  StripeAPIClient.h
+//  StripePaymentService.h
 //  SwipeMeal
 //
 //  Created by Jacob Harris on 8/27/16.
@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface StripeAPIClient : NSObject
+@interface StripePaymentService : NSObject
 
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID
                            buyerID:(NSString *)buyerID
                           sellerID:(NSString *)sellerID
-                   completionBlock:(void (^)(void))completionBlock;
+                   completionBlock:(void (^)(NSString *stripeTransactionID, NSError *error))completionBlock;
 
 @end
