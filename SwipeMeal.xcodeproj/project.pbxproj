@@ -49,6 +49,7 @@
 		168788FF1D63A7A90093A25D /* MessageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 168788FE1D63A7A90093A25D /* MessageStore.m */; };
 		1694222A1D577496002981A9 /* SwipeBuyConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */; };
 		1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694222C1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m */; };
+		16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A8247F1D7F07E20027C9AE /* PersonalInfoViewController.m */; };
 		16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */; };
 		16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */; };
 		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
@@ -172,6 +173,8 @@
 		169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyConfirmationViewController.m; sourceTree = "<group>"; };
 		1694222B1D577629002981A9 /* SwipeBuyConfirmDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyConfirmDialogViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyConfirmDialogViewController.h; sourceTree = "<group>"; };
 		1694222C1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyConfirmDialogViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyConfirmDialogViewController.m; sourceTree = "<group>"; };
+		16A8247E1D7F07E20027C9AE /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalInfoViewController.h; path = SwipeMeal/ViewControllers/PersonalInfoViewController.h; sourceTree = "<group>"; };
+		16A8247F1D7F07E20027C9AE /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalInfoViewController.m; path = SwipeMeal/ViewControllers/PersonalInfoViewController.m; sourceTree = "<group>"; };
 		16ABC4B91D4C04EC00A2AAA4 /* SwipeBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyViewController.h; sourceTree = "<group>"; };
 		16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyViewController.m; sourceTree = "<group>"; };
 		16ABC4BE1D4C06A400A2AAA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Buying.storyboard; sourceTree = "<group>"; };
@@ -258,6 +261,7 @@
 				160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */,
 				160F80271D6E4EF600D696E7 /* Transactions */,
 				160F80281D6E4F0200D696E7 /* Cash Out */,
+				16A824811D7F07E90027C9AE /* Personal Info */,
 			);
 			name = Wallet;
 			sourceTree = "<group>";
@@ -376,6 +380,15 @@
 				1613C0951D28AE4600F7BC3B /* Child View Controllers */,
 			);
 			name = Messages;
+			sourceTree = "<group>";
+		};
+		16A824811D7F07E90027C9AE /* Personal Info */ = {
+			isa = PBXGroup;
+			children = (
+				16A8247E1D7F07E20027C9AE /* PersonalInfoViewController.h */,
+				16A8247F1D7F07E20027C9AE /* PersonalInfoViewController.m */,
+			);
+			name = "Personal Info";
 			sourceTree = "<group>";
 		};
 		16ABC4BC1D4C04F600A2AAA4 /* Buying Swipes */ = {
@@ -831,6 +844,7 @@
 				161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */,
 				168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */,
 				16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */,
+				16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */,
 				CE34EA511D1870BB003408EB /* SwipeMealRoundedButton.swift in Sources */,
 				1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */,
 				1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */,

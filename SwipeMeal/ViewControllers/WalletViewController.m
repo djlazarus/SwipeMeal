@@ -108,15 +108,15 @@ typedef enum : NSUInteger {
         WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.iconImage = [UIImage imageNamed:@"wallet-update-credit-card"];
-        cell.headlineText = @"Update Credit Card";
-        cell.subheadText = @"Edit your credit card information";
+        cell.headlineText = @"Update Debit Card";
+        cell.subheadText = @"Edit your debit card information to enable buying";
         return cell;
     } else if ([cellType isEqual:@(WalletCellTypeUpdateBankAccount)]) {
         WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.iconImage = [UIImage imageNamed:@"wallet-update-credit-card"];
-        cell.headlineText = @"Update Bank Account";
-        cell.subheadText = @"Edit your bank account information";
+        cell.headlineText = @"Update Personal Info";
+        cell.subheadText = @"Edit your personal information to enable selling";
         return cell;
     } else {
         WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
@@ -125,33 +125,36 @@ typedef enum : NSUInteger {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 1:
-            [self performSegueWithIdentifier:@"Segue_WalletViewController_TransactionsViewController" sender:nil];
-            break;
-            
-        case 2:
-            [self performSegueWithIdentifier:@"Segue_WalletViewController_CashOutViewController" sender:nil];
-            break;
-            
-        case 3: {
-            STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
-            config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
-            
-            STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
-            addCardViewController.delegate = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        switch (indexPath.row) {
+            case 1:
+                [self performSegueWithIdentifier:@"Segue_WalletViewController_TransactionsViewController" sender:nil];
+                break;
+                
+            case 2:
+                [self performSegueWithIdentifier:@"Segue_WalletViewController_CashOutViewController" sender:nil];
+                break;
+                
+            case 3: {
+                STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
+                config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
+                
+                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
+                addCardViewController.delegate = self;
 
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
-            [self presentViewController:navigationController animated:YES completion:nil];
-            break;
+                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
+                [self presentViewController:navigationController animated:YES completion:nil];
+                break;
+            }
+            
+            case 4:
+                [self performSegueWithIdentifier:@"Segue_WalletViewController_PersonalInfoViewController" sender:nil];
+                break;
+
+            default:
+                break;
         }
-        
-        case 4:
-            break;
-
-        default:
-            break;
-    }
+    });
 }
 
 #pragma mark - STPAddCardViewControllerDelegate

@@ -50,21 +50,11 @@
     self.timeTextField.delegate = self;
     
     // Date picker
-	
     [self.datePicker addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
     
     // Continue button
     self.continueButton.enabled = NO;
     self.continueButton.backgroundColor = [UIColor lightGrayColor];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-//    CGSize size = self.topImageView.frame.size;
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://placehold.it/%@x%@", @(size.width), @(size.height)]];
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    self.topImageView.image = [UIImage imageWithData:data];
 }
 
 - (void)updatePrice:(UISlider *)slider {
