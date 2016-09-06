@@ -8,12 +8,15 @@
 
 #import "SwipeBuyConfirmDialogViewController.h"
 #import "SwipeBuyConfirmationViewController.h"
+#import "STPAddCardViewController.h"
 #import "SwipeService.h"
+#import "StripePaymentService.h"
 #import "MessageService.h"
 #import "SwipeMeal-Swift.h"
 @import Firebase;
 
-@interface SwipeBuyConfirmDialogViewController ()
+@interface SwipeBuyConfirmDialogViewController () <STPAddCardViewControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet CircularImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -24,6 +27,7 @@
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
 @property (strong, nonatomic) SwipeService *swipeService;
 @property (strong, nonatomic) MessageService *messageService;
+@property (strong, nonatomic) StripePaymentService *paymentService;
 
 @end
 
@@ -38,6 +42,7 @@
     self.dbRef = [[FIRDatabase database] reference];
     self.swipeService = [SwipeService sharedSwipeService];
     self.messageService = [MessageService sharedMessageService];
+    self.paymentService = [StripePaymentService sharedPaymentService];
     
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.listPrice];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
@@ -79,10 +84,36 @@
 }
 
 - (IBAction)didTapAcceptButton:(UIButton *)sender {
-    [self notifySwipeSeller];
+    STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
+    config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
+    
+    STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
+    addCardViewController.delegate = self;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (IBAction)didTapCancelButton:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - STPAddCardViewControllerDelegate
+
+- (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
+    StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(SwipeTransaction *transaction, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            // save to Firebase
+            [self notifySwipeSeller];
+            NSLog(@"%@", transaction);
+        }
+    }];
+}
+
+- (void)addCardViewControllerDidCancel:(STPAddCardViewController *)addCardViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

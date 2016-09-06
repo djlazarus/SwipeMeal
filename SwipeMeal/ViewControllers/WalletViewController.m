@@ -19,7 +19,8 @@ typedef enum : NSUInteger {
     WalletCellTypeHeader,
     WalletCellTypePendingTransactions,
     WalletCellTypeCashOut,
-    WalletCellTypeUpdateCreditCard
+    WalletCellTypeUpdateCreditCard,
+    WalletCellTypeUpdateBankAccount
 } WalletCellType;
 
 @interface WalletViewController () <STPAddCardViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -58,7 +59,7 @@ typedef enum : NSUInteger {
 }
 
 - (NSArray *)dataRows {
-    NSArray *rows = @[@(WalletCellTypeHeader), @(WalletCellTypePendingTransactions), @(WalletCellTypeCashOut), @(WalletCellTypeUpdateCreditCard)];
+    NSArray *rows = @[@(WalletCellTypeHeader), @(WalletCellTypePendingTransactions), @(WalletCellTypeCashOut), @(WalletCellTypeUpdateCreditCard), @(WalletCellTypeUpdateBankAccount)];
     return rows;
 }
 
@@ -73,10 +74,10 @@ typedef enum : NSUInteger {
     
     switch (cellType.integerValue) {
         case WalletCellTypeHeader:
-            return 175;
+            return 145;
             
         default:
-            return 125;
+            return 120;
     }
 }
 
@@ -110,6 +111,13 @@ typedef enum : NSUInteger {
         cell.headlineText = @"Update Credit Card";
         cell.subheadText = @"Edit your credit card information";
         return cell;
+    } else if ([cellType isEqual:@(WalletCellTypeUpdateBankAccount)]) {
+        WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.iconImage = [UIImage imageNamed:@"wallet-update-credit-card"];
+        cell.headlineText = @"Update Bank Account";
+        cell.subheadText = @"Edit your bank account information";
+        return cell;
     } else {
         WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
         return cell;
@@ -137,7 +145,10 @@ typedef enum : NSUInteger {
             [self presentViewController:navigationController animated:YES completion:nil];
             break;
         }
-            
+        
+        case 4:
+            break;
+
         default:
             break;
     }

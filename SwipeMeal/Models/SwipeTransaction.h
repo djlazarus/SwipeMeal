@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *sellerID;
 @property (strong, nonatomic) NSString *buyerID;
 @property (nonatomic) NSInteger salePrice;
-@property (nonatomic) NSTimeInterval timestamp;
+@property (nonatomic) NSInteger swipeMealFee;
+@property (nonatomic) NSTimeInterval purchasedAt;
 
 @end
