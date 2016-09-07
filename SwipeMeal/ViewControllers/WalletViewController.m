@@ -13,6 +13,7 @@
 #import "SwipeTransaction.h"
 #import "SwipeMeal-Swift.h"
 @import Stripe;
+@import Firebase;
 @import IncipiaKit;
 
 typedef enum : NSUInteger {
@@ -25,6 +26,7 @@ typedef enum : NSUInteger {
 
 @interface WalletViewController () <STPAddCardViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -44,6 +46,8 @@ typedef enum : NSUInteger {
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor blackColor];
     self.tableView.tableFooterView = [UIView new];
+    
+    self.dbRef = [[FIRDatabase database] reference];
     
     // Listen for a notification telling us that a Swipe has been either sold or listed and the confirmation screen has been closed
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseConfirmation) name:@"didCloseConfirmation" object:nil];
@@ -166,15 +170,31 @@ typedef enum : NSUInteger {
 }
 
 - (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
-    StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
-    [paymentService requestPurchaseWithSwipeID:@"12345" buyerID:@"cus_93GqKatuD8AzK4" sellerID:@"acct_18l26cKNe9fQVF0o" completionBlock:^(SwipeTransaction *transaction, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            // save to Firebase
-            NSLog(@"%@", transaction);
-        }
-    }];
+//    NSString *userID = [FIRAuth auth].currentUser.uid;
+//    [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+//        NSString *stripeCustomerID = [snapshot.value objectForKey:@"stripe_customer_id"];
+//        if (stripeCustomerID.length > 0) {
+//            StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+//            [paymentService requestPurchaseWithSwipeID:self.swipe.swipeID buyerID:stripeCustomerID completionBlock:^(SwipeTransaction *transaction, NSError *error) {
+//                if (error) {
+//                    NSLog(@"%@", error);
+//                } else {
+//                    // save to Firebase
+//                    [self notifySwipeSeller];
+//                    NSLog(@"%@", transaction);
+//                }
+//            }];
+//        } else {
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
+//                                                                                     message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."
+//                                                                              preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                [self dismissViewControllerAnimated:YES completion:nil];
+//            }];
+//            [alertController addAction:action];
+//            [self presentViewController:alertController animated:YES completion:nil];
+//        }
+//    }];
 }
 
 @end
