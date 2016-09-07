@@ -52,15 +52,18 @@
     [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         // Test for expired Swipe
         if (![self snapshotIsExpired:snapshot]) {
-            // Build Swipe
-            Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-            if ([self.swipeStore containsSwipeKey:swipe.swipeID]) {
-                updateBlock();
-            } else {
-                [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
-                NSLog(@"Added Swipe: %@", swipe);
-                addBlock();
-            }
+            // Test for active seller
+            [self sellerIsActiveWithSnapshot:snapshot completionBlock:^{
+                // Build Swipe
+                Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
+                if ([self.swipeStore containsSwipeKey:swipe.swipeID]) {
+                    updateBlock();
+                } else {
+                    [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
+                    NSLog(@"Added Swipe: %@", swipe);
+                    addBlock();
+                }
+            }];
         }
     }];
     
@@ -80,6 +83,16 @@
     }
     
     return NO;
+}
+
+- (void)sellerIsActiveWithSnapshot:(FIRDataSnapshot *)snapshot completionBlock:(void (^)(void))completionBlock {
+    NSString *sellerID = [snapshot.value objectForKey:@"uid"];
+    [[[self.dbRef child:@"users"] child:sellerID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *sellStatus = [snapshot.value objectForKey:@"stripe_account_status"];
+        if ([sellStatus isEqualToString:@"active"]) {
+            completionBlock();
+        }
+    }];
 }
 
 - (Swipe *)swipeWithKey:(NSString *)key values:(NSDictionary *)values {
