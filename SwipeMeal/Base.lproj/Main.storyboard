@@ -1009,7 +1009,7 @@
                         <outlet property="tableView" destination="vQR-TZ-Tm9" id="d21-nE-oVy"/>
                         <segue destination="3y1-wz-ByE" kind="show" identifier="Segue_WalletViewController_TransactionsViewController" id="kJA-DY-EMi"/>
                         <segue destination="uOD-UW-NrJ" kind="show" identifier="Segue_WalletViewController_CashOutViewController" id="n9Z-j8-6gj"/>
-                        <segue destination="cfn-qc-nk8" kind="presentation" identifier="Segue_WalletViewController_PersonalInfoViewController" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="EbV-oS-BEj"/>
+                        <segue destination="cfn-qc-nk8" kind="presentation" identifier="Segue_WalletViewController_PersonalInfoViewController" modalTransitionStyle="coverVertical" id="EbV-oS-BEj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bX-A3-OvK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -59,7 +59,8 @@ typedef enum : NSUInteger {
 }
 
 - (NSArray *)dataRows {
-    NSArray *rows = @[@(WalletCellTypeHeader), @(WalletCellTypePendingTransactions), @(WalletCellTypeCashOut), @(WalletCellTypeUpdateCreditCard), @(WalletCellTypeUpdateBankAccount)];
+//    NSArray *rows = @[@(WalletCellTypeHeader), @(WalletCellTypePendingTransactions), @(WalletCellTypeCashOut), @(WalletCellTypeUpdateCreditCard), @(WalletCellTypeUpdateBankAccount)];
+    NSArray *rows = @[@(WalletCellTypeHeader), @(WalletCellTypeUpdateCreditCard), @(WalletCellTypeUpdateBankAccount)];
     return rows;
 }
 
@@ -90,20 +91,20 @@ typedef enum : NSUInteger {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.mainText = [NSString stringWithFormat:@"YOU HAVE $%@ IN YOUR WALLET", @225];
         return cell;
-    } else if ([cellType isEqual:@(WalletCellTypePendingTransactions)]) {
-        WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.iconImage = [UIImage imageNamed:@"wallet-pending"];
-        cell.headlineText = @"Pending Transactions";
-        cell.subheadText = @"Pending SwipeMeal transactions";
-        return cell;
-    } else if ([cellType isEqual:@(WalletCellTypeCashOut)]) {
-        WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.iconImage = [UIImage imageNamed:@"wallet-cashout"];
-        cell.headlineText = @"Cash Out";
-        cell.subheadText = @"Cash out your wallet";
-        return cell;
+//    } else if ([cellType isEqual:@(WalletCellTypePendingTransactions)]) {
+//        WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.iconImage = [UIImage imageNamed:@"wallet-pending"];
+//        cell.headlineText = @"Pending Transactions";
+//        cell.subheadText = @"Pending SwipeMeal transactions";
+//        return cell;
+//    } else if ([cellType isEqual:@(WalletCellTypeCashOut)]) {
+//        WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.iconImage = [UIImage imageNamed:@"wallet-cashout"];
+//        cell.headlineText = @"Cash Out";
+//        cell.subheadText = @"Cash out your wallet";
+//        return cell;
     } else if ([cellType isEqual:@(WalletCellTypeUpdateCreditCard)]) {
         WalletMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WalletMainTableViewCell" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -127,15 +128,15 @@ typedef enum : NSUInteger {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     dispatch_async(dispatch_get_main_queue(), ^{
         switch (indexPath.row) {
-            case 1:
-                [self performSegueWithIdentifier:@"Segue_WalletViewController_TransactionsViewController" sender:nil];
-                break;
+//            case 1:
+//                [self performSegueWithIdentifier:@"Segue_WalletViewController_TransactionsViewController" sender:nil];
+//                break;
+//                
+//            case 2:
+//                [self performSegueWithIdentifier:@"Segue_WalletViewController_CashOutViewController" sender:nil];
+//                break;
                 
-            case 2:
-                [self performSegueWithIdentifier:@"Segue_WalletViewController_CashOutViewController" sender:nil];
-                break;
-                
-            case 3: {
+            case 1: {
                 STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
                 config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
                 
@@ -147,7 +148,7 @@ typedef enum : NSUInteger {
                 break;
             }
             
-            case 4:
+            case 2:
                 [self performSegueWithIdentifier:@"Segue_WalletViewController_PersonalInfoViewController" sender:nil];
                 break;
 

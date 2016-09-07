@@ -44,7 +44,7 @@
     self.messageService = [MessageService sharedMessageService];
     self.paymentService = [StripePaymentService sharedPaymentService];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.listPrice];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.listPrice / 100];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
     self.sellerLabel.text = [NSString stringWithFormat:@"Sold by: %@", self.swipe.listingUserName];
     self.timeLabel.text = [NSString stringWithFormat:@"Available: %f", self.swipe.availableTime];
@@ -62,7 +62,7 @@
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
 
     // Create initial message
-    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.listPrice];
+    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.listPrice / 100];
     NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
                                     @"from_uid":userID,
                                     @"from_name":userName,

@@ -37,7 +37,7 @@
 - (void)setSwipe:(Swipe *)swipe {
     [self startDownloadingProfileImageForSwipe:swipe];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.listPrice];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.listPrice / 100];
     self.nameLabel.text = swipe.listingUserName;
     self.timeLabel.text = @"TIME";
     self.locationLabel.text = swipe.locationName;

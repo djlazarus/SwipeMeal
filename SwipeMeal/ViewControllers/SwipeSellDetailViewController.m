@@ -34,7 +34,7 @@
     self.swipeService = [SwipeService sharedSwipeService];
     self.messageService = [MessageService sharedMessageService];
 
-    self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.listPrice];
+    self.confirmPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)self.swipe.listPrice / 100];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
     self.confirmTimeLabel.text = [self timeStringFromDate:date];
     self.confirmLocationLabel.text = self.swipe.locationName;

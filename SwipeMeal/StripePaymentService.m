@@ -34,9 +34,8 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
     NSDictionary *params = @{@"swipe_id":swipeID,
                              @"buyer":buyerID,
-                             @"seller":sellerID,
                              kPaymentServerDevParameter:kPaymentServerDevValue};
-    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/swipe/buy"];
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/payments/purchase"];
     NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:urlString parameters:params error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {

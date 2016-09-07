@@ -40,7 +40,7 @@
     self.swipesLabel.text = @"7";
     self.salesLabel.text = @"42";
 	
-	self.bottomPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)_swipe.listPrice];
+	self.bottomPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)_swipe.listPrice / 100];
 	self.bottomLocationLabel.text = _swipe.locationName;
 }
 
