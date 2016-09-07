@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (strong, nonatomic) SwipeService *swipeService;
 @property (strong, nonatomic) MessageService *messageService;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -38,6 +39,8 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.swipe.availableTime];
     self.confirmTimeLabel.text = [self timeStringFromDate:date];
     self.confirmLocationLabel.text = self.swipe.locationName;
+    
+    self.dbRef = [[FIRDatabase database] reference];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -97,7 +100,22 @@
 }
 
 - (IBAction)didTapContinueButton:(UIButton *)sender {
-    [self createNewSwipe];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *sellStatus = [snapshot.value objectForKey:@"stripe_account_status"];
+        if ([sellStatus isEqualToString:@"active"]) {
+            [self createNewSwipe];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
+                                                                                     message:@"Please enter your details on the Wallet screen in order to list this Swipe for sale."
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alertController addAction:action];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
 }
 
 @end

@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bottomTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bottomLocationLabel;
 
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
+
 @end
 
 @implementation SwipeBuyDetailViewController
@@ -42,6 +44,8 @@
 	
 	self.bottomPriceLabel.text = [NSString stringWithFormat:@"$%ld", (long)_swipe.listPrice / 100];
 	self.bottomLocationLabel.text = _swipe.locationName;
+    
+    self.dbRef = [[FIRDatabase database] reference];
 }
 
 - (void)startDownloadingProfileImage {
@@ -67,7 +71,22 @@
 }
 
 - (IBAction)didTapBuyButton:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController" sender:nil];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *buyStatus = [snapshot.value objectForKey:@"stripe_customer_status"];
+        if ([buyStatus isEqualToString:@"active"]) {
+            [self performSegueWithIdentifier:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController" sender:nil];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
+                                                                                     message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alertController addAction:action];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];    
 }
 
 @end
