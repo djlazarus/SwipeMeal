@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       print("TOKEN: \(token)")
     
     // Stripe setup
-    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_CiqahQUNPeDYwZMeR1V6KMKV"
+    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_GDqLMB8TumWkOgCBbvNZwliF"
     STPTheme.defaultTheme().accentColor = UIColor(hexString: "6BB739");
     STPTheme.defaultTheme().secondaryForegroundColor = UIColor(hexString: "6BB739");
 		
