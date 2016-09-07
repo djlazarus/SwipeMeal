@@ -142,10 +142,11 @@ typedef enum : NSUInteger {
 //                break;
                 
             case 1: {
-                STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
-                config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
-                
-                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
+//                STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
+//                config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
+//                
+//                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
+                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] init];
                 addCardViewController.delegate = self;
 
                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
@@ -170,31 +171,42 @@ typedef enum : NSUInteger {
 }
 
 - (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
-//    NSString *userID = [FIRAuth auth].currentUser.uid;
-//    [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        NSString *stripeCustomerID = [snapshot.value objectForKey:@"stripe_customer_id"];
-//        if (stripeCustomerID.length > 0) {
-//            StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
-//            [paymentService requestPurchaseWithSwipeID:self.swipe.swipeID buyerID:stripeCustomerID completionBlock:^(SwipeTransaction *transaction, NSError *error) {
-//                if (error) {
-//                    NSLog(@"%@", error);
-//                } else {
-//                    // save to Firebase
-//                    [self notifySwipeSeller];
-//                    NSLog(@"%@", transaction);
-//                }
-//            }];
-//        } else {
-//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
-//                                                                                     message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."
-//                                                                              preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//                [self dismissViewControllerAnimated:YES completion:nil];
-//            }];
-//            [alertController addAction:action];
-//            [self presentViewController:alertController animated:YES completion:nil];
-//        }
-//    }];
+    StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+    [paymentService addPaymentMethodWithToken:token.tokenId
+                                       userID:@""
+                                    firstName:token.card.name
+                                     lastName:token.card.name
+                                      address:token.card.addressLine1
+                                         city:token.card.addressCity
+                                        state:token.card.addressState
+                                          zip:token.card.addressZip
+                              completionBlock:^(NSDictionary *response, NSError *error) {
+                                  NSString *title;
+                                  NSString *message;
+                                  if (error) {
+                                      title = @"Error";
+                                      message = @"There was an issue adding your card...";
+                                  } else {
+                                      if ([response objectForKey:@"it_worked"]) {
+                                          title = @"Card added";
+                                          message = @"Your card has been added successfully.";
+                                      } else {
+                                          title = @"Unable to add card";
+                                          message = @"We were unable to add your card as a payment method. Please check your information and try again.";
+                                      }
+                                      
+                                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                                               message:message
+                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                                      UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                                                         [self dismissViewControllerAnimated:YES completion:nil];
+                                                                                     }];
+                                      [alertController addAction:action];
+                                      [self presentViewController:alertController animated:YES completion:nil];
+                                  }
+                              }
+     ];
 }
 
 @end

@@ -122,11 +122,4 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"Segue_HomeViewController_SwipeBuyViewController"]) {
-        SwipeBuyViewController *swipeBuyViewController = (SwipeBuyViewController *)[segue destinationViewController];
-        // ?
-    }
-}
-
 @end

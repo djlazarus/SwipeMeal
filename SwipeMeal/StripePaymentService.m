@@ -56,21 +56,19 @@
     [dataTask resume];
 }
 
-- (void)addPaymentMethodsWithFirstToken:(NSString *)firstToken
-                            secondToken:(NSString *)secondToken
-                                 userID:(NSString *)userID
-                              firstName:(NSString *)firstName
-                               lastName:(NSString *)lastName
-                                address:(NSString *)address
-                                   city:(NSString *)city
-                                  state:(NSString *)state
-                                    zip:(NSString *)zip
-                        completionBlock:(void (^)(NSDictionary *, NSError *))completionBlock {
+- (void)addPaymentMethodWithToken:(NSString *)token
+                           userID:(NSString *)userID
+                        firstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                          address:(NSString *)address
+                             city:(NSString *)city
+                            state:(NSString *)state
+                              zip:(NSString *)zip
+                  completionBlock:(void (^)(NSDictionary *, NSError *))completionBlock {
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
-    NSDictionary *params = @{@"token1":firstToken,
-                             @"token2":secondToken,
+    NSDictionary *params = @{@"token":token,
                              @"userId":userID,
                              @"firstName":firstName,
                              @"lastName":lastName,

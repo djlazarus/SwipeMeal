@@ -18,16 +18,15 @@
                        ipAddress:(NSString *)ipAddress
                  completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
 
-- (void)addPaymentMethodsWithFirstToken:(NSString *)firstToken
-                            secondToken:(NSString *)secondToken
-                                 userID:(NSString *)userID
-                              firstName:(NSString *)firstName
-                               lastName:(NSString *)lastName
-                                address:(NSString *)address
-                                   city:(NSString *)city
-                                  state:(NSString *)state
-                                    zip:(NSString *)zip
-                        completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
+- (void)addPaymentMethodWithToken:(NSString *)token
+                           userID:(NSString *)userID
+                        firstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                          address:(NSString *)address
+                             city:(NSString *)city
+                            state:(NSString *)state
+                              zip:(NSString *)zip
+                  completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
 
 - (void)addPayoutVerificationWithUserID:(NSString *)userID
                                dobMonth:(NSString *)dobMonth
