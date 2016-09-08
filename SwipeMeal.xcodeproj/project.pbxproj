@@ -98,6 +98,7 @@
 		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
 		CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */; };
 		CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */; };
+		CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -236,6 +237,7 @@
 		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
 		CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticateLoginOperation.swift; path = SwipeMeal/Operations/AuthenticateLoginOperation.swift; sourceTree = "<group>"; };
 		CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileImageOperation.swift; path = SwipeMeal/Operations/AddProfileImageOperation.swift; sourceTree = "<group>"; };
+		CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateStripeAccountOperation.swift; path = SwipeMeal/Operations/CreateStripeAccountOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -584,6 +586,7 @@
 				CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */,
 				CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */,
 				CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */,
+				CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				160F80171D6E426C00D696E7 /* WalletHeaderTableViewCell.m in Sources */,
 				161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */,
 				168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */,
+				CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */,
 				16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */,
 				16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */,
 				CE34EA511D1870BB003408EB /* SwipeMealRoundedButton.swift in Sources */,
