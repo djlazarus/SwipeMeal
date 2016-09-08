@@ -92,7 +92,7 @@
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
-                    // save to Firebase
+                    // response?
                     [self notifySwipeSeller];
                     NSLog(@"%@", transaction);
                 }
