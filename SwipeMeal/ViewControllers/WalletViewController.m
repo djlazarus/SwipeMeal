@@ -142,11 +142,10 @@ typedef enum : NSUInteger {
 //                break;
                 
             case 1: {
-//                STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
-//                config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
-//                
-//                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
-                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] init];
+                STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
+                config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
+
+                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
                 addCardViewController.delegate = self;
 
                 UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];

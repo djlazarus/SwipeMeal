@@ -10,12 +10,12 @@ import UIKit
 import Firebase
 
 private let kStorageURL = "gs://project-3806765351218467701.appspot.com"
-private let kProfileImagesPathName = "profileImages"
+private let kProfileImagesPathName = "profile_images"
 
 private let kUsersPathName = "users"
-private let kUserInfoPathName = "userInfo"
-private let kUserGroupsPathName = "userGroups"
-private let kUserProfileSetupCompletePathName = "profileSetupComplete"
+private let kUserInfoPathName = "user_info"
+private let kUserGroupsPathName = "user_groups"
+private let kUserProfileSetupCompletePathName = "profile_setup_complete"
 private let kUserRatingsPathName = "ratings"
 
 typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> Void
@@ -72,7 +72,7 @@ struct SMDatabaseLayer
 		userGroupRef.updateChildValues([user.uid : true])
 		
 		let userRef = ref.child(kUsersPathName).child(user.uid)
-		userRef.updateChildValues(["groupID" : groupID])
+		userRef.updateChildValues(["group_id" : groupID])
 	}
 	
 	static func generateFakeRatings(forUser user: SwipeMealUser) {
