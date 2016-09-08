@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PersonalInfoViewControllerDelegate;
+
 @interface PersonalInfoViewController : UIViewController
+
+@property (weak, nonatomic) id <PersonalInfoViewControllerDelegate> delegate;
+
+@end
+
+@protocol PersonalInfoViewControllerDelegate <NSObject>
+
+- (void)personalInfoViewControllerDidCancel:(PersonalInfoViewController *)personalInfoViewController;
+- (void)personalInfoViewController:(PersonalInfoViewController *)personalInfoViewController didCreatePersonalInfo:(NSDictionary *)info;
 
 @end

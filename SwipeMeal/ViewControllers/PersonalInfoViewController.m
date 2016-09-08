@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dobTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerBottomConstraint;
+@property (strong, nonatomic) NSMutableDictionary *personalInfo;
 
 @end
 
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.personalInfo = [NSMutableDictionary dictionary];
     
     self.ssnTextField.delegate = self;
     self.dobTextField.delegate = self;
@@ -59,6 +62,13 @@
         NSString *dateString = [formatter stringFromDate:dob];
         self.dobTextField.text = dateString;
         
+        // Save the date components
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:(NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitYear) fromDate:dob];
+        [self.personalInfo setObject:@(components.month) forKey:@"month"];
+        [self.personalInfo setObject:@(components.day) forKey:@"day"];
+        [self.personalInfo setObject:@(components.year) forKey:@"year"];
+        
         [self checkFormValidity];
     }
 }
@@ -66,6 +76,7 @@
 - (void)checkFormValidity {
     if (self.ssnTextField.text.length == 9 && self.dobTextField.text.length > 0) {
         self.doneButton.enabled = YES;
+        [self.personalInfo setObject:self.ssnTextField.text forKey:@"ssn"];
     } else {
         self.doneButton.enabled = NO;
     }
@@ -74,11 +85,14 @@
 - (IBAction)didTapCancelButton:(UIBarButtonItem *)sender {
     [self.ssnTextField resignFirstResponder];
     [self.dobTextField resignFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    id <PersonalInfoViewControllerDelegate> delegate = self.delegate;
+    [delegate personalInfoViewControllerDidCancel:self];
 }
 
 - (IBAction)didTapDoneButton:(UIBarButtonItem *)sender {
-    // call the API
+    id <PersonalInfoViewControllerDelegate> delegate = self.delegate;
+    [delegate personalInfoViewController:self didCreatePersonalInfo:self.personalInfo];
 }
 
 #pragma mark - UITextFieldDelegate

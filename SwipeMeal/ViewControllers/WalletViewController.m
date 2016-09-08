@@ -9,6 +9,7 @@
 #import "WalletViewController.h"
 #import "WalletHeaderTableViewCell.h"
 #import "WalletMainTableViewCell.h"
+#import "PersonalInfoViewController.h"
 #import "StripePaymentService.h"
 #import "SwipeTransaction.h"
 #import "SwipeMeal-Swift.h"
@@ -24,10 +25,11 @@ typedef enum : NSUInteger {
     WalletCellTypeUpdateBankAccount
 } WalletCellType;
 
-@interface WalletViewController () <STPAddCardViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface WalletViewController () <STPAddCardViewControllerDelegate, PersonalInfoViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
+@property (strong, nonatomic) PersonalInfoViewController *personalInfoViewController;
 
 @end
 
@@ -163,6 +165,13 @@ typedef enum : NSUInteger {
     });
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_WalletViewController_PersonalInfoViewController"]) {
+        self.personalInfoViewController = (PersonalInfoViewController *)[segue destinationViewController];
+        self.personalInfoViewController.delegate = self;
+    }
+}
+
 #pragma mark - STPAddCardViewControllerDelegate
 
 - (void)addCardViewControllerDidCancel:(STPAddCardViewController *)addCardViewController {
@@ -170,9 +179,10 @@ typedef enum : NSUInteger {
 }
 
 - (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
     StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
     [paymentService addPaymentMethodWithToken:token.tokenId
-                                       userID:@""
+                                       userID:userID
                                          name:token.card.name ? token.card.name : @""
                                      address1:token.card.addressLine1 ? token.card.addressLine1 : @""
                                      address2:token.card.addressLine2 ? token.card.addressLine2 : @""
@@ -205,6 +215,54 @@ typedef enum : NSUInteger {
                                       [self presentViewController:alertController animated:YES completion:nil];
                                   }
                               }
+     ];
+}
+
+#pragma mark - PersonalInfoViewControllerDelegate
+
+- (void)personalInfoViewControllerDidCancel:(PersonalInfoViewController *)personalInfoViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)personalInfoViewController:(PersonalInfoViewController *)personalInfoViewController didCreatePersonalInfo:(NSDictionary *)info {
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSString *month = [info objectForKey:@"month"] ? [info objectForKey:@"month"] : @"";
+    NSString *day = [info objectForKey:@"day"] ? [info objectForKey:@"day"] : @"";
+    NSString *year = [info objectForKey:@"year"] ? [info objectForKey:@"year"] : @"";
+    NSString *ssn = [info objectForKey:@"ssn"] ? [info objectForKey:@"ssn"] : @"";
+    
+    StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+    [paymentService addPayoutVerificationWithUserID:userID
+                                           dobMonth:month
+                                             dobDay:day
+                                            dobYear:year
+                                                ssn:ssn
+                                    completionBlock:^(NSDictionary *response, NSError *error) {
+                                        NSString *title;
+                                        NSString *message;
+                                        if (error) {
+                                            title = @"Error";
+                                            message = @"There was an issue adding your information...";
+                                        } else {
+                                            if ([response objectForKey:@"it_worked"]) {
+                                                title = @"Information added";
+                                                message = @"Your information has been added successfully.";
+                                            } else {
+                                                title = @"Unable to add information";
+                                                message = @"We were unable to add your information. Please check everything and try again.";
+                                            }
+                                        }
+                                        
+                                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                                                                 message:message
+                                                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
+                                                                                       handler:^(UIAlertAction * _Nonnull action) {
+                                                                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                                                                       }];
+                                        [alertController addAction:action];
+                                        [self presentViewController:alertController animated:YES completion:nil];
+                                    }
      ];
 }
 
