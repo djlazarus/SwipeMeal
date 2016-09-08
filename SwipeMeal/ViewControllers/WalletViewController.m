@@ -173,12 +173,12 @@ typedef enum : NSUInteger {
     StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
     [paymentService addPaymentMethodWithToken:token.tokenId
                                        userID:@""
-                                    firstName:token.card.name
-                                     lastName:token.card.name
-                                      address:token.card.addressLine1
-                                         city:token.card.addressCity
-                                        state:token.card.addressState
-                                          zip:token.card.addressZip
+                                         name:token.card.name ? token.card.name : @""
+                                     address1:token.card.addressLine1 ? token.card.addressLine1 : @""
+                                     address2:token.card.addressLine2 ? token.card.addressLine2 : @""
+                                         city:token.card.addressCity ? token.card.addressCity : @""
+                                        state:token.card.addressState ? token.card.addressState : @""
+                                          zip:token.card.addressZip ? token.card.addressZip : @""
                               completionBlock:^(NSDictionary *response, NSError *error) {
                                   NSString *title;
                                   NSString *message;

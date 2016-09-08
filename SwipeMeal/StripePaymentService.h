@@ -20,9 +20,9 @@
 
 - (void)addPaymentMethodWithToken:(NSString *)token
                            userID:(NSString *)userID
-                        firstName:(NSString *)firstName
-                         lastName:(NSString *)lastName
-                          address:(NSString *)address
+                             name:(NSString *)name
+                         address1:(NSString *)address1
+                         address2:(NSString *)address2
                              city:(NSString *)city
                             state:(NSString *)state
                               zip:(NSString *)zip

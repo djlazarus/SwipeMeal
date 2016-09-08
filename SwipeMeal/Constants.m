@@ -9,7 +9,7 @@
 #import "Constants.h"
 
 // System user ID
-NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
+NSString * const kSwipeMealSystemUserID = @"9j3E0HKlXaNeUfpch0mN4Bs3uNy1";
 
 // Payment server environment
 NSString * const kPaymentServerEndpoint = @"https://api.swipemeal.com/v1";
