@@ -180,39 +180,38 @@ typedef enum : NSUInteger {
 
 - (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
     NSString *userID = [FIRAuth auth].currentUser.uid;
+    NSString *name = token.card.name ? token.card.name : @"";
+    NSString *address1 = token.card.addressLine1 ? token.card.addressLine1 : @"";
+    NSString *address2 = token.card.addressLine2 ? token.card.addressLine2 : @"";
+    NSString *city = token.card.addressCity ? token.card.addressCity : @"";
+    NSString *state = token.card.addressState ? token.card.addressState : @"";
+    NSString *zip = token.card.addressZip ? token.card.addressZip : @"";
+   
     StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
     [paymentService addPaymentMethodWithToken:token.tokenId
                                        userID:userID
-                                         name:token.card.name ? token.card.name : @""
-                                     address1:token.card.addressLine1 ? token.card.addressLine1 : @""
-                                     address2:token.card.addressLine2 ? token.card.addressLine2 : @""
-                                         city:token.card.addressCity ? token.card.addressCity : @""
-                                        state:token.card.addressState ? token.card.addressState : @""
-                                          zip:token.card.addressZip ? token.card.addressZip : @""
+                                         name:name
+                                     address1:address1
+                                     address2:address2
+                                         city:city
+                                        state:state
+                                          zip:zip
                               completionBlock:^(NSDictionary *response, NSError *error) {
-                                  NSString *title;
-                                  NSString *message;
                                   if (error) {
-                                      title = @"Error";
-                                      message = @"There was an issue adding your card...";
+                                      completion(error);
                                   } else {
-                                      if ([response objectForKey:@"it_worked"]) {
-                                          title = @"Card added";
-                                          message = @"Your card has been added successfully.";
-                                      } else {
-                                          title = @"Unable to add card";
-                                          message = @"We were unable to add your card as a payment method. Please check your information and try again.";
+                                      if ([response objectForKey:@"it_worked"]) { // SHOULD WE JUST ASSUME IT WORKED HERE? //
+                                          UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card added"
+                                                                                                                   message:@"Your card has been added successfully."
+                                                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                                          UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                                                           style:UIAlertActionStyleDefault
+                                                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                                                             [self dismissViewControllerAnimated:YES completion:nil];
+                                                                                         }];
+                                          [alertController addAction:action];
+                                          [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
                                       }
-                                      
-                                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                                               message:message
-                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                      UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
-                                                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                                                         [self dismissViewControllerAnimated:YES completion:nil];
-                                                                                     }];
-                                      [alertController addAction:action];
-                                      [self presentViewController:alertController animated:YES completion:nil];
                                   }
                               }
      ];
@@ -256,12 +255,13 @@ typedef enum : NSUInteger {
                                         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                                                                  message:message
                                                                                                           preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault
+                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                                                         style:UIAlertActionStyleDefault
                                                                                        handler:^(UIAlertAction * _Nonnull action) {
-                                                                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                                                                           [alertController dismissViewControllerAnimated:YES completion:nil];
                                                                                        }];
                                         [alertController addAction:action];
-                                        [self presentViewController:alertController animated:YES completion:nil];
+                                        [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
                                     }
      ];
 }
