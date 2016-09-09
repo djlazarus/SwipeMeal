@@ -49,6 +49,15 @@ struct SMDatabaseLayer
 		storage.profileSetupComplete = complete
 	}
 	
+	static func addUserToDatabase(user: SwipeMealUser)
+	{
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
+		
+		var storage = SwipeMealUserStorage(user: user)
+		userInfoRef.updateChildValues([kUserProfileSetupCompletePathName : storage.profileSetupComplete])
+	}
+	
 	static func profileSetupComplete(user: SwipeMealUser, callback: ((complete: Bool) -> ()))
 	{
 		let ref = FIRDatabase.database().reference()

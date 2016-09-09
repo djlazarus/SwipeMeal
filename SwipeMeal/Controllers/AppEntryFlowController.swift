@@ -158,6 +158,8 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
 			}
 			
 			guard let user = status.user else { return }
+			
+			SMDatabaseLayer.addUserToDatabase(user)
 			user.updateDisplayName("\(info.firstName) \(info.lastName)", completion: { (error) in
 				status.error = error
 			})
