@@ -91,6 +91,9 @@
 }
 
 - (IBAction)didTapDoneButton:(UIBarButtonItem *)sender {
+    [self.ssnTextField resignFirstResponder];
+    [self.dobTextField resignFirstResponder];
+    
     id <PersonalInfoViewControllerDelegate> delegate = self.delegate;
     [delegate personalInfoViewController:self didCreatePersonalInfo:self.personalInfo];
 }

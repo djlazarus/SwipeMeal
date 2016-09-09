@@ -89,7 +89,7 @@
             completionBlock(nil, error);
         } else {
             NSLog(@"%@", responseObject);
-            //            completionBlock(transaction, nil);
+            completionBlock(responseObject, nil);
         }
     }];
     
@@ -120,7 +120,7 @@
             completionBlock(nil, error);
         } else {
             NSLog(@"%@", responseObject);
-//            completionBlock(transaction, nil);
+            completionBlock(responseObject, nil);
         }
     }];
     

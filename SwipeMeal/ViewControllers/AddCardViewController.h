@@ -20,6 +20,6 @@
 @protocol AddCardViewControllerDelegate <NSObject>
 
 - (void)addCardViewControllerDidCancel:(AddCardViewController *)addCardViewController;
-- (void)addCardViewController:(AddCardViewController *)addCardViewController didCreateToken:(STPToken *)token;
+- (void)addCardViewController:(AddCardViewController *)addCardViewController didCreateToken:(STPToken *)token error:(NSError *)error;
 
 @end

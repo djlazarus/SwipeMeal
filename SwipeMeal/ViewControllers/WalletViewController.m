@@ -172,13 +172,74 @@ typedef enum : NSUInteger {
     }
 }
 
+- (UIAlertController *)alertControllerAddCardError {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card issue"
+                                                                             message:@"There was an issue adding your card. Please make sure you're using a debit card. Double check the details and try again."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    [alertController addAction:action];
+    
+    return alertController;
+}
+
+- (UIAlertController *)alertControllerAddCardSuccess {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card added"
+                                                                             message:@"Your card has been added successfully."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    [alertController addAction:action];
+    
+    return alertController;
+}
+
+- (UIAlertController *)alertControllerPersonalInfoError {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Unable to add information"
+                                                                             message:@"We were unable to add your information. Please check everything and try again."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    [alertController addAction:action];
+    
+    return alertController;
+}
+
+- (UIAlertController *)alertControllerPersonalInfoSuccess {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Information added"
+                                                                             message:@"Your information has been added successfully."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+    [alertController addAction:action];
+    
+    return alertController;
+}
+
 #pragma mark - AddCardViewControllerDelegate
 
 - (void)addCardViewControllerDidCancel:(AddCardViewController *)addCardViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)addCardViewController:(AddCardViewController *)addCardViewController didCreateToken:(STPToken *)token {
+- (void)addCardViewController:(AddCardViewController *)addCardViewController didCreateToken:(STPToken *)token error:(NSError *)error {
+    if (error) {
+        [self.presentedViewController presentViewController:[self alertControllerAddCardError] animated:YES completion:nil];
+        return;
+    }
+    
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSString *name = token.card.name ? token.card.name : @"";
     NSString *address1 = token.card.addressLine1 ? token.card.addressLine1 : @"";
@@ -197,17 +258,10 @@ typedef enum : NSUInteger {
                                         state:state
                                           zip:zip
                               completionBlock:^(NSDictionary *response, NSError *error) {
-                                  if ([response objectForKey:@"it_worked"]) { // SHOULD WE JUST ASSUME IT WORKED HERE? //
-                                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card added"
-                                                                                                               message:@"Your card has been added successfully."
-                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                      UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
-                                                                                       style:UIAlertActionStyleDefault
-                                                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                                                         [self dismissViewControllerAnimated:YES completion:nil];
-                                                                                     }];
-                                      [alertController addAction:action];
-                                      [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
+                                  if (error) {
+                                      [self.presentedViewController presentViewController:[self alertControllerAddCardError] animated:YES completion:nil];
+                                  } else {
+                                      [self.presentedViewController presentViewController:[self alertControllerAddCardSuccess] animated:YES completion:nil];
                                   }
                               }
      ];
@@ -233,31 +287,11 @@ typedef enum : NSUInteger {
                                             dobYear:year
                                                 ssn:ssn
                                     completionBlock:^(NSDictionary *response, NSError *error) {
-                                        NSString *title;
-                                        NSString *message;
                                         if (error) {
-                                            title = @"Error";
-                                            message = @"There was an issue adding your information...";
+                                            [self.presentedViewController presentViewController:[self alertControllerPersonalInfoError] animated:YES completion:nil];
                                         } else {
-                                            if ([response objectForKey:@"it_worked"]) {
-                                                title = @"Information added";
-                                                message = @"Your information has been added successfully.";
-                                            } else {
-                                                title = @"Unable to add information";
-                                                message = @"We were unable to add your information. Please check everything and try again.";
-                                            }
+                                            [self.presentedViewController presentViewController:[self alertControllerPersonalInfoSuccess] animated:YES completion:nil];
                                         }
-                                        
-                                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                                                                 message:message
-                                                                                                          preferredStyle:UIAlertControllerStyleAlert];
-                                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
-                                                                                         style:UIAlertActionStyleDefault
-                                                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                                                           [alertController dismissViewControllerAnimated:YES completion:nil];
-                                                                                       }];
-                                        [alertController addAction:action];
-                                        [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
                                     }
      ];
 }

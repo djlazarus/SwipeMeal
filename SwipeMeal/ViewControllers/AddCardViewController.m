@@ -35,6 +35,17 @@
     [self.stackView insertArrangedSubview:self.paymentCardTextField atIndex:0];
 }
 
+- (void)resignEverything {
+    [self.paymentCardTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
+    [self.nameTextField resignFirstResponder];
+    [self.address1TextField resignFirstResponder];
+    [self.address2TextField resignFirstResponder];
+    [self.cityTextField resignFirstResponder];
+    [self.stateTextField resignFirstResponder];
+    [self.zipTextField resignFirstResponder];
+}
+
 - (void)createToken {
     STPCardParams *cardParams = [[STPCardParams alloc] init];
     cardParams.number = self.paymentCardTextField.cardNumber;
@@ -52,33 +63,24 @@
     [[STPAPIClient sharedClient] createTokenWithCard:cardParams completion:^(STPToken * _Nullable token, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@", error);
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card issue"
-                                                                                     message:@"There was an issue adding your card. Please make sure you're using a debit card. Double check the details and try again."
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
-                                                             style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction * _Nonnull action) {
-                                                               [alertController dismissViewControllerAnimated:YES completion:nil];
-                                                           }];
-            [alertController addAction:action];
-            [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
+            id <AddCardViewControllerDelegate> delegate = self.delegate;
+            [delegate addCardViewController:self didCreateToken:nil error:error];
         } else {
             id <AddCardViewControllerDelegate> delegate = self.delegate;
-            [delegate addCardViewController:self didCreateToken:token];
+            [delegate addCardViewController:self didCreateToken:token error:nil];
         }
     }];
 }
 
 - (IBAction)didTapCancelButton:(UIBarButtonItem *)sender {
-//    [self.ssnTextField resignFirstResponder];
-//    [self.dobTextField resignFirstResponder];
+    [self resignEverything];
     
     id <AddCardViewControllerDelegate> delegate = self.delegate;
     [delegate addCardViewControllerDidCancel:self];
 }
 
 - (IBAction)didTapDoneButton:(UIBarButtonItem *)sender {
+    [self resignEverything];
     [self createToken];
 }
 
