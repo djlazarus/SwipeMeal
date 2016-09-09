@@ -78,6 +78,7 @@
                                 @"expiration_time":@(expirationTimestamp),
                                 @"available_time":@(self.swipe.availableTime),
                                 @"price":@(self.swipe.listPrice),
+                                @"fee":@200,
                                 @"location_name":self.swipe.locationName,
                                 @"seller_rating":@(self.swipe.listingUserRating)};
     
