@@ -40,7 +40,7 @@
                              @"email":email,
                              @"ip":ipAddress,
                              kPaymentServerDevParameter:kPaymentServerDevValue};
-    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/payments/user/add"];
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingString:@"/payments/user/add"];
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -49,7 +49,7 @@
             completionBlock(nil, error);
         } else {
             NSLog(@"%@", responseObject);
-            //            completionBlock(transaction, nil);
+            completionBlock(responseObject, nil); // WHAT TO RETURN HERE?
         }
     }];
     
@@ -77,8 +77,11 @@
                              @"state":state,
                              @"zip":zip,
                              kPaymentServerDevParameter:kPaymentServerDevValue};
-    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/payments/method/add"];
-    NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingString:@"/payments/method/add"];
+    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
+    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    NSURLRequest *request = [requestSerializer requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
@@ -108,7 +111,7 @@
                              @"dobYear":dobYear,
                              @"ssn":ssn,
                              kPaymentServerDevParameter:kPaymentServerDevValue};
-    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/payments/verification/add"];
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingString:@"/payments/verification/add"];
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -133,7 +136,7 @@
     NSDictionary *params = @{@"swipeId":swipeID,
                              @"buyerId":buyerID,
                              kPaymentServerDevParameter:kPaymentServerDevValue};
-    NSString *urlString = [kPaymentServerEndpoint stringByAppendingPathComponent:@"/payments/purchase"];
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingString:@"/payments/purchase"];
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];
     
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
