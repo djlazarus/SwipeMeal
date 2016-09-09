@@ -10,33 +10,44 @@
 
 @interface AddCardViewController ()
 
+@property (strong, nonatomic) STPPaymentCardTextField *paymentCardTextField;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *address1TextField;
+@property (weak, nonatomic) IBOutlet UITextField *address2TextField;
+@property (weak, nonatomic) IBOutlet UITextField *cityTextField;
+@property (weak, nonatomic) IBOutlet UITextField *stateTextField;
+@property (weak, nonatomic) IBOutlet UITextField *zipTextField;
+
 @end
 
 @implementation AddCardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     
-    [self test];
+    // Insert the Stripe card text field into the form stack
+    self.paymentCardTextField = [[STPPaymentCardTextField alloc] init];
+    self.paymentCardTextField.placeholderColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    self.paymentCardTextField.borderColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    self.paymentCardTextField.textColor = [UIColor whiteColor];
+    [self.stackView insertArrangedSubview:self.paymentCardTextField atIndex:0];
 }
 
-- (void)test {
+- (void)createToken {
     STPCardParams *cardParams = [[STPCardParams alloc] init];
-    cardParams.number = @"4000056655665556";
-    cardParams.expMonth = 10;
-    cardParams.expYear = 2018;
-    cardParams.cvc = @"123";
+    cardParams.number = self.paymentCardTextField.cardNumber;
+    cardParams.expMonth = self.paymentCardTextField.expirationMonth;
+    cardParams.expYear = self.paymentCardTextField.expirationYear;
+    cardParams.cvc = self.paymentCardTextField.cvc;
+    cardParams.name = self.nameTextField.text;
+    cardParams.addressLine1 = self.address1TextField.text;
+    cardParams.addressLine2 = self.address2TextField.text;
+    cardParams.addressCity = self.cityTextField.text;
+    cardParams.addressState = self.stateTextField.text;
+    cardParams.addressZip = self.zipTextField.text;
     cardParams.currency = @"usd";
-    cardParams.name = @"Jacob Harris";
-    cardParams.addressLine1 = @"1600 E Central Blvd";
-    cardParams.addressCity = @"Orlando";
-    cardParams.addressState = @"FL";
-    cardParams.addressZip = @"32803";
     
     [[STPAPIClient sharedClient] createTokenWithCard:cardParams completion:^(STPToken * _Nullable token, NSError * _Nullable error) {
         if (error) {
@@ -68,7 +79,7 @@
 }
 
 - (IBAction)didTapDoneButton:(UIBarButtonItem *)sender {
-    //
+    [self createToken];
 }
 
-@endΩ
+@end

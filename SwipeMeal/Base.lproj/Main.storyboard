@@ -1162,14 +1162,84 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-rF-Rm3">
+                                <rect key="frame" x="175" y="99" width="250" height="300"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="a2u-4u-85j">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="39"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="C23-lr-s9J">
+                                        <rect key="frame" x="0.0" y="44" width="250" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address 1" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="9iI-wy-geO">
+                                        <rect key="frame" x="0.0" y="87" width="250" height="39"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address 2" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hfy-2D-exH">
+                                        <rect key="frame" x="0.0" y="131" width="250" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="7AT-1B-NDz">
+                                        <rect key="frame" x="0.0" y="174" width="250" height="39"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="State" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ffm-rz-nMD">
+                                        <rect key="frame" x="0.0" y="218" width="250" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6B0-CB-o3C">
+                                        <rect key="frame" x="0.0" y="261" width="250" height="39"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="M47-Ni-49P"/>
+                                    <constraint firstAttribute="height" constant="300" id="RQk-z7-Je5"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="hHx-rF-Rm3" firstAttribute="centerX" secondItem="iX9-fB-e2K" secondAttribute="centerX" id="EzU-0s-vBl"/>
                             <constraint firstItem="df3-Ea-HoS" firstAttribute="top" secondItem="dfc-A6-DIa" secondAttribute="bottom" id="Lf2-z0-nEa"/>
                             <constraint firstItem="df3-Ea-HoS" firstAttribute="leading" secondItem="iX9-fB-e2K" secondAttribute="leading" id="d9z-t2-ysT"/>
+                            <constraint firstItem="hHx-rF-Rm3" firstAttribute="top" secondItem="df3-Ea-HoS" secondAttribute="bottom" constant="35" id="jdA-XO-wTn"/>
                             <constraint firstAttribute="trailing" secondItem="df3-Ea-HoS" secondAttribute="trailing" id="rKE-dX-d6W"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="address1TextField" destination="9iI-wy-geO" id="wqJ-C6-HYf"/>
+                        <outlet property="address2TextField" destination="hfy-2D-exH" id="kQX-jk-ZBq"/>
+                        <outlet property="cityTextField" destination="7AT-1B-NDz" id="44G-3H-SRN"/>
+                        <outlet property="emailTextField" destination="a2u-4u-85j" id="FHz-Ub-wJf"/>
+                        <outlet property="nameTextField" destination="C23-lr-s9J" id="i5c-D7-w08"/>
+                        <outlet property="stackView" destination="hHx-rF-Rm3" id="pus-5U-RP0"/>
+                        <outlet property="stateTextField" destination="Ffm-rz-nMD" id="DTu-o4-SJo"/>
+                        <outlet property="zipTextField" destination="6B0-CB-o3C" id="aOY-Bq-R76"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY3-os-7AD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
