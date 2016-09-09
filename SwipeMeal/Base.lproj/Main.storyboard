@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z99-NC-oIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="61"/>
+            <point key="canvasLocation" x="803" y="-295"/>
         </scene>
         <!--Messages Detail View Controller-->
         <scene sceneID="wnZ-Na-Bt6">
@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i27-Ra-K9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="61"/>
+            <point key="canvasLocation" x="1517" y="-295"/>
         </scene>
         <!--Messages Detail Choice View Controller-->
         <scene sceneID="VZ3-BZ-H4o">
@@ -272,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whc-g6-riD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="61"/>
+            <point key="canvasLocation" x="2209" y="-295"/>
         </scene>
         <!--Messages Detail Reply View Controller-->
         <scene sceneID="F4Z-z2-lav">
@@ -427,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJR-6A-eAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2901" y="61"/>
+            <point key="canvasLocation" x="2901" y="-295"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Qrc-hr-tsr">
@@ -649,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGB-2k-TiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="-647"/>
+            <point key="canvasLocation" x="1517" y="-1131"/>
         </scene>
         <!--SwipeBuyViewController-->
         <scene sceneID="rhd-2l-DyO">
@@ -657,7 +657,7 @@
                 <viewControllerPlaceholder storyboardName="Buying" referencedIdentifier="SwipeBuyViewController" id="sPV-bV-ycX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEN-Y8-WDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190.5" y="-755"/>
+            <point key="canvasLocation" x="2190" y="-1239"/>
         </scene>
         <!--SwipeSellViewController-->
         <scene sceneID="nO4-La-qTc">
@@ -665,7 +665,7 @@
                 <viewControllerPlaceholder storyboardName="Selling" referencedIdentifier="SwipeSellViewController" id="lFQ-6l-ZqS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Tr-S6-Gcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2191" y="-549"/>
+            <point key="canvasLocation" x="2191" y="-1033"/>
         </scene>
         <!--Home-->
         <scene sceneID="HpS-Vc-v54">
@@ -682,7 +682,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcZ-AM-swG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="-647"/>
+            <point key="canvasLocation" x="803" y="-1131"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gKW-yL-0wK">
@@ -761,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3T4-MQ-3Sa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583" y="61"/>
+            <point key="canvasLocation" x="3583" y="-295"/>
         </scene>
         <!--Profile-->
         <scene sceneID="fjw-tQ-StF">
@@ -875,7 +875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj6-L4-4ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="1389"/>
+            <point key="canvasLocation" x="1394" y="1605"/>
         </scene>
         <!--Wallet-->
         <scene sceneID="YpC-y0-7Py">
@@ -892,7 +892,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZP-Cm-X1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="732"/>
+            <point key="canvasLocation" x="803" y="588"/>
         </scene>
         <!--Wallet-->
         <scene sceneID="sUk-yk-MbG">
@@ -1010,11 +1010,12 @@
                         <segue destination="3y1-wz-ByE" kind="show" identifier="Segue_WalletViewController_TransactionsViewController" id="kJA-DY-EMi"/>
                         <segue destination="uOD-UW-NrJ" kind="show" identifier="Segue_WalletViewController_CashOutViewController" id="n9Z-j8-6gj"/>
                         <segue destination="cfn-qc-nk8" kind="presentation" identifier="Segue_WalletViewController_PersonalInfoViewController" modalTransitionStyle="coverVertical" id="EbV-oS-BEj"/>
+                        <segue destination="dLj-ts-gGY" kind="presentation" identifier="Segue_WalletViewController_AddCardViewController" modalTransitionStyle="coverVertical" id="eXJ-el-7zT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bX-A3-OvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="732"/>
+            <point key="canvasLocation" x="1517" y="588"/>
         </scene>
         <!--TransactionsViewController-->
         <scene sceneID="18l-h9-rYQ">
@@ -1022,7 +1023,7 @@
                 <viewControllerPlaceholder storyboardName="WalletTransactions" referencedIdentifier="TransactionsViewController" id="3y1-wz-ByE" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxZ-h5-DxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2105" y="582"/>
+            <point key="canvasLocation" x="2123" y="130"/>
         </scene>
         <!--CashOutViewController-->
         <scene sceneID="luH-sE-sKN">
@@ -1030,7 +1031,7 @@
                 <viewControllerPlaceholder storyboardName="WalletCashOut" referencedIdentifier="CashOutViewController" id="uOD-UW-NrJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkY-Fv-BK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2092.5" y="732"/>
+            <point key="canvasLocation" x="2110.5" y="280"/>
         </scene>
         <!--Personal Info View Controller-->
         <scene sceneID="etS-Sv-z1U">
@@ -1127,7 +1128,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukr-hg-usX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305" y="1171"/>
+            <point key="canvasLocation" x="2687" y="1175"/>
+        </scene>
+        <!--Add Card View Controller-->
+        <scene sceneID="H0E-wR-EMr">
+            <objects>
+                <viewController id="dLj-ts-gGY" customClass="AddCardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dfc-A6-DIa"/>
+                        <viewControllerLayoutGuide type="bottom" id="tpQ-3J-ibs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iX9-fB-e2K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="df3-Ea-HoS">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="barTintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Add a Debit Card" id="G5u-DQ-Jqe">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QSh-Oy-88y">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="didTapCancelButton:" destination="dLj-ts-gGY" id="ik5-Tv-W1y"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wkN-mr-n3K">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="didTapDoneButton:" destination="dLj-ts-gGY" id="AvI-N9-mW2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="df3-Ea-HoS" firstAttribute="top" secondItem="dfc-A6-DIa" secondAttribute="bottom" id="Lf2-z0-nEa"/>
+                            <constraint firstItem="df3-Ea-HoS" firstAttribute="leading" secondItem="iX9-fB-e2K" secondAttribute="leading" id="d9z-t2-ysT"/>
+                            <constraint firstAttribute="trailing" secondItem="df3-Ea-HoS" secondAttribute="trailing" id="rKE-dX-d6W"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eY3-os-7AD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2687" y="484"/>
         </scene>
     </scenes>
     <resources>

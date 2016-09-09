@@ -54,6 +54,7 @@
 		16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */; };
 		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
+		16D4C5771D83373A00164B42 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4C5761D83373A00164B42 /* AddCardViewController.m */; };
 		16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */; };
 		16DC17F41D7630EB00E79CBB /* SwipeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */; };
 		16DE213D1D60C93200D902EC /* SwipeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE213C1D60C93200D902EC /* SwipeService.m */; };
@@ -183,6 +184,8 @@
 		16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyTableViewCell.m; path = SwipeMeal/ViewControllers/SwipeBuyTableViewCell.m; sourceTree = "<group>"; };
 		16ABC4C31D4C40B700A2AAA4 /* Swipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swipe.h; path = SwipeMeal/Models/Swipe.h; sourceTree = "<group>"; };
 		16ABC4C41D4C40B800A2AAA4 /* Swipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swipe.m; path = SwipeMeal/Models/Swipe.m; sourceTree = "<group>"; };
+		16D4C5751D83373A00164B42 /* AddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCardViewController.h; path = SwipeMeal/ViewControllers/AddCardViewController.h; sourceTree = "<group>"; };
+		16D4C5761D83373A00164B42 /* AddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = SwipeMeal/ViewControllers/AddCardViewController.m; sourceTree = "<group>"; };
 		16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Utils.h"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.h"; sourceTree = "<group>"; };
 		16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Utils.m"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.m"; sourceTree = "<group>"; };
 		16DC17F21D7630EB00E79CBB /* SwipeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeTransaction.h; path = SwipeMeal/Models/SwipeTransaction.h; sourceTree = "<group>"; };
@@ -261,9 +264,10 @@
 				160F80161D6E426C00D696E7 /* WalletHeaderTableViewCell.m */,
 				160F80181D6E428600D696E7 /* WalletMainTableViewCell.h */,
 				160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */,
+				16D4C5781D83373D00164B42 /* Add Card */,
+				16A824811D7F07E90027C9AE /* Personal Info */,
 				160F80271D6E4EF600D696E7 /* Transactions */,
 				160F80281D6E4F0200D696E7 /* Cash Out */,
-				16A824811D7F07E90027C9AE /* Personal Info */,
 			);
 			name = Wallet;
 			sourceTree = "<group>";
@@ -408,6 +412,15 @@
 				169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */,
 			);
 			name = "Buying Swipes";
+			sourceTree = "<group>";
+		};
+		16D4C5781D83373D00164B42 /* Add Card */ = {
+			isa = PBXGroup;
+			children = (
+				16D4C5751D83373A00164B42 /* AddCardViewController.h */,
+				16D4C5761D83373A00164B42 /* AddCardViewController.m */,
+			);
+			name = "Add Card";
 			sourceTree = "<group>";
 		};
 		16EF77C91D4D959100B16E70 /* Selling Swipes */ = {
@@ -843,6 +856,7 @@
 				163E81D81D71DD2F0069451D /* StripePaymentService.m in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE34EA571D1895F6003408EB /* UIColor+Extensions.swift in Sources */,
+				16D4C5771D83373A00164B42 /* AddCardViewController.m in Sources */,
 				160F80171D6E426C00D696E7 /* WalletHeaderTableViewCell.m in Sources */,
 				161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */,
 				168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */,

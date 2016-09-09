@@ -9,6 +9,7 @@
 #import "WalletViewController.h"
 #import "WalletHeaderTableViewCell.h"
 #import "WalletMainTableViewCell.h"
+#import "AddCardViewController.h"
 #import "PersonalInfoViewController.h"
 #import "StripePaymentService.h"
 #import "SwipeTransaction.h"
@@ -25,10 +26,11 @@ typedef enum : NSUInteger {
     WalletCellTypeUpdateBankAccount
 } WalletCellType;
 
-@interface WalletViewController () <STPAddCardViewControllerDelegate, PersonalInfoViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface WalletViewController () <AddCardViewControllerDelegate, PersonalInfoViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
+@property (strong, nonatomic) AddCardViewController *addCardViewController;
 @property (strong, nonatomic) PersonalInfoViewController *personalInfoViewController;
 
 @end
@@ -144,14 +146,7 @@ typedef enum : NSUInteger {
 //                break;
                 
             case 1: {
-                STPPaymentConfiguration *config = [STPPaymentConfiguration sharedConfiguration];
-                config.requiredBillingAddressFields = STPBillingAddressFieldsFull;
-
-                STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:config theme:[STPTheme defaultTheme]];
-                addCardViewController.delegate = self;
-
-                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
-                [self presentViewController:navigationController animated:YES completion:nil];
+                [self performSegueWithIdentifier:@"Segue_WalletViewController_AddCardViewController" sender:nil];
                 break;
             }
             
@@ -166,19 +161,24 @@ typedef enum : NSUInteger {
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Segue_WalletViewController_AddCardViewController"]) {
+        self.addCardViewController = (AddCardViewController *)[segue destinationViewController];
+        self.addCardViewController.delegate = self;
+    }
+    
     if ([segue.identifier isEqualToString:@"Segue_WalletViewController_PersonalInfoViewController"]) {
         self.personalInfoViewController = (PersonalInfoViewController *)[segue destinationViewController];
         self.personalInfoViewController.delegate = self;
     }
 }
 
-#pragma mark - STPAddCardViewControllerDelegate
+#pragma mark - AddCardViewControllerDelegate
 
-- (void)addCardViewControllerDidCancel:(STPAddCardViewController *)addCardViewController {
+- (void)addCardViewControllerDidCancel:(AddCardViewController *)addCardViewController {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)addCardViewController:(STPAddCardViewController *)addCardViewController didCreateToken:(STPToken *)token completion:(STPErrorBlock)completion {
+- (void)addCardViewController:(AddCardViewController *)addCardViewController didCreateToken:(STPToken *)token {
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSString *name = token.card.name ? token.card.name : @"";
     NSString *address1 = token.card.addressLine1 ? token.card.addressLine1 : @"";
@@ -197,21 +197,17 @@ typedef enum : NSUInteger {
                                         state:state
                                           zip:zip
                               completionBlock:^(NSDictionary *response, NSError *error) {
-                                  if (error) {
-                                      completion(error);
-                                  } else {
-                                      if ([response objectForKey:@"it_worked"]) { // SHOULD WE JUST ASSUME IT WORKED HERE? //
-                                          UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card added"
-                                                                                                                   message:@"Your card has been added successfully."
-                                                                                                            preferredStyle:UIAlertControllerStyleAlert];
-                                          UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
-                                                                                           style:UIAlertActionStyleDefault
-                                                                                         handler:^(UIAlertAction * _Nonnull action) {
-                                                                                             [self dismissViewControllerAnimated:YES completion:nil];
-                                                                                         }];
-                                          [alertController addAction:action];
-                                          [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
-                                      }
+                                  if ([response objectForKey:@"it_worked"]) { // SHOULD WE JUST ASSUME IT WORKED HERE? //
+                                      UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Card added"
+                                                                                                               message:@"Your card has been added successfully."
+                                                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                                      UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok"
+                                                                                       style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                                                         [self dismissViewControllerAnimated:YES completion:nil];
+                                                                                     }];
+                                      [alertController addAction:action];
+                                      [self.presentedViewController presentViewController:alertController animated:YES completion:nil];
                                   }
                               }
      ];
