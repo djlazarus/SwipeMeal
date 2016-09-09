@@ -23,7 +23,6 @@
 		161D1B981D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */; };
 		1625E05F1D7475CF00B852CF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E05E1D7475CF00B852CF /* Constants.m */; };
 		1625E0621D74D8D500B852CF /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */; };
-		16260DA31D7719AF0078691C /* StripeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 16260DA21D7719AF0078691C /* StripeTransaction.m */; };
 		163E81D81D71DD2F0069451D /* StripePaymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E81D71D71DD2F0069451D /* StripePaymentService.m */; };
 		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A81D569640006A0760 /* Montserrat-Black.otf */; };
@@ -56,7 +55,6 @@
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
 		16D4C5771D83373A00164B42 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4C5761D83373A00164B42 /* AddCardViewController.m */; };
 		16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */; };
-		16DC17F41D7630EB00E79CBB /* SwipeTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */; };
 		16DE213D1D60C93200D902EC /* SwipeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE213C1D60C93200D902EC /* SwipeService.m */; };
 		16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EF77C31D4D955F00B16E70 /* Selling.storyboard */; };
 		16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EF77C71D4D958C00B16E70 /* SwipeSellViewController.m */; };
@@ -131,8 +129,6 @@
 		1625E05E1D7475CF00B852CF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1625E0601D74D8D500B852CF /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionTableViewCell.h; path = SwipeMeal/ViewControllers/TransactionTableViewCell.h; sourceTree = "<group>"; };
 		1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionTableViewCell.m; path = SwipeMeal/ViewControllers/TransactionTableViewCell.m; sourceTree = "<group>"; };
-		16260DA11D7719AF0078691C /* StripeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StripeTransaction.h; path = SwipeMeal/Models/StripeTransaction.h; sourceTree = "<group>"; };
-		16260DA21D7719AF0078691C /* StripeTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StripeTransaction.m; path = SwipeMeal/Models/StripeTransaction.m; sourceTree = "<group>"; };
 		163E81D61D71DD2F0069451D /* StripePaymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripePaymentService.h; sourceTree = "<group>"; };
 		163E81D71D71DD2F0069451D /* StripePaymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripePaymentService.m; sourceTree = "<group>"; };
 		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
@@ -188,8 +184,6 @@
 		16D4C5761D83373A00164B42 /* AddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = SwipeMeal/ViewControllers/AddCardViewController.m; sourceTree = "<group>"; };
 		16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Utils.h"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.h"; sourceTree = "<group>"; };
 		16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Utils.m"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.m"; sourceTree = "<group>"; };
-		16DC17F21D7630EB00E79CBB /* SwipeTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeTransaction.h; path = SwipeMeal/Models/SwipeTransaction.h; sourceTree = "<group>"; };
-		16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeTransaction.m; path = SwipeMeal/Models/SwipeTransaction.m; sourceTree = "<group>"; };
 		16DE213B1D60C93200D902EC /* SwipeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeService.h; path = SwipeMeal/Models/SwipeService.h; sourceTree = "<group>"; };
 		16DE213C1D60C93200D902EC /* SwipeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeService.m; path = SwipeMeal/Models/SwipeService.m; sourceTree = "<group>"; };
 		16EF77C41D4D955F00B16E70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Selling.storyboard; sourceTree = "<group>"; };
@@ -316,8 +310,6 @@
 				165304BC1D5698CA006A0760 /* SwipeStore.m */,
 				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
 				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
-				16DC17F21D7630EB00E79CBB /* SwipeTransaction.h */,
-				16DC17F31D7630EB00E79CBB /* SwipeTransaction.m */,
 			);
 			name = Swipes;
 			sourceTree = "<group>";
@@ -333,15 +325,6 @@
 				168656CD1D1F2D53004CE47D /* Message.m */,
 			);
 			name = Messages;
-			sourceTree = "<group>";
-		};
-		16260DA01D7718A30078691C /* Stripe */ = {
-			isa = PBXGroup;
-			children = (
-				16260DA11D7719AF0078691C /* StripeTransaction.h */,
-				16260DA21D7719AF0078691C /* StripeTransaction.m */,
-			);
-			name = Stripe;
 			sourceTree = "<group>";
 		};
 		165304A71D569640006A0760 /* Fonts */ = {
@@ -457,7 +440,6 @@
 				CE0A128D1D10981A00BB3AFD /* SwipeMealErrors.swift */,
 				16260D9E1D7718700078691C /* Swipes */,
 				16260D9F1D7718790078691C /* Messages */,
-				16260DA01D7718A30078691C /* Stripe */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -880,7 +862,6 @@
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */,
 				160F80141D6E413500D696E7 /* WalletViewController.m in Sources */,
-				16DC17F41D7630EB00E79CBB /* SwipeTransaction.m in Sources */,
 				CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */,
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,
@@ -899,7 +880,6 @@
 				CE3203DD1D626E0B00746B03 /* EditProfileImageViewController.swift in Sources */,
 				CE34EA531D187276003408EB /* CircularImageView.swift in Sources */,
 				168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */,
-				16260DA31D7719AF0078691C /* StripeTransaction.m in Sources */,
 				168656D11D202F18004CE47D /* CircularIndicatorView.m in Sources */,
 				1625E05F1D7475CF00B852CF /* Constants.m in Sources */,
 				16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */,

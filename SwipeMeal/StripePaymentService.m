@@ -129,7 +129,7 @@
 
 - (void)requestPurchaseWithSwipeID:(NSString *)swipeID
                            buyerID:(NSString *)buyerID
-                   completionBlock:(void (^)(SwipeTransaction *transaction, NSError *error))completionBlock {
+                   completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock {
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
@@ -145,13 +145,7 @@
             completionBlock(nil, error);
         } else {
             NSLog(@"%@", responseObject);
-            SwipeTransaction *transaction = [[SwipeTransaction alloc] init];
-            transaction.swipeTransactionID = @"";
-            transaction.stripeTransactionID = @"";
-            //            transaction.sellerID = sellerID;
-            transaction.buyerID = buyerID;
-            
-            completionBlock(transaction, nil);
+            completionBlock(responseObject, nil);
         }
     }];
     

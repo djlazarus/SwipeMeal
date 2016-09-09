@@ -83,18 +83,19 @@
 }
 
 - (IBAction)didTapAcceptButton:(UIButton *)sender {
+    self.acceptButton.enabled = NO;
+    
     NSString *userID = [FIRAuth auth].currentUser.uid;
     [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        NSString *stripeCustomerID = [snapshot.value objectForKey:@"stripe_customer_id"];
-        if (stripeCustomerID.length > 0) {
+        NSString *stripeCustomerStatus = [snapshot.value objectForKey:@"stripe_customer_status"];
+        if ([stripeCustomerStatus isEqualToString:@"active"]) {
             StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
-            [paymentService requestPurchaseWithSwipeID:self.swipe.swipeID buyerID:stripeCustomerID completionBlock:^(SwipeTransaction *transaction, NSError *error) {
+            [paymentService requestPurchaseWithSwipeID:self.swipe.swipeID buyerID:userID completionBlock:^(NSDictionary *response, NSError *error) {
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
-                    // response?
                     [self notifySwipeSeller];
-                    NSLog(@"%@", transaction);
+                    NSLog(@"%@", response);
                 }
             }];
         } else {
@@ -106,6 +107,8 @@
             }];
             [alertController addAction:action];
             [self presentViewController:alertController animated:YES completion:nil];
+            
+            self.acceptButton.enabled = YES;
         }
     }];
 }

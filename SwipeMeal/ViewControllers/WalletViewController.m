@@ -12,7 +12,6 @@
 #import "AddCardViewController.h"
 #import "PersonalInfoViewController.h"
 #import "StripePaymentService.h"
-#import "SwipeTransaction.h"
 #import "SwipeMeal-Swift.h"
 @import Stripe;
 @import Firebase;
