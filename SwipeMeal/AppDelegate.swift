@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Branch
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -35,8 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
       let token = FIRInstanceID.instanceID().token()
       print("TOKEN: \(token)")
+    
+    // Stripe setup
+    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_GDqLMB8TumWkOgCBbvNZwliF"
+    STPTheme.defaultTheme().accentColor = UIColor(hexString: "6BB739");
+    STPTheme.defaultTheme().secondaryForegroundColor = UIColor(hexString: "6BB739");
 		
-      return true
+    return true
    }
 	
 	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {

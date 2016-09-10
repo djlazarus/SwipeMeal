@@ -158,6 +158,8 @@ extension AppEntryFlowController: SignUpViewControllerDelegate
 			}
 			
 			guard let user = status.user else { return }
+			
+			SMDatabaseLayer.addUserToDatabase(user)
 			user.updateDisplayName("\(info.firstName) \(info.lastName)", completion: { (error) in
 				status.error = error
 			})
@@ -265,10 +267,22 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
 	
 	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
-		SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
-		SMDatabaseLayer.addUserToRespectiveGroup(user)
 		
-		_showHomeScreen()
+		let createStripeAccountOp = CreateStripeAccountOperation(user: user)
+		createStripeAccountOp.completionBlock = {
+			dispatch_async(dispatch_get_main_queue()) {
+				if let _ = createStripeAccountOp.error {
+					controller.presentMessage("Something went wrong with creating your account. Please try again.")
+				} else {
+					SMDatabaseLayer.setProfileSetupComplete(true, forUser: user)
+					SMDatabaseLayer.addUserToRespectiveGroup(user)
+					
+					self._showHomeScreen()
+				}
+			}
+		}
+		
+		createStripeAccountOp.start()
 	}
 	
 	private func _showHomeScreen(animated animated: Bool = true) {

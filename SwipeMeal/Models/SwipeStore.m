@@ -58,7 +58,7 @@
         Swipe *swipe1 = (Swipe *)obj1;
         Swipe *swipe2 = (Swipe *)obj2;
         
-        return [@(swipe1.price) compare:@(swipe2.price)];
+        return [@(swipe1.listPrice) compare:@(swipe2.listPrice)];
     }];
 
     NSMutableArray *swipes = [NSMutableArray array];

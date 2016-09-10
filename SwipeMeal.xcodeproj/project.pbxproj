@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0F1FBFAC2FCFF99FDE476DF1 /* Pods_SwipeMeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346DF6819F5ACFA0D762B3BD /* Pods_SwipeMeal.framework */; };
+		160F80141D6E413500D696E7 /* WalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F80131D6E413500D696E7 /* WalletViewController.m */; };
+		160F80171D6E426C00D696E7 /* WalletHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F80161D6E426C00D696E7 /* WalletHeaderTableViewCell.m */; };
+		160F801A1D6E428600D696E7 /* WalletMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */; };
+		160F80201D6E4D7700D696E7 /* WalletTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160F801E1D6E4D7700D696E7 /* WalletTransactions.storyboard */; };
+		160F80231D6E4D9500D696E7 /* WalletCashOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160F80211D6E4D9500D696E7 /* WalletCashOut.storyboard */; };
+		160F802C1D6E4F5000D696E7 /* TransactionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F802B1D6E4F5000D696E7 /* TransactionsViewController.m */; };
+		160F802F1D6E4F6000D696E7 /* CashOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 160F802E1D6E4F6000D696E7 /* CashOutViewController.m */; };
 		16114D161D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */; };
 		1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C08D1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m */; };
 		1613C0911D28987000F7BC3B /* MessagesDetailChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0901D28987000F7BC3B /* MessagesDetailChildViewController.m */; };
 		1613C0941D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */; };
 		161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */; };
 		161D1B981D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */; };
+		1625E05F1D7475CF00B852CF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E05E1D7475CF00B852CF /* Constants.m */; };
+		1625E0621D74D8D500B852CF /* TransactionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */; };
+		163E81D81D71DD2F0069451D /* StripePaymentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 163E81D71D71DD2F0069451D /* StripePaymentService.m */; };
 		164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */; };
 		165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A81D569640006A0760 /* Montserrat-Black.otf */; };
 		165304B11D569640006A0760 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 165304A91D569640006A0760 /* Montserrat-Bold.otf */; };
@@ -38,10 +48,12 @@
 		168788FF1D63A7A90093A25D /* MessageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 168788FE1D63A7A90093A25D /* MessageStore.m */; };
 		1694222A1D577496002981A9 /* SwipeBuyConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */; };
 		1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1694222C1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m */; };
+		16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A8247F1D7F07E20027C9AE /* PersonalInfoViewController.m */; };
 		16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */; };
 		16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */; };
 		16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */; };
 		16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16ABC4C41D4C40B800A2AAA4 /* Swipe.m */; };
+		16D4C5771D83373A00164B42 /* AddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D4C5761D83373A00164B42 /* AddCardViewController.m */; };
 		16D51ECD1D51747400E3C3F8 /* UIFont+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */; };
 		16DE213D1D60C93200D902EC /* SwipeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DE213C1D60C93200D902EC /* SwipeService.m */; };
 		16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EF77C31D4D955F00B16E70 /* Selling.storyboard */; };
@@ -85,9 +97,22 @@
 		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
 		CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */; };
 		CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */; };
+		CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160F80121D6E413500D696E7 /* WalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WalletViewController.h; path = SwipeMeal/ViewControllers/WalletViewController.h; sourceTree = "<group>"; };
+		160F80131D6E413500D696E7 /* WalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WalletViewController.m; path = SwipeMeal/ViewControllers/WalletViewController.m; sourceTree = "<group>"; };
+		160F80151D6E426C00D696E7 /* WalletHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WalletHeaderTableViewCell.h; path = SwipeMeal/ViewControllers/WalletHeaderTableViewCell.h; sourceTree = "<group>"; };
+		160F80161D6E426C00D696E7 /* WalletHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WalletHeaderTableViewCell.m; path = SwipeMeal/ViewControllers/WalletHeaderTableViewCell.m; sourceTree = "<group>"; };
+		160F80181D6E428600D696E7 /* WalletMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WalletMainTableViewCell.h; path = SwipeMeal/ViewControllers/WalletMainTableViewCell.h; sourceTree = "<group>"; };
+		160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WalletMainTableViewCell.m; path = SwipeMeal/ViewControllers/WalletMainTableViewCell.m; sourceTree = "<group>"; };
+		160F801F1D6E4D7700D696E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/WalletTransactions.storyboard; sourceTree = "<group>"; };
+		160F80221D6E4D9500D696E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/WalletCashOut.storyboard; sourceTree = "<group>"; };
+		160F802A1D6E4F5000D696E7 /* TransactionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsViewController.h; path = SwipeMeal/ViewControllers/TransactionsViewController.h; sourceTree = "<group>"; };
+		160F802B1D6E4F5000D696E7 /* TransactionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsViewController.m; path = SwipeMeal/ViewControllers/TransactionsViewController.m; sourceTree = "<group>"; };
+		160F802D1D6E4F6000D696E7 /* CashOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CashOutViewController.h; path = SwipeMeal/ViewControllers/CashOutViewController.h; sourceTree = "<group>"; };
+		160F802E1D6E4F6000D696E7 /* CashOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CashOutViewController.m; path = SwipeMeal/ViewControllers/CashOutViewController.m; sourceTree = "<group>"; };
 		16114D141D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyDetailViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyDetailViewController.h; sourceTree = "<group>"; };
 		16114D151D4FFAE800EF2AC8 /* SwipeBuyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyDetailViewController.m; sourceTree = "<group>"; };
 		1613C08C1D2867FA00F7BC3B /* MessagesDetailChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailChoiceViewController.h; path = SwipeMeal/ViewControllers/MessagesDetailChoiceViewController.h; sourceTree = "<group>"; };
@@ -100,6 +125,12 @@
 		161D1B941D4E6F41005B7FC2 /* SwipeSellDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellDetailViewController.m; path = SwipeMeal/ViewControllers/SwipeSellDetailViewController.m; sourceTree = "<group>"; };
 		161D1B961D4E9051005B7FC2 /* SwipeSellConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeSellConfirmationViewController.h; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.h; sourceTree = "<group>"; };
 		161D1B971D4E9051005B7FC2 /* SwipeSellConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeSellConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeSellConfirmationViewController.m; sourceTree = "<group>"; };
+		1625E05D1D7475CF00B852CF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1625E05E1D7475CF00B852CF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		1625E0601D74D8D500B852CF /* TransactionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionTableViewCell.h; path = SwipeMeal/ViewControllers/TransactionTableViewCell.h; sourceTree = "<group>"; };
+		1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionTableViewCell.m; path = SwipeMeal/ViewControllers/TransactionTableViewCell.m; sourceTree = "<group>"; };
+		163E81D61D71DD2F0069451D /* StripePaymentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StripePaymentService.h; sourceTree = "<group>"; };
+		163E81D71D71DD2F0069451D /* StripePaymentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StripePaymentService.m; sourceTree = "<group>"; };
 		164A477D1D292832000AD065 /* MessagesDetailReplyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagesDetailReplyTableViewCell.h; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.h; sourceTree = "<group>"; };
 		164A477E1D292832000AD065 /* MessagesDetailReplyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagesDetailReplyTableViewCell.m; path = SwipeMeal/ViewControllers/MessagesDetailReplyTableViewCell.m; sourceTree = "<group>"; };
 		165304A81D569640006A0760 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
@@ -140,6 +171,8 @@
 		169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyConfirmationViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyConfirmationViewController.m; sourceTree = "<group>"; };
 		1694222B1D577629002981A9 /* SwipeBuyConfirmDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyConfirmDialogViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyConfirmDialogViewController.h; sourceTree = "<group>"; };
 		1694222C1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyConfirmDialogViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyConfirmDialogViewController.m; sourceTree = "<group>"; };
+		16A8247E1D7F07E20027C9AE /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalInfoViewController.h; path = SwipeMeal/ViewControllers/PersonalInfoViewController.h; sourceTree = "<group>"; };
+		16A8247F1D7F07E20027C9AE /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalInfoViewController.m; path = SwipeMeal/ViewControllers/PersonalInfoViewController.m; sourceTree = "<group>"; };
 		16ABC4B91D4C04EC00A2AAA4 /* SwipeBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeBuyViewController.h; path = SwipeMeal/ViewControllers/SwipeBuyViewController.h; sourceTree = "<group>"; };
 		16ABC4BA1D4C04EC00A2AAA4 /* SwipeBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyViewController.m; path = SwipeMeal/ViewControllers/SwipeBuyViewController.m; sourceTree = "<group>"; };
 		16ABC4BE1D4C06A400A2AAA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SwipeMeal/Base.lproj/Buying.storyboard; sourceTree = "<group>"; };
@@ -147,6 +180,8 @@
 		16ABC4C11D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeBuyTableViewCell.m; path = SwipeMeal/ViewControllers/SwipeBuyTableViewCell.m; sourceTree = "<group>"; };
 		16ABC4C31D4C40B700A2AAA4 /* Swipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Swipe.h; path = SwipeMeal/Models/Swipe.h; sourceTree = "<group>"; };
 		16ABC4C41D4C40B800A2AAA4 /* Swipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Swipe.m; path = SwipeMeal/Models/Swipe.m; sourceTree = "<group>"; };
+		16D4C5751D83373A00164B42 /* AddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddCardViewController.h; path = SwipeMeal/ViewControllers/AddCardViewController.h; sourceTree = "<group>"; };
+		16D4C5761D83373A00164B42 /* AddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddCardViewController.m; path = SwipeMeal/ViewControllers/AddCardViewController.m; sourceTree = "<group>"; };
 		16D51ECB1D51747400E3C3F8 /* UIFont+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Utils.h"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.h"; sourceTree = "<group>"; };
 		16D51ECC1D51747400E3C3F8 /* UIFont+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Utils.m"; path = "SwipeMeal/UIKit-Extensions/UIFont+Utils.m"; sourceTree = "<group>"; };
 		16DE213B1D60C93200D902EC /* SwipeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeService.h; path = SwipeMeal/Models/SwipeService.h; sourceTree = "<group>"; };
@@ -199,6 +234,7 @@
 		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
 		CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticateLoginOperation.swift; path = SwipeMeal/Operations/AuthenticateLoginOperation.swift; sourceTree = "<group>"; };
 		CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileImageOperation.swift; path = SwipeMeal/Operations/AddProfileImageOperation.swift; sourceTree = "<group>"; };
+		CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateStripeAccountOperation.swift; path = SwipeMeal/Operations/CreateStripeAccountOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +249,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160F80111D6E411B00D696E7 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				160F80121D6E413500D696E7 /* WalletViewController.h */,
+				160F80131D6E413500D696E7 /* WalletViewController.m */,
+				160F80151D6E426C00D696E7 /* WalletHeaderTableViewCell.h */,
+				160F80161D6E426C00D696E7 /* WalletHeaderTableViewCell.m */,
+				160F80181D6E428600D696E7 /* WalletMainTableViewCell.h */,
+				160F80191D6E428600D696E7 /* WalletMainTableViewCell.m */,
+				16D4C5781D83373D00164B42 /* Add Card */,
+				16A824811D7F07E90027C9AE /* Personal Info */,
+				160F80271D6E4EF600D696E7 /* Transactions */,
+				160F80281D6E4F0200D696E7 /* Cash Out */,
+			);
+			name = Wallet;
+			sourceTree = "<group>";
+		};
+		160F80271D6E4EF600D696E7 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				160F802A1D6E4F5000D696E7 /* TransactionsViewController.h */,
+				160F802B1D6E4F5000D696E7 /* TransactionsViewController.m */,
+				1625E0601D74D8D500B852CF /* TransactionTableViewCell.h */,
+				1625E0611D74D8D500B852CF /* TransactionTableViewCell.m */,
+			);
+			name = Transactions;
+			sourceTree = "<group>";
+		};
+		160F80281D6E4F0200D696E7 /* Cash Out */ = {
+			isa = PBXGroup;
+			children = (
+				160F802D1D6E4F6000D696E7 /* CashOutViewController.h */,
+				160F802E1D6E4F6000D696E7 /* CashOutViewController.m */,
+			);
+			name = "Cash Out";
+			sourceTree = "<group>";
+		};
 		1613C0951D28AE4600F7BC3B /* Child View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +299,32 @@
 				1613C0931D28A21700F7BC3B /* MessagesDetailReplyConfirmViewController.m */,
 			);
 			name = "Child View Controllers";
+			sourceTree = "<group>";
+		};
+		16260D9E1D7718700078691C /* Swipes */ = {
+			isa = PBXGroup;
+			children = (
+				16DE213B1D60C93200D902EC /* SwipeService.h */,
+				16DE213C1D60C93200D902EC /* SwipeService.m */,
+				165304BB1D5698CA006A0760 /* SwipeStore.h */,
+				165304BC1D5698CA006A0760 /* SwipeStore.m */,
+				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
+				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
+			);
+			name = Swipes;
+			sourceTree = "<group>";
+		};
+		16260D9F1D7718790078691C /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				168788FA1D63A66F0093A25D /* MessageService.h */,
+				168788FB1D63A66F0093A25D /* MessageService.m */,
+				168788FD1D63A7A90093A25D /* MessageStore.h */,
+				168788FE1D63A7A90093A25D /* MessageStore.m */,
+				168656CC1D1F2D53004CE47D /* Message.h */,
+				168656CD1D1F2D53004CE47D /* Message.m */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		165304A71D569640006A0760 /* Fonts */ = {
@@ -272,6 +371,15 @@
 			name = Messages;
 			sourceTree = "<group>";
 		};
+		16A824811D7F07E90027C9AE /* Personal Info */ = {
+			isa = PBXGroup;
+			children = (
+				16A8247E1D7F07E20027C9AE /* PersonalInfoViewController.h */,
+				16A8247F1D7F07E20027C9AE /* PersonalInfoViewController.m */,
+			);
+			name = "Personal Info";
+			sourceTree = "<group>";
+		};
 		16ABC4BC1D4C04F600A2AAA4 /* Buying Swipes */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +395,15 @@
 				169422291D577496002981A9 /* SwipeBuyConfirmationViewController.m */,
 			);
 			name = "Buying Swipes";
+			sourceTree = "<group>";
+		};
+		16D4C5781D83373D00164B42 /* Add Card */ = {
+			isa = PBXGroup;
+			children = (
+				16D4C5751D83373A00164B42 /* AddCardViewController.h */,
+				16D4C5761D83373A00164B42 /* AddCardViewController.m */,
+			);
+			name = "Add Card";
 			sourceTree = "<group>";
 		};
 		16EF77C91D4D959100B16E70 /* Selling Swipes */ = {
@@ -321,18 +438,8 @@
 			children = (
 				CE1D776A1CF76FB30071D249 /* SignUpInfo.swift */,
 				CE0A128D1D10981A00BB3AFD /* SwipeMealErrors.swift */,
-				16DE213B1D60C93200D902EC /* SwipeService.h */,
-				16DE213C1D60C93200D902EC /* SwipeService.m */,
-				165304BB1D5698CA006A0760 /* SwipeStore.h */,
-				165304BC1D5698CA006A0760 /* SwipeStore.m */,
-				16ABC4C31D4C40B700A2AAA4 /* Swipe.h */,
-				16ABC4C41D4C40B800A2AAA4 /* Swipe.m */,
-				168788FA1D63A66F0093A25D /* MessageService.h */,
-				168788FB1D63A66F0093A25D /* MessageService.m */,
-				168788FD1D63A7A90093A25D /* MessageStore.h */,
-				168788FE1D63A7A90093A25D /* MessageStore.m */,
-				168656CC1D1F2D53004CE47D /* Message.h */,
-				168656CD1D1F2D53004CE47D /* Message.m */,
+				16260D9E1D7718700078691C /* Swipes */,
+				16260D9F1D7718790078691C /* Messages */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -349,21 +456,21 @@
 		CE2782BF1CE7EA4200039014 = {
 			isa = PBXGroup;
 			children = (
+				CE2782CA1CE7EA4200039014 /* SwipeMeal */,
 				CE6766A41D0A098A003D6EF0 /* Controllers */,
 				CE67669F1D0A0216003D6EF0 /* Database Layer */,
 				CE4E37A51CF60A06000D3E24 /* Custom UI */,
 				CE1D77641CF76CBF0071D249 /* Extensions */,
-				E6476D2A82ECE8382B3DCD72 /* Frameworks */,
 				CE1D77671CF76D0E0071D249 /* Models */,
 				CE4E37AD1CF637E8000D3E24 /* Operations */,
-				D07A19302079A42674FF8D91 /* Pods */,
-				CE2782C91CE7EA4200039014 /* Products */,
-				CE2782E11CE8000500039014 /* Resources */,
-				CE2782DF1CE7FFE800039014 /* Storyboards */,
-				CE2782CA1CE7EA4200039014 /* SwipeMeal */,
 				CE4E37A81CF60CB7000D3E24 /* UI Protocols */,
 				CE1D776C1CF770730071D249 /* Utilities */,
 				CE2782E01CE7FFEF00039014 /* View Controllers */,
+				CE2782DF1CE7FFE800039014 /* Storyboards */,
+				CE2782E11CE8000500039014 /* Resources */,
+				E6476D2A82ECE8382B3DCD72 /* Frameworks */,
+				D07A19302079A42674FF8D91 /* Pods */,
+				CE2782C91CE7EA4200039014 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -380,6 +487,10 @@
 			children = (
 				CE24F0881D5BB3F9009B1E2E /* SwipeMeal.entitlements */,
 				CE2782CB1CE7EA4200039014 /* AppDelegate.swift */,
+				1625E05D1D7475CF00B852CF /* Constants.h */,
+				1625E05E1D7475CF00B852CF /* Constants.m */,
+				163E81D61D71DD2F0069451D /* StripePaymentService.h */,
+				163E81D71D71DD2F0069451D /* StripePaymentService.m */,
 			);
 			path = SwipeMeal;
 			sourceTree = "<group>";
@@ -394,6 +505,8 @@
 				168656B21D1EB99F004CE47D /* Main.storyboard */,
 				16ABC4BD1D4C06A400A2AAA4 /* Buying.storyboard */,
 				16EF77C31D4D955F00B16E70 /* Selling.storyboard */,
+				160F801E1D6E4D7700D696E7 /* WalletTransactions.storyboard */,
+				160F80211D6E4D9500D696E7 /* WalletCashOut.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -410,6 +523,7 @@
 				16ABC4BC1D4C04F600A2AAA4 /* Buying Swipes */,
 				16EF77C91D4D959100B16E70 /* Selling Swipes */,
 				168656C81D1F15BA004CE47D /* Messages */,
+				160F80111D6E411B00D696E7 /* Wallet */,
 				CE3203D91D621B9E00746B03 /* Profile */,
 			);
 			name = "View Controllers";
@@ -467,6 +581,7 @@
 				CE67669D1D0A0061003D6EF0 /* CreateUserAccountOperation.swift */,
 				CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */,
 				CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */,
+				CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -589,9 +704,11 @@
 				CE2782D31CE7EA4200039014 /* Assets.xcassets in Resources */,
 				165304B41D569640006A0760 /* Montserrat-Light.otf in Resources */,
 				CE34EA471D146178003408EB /* Onboarding.storyboard in Resources */,
+				160F80231D6E4D9500D696E7 /* WalletCashOut.storyboard in Resources */,
 				16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */,
 				165304B51D569640006A0760 /* Montserrat-Regular.otf in Resources */,
 				165304B61D569640006A0760 /* Montserrat-SemiBold.otf in Resources */,
+				160F80201D6E4D7700D696E7 /* WalletTransactions.storyboard in Resources */,
 				165304B31D569640006A0760 /* Montserrat-Hairline.otf in Resources */,
 				165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */,
 				165304B71D569640006A0760 /* Montserrat-UltraLight.otf in Resources */,
@@ -708,6 +825,7 @@
 				168656C71D1F15B5004CE47D /* MessagesViewController.m in Sources */,
 				CE67668C1D09FE08003D6EF0 /* UIProtocols.swift in Sources */,
 				CE6766A11D0A02BD003D6EF0 /* SMDatabaseLayer.swift in Sources */,
+				160F802F1D6E4F6000D696E7 /* CashOutViewController.m in Sources */,
 				CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */,
 				168788FF1D63A7A90093A25D /* MessageStore.m in Sources */,
 				CE67669E1D0A0061003D6EF0 /* CreateUserAccountOperation.swift in Sources */,
@@ -717,11 +835,16 @@
 				CE6766A31D0A02FC003D6EF0 /* SwipeMealUser.swift in Sources */,
 				168656CE1D1F2D53004CE47D /* Message.m in Sources */,
 				CE1D77661CF76CDC0071D249 /* String+Extensions.swift in Sources */,
+				163E81D81D71DD2F0069451D /* StripePaymentService.m in Sources */,
 				CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */,
 				CE34EA571D1895F6003408EB /* UIColor+Extensions.swift in Sources */,
+				16D4C5771D83373A00164B42 /* AddCardViewController.m in Sources */,
+				160F80171D6E426C00D696E7 /* WalletHeaderTableViewCell.m in Sources */,
 				161D1B951D4E6F41005B7FC2 /* SwipeSellDetailViewController.m in Sources */,
 				168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */,
+				CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */,
 				16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */,
+				16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */,
 				CE34EA511D1870BB003408EB /* SwipeMealRoundedButton.swift in Sources */,
 				1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */,
 				1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */,
@@ -735,17 +858,21 @@
 				CE6766951D09FE2E003D6EF0 /* SignInViewController.swift in Sources */,
 				CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */,
 				CE6766901D09FE1B003D6EF0 /* SignInTextField.swift in Sources */,
+				160F801A1D6E428600D696E7 /* WalletMainTableViewCell.m in Sources */,
 				CE1D77721CF777D70071D249 /* UIViewController+Extensions.swift in Sources */,
 				164A477F1D292832000AD065 /* MessagesDetailReplyTableViewCell.m in Sources */,
+				160F80141D6E413500D696E7 /* WalletViewController.m in Sources */,
 				CE67669B1D09FE38003D6EF0 /* PresentationOperation.swift in Sources */,
 				CE67668A1D09D450003D6EF0 /* UIStoryboard+Extensions.swift in Sources */,
 				CE34EA551D189233003408EB /* AddProfileImageViewController.swift in Sources */,
 				168656D41D204636004CE47D /* MessagesDetailViewController.m in Sources */,
 				165304BD1D5698CA006A0760 /* SwipeStore.m in Sources */,
+				1625E0621D74D8D500B852CF /* TransactionTableViewCell.m in Sources */,
 				16ABC4C21D4C3FDE00A2AAA4 /* SwipeBuyTableViewCell.m in Sources */,
 				CE1D776B1CF76FB30071D249 /* SignUpInfo.swift in Sources */,
 				CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */,
 				CE3203DB1D621BB900746B03 /* ProfileViewController.swift in Sources */,
+				160F802C1D6E4F5000D696E7 /* TransactionsViewController.m in Sources */,
 				168656CB1D1F29BD004CE47D /* MessagesTableViewCell.m in Sources */,
 				CE0A128C1D1087AE00BB3AFD /* Firebase+SwipeMeal.swift in Sources */,
 				1694222A1D577496002981A9 /* SwipeBuyConfirmationViewController.m in Sources */,
@@ -754,6 +881,7 @@
 				CE34EA531D187276003408EB /* CircularImageView.swift in Sources */,
 				168656C11D1ECA0C004CE47D /* HomeMainTableViewCell.m in Sources */,
 				168656D11D202F18004CE47D /* CircularIndicatorView.m in Sources */,
+				1625E05F1D7475CF00B852CF /* Constants.m in Sources */,
 				16ABC4C51D4C40B800A2AAA4 /* Swipe.m in Sources */,
 				16EF77C81D4D958C00B16E70 /* SwipeSellViewController.m in Sources */,
 				168656BE1D1EC9F5004CE47D /* HomeHeaderTableViewCell.m in Sources */,
@@ -768,6 +896,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		160F801E1D6E4D7700D696E7 /* WalletTransactions.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				160F801F1D6E4D7700D696E7 /* Base */,
+			);
+			name = WalletTransactions.storyboard;
+			sourceTree = "<group>";
+		};
+		160F80211D6E4D9500D696E7 /* WalletCashOut.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				160F80221D6E4D9500D696E7 /* Base */,
+			);
+			name = WalletCashOut.storyboard;
+			sourceTree = "<group>";
+		};
 		168656B21D1EB99F004CE47D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -857,8 +1001,8 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

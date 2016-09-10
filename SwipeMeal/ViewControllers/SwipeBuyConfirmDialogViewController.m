@@ -9,11 +9,13 @@
 #import "SwipeBuyConfirmDialogViewController.h"
 #import "SwipeBuyConfirmationViewController.h"
 #import "SwipeService.h"
+#import "StripePaymentService.h"
 #import "MessageService.h"
 #import "SwipeMeal-Swift.h"
 @import Firebase;
 
 @interface SwipeBuyConfirmDialogViewController ()
+
 @property (weak, nonatomic) IBOutlet CircularImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -24,6 +26,7 @@
 @property (strong, nonatomic) FIRDatabaseReference *dbRef;
 @property (strong, nonatomic) SwipeService *swipeService;
 @property (strong, nonatomic) MessageService *messageService;
+@property (strong, nonatomic) StripePaymentService *paymentService;
 
 @end
 
@@ -38,10 +41,11 @@
     self.dbRef = [[FIRDatabase database] reference];
     self.swipeService = [SwipeService sharedSwipeService];
     self.messageService = [MessageService sharedMessageService];
+    self.paymentService = [StripePaymentService sharedPaymentService];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.listPrice / 100];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
-    self.sellerLabel.text = [NSString stringWithFormat:@"Sold by: %@", self.swipe.sellerName];
+    self.sellerLabel.text = [NSString stringWithFormat:@"Sold by: %@", self.swipe.listingUserName];
     self.timeLabel.text = [NSString stringWithFormat:@"Available: %f", self.swipe.availableTime];
     
     self.acceptButton.layer.borderWidth = 1.0;
@@ -57,11 +61,11 @@
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
 
     // Create initial message
-    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.price];
+    NSString *body = [NSString stringWithFormat:@"Hello, I'd like to purchase your Swipe for $%ld.", (long)self.swipe.listPrice / 100];
     NSDictionary *messageValues = @{@"swipe_id":self.swipe.swipeID,
                                     @"from_uid":userID,
                                     @"from_name":userName,
-                                    @"to_uid":self.swipe.uid,
+                                    @"to_uid":self.swipe.listingUserID,
                                     @"timestamp":@(timestamp),
                                     @"unread":@(YES),
                                     @"is_offer_message":@(YES),
@@ -79,7 +83,34 @@
 }
 
 - (IBAction)didTapAcceptButton:(UIButton *)sender {
-    [self notifySwipeSeller];
+    self.acceptButton.enabled = NO;
+    
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *stripeCustomerStatus = [snapshot.value objectForKey:@"stripe_customer_status"];
+        if ([stripeCustomerStatus isEqualToString:@"active"]) {
+            StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+            [paymentService requestPurchaseWithSwipeID:self.swipe.swipeID buyerID:userID completionBlock:^(NSDictionary *response, NSError *error) {
+                if (error) {
+                    NSLog(@"%@", error);
+                } else {
+                    [self notifySwipeSeller];
+                    NSLog(@"%@", response);
+                }
+            }];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
+                                                                                     message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alertController addAction:action];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+            self.acceptButton.enabled = YES;
+        }
+    }];
 }
 
 - (IBAction)didTapCancelButton:(UIButton *)sender {

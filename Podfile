@@ -12,5 +12,7 @@ target 'SwipeMeal' do
   pod 'SwiftSpinner'
   pod 'IncipiaKit'
   pod 'Branch'
+  pod 'Stripe'
+  pod 'AFNetworking'
 
 end

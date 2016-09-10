@@ -8,9 +8,8 @@
 
 #import "MessageService.h"
 #import "MessageStore.h"
+#import "Constants.h"
 @import Firebase;
-
-NSString * const kSwipeMealSystemUserID = @"ADJUaO9J9aRdp1l9mZWv4n5h5s52";
 
 @interface MessageService ()
 

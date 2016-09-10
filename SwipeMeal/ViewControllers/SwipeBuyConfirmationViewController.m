@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     self.locationLabel.text = self.swipe.locationName;
-    self.sellerLabel.text = self.swipe.sellerName;
+    self.sellerLabel.text = self.swipe.listingUserName;
 }
 
 - (IBAction)didTapMessagesButton:(UIButton *)sender {
