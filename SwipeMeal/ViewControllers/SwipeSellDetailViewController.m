@@ -104,18 +104,18 @@
     NSString *userID = [FIRAuth auth].currentUser.uid;
     [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSString *sellStatus = [snapshot.value objectForKey:@"stripe_account_status"];
-        if ([sellStatus isEqualToString:@"active"]) {
+//        if ([sellStatus isEqualToString:@"active"]) {
             [self createNewSwipe];
-        } else {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
-                                                                                     message:@"Please enter your details on the Wallet screen in order to list this Swipe for sale."
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }];
-            [alertController addAction:action];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
+//        } else {
+//            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
+//                                                                                     message:@"Please enter your details on the Wallet screen in order to list this Swipe for sale."
+//                                                                              preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                [self dismissViewControllerAnimated:YES completion:nil];
+//            }];
+//            [alertController addAction:action];
+//            [self presentViewController:alertController animated:YES completion:nil];
+//        }
     }];
 }
 
