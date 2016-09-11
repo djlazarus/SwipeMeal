@@ -50,7 +50,7 @@
 
 - (void)startDownloadingProfileImage {
     FIRStorage *storage = [FIRStorage storage];
-    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", _swipe.listingUserID];
+    NSString *imagePath = [NSString stringWithFormat:@"profile_images/%@.jpg", _swipe.listingUserID];
     FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
     [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {

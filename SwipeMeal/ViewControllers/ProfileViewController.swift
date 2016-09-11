@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController {
 	private func _syncProfileImageViews(withUser user: SwipeMealUser) {
 		
 		let storage = FIRStorage.storage()
-		let path = "profileImages/\(user.uid).jpg"
+		let path = "profile_images/\(user.uid).jpg"
 		let pathRef = storage.referenceWithPath(path)
 		pathRef.dataWithMaxSize(1024 * 1024) { (data, error) in
 			

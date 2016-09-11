@@ -121,7 +121,7 @@
 
 - (void)startDownloadingProfileImageForUserID:(NSString *)userID atIndexPath:(NSIndexPath *)indexPath {
     FIRStorage *storage = [FIRStorage storage];
-    NSString *imagePath = [NSString stringWithFormat:@"profileImages/%@.jpg", userID];
+    NSString *imagePath = [NSString stringWithFormat:@"profile_images/%@.jpg", userID];
     FIRStorageReference *pathRef = [storage referenceWithPath:imagePath];
     [pathRef dataWithMaxSize:1 * 1024 * 1024 completion:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {
