@@ -125,6 +125,14 @@
     }];
 }
 
+- (void)getSwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock {
+    [[[self.dbRef child:@"/swipes-listed/"] child:swipeID] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
+        [self.swipeStore addSwipe:swipe forKey:swipeID];
+        completionBlock(swipe);
+    }];
+}
+
 - (void)buySwipe:(Swipe *)swipe withCompletionBlock:(void (^)(void))completionBlock {
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];

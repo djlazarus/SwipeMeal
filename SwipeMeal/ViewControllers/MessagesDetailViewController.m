@@ -40,9 +40,17 @@
 
 - (void)buySwipe {
     Swipe *swipe = [self.swipeService swipeForKey:self.message.swipeID];
-    [self.swipeService buySwipe:swipe withCompletionBlock:^{
-        [self loadReplyViewController];
-    }];
+    if (swipe) {
+        [self.swipeService buySwipe:swipe withCompletionBlock:^{
+            [self loadReplyViewController];
+        }];
+    } else {
+        [self.swipeService getSwipeWithSwipeID:self.message.swipeID completionBlock:^(Swipe *swipe) {
+            [self.swipeService buySwipe:swipe withCompletionBlock:^{
+                [self loadReplyViewController];
+            }];
+        }];
+    }
 }
 
 - (void)loadReplyViewController {
