@@ -14,7 +14,7 @@ private let kProfileImagesPathName = "profile_images"
 
 private let kUsersPathName = "users"
 private let kUserInfoPathName = "user_info"
-private let kUserGroupsPathName = "user_groups"
+private let kUserGroupsPathName = "user-groups"
 private let kUserProfileSetupCompletePathName = "profile_setup_complete"
 private let kUserRatingsPathName = "ratings"
 
