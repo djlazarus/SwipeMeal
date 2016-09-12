@@ -46,7 +46,14 @@
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld Swipe", (long)self.swipe.listPrice / 100];
     self.locationLabel.text = [NSString stringWithFormat:@"@ %@", self.swipe.locationName];
     self.sellerLabel.text = [NSString stringWithFormat:@"Sold by: %@", self.swipe.listingUserName];
-    self.timeLabel.text = [NSString stringWithFormat:@"Available: %f", self.swipe.availableTime];
+	
+	NSDate* availableTimeDate = [[NSDate alloc] initWithTimeIntervalSince1970:self.swipe.availableTime];
+	
+	NSDateFormatter *timeFormatter = [NSDateFormatter new];
+	timeFormatter.dateFormat = @"hh:mm";
+	
+	NSString* availableTimeText = [timeFormatter stringFromDate:availableTimeDate];
+    self.timeLabel.text = [NSString stringWithFormat:@"Available: %@", availableTimeText];
     
     self.acceptButton.layer.borderWidth = 1.0;
     self.acceptButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
