@@ -76,6 +76,8 @@
         swipeBuyConfirmationViewController.swipe = self.swipe;
         [self presentViewController:swipeBuyConfirmationViewController animated:YES completion:nil];
     }];
+	
+	[SwipeMealPushCoordinator notifyUserOfInterestInPurchase: self.swipe.listingUserID];
 }
 
 - (void)didCloseConfirmation {

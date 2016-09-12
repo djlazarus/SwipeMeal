@@ -12,6 +12,7 @@
 
 @import IncipiaKit;
 @import Firebase;
+@import OneSignal;
 
 @interface SwipeBuyDetailViewController ()
 
@@ -71,6 +72,7 @@
 }
 
 - (IBAction)didTapBuyButton:(UIButton *)sender {
+	
     NSString *userID = [FIRAuth auth].currentUser.uid;
     [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSString *buyStatus = [snapshot.value objectForKey:@"stripe_customer_status"];

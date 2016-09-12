@@ -10,6 +10,7 @@ import UIKit
 import SwiftSpinner
 import FirebaseAuth
 import IncipiaKit
+import OneSignal
 
 class AppEntryFlowController
 {
@@ -50,6 +51,17 @@ class AppEntryFlowController
 					_rootNavController.viewControllers = [_signInViewController, initialController]
 				}
 			}
+			
+			OneSignal.IdsAvailable({ (playerID, apnsToken) in
+				if playerID != nil {
+					SwipeMealPushStorage.oneSignalPlayerID = playerID
+					SMDatabaseLayer.update(oneSignalPlayerID: playerID, forUser: user)
+				}
+				if apnsToken != nil {
+					SwipeMealPushStorage.deviceToken = apnsToken
+					SMDatabaseLayer.update(deviceToken: apnsToken, forUser: user)
+				}
+			})
 		}
 		
 		FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
@@ -267,6 +279,17 @@ extension AppEntryFlowController: AddProfileImageViewControllerDelegate {
 	
 	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController) {
 		guard let user = _user else { return }
+		
+		OneSignal.IdsAvailable({ (playerID, apnsToken) in
+			if playerID != nil {
+				SwipeMealPushStorage.oneSignalPlayerID = playerID
+				SMDatabaseLayer.update(oneSignalPlayerID: playerID, forUser: user)
+			}
+			if apnsToken != nil {
+				SwipeMealPushStorage.deviceToken = apnsToken
+				SMDatabaseLayer.update(deviceToken: apnsToken, forUser: user)
+			}
+		})
 		
 		let createStripeAccountOp = CreateStripeAccountOperation(user: user)
 		createStripeAccountOp.completionBlock = {

@@ -20,7 +20,7 @@ private let kUserRatingsPathName = "ratings"
 
 typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> Void
 
-struct SMDatabaseLayer
+@objc class SMDatabaseLayer: NSObject
 {
 	static func upload(profileImage: UIImage, forSwipeMealUser user: SwipeMealUser, completion: UserDataUploadCompletion? = nil)
 	{
@@ -114,5 +114,45 @@ struct SMDatabaseLayer
 		let ref = FIRDatabase.database().reference()
 		let userRatingsRef = ref.child("\(kUserRatingsPathName)/\(toUID)")
 		userRatingsRef.updateChildValues([fromUID : rating])
+	}
+	
+	static func update(deviceToken token: String, forUser user: SwipeMealUser) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
+		userInfoRef.updateChildValues(["deviceToken": token])
+	}
+	
+	static func getDeviceToken(forUserWithUID uid: String, callback: (token: String?) -> Void) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child("\(kUsersPathName)/\(uid)/\(kUserInfoPathName)")
+		userInfoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+			
+			var token: String?
+			if let readValue = snapshot.value?["deviceToken"] as? String {
+				token = readValue
+			}
+			
+			callback(token: token)
+		})
+	}
+	
+	static func getOneSignalPlayerID(forUserWithUID uid: String, callback: (oneSignalPlayerID: String?) -> Void) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child("\(kUsersPathName)/\(uid)/\(kUserInfoPathName)")
+		userInfoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+			
+			var playerID: String?
+			if let readValue = snapshot.value?["oneSignalPlayerID"] as? String {
+				playerID = readValue
+			}
+			
+			callback(oneSignalPlayerID: playerID)
+		})
+	}
+	
+	static func update(oneSignalPlayerID id: String, forUser user: SwipeMealUser) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
+		userInfoRef.updateChildValues(["oneSignalPlayerID": id])
 	}
 }

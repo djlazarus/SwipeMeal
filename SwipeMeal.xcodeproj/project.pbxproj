@@ -96,6 +96,7 @@
 		CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */; };
 		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
 		CE74B5AE1D86575600689C57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74B5AD1D86575600689C57 /* SettingsViewController.swift */; };
+		CE74B5B01D87193900689C57 /* SwipeMealPushCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74B5AF1D87193900689C57 /* SwipeMealPushCoordinator.swift */; };
 		CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */; };
 		CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */; };
 		CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */; };
@@ -234,6 +235,7 @@
 		CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMAuthLayer.swift; path = SwipeMeal/DatabaseLayer/SMAuthLayer.swift; sourceTree = "<group>"; };
 		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
 		CE74B5AD1D86575600689C57 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = SwipeMeal/ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
+		CE74B5AF1D87193900689C57 /* SwipeMealPushCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeMealPushCoordinator.swift; path = SwipeMeal/Utilities/SwipeMealPushCoordinator.swift; sourceTree = "<group>"; };
 		CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticateLoginOperation.swift; path = SwipeMeal/Operations/AuthenticateLoginOperation.swift; sourceTree = "<group>"; };
 		CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileImageOperation.swift; path = SwipeMeal/Operations/AddProfileImageOperation.swift; sourceTree = "<group>"; };
 		CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateStripeAccountOperation.swift; path = SwipeMeal/Operations/CreateStripeAccountOperation.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			children = (
 				CE1D776D1CF7708A0071D249 /* SignUpInfoValidator.swift */,
 				CE34EA4E1D1861F3003408EB /* SwipeMealUserStorage.swift */,
+				CE74B5AF1D87193900689C57 /* SwipeMealPushCoordinator.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */,
 				CE34EA511D1870BB003408EB /* SwipeMealRoundedButton.swift in Sources */,
 				1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */,
+				CE74B5B01D87193900689C57 /* SwipeMealPushCoordinator.swift in Sources */,
 				1694222D1D577629002981A9 /* SwipeBuyConfirmDialogViewController.m in Sources */,
 				CE6766961D09FE2E003D6EF0 /* SignUpViewController.swift in Sources */,
 				CE34EA4F1D1861F3003408EB /* SwipeMealUserStorage.swift in Sources */,

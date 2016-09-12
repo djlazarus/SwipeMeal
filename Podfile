@@ -14,5 +14,7 @@ target 'SwipeMeal' do
   pod 'Branch'
   pod 'Stripe'
   pod 'AFNetworking'
+  pod 'SwiftyUserDefaults'
+  pod 'OneSignal'
 
 end

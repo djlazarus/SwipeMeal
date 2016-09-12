@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 private enum SwipeMealUserStorageKey: String
 {
@@ -33,4 +34,39 @@ struct SwipeMealUserStorage
          defaults.setBool(newValue, forKey: key)
       }
    }
+}
+
+struct SwipeMealPushStorage {
+	static var deviceToken: String? {
+		get {
+			return Defaults[.deviceToken]
+		}
+		set {
+			Defaults[.deviceToken] = newValue
+		}
+	}
+	
+	static var instanceIDToken: String? {
+		get {
+			return Defaults[.instanceIDToken]
+		}
+		set {
+			Defaults[.instanceIDToken] = newValue
+		}
+	}
+	
+	static var oneSignalPlayerID: String? {
+		get {
+			return Defaults[.oneSignalPlayerID]
+		}
+		set {
+			Defaults[.oneSignalPlayerID] = newValue
+		}
+	}
+}
+
+extension DefaultsKeys {
+	static let oneSignalPlayerID = DefaultsKey<String?>("com.SwipeMeal.oneSignalPlayerID")
+	static let deviceToken = DefaultsKey<String?>("com.SwipeMeal.deviceToken")
+	static let instanceIDToken = DefaultsKey<String?>("com.SwipeMeal.instanceIDToken")
 }

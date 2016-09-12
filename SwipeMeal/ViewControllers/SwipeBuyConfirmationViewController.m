@@ -26,7 +26,7 @@
 
 - (IBAction)didTapMessagesButton:(UIButton *)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"didCloseConfirmation" object:nil];
+		 [[NSNotificationCenter defaultCenter] postNotificationName:@"didCloseConfirmation" object:nil];
     }];
 }
 

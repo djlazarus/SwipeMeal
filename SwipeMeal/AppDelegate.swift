@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Branch
 import Stripe
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -20,12 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    // MARK: - Overridden
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
    {
-      _registerForPushNotifications(application)
+//      _registerForPushNotifications(application)
       FIRApp.configure()
 		
 		FIRDatabase.database().persistenceEnabled = true
-      
-      _observeFirebaseMessagingTokenRefresh()
+      OneSignal.initWithLaunchOptions(launchOptions, appId: "71319fb8-f6ae-45f6-ba32-ad7f39a39d79")
+		
+//      _observeFirebaseMessagingTokenRefresh()
 		
       _setupRootViewController()
 		_setupNavBarAppearance()
@@ -40,9 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 			}
 		}
 		
-      let token = FIRInstanceID.instanceID().token()
-      print("TOKEN: \(token)")
-    
+//      let token = FIRInstanceID.instanceID().token()
+//      print("TOKEN: \(token)")
+		
     // Stripe setup
     STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_GDqLMB8TumWkOgCBbvNZwliF"
     STPTheme.defaultTheme().accentColor = UIColor(hexString: "6BB739");
@@ -59,16 +61,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		return Branch.getInstance().continueUserActivity(userActivity)
 	}
    
-   func applicationDidBecomeActive(application: UIApplication)
-   {
-      _connectToFCM()
-   }
-   
-   func applicationDidEnterBackground(application: UIApplication)
-   {
-      FIRMessaging.messaging().disconnect()
-   }
-   
+//   func applicationDidBecomeActive(application: UIApplication)
+//   {
+//      _connectToFCM()
+//   }
+		
+//   func applicationDidEnterBackground(application: UIApplication)
+//   {
+//      FIRMessaging.messaging().disconnect()
+//   }
+		
    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings)
    {
       if notificationSettings.types != .None {
@@ -76,34 +78,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate
       }
    }
    
-   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-   {
-      let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-      var tokenString = ""
-      
-      for i in 0..<deviceToken.length {
-         tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-      }
-      
-      FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
-      print("Device Token:", tokenString)
-   }
-   
-   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
-   {
-      print("Failed to register for remote notifications: \(error.description)")
-   }
-   
-   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-   {
-      FIRMessaging.messaging().appDidReceiveMessage(userInfo)
-      
-      print("Message ID: \(userInfo["gcm.message_id"])")
-      print(userInfo)
-		
-      completionHandler(.NoData)
-   }
-   
+//   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
+//   {
+//      let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+//      var tokenString = ""
+//      
+//      for i in 0..<deviceToken.length {
+//         tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+//      }
+//      
+//      FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
+//		SwipeMealPushStorage.deviceToken = tokenString
+//      print("Device Token:", tokenString)
+//   }
+	
+//   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
+//   {
+//      print("Failed to register for remote notifications: \(error.description)")
+//   }
+	
+//   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
+//   {
+//      FIRMessaging.messaging().appDidReceiveMessage(userInfo)
+//      
+//      print("Message ID: \(userInfo["gcm.message_id"])")
+//      print(userInfo)
+//		
+//      completionHandler(.NoData)
+//   }
+	
    // MARK: - Private
    private func _setupRootViewController()
    {
@@ -125,35 +128,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		navBarAppearance.tintColor = UIColor.whiteColor()
 	}
 	
-   private func _registerForPushNotifications(application: UIApplication)
-   {
-      let notificationSettings = UIUserNotificationSettings(
-         forTypes: [.Badge, .Sound, .Alert], categories: nil)
-      application.registerUserNotificationSettings(notificationSettings)
-   }
-   
-   private func _connectToFCM()
-   {
-      FIRMessaging.messaging().connectWithCompletion { (error) in
-         if let error = error {
-            print("Could not connect to FCM: \(error.description)")
-         } else {
-            print("Connected to FCM successfully.")
-         }
-      }
-   }
-   
+//   private func _registerForPushNotifications(application: UIApplication)
+//   {
+//      let notificationSettings = UIUserNotificationSettings(
+//         forTypes: [.Badge, .Sound, .Alert], categories: nil)
+//      application.registerUserNotificationSettings(notificationSettings)
+//   }
+	
+//   private func _connectToFCM()
+//   {
+//      FIRMessaging.messaging().connectWithCompletion { (error) in
+//         if let error = error {
+//            print("Could not connect to FCM: \(error.description)")
+//         } else {
+//            print("Connected to FCM successfully.")
+//         }
+//      }
+//   }
+	
    // MARK: - Observing
-   private func _observeFirebaseMessagingTokenRefresh()
-   {
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.tokenRefreshed(_:)), name: kFIRInstanceIDTokenRefreshNotification, object: nil)
-   }
-   
-   internal func tokenRefreshed(notification: NSNotification)
-   {
-      let refreshedToken = FIRInstanceID.instanceID().token()
-      print("InstanceID token: \(refreshedToken)")
-		
-      _connectToFCM()
-   }
+//   private func _observeFirebaseMessagingTokenRefresh()
+//   {
+//      NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.tokenRefreshed(_:)), name: kFIRInstanceIDTokenRefreshNotification, object: nil)
+//   }
+//   
+//   internal func tokenRefreshed(notification: NSNotification)
+//   {
+//      let refreshedToken = FIRInstanceID.instanceID().token()
+//		SwipeMealPushStorage.instanceIDToken = refreshedToken
+//      print("InstanceID token: \(refreshedToken)")
+//		
+//      _connectToFCM()
+//   }
 }
