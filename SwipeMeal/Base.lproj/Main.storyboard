@@ -491,6 +491,9 @@
                                     <constraint firstAttribute="height" constant="45" id="PeA-YN-AKY"/>
                                 </constraints>
                                 <state key="normal" image="profile-hamburger"/>
+                                <connections>
+                                    <action selector="_settingsButtonPressed" destination="0Z6-ud-fzI" eventType="touchUpInside" id="0uW-wL-p2n"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jp-oK-clt">
                                 <rect key="frame" x="276" y="32" width="49" height="21"/>
@@ -498,17 +501,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYo-px-BOE">
-                                <rect key="frame" x="513" y="19.5" width="67" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="QjR-vQ-GaX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Sign Out"/>
-                                <connections>
-                                    <action selector="_signOutButtonPressed" destination="0Z6-ud-fzI" eventType="touchUpInside" id="VZl-7e-ir6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -518,14 +510,12 @@
                             <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="vCI-mN-pXO" secondAttribute="bottom" id="AI0-XP-QSb"/>
                             <constraint firstItem="2jp-oK-clt" firstAttribute="centerX" secondItem="P47-uA-fkC" secondAttribute="centerX" id="CQx-ac-et2"/>
                             <constraint firstItem="vCI-mN-pXO" firstAttribute="top" secondItem="P47-uA-fkC" secondAttribute="top" id="F9S-ms-c3z"/>
-                            <constraint firstAttribute="trailing" secondItem="xYo-px-BOE" secondAttribute="trailing" constant="20" id="Git-9Z-16v"/>
                             <constraint firstItem="Y03-IC-cdM" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" constant="20" id="Wox-1M-VHm"/>
                             <constraint firstItem="vCI-mN-pXO" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" id="bQn-aC-F2D"/>
                             <constraint firstItem="tTl-Sa-Fqi" firstAttribute="top" secondItem="Whb-Zk-GED" secondAttribute="bottom" id="djA-Zo-QNm"/>
                             <constraint firstItem="Y03-IC-cdM" firstAttribute="top" secondItem="kfE-4B-rKp" secondAttribute="bottom" constant="8" id="h5X-HA-kpq"/>
                             <constraint firstItem="Whb-Zk-GED" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" id="kSb-Bg-tQc"/>
                             <constraint firstItem="cnR-IG-2Gd" firstAttribute="width" secondItem="P47-uA-fkC" secondAttribute="width" multiplier="0.6" id="l7A-qs-Ocl"/>
-                            <constraint firstItem="xYo-px-BOE" firstAttribute="centerY" secondItem="2jp-oK-clt" secondAttribute="centerY" id="mQl-wz-JjG"/>
                             <constraint firstAttribute="trailing" secondItem="Whb-Zk-GED" secondAttribute="trailing" id="phP-sl-COM"/>
                             <constraint firstItem="cnR-IG-2Gd" firstAttribute="centerX" secondItem="P47-uA-fkC" secondAttribute="centerX" id="r3N-NR-PfZ"/>
                             <constraint firstItem="hwm-4m-00A" firstAttribute="leading" secondItem="P47-uA-fkC" secondAttribute="leading" constant="20" id="rPQ-Gq-lqG"/>
@@ -877,6 +867,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj6-L4-4ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1394" y="1605"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="lpX-eR-Oz7">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g3C-HE-2r3" customClass="SettingsViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hqu-Xm-VIE"/>
+                        <viewControllerLayoutGuide type="bottom" id="z4R-jr-dpx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fyb-6w-UQS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPN-rq-XOh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="O7F-dn-oG0">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sc-Uc-pWl">
+                                            <rect key="frame" x="85" y="269" width="150" height="30"/>
+                                            <state key="normal" title="Terms and Conditions">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="_termsAndConditionsButtonPressed" destination="g3C-HE-2r3" eventType="touchUpInside" id="CfP-Bf-AsI"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB0-Hi-57i">
+                                            <rect key="frame" x="112" y="209" width="96" height="30"/>
+                                            <state key="normal" title="Refer a Friend">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="_referAFriendButtonPressed" destination="g3C-HE-2r3" eventType="touchUpInside" id="YAq-B1-Qzg"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5w-VP-T4m">
+                                            <rect key="frame" x="133" y="329" width="55" height="30"/>
+                                            <state key="normal" title="Log Out">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="_logOutButtonPressed" destination="g3C-HE-2r3" eventType="touchUpInside" id="xxU-aT-1gy"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbt-Iz-9FQ">
+                                            <rect key="frame" x="22" y="30" width="86" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="Tap to dimiss">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="_closeButtonPressed" destination="g3C-HE-2r3" eventType="touchUpInside" id="iEh-ui-uTn"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstItem="2Sc-Uc-pWl" firstAttribute="top" secondItem="PB0-Hi-57i" secondAttribute="bottom" constant="30" id="0WJ-MX-T0r"/>
+                                        <constraint firstItem="PB0-Hi-57i" firstAttribute="centerX" secondItem="2Sc-Uc-pWl" secondAttribute="centerX" id="BN2-xQ-uXY"/>
+                                        <constraint firstItem="2Sc-Uc-pWl" firstAttribute="centerY" secondItem="O7F-dn-oG0" secondAttribute="centerY" id="CBh-AG-FdX"/>
+                                        <constraint firstItem="c5w-VP-T4m" firstAttribute="top" secondItem="2Sc-Uc-pWl" secondAttribute="bottom" constant="30" id="DT9-2Q-zhy"/>
+                                        <constraint firstItem="Nbt-Iz-9FQ" firstAttribute="top" secondItem="O7F-dn-oG0" secondAttribute="top" constant="30" id="E8q-cq-ob0"/>
+                                        <constraint firstItem="2Sc-Uc-pWl" firstAttribute="centerX" secondItem="O7F-dn-oG0" secondAttribute="centerX" id="dGr-Np-j4e"/>
+                                        <constraint firstItem="Nbt-Iz-9FQ" firstAttribute="leading" secondItem="O7F-dn-oG0" secondAttribute="leading" constant="22" id="xjI-Uy-Ypv"/>
+                                        <constraint firstItem="c5w-VP-T4m" firstAttribute="centerX" secondItem="2Sc-Uc-pWl" secondAttribute="centerX" id="yj5-dC-KAQ"/>
+                                    </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="TWa-sa-73B" appends="YES" id="uAD-PU-dmF"/>
+                                    </connections>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pPN-rq-XOh" secondAttribute="trailing" id="51l-2z-hKC"/>
+                            <constraint firstItem="pPN-rq-XOh" firstAttribute="leading" secondItem="Fyb-6w-UQS" secondAttribute="leading" id="GMT-Se-Lu5"/>
+                            <constraint firstItem="z4R-jr-dpx" firstAttribute="top" secondItem="pPN-rq-XOh" secondAttribute="bottom" id="JpY-tI-cJ5"/>
+                            <constraint firstItem="pPN-rq-XOh" firstAttribute="top" secondItem="Fyb-6w-UQS" secondAttribute="top" id="Tcg-j7-4P5"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBa-RX-7c9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TWa-sa-73B">
+                    <connections>
+                        <action selector="_closeButtonPressed" destination="g3C-HE-2r3" id="Qlp-hb-COd"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1779" y="1605"/>
         </scene>
         <!--Wallet-->
         <scene sceneID="YpC-y0-7Py">

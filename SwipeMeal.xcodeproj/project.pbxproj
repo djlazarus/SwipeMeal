@@ -95,6 +95,7 @@
 		CE6766A61D0A09B1003D6EF0 /* AppEntryFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */; };
 		CE6766AA1D0A14CA003D6EF0 /* SMAuthLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */; };
 		CE6766AE1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */; };
+		CE74B5AE1D86575600689C57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74B5AD1D86575600689C57 /* SettingsViewController.swift */; };
 		CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */; };
 		CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */; };
 		CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */; };
@@ -232,6 +233,7 @@
 		CE6766A51D0A09B1003D6EF0 /* AppEntryFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppEntryFlowController.swift; path = SwipeMeal/Controllers/AppEntryFlowController.swift; sourceTree = "<group>"; };
 		CE6766A91D0A14CA003D6EF0 /* SMAuthLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMAuthLayer.swift; path = SwipeMeal/DatabaseLayer/SMAuthLayer.swift; sourceTree = "<group>"; };
 		CE6766AD1D0A2462003D6EF0 /* EmailVerificationSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmailVerificationSentViewController.swift; path = SwipeMeal/ViewControllers/EmailVerificationSentViewController.swift; sourceTree = "<group>"; };
+		CE74B5AD1D86575600689C57 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = SwipeMeal/ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticateLoginOperation.swift; path = SwipeMeal/Operations/AuthenticateLoginOperation.swift; sourceTree = "<group>"; };
 		CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileImageOperation.swift; path = SwipeMeal/Operations/AddProfileImageOperation.swift; sourceTree = "<group>"; };
 		CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateStripeAccountOperation.swift; path = SwipeMeal/Operations/CreateStripeAccountOperation.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 			children = (
 				CE3203DC1D626E0B00746B03 /* EditProfileImageViewController.swift */,
 				CE3203DA1D621BB900746B03 /* ProfileViewController.swift */,
+				CE74B5AD1D86575600689C57 /* SettingsViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE2782DA1CE7EA4200039014 /* Build configuration list for PBXNativeTarget "SwipeMeal" */;
 			buildPhases = (
+				C1DA5E1180471596875048E4 /* 📦 Check Pods Manifest.lock */,
 				81B39880DF2E6F6DC5ABF358 /* [CP] Check Pods Manifest.lock */,
 				9723AC5683DF4F24CFB54F06 /* [CP] Check Pods Manifest.lock */,
 				CE2782C41CE7EA4200039014 /* Sources */,
@@ -797,6 +801,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		C1DA5E1180471596875048E4 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		C2F0CA571C6135D5E87F64B7 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -890,6 +909,7 @@
 				CE34EA4D1D185CB9003408EB /* SwipeMealNavigationController.swift in Sources */,
 				CE2782CC1CE7EA4200039014 /* AppDelegate.swift in Sources */,
 				CE34EA4B1D185BD7003408EB /* SwipeMealNavigationBar.swift in Sources */,
+				CE74B5AE1D86575600689C57 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,7 +1085,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwipeMeal/SwipeMeal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1083,7 +1103,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwipeMeal/SwipeMeal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";

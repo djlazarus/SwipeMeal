@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		
 		let branch = Branch.getInstance()
 		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
+			let metadata = branchUniversalObject.metadata
+			if metadata != nil {
+				if let referralSenderID = metadata["referral_sender_uid"] as? String {
+					print("--- BRANCH.IO --- Referral: \(referralSenderID)")
+				}
+			}
 		}
 		
       let token = FIRInstanceID.instanceID().token()

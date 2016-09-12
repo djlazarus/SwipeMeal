@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
 	private var _profileImage: UIImage?
 	
 	private let _editProfileImageVC = EditProfileImageViewController.instantiate(fromStoryboard: "Main")
+	private let _settingsVC = SettingsViewController.instantiate(fromStoryboard: "Main")
 	
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
@@ -31,6 +32,9 @@ class ProfileViewController: UIViewController {
 		
 		_nameLabel.text = user.displayName
 		_editProfileImageVC.delegate = self
+		
+		_settingsVC.modalPresentationStyle = .OverCurrentContext
+		_settingsVC.modalTransitionStyle = .CrossDissolve
 	}
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -59,6 +63,10 @@ class ProfileViewController: UIViewController {
 	// MARK: - Actions
 	@IBAction private func _signOutButtonPressed() {
 		SMAuthLayer.currentUser?.signOut()
+	}
+	
+	@IBAction private func _settingsButtonPressed() {
+		presentViewController(_settingsVC, animated: true, completion: nil)
 	}
 	
 	@IBAction private func _editProfileImageButtonPressed() {

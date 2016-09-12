@@ -21,6 +21,10 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>branch.io.sdk</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>swipemeal</string>
@@ -66,12 +70,16 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>branch_app_domain</key>
+	<string>0823.app.link</string>
 	<key>branch_key</key>
-	<string>key_live_opFhfg1CxJdCSiPfsIMfGclgCsbX64O3</string>
+	<dict>
+		<key>live</key>
+		<string>key_live_opFhfg1CxJdCSiPfsIMfGclgCsbX64O3</string>
+	</dict>
 </dict>
 </plist>
