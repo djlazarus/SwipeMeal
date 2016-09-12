@@ -104,9 +104,9 @@
 
 - (void)createNewMessageWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(void))completionBlock {
     NSString *key = [[self.dbRef child:@"messages"] childByAutoId].key;
-    NSString *fromUserID = [FIRAuth auth].currentUser.uid;
+    NSString *toUserID = [values objectForKey:@"to_uid"];
     NSDictionary *childUpdates = @{[@"/messages/" stringByAppendingString:key]: values,
-                                   [NSString stringWithFormat:@"/user-messages/%@/%@/", fromUserID, key]: values};
+                                   [NSString stringWithFormat:@"/user-messages/%@/%@/", toUserID, key]: values};
     
     [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
