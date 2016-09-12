@@ -39,7 +39,13 @@
     
     self.priceLabel.text = [NSString stringWithFormat:@"$%ld", (long)swipe.listPrice / 100];
     self.nameLabel.text = swipe.listingUserName;
-    self.timeLabel.text = @"TIME";
+	
+	NSDate* availableTimeDate = [[NSDate alloc] initWithTimeIntervalSince1970:swipe.availableTime];
+	
+	NSDateFormatter *timeFormatter = [NSDateFormatter new];
+	timeFormatter.dateFormat = @"hh:mm";
+	
+    self.timeLabel.text = [timeFormatter stringFromDate:availableTimeDate];
     self.locationLabel.text = swipe.locationName;
 
     UIImage *locationImage = [UIImage imageNamed:@"buy-location"];

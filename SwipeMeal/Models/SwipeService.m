@@ -105,6 +105,7 @@
     swipe.locationName = [values objectForKey:@"location_name"];
     swipe.listingTime = [[values objectForKey:@"listing_time"] floatValue];
     swipe.expireTime = [[values objectForKey:@"expiration_time"] floatValue];
+	swipe.availableTime = [[values objectForKey:@"available_time"] doubleValue];
 
     return swipe;
 }
