@@ -54,6 +54,8 @@ class SignUpViewController: UIViewController
          _initialKeyboardAvoidingConstant = _keyboardAvoidingConstraint.constant
       }
    }
+	
+	private let _legalController = LegalDocumentationViewController.instantiate(fromStoryboard: "SignUp")
    
    // MARK: - Computed Properties
    private var _activeTextField: UITextField? {
@@ -95,15 +97,23 @@ class SignUpViewController: UIViewController
    }
    
    // MARK: - Actions
-   @IBAction private func _signInButtonPressed()
-   {
+   @IBAction private func _signInButtonPressed() {
       delegate?.signUpViewControllerSignInButtonPressed(self)
    }
    
-   @IBAction private func _registerButtonPressed()
-   {
+   @IBAction private func _registerButtonPressed() {
       delegate?.signUpViewControllerRegisterButtonPressed(self)
    }
+	
+	@IBAction private func _termsOfUsePressed() {
+		_legalController.type = .TermsOfUse
+		presentViewController(_legalController, animated: true, completion: nil)
+	}
+	
+	@IBAction private func _privacyPolicyPressed() {
+		_legalController.type = .PrivacyPolicy
+		presentViewController(_legalController, animated: true, completion: nil)
+	}
    
    // MARK: - Gesture Recognizers
    @IBAction private func _viewTapped(recognizer: UIGestureRecognizer)

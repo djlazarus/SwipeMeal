@@ -100,6 +100,9 @@
 		CE7748951D134175007F24C2 /* AuthenticateLoginOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */; };
 		CECC1ECE1D1B782F00082B1A /* AddProfileImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */; };
 		CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */; };
+		CEDF43581D89C1890028CC54 /* LegalDocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDF43571D89C1890028CC54 /* LegalDocumentationViewController.swift */; };
+		CEDF435B1D89C31A0028CC54 /* swipe_meal_privacy_policy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CEDF43591D89C31A0028CC54 /* swipe_meal_privacy_policy.pdf */; };
+		CEDF435C1D89C31A0028CC54 /* swipe_meal_terms_of_use.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CEDF435A1D89C31A0028CC54 /* swipe_meal_terms_of_use.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +242,9 @@
 		CE7748941D134175007F24C2 /* AuthenticateLoginOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticateLoginOperation.swift; path = SwipeMeal/Operations/AuthenticateLoginOperation.swift; sourceTree = "<group>"; };
 		CECC1ECD1D1B782F00082B1A /* AddProfileImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddProfileImageOperation.swift; path = SwipeMeal/Operations/AddProfileImageOperation.swift; sourceTree = "<group>"; };
 		CED72A501D82148600084192 /* CreateStripeAccountOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateStripeAccountOperation.swift; path = SwipeMeal/Operations/CreateStripeAccountOperation.swift; sourceTree = "<group>"; };
+		CEDF43571D89C1890028CC54 /* LegalDocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LegalDocumentationViewController.swift; path = SwipeMeal/ViewControllers/LegalDocumentationViewController.swift; sourceTree = "<group>"; };
+		CEDF43591D89C31A0028CC54 /* swipe_meal_privacy_policy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = swipe_meal_privacy_policy.pdf; sourceTree = "<group>"; };
+		CEDF435A1D89C31A0028CC54 /* swipe_meal_terms_of_use.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = swipe_meal_terms_of_use.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,6 +496,8 @@
 		CE2782CA1CE7EA4200039014 /* SwipeMeal */ = {
 			isa = PBXGroup;
 			children = (
+				CEDF43591D89C31A0028CC54 /* swipe_meal_privacy_policy.pdf */,
+				CEDF435A1D89C31A0028CC54 /* swipe_meal_terms_of_use.pdf */,
 				CE24F0881D5BB3F9009B1E2E /* SwipeMeal.entitlements */,
 				CE2782CB1CE7EA4200039014 /* AppDelegate.swift */,
 				1625E05D1D7475CF00B852CF /* Constants.h */,
@@ -530,6 +538,7 @@
 				168656C81D1F15BA004CE47D /* Messages */,
 				160F80111D6E411B00D696E7 /* Wallet */,
 				CE3203D91D621B9E00746B03 /* Profile */,
+				CEDF43571D89C1890028CC54 /* LegalDocumentationViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 				165304B41D569640006A0760 /* Montserrat-Light.otf in Resources */,
 				CE34EA471D146178003408EB /* Onboarding.storyboard in Resources */,
 				160F80231D6E4D9500D696E7 /* WalletCashOut.storyboard in Resources */,
+				CEDF435C1D89C31A0028CC54 /* swipe_meal_terms_of_use.pdf in Resources */,
 				16EF77C51D4D955F00B16E70 /* Selling.storyboard in Resources */,
 				165304B51D569640006A0760 /* Montserrat-Regular.otf in Resources */,
 				165304B61D569640006A0760 /* Montserrat-SemiBold.otf in Resources */,
@@ -719,6 +729,7 @@
 				165304B31D569640006A0760 /* Montserrat-Hairline.otf in Resources */,
 				165304B01D569640006A0760 /* Montserrat-Black.otf in Resources */,
 				165304B71D569640006A0760 /* Montserrat-UltraLight.otf in Resources */,
+				CEDF435B1D89C31A0028CC54 /* swipe_meal_privacy_policy.pdf in Resources */,
 				CE2782D11CE7EA4200039014 /* SignIn.storyboard in Resources */,
 				16ABC4BF1D4C06A400A2AAA4 /* Buying.storyboard in Resources */,
 				CE1D77611CF644620071D249 /* SignUp.storyboard in Resources */,
@@ -866,6 +877,7 @@
 				168656D71D204CB3004CE47D /* MessagesDetailReplyViewController.m in Sources */,
 				CED72A511D82148600084192 /* CreateStripeAccountOperation.swift in Sources */,
 				16ABC4BB1D4C04EC00A2AAA4 /* SwipeBuyViewController.m in Sources */,
+				CEDF43581D89C1890028CC54 /* LegalDocumentationViewController.swift in Sources */,
 				16A824801D7F07E20027C9AE /* PersonalInfoViewController.m in Sources */,
 				CE34EA511D1870BB003408EB /* SwipeMealRoundedButton.swift in Sources */,
 				1613C08E1D2867FB00F7BC3B /* MessagesDetailChoiceViewController.m in Sources */,
