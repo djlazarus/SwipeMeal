@@ -11,8 +11,7 @@ import Branch
 
 class SettingsViewController: UIViewController {
 	
-	override func viewDidLoad() {
-	}
+	private let _legalController = LegalDocumentationViewController.instantiate(fromStoryboard: "SignUp")
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return .LightContent
@@ -34,7 +33,14 @@ class SettingsViewController: UIViewController {
 		                                                 completion: nil)
 	}
 	
+	@IBAction private func _privacyPolicyButtonPressed() {
+		_legalController.type = .PrivacyPolicy
+		presentViewController(_legalController, animated: true, completion: nil)
+	}
+	
 	@IBAction private func _termsAndConditionsButtonPressed() {
+		_legalController.type = .TermsOfUse
+		presentViewController(_legalController, animated: true, completion: nil)
 	}
 	
 	@IBAction private func _logOutButtonPressed() {
