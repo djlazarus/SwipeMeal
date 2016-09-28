@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet private var _ratingLabel: UILabel!
 	@IBOutlet private var _backgroundImageView: UIImageView!
 	@IBOutlet private var _centerImageView: CircularImageView!
+	@IBOutlet private var _emailLabel: UILabel!
 	
 	private var _profileImage: UIImage?
 	
@@ -31,6 +32,7 @@ class ProfileViewController: UIViewController {
 		_syncProfileImageViews(withUser: user)
 		
 		_nameLabel.text = user.displayName
+		_emailLabel.text = user.email
 		_editProfileImageVC.delegate = self
 		
 		_settingsVC.modalPresentationStyle = .OverCurrentContext
