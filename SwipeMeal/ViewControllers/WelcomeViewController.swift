@@ -10,57 +10,73 @@ import UIKit
 
 private enum WelcomeViewControllerMode
 {
-   case SetupProfile, AddPayments, BuyOrSell
+   case DontAbuseSwipeMeal, SetupProfile, AddPayments, BuyOrSell, ReferAFriend
    
    var next: WelcomeViewControllerMode? {
       switch self {
+		case .DontAbuseSwipeMeal: return .SetupProfile
       case .SetupProfile: return .AddPayments
       case .AddPayments: return .BuyOrSell
-      case .BuyOrSell: return nil
+      case .BuyOrSell: return .ReferAFriend
+		case .ReferAFriend: return nil
       }
    }
    
    var previous: WelcomeViewControllerMode? {
       switch self {
-      case .SetupProfile: return nil
+		case .DontAbuseSwipeMeal: return nil
+      case .SetupProfile: return .DontAbuseSwipeMeal
       case .AddPayments: return .SetupProfile
       case .BuyOrSell: return .AddPayments
+		case .ReferAFriend: return .BuyOrSell
       }
    }
    
    var image: UIImage? {
       switch self {
+		case .DontAbuseSwipeMeal: return UIImage(named: "walkthrough-3sm")
       case .SetupProfile: return UIImage(named: "walkthrough-1sm")
       case .AddPayments: return UIImage(named: "walkthrough-2sm")
-      case .BuyOrSell: return UIImage(named: "walkthrough-3sm")
+		case .BuyOrSell: return UIImage(named: "walkthrough-3sm")
+		case .ReferAFriend: return UIImage(named: "walkthrough-1sm")
       }
    }
    
    var mainLabelText: String {
       switch self {
-      case .SetupProfile: return "Setup and complete your profile"
-      case .AddPayments: return "Add your payment options"
-      case .BuyOrSell: return "Buy or sell Swipes"
+		case .DontAbuseSwipeMeal: return "Unlimited Swipes Prohibited"
+      case .SetupProfile: return "Setup and Complete Your Profile"
+      case .AddPayments: return "Add your Payment Options"
+      case .BuyOrSell: return "Buy or Sell Swipes"
+		case .ReferAFriend: return "Refer a Friend"
       }
    }
    
    var subLabelText: String {
       switch self {
+		case .DontAbuseSwipeMeal: return "Swipe Meal does not condone the sale of Swipes if it's prohibited by the school."
       case .SetupProfile: return "A complete profile helps others identify you while you buy and/or sell Swipes."
       case .AddPayments: return "Setup your payment options to buy and sell Swipes instantly."
       case .BuyOrSell: return "You can find Swipes for sale near you or sell Swipes for cash."
+		case .ReferAFriend: return "You can refer a friend via your profile page, and get $1 upon their first buy or sell of a Swipe."
       }
    }
    
    var nextButtonText: String {
-      return self != .BuyOrSell ? "Next" : "Got it!"
+		switch self {
+		case .DontAbuseSwipeMeal: return "I Agree"
+		case .ReferAFriend: return "Got it!"
+		default: return "Next"
+		}
    }
    
    var pageControlIndex: Int {
       switch self {
-      case .SetupProfile: return 0
-      case .AddPayments: return 1
-      case .BuyOrSell: return 2
+		case .DontAbuseSwipeMeal: return 0
+      case .SetupProfile: return 1
+      case .AddPayments: return 2
+      case .BuyOrSell: return 3
+		case .ReferAFriend: return 4
       }
    }
 }
@@ -86,7 +102,7 @@ class WelcomeViewController: UIViewController
    weak var delegate: WelcomeViewControllerDelegate?
    
    override func viewWillAppear(animated: Bool) {
-      _currentMode = .SetupProfile
+      _currentMode = .DontAbuseSwipeMeal
       _updateUI(_currentMode)
    }
    
