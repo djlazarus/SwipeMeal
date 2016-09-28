@@ -103,6 +103,16 @@
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
+
+						 if (!SwipeMealUserStorage.hasMadeFirstPurchaseOrSale) {
+							 SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
+							 
+							 NSString* referralUID = SwipeMealUserStorage.referralUID;
+							 if (referralUID != NULL) {
+								 // TODO: Send user with referralUID a payment of $1
+							 }
+						 }
+						 
                     [self notifySwipeSeller];
                     NSLog(@"%@", response);
                 }

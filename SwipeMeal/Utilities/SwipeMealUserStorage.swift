@@ -18,9 +18,14 @@ private enum SwipeMealUserStorageKey: String
    }
 }
 
-struct SwipeMealUserStorage
+class SwipeMealUserStorage: NSObject
 {
    let user: SwipeMealUser
+	
+	init(user: SwipeMealUser) {
+		self.user = user
+		super.init()
+	}
    
    var profileSetupComplete: Bool {
       get {
@@ -33,7 +38,25 @@ struct SwipeMealUserStorage
          let key = SwipeMealUserStorageKey.ProfileSetupComplete.keyName(user)
          defaults.setBool(newValue, forKey: key)
       }
-   }
+	}
+	
+	static var referralUID: String? {
+		get {
+			return Defaults[.referralUID]
+		}
+		set {
+			Defaults[.referralUID] = newValue
+		}
+	}
+	
+	static var hasMadeFirstPurchaseOrSale: Bool {
+		get {
+			return Defaults[.hasMadeFirstPurchaseOrSale]
+		}
+		set {
+			Defaults[.hasMadeFirstPurchaseOrSale] = newValue
+		}
+	}
 }
 
 struct SwipeMealPushStorage {
@@ -69,4 +92,6 @@ extension DefaultsKeys {
 	static let oneSignalPlayerID = DefaultsKey<String?>("com.SwipeMeal.oneSignalPlayerID")
 	static let deviceToken = DefaultsKey<String?>("com.SwipeMeal.deviceToken")
 	static let instanceIDToken = DefaultsKey<String?>("com.SwipeMeal.instanceIDToken")
+	static let referralUID = DefaultsKey<String?>("com.SwipeMeal.referralUID")
+	static let hasMadeFirstPurchaseOrSale = DefaultsKey<Bool>("com.SwipeMeal.hasMadeFirstPurchaseOrSale")
 }

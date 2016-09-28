@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 			if metadata != nil {
 				if let referralSenderID = metadata["referral_sender_uid"] as? String {
 					print("--- BRANCH.IO --- Referral: \(referralSenderID)")
+					SwipeMealUserStorage.referralUID = referralSenderID
 				}
 			}
 		}
