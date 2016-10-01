@@ -18,10 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBarView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableDictionary *messageHeights;
 @property (strong, nonatomic) Message *selectedMessage;
 @property (strong, nonatomic) MessageService *messageService;
-@property (nonatomic) CGFloat defaultMessageHeight;
 
 @end
 
@@ -40,11 +38,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
-    
-    // Set the default height for a message
-    self.defaultMessageHeight = 60.0; // 60 == message cell's main image
-    self.messageHeights = [NSMutableDictionary dictionary];
-    
+
     // Listen for notifications telling us that a message detail window has been tapped to close
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMessageDetail) name:@"didTapToCloseMessageDetail" object:nil];
     
