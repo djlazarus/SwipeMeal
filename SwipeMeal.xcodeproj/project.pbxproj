@@ -643,7 +643,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE2782DA1CE7EA4200039014 /* Build configuration list for PBXNativeTarget "SwipeMeal" */;
 			buildPhases = (
-				C1DA5E1180471596875048E4 /* 📦 Check Pods Manifest.lock */,
+				C1DA5E1180471596875048E4 /* [CP] Check Pods Manifest.lock */,
 				81B39880DF2E6F6DC5ABF358 /* [CP] Check Pods Manifest.lock */,
 				9723AC5683DF4F24CFB54F06 /* [CP] Check Pods Manifest.lock */,
 				CE2782C41CE7EA4200039014 /* Sources */,
@@ -675,8 +675,9 @@
 				TargetAttributes = {
 					CE2782C71CE7EA4200039014 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 49BYD5B64K;
+						DevelopmentTeam = H2JK3H4BH7;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -816,14 +817,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C1DA5E1180471596875048E4 /* 📦 Check Pods Manifest.lock */ = {
+		C1DA5E1180471596875048E4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1101,11 +1102,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SwipeMeal/SwipeMeal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = H2JK3H4BH7;
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swipemeal.swipemeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwipeMeal-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1120,10 +1125,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SwipeMeal/SwipeMeal.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = H2JK3H4BH7;
 				INFOPLIST_FILE = SwipeMeal/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swipemeal.swipemeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwipeMeal-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

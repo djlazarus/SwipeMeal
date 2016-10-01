@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Welcome-->
@@ -16,26 +17,23 @@
                         <viewControllerLayoutGuide type="bottom" id="il9-pU-ZBn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9ld-b3-jhS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-j3-Xbt">
-                                <rect key="frame" x="20" y="337" width="280" height="153"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Setup and complete your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-y4-cUQ">
-                                        <rect key="frame" x="0.0" y="1" width="280" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup and complete your profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ze-y4-cUQ">
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A complete profile helps others identify you while you buy and/or sell your swipes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-q1-nVt">
-                                        <rect key="frame" x="0.0" y="81" width="280" height="54"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A complete profile helps others identify you while you buy and/or sell your swipes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-q1-nVt">
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="3ze-y4-cUQ" firstAttribute="leading" secondItem="S4t-j3-Xbt" secondAttribute="leading" id="RAI-Im-Gz2"/>
                                     <constraint firstItem="BPD-q1-nVt" firstAttribute="top" secondItem="3ze-y4-cUQ" secondAttribute="bottom" constant="20" id="TCv-hW-Cal"/>
@@ -46,37 +44,32 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPA-GL-HTk" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="221" y="510" width="52" height="38"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_nextButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="toL-a4-GaP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr6-Lt-Im7" customClass="SwipeMealRoundedButton" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="21" y="511" width="79" height="38"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Previous">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_previousButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="Y95-CS-x3J"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1sm" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
-                                <rect key="frame" x="48" y="73" width="224" height="224"/>
-                                <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NRX-bi-BDE" secondAttribute="height" multiplier="1:1" id="YLc-Wi-qYE"/>
                                 </constraints>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-n1-Ev1">
-                                <rect key="frame" x="125" y="511" width="71" height="37"/>
-                            </pageControl>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="1lX-n1-Ev1"/>
                         </subviews>
-                        <color key="backgroundColor" red="0.2156862745" green="0.29803921570000003" blue="0.33725490200000002" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.16495420038700104" green="0.23226518929004669" blue="0.26715320348739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="NRX-bi-BDE" firstAttribute="centerY" secondItem="9ld-b3-jhS" secondAttribute="centerY" multiplier="0.65" id="7hI-vU-Xyi"/>
@@ -95,7 +88,6 @@
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="_imageView" destination="NRX-bi-BDE" id="6Mr-Uw-jv8"/>
                         <outlet property="_mainLabel" destination="3ze-y4-cUQ" id="jl3-NU-gri"/>
@@ -108,7 +100,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Nh-At-tVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="RDq-sc-ISc"/>
             </objects>
-            <point key="canvasLocation" x="840.5" y="203.5"/>
+            <point key="canvasLocation" x="466" y="203"/>
         </scene>
         <!--Profile-->
         <scene sceneID="giR-zV-X81">
@@ -119,49 +111,43 @@
                         <viewControllerLayoutGuide type="bottom" id="YQY-7Y-oyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cQj-4v-0mK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-bE-kNH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Xwf-DP-pz2"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arZ-dK-7q2">
-                                <rect key="frame" x="25" y="94" width="270" height="126"/>
                                 <string key="text">Swipe Meal requires a profile image. This helps to identify who the buyer or seller is in a transaction. You can change your profile image later, but you will not be able to buy or sell Swipes until you import a profile image.</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfF-Yp-bfB">
-                                <rect key="frame" x="0.0" y="484" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ixY-c0-9UP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="_continueButtonPressed" destination="Rjl-7Z-64Z" eventType="touchUpInside" id="w9F-gN-o1k"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rz6-y5-PgY">
-                                <rect key="frame" x="0.0" y="219" width="320" height="265"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69X-ZL-GEM" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
-                                        <rect key="frame" x="64" y="37" width="192" height="192"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="69X-ZL-GEM" secondAttribute="height" multiplier="1:1" id="FJi-vA-EnF"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-qC-a9Q" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
-                                        <rect key="frame" x="216" y="109" width="48" height="48"/>
-                                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="knQ-Ch-Y9q"/>
                                             <constraint firstAttribute="height" constant="48" id="m1g-f9-ftk"/>
@@ -169,14 +155,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                         <state key="normal" title="+">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="_addImageButtonPressed" destination="Rjl-7Z-64Z" eventType="touchUpInside" id="ds5-Nm-LzT"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="69X-ZL-GEM" firstAttribute="width" secondItem="Rz6-y5-PgY" secondAttribute="width" multiplier="0.6" id="DFn-9R-orW"/>
                                     <constraint firstItem="69X-ZL-GEM" firstAttribute="centerY" secondItem="Rz6-y5-PgY" secondAttribute="centerY" id="r8I-Re-tYE"/>
@@ -186,7 +172,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="arZ-dK-7q2" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" constant="25" id="4YY-3A-W7s"/>
                             <constraint firstItem="ce2-bE-kNH" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" id="HNB-Rd-n9I"/>
@@ -205,7 +191,6 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="_continueButton" destination="ZfF-Yp-bfB" id="g6t-ay-elF"/>
                         <outlet property="_imageView" destination="69X-ZL-GEM" id="Ssy-kw-Ymv"/>

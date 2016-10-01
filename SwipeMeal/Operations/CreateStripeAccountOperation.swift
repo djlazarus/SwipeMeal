@@ -60,7 +60,7 @@ class CreateStripeAccountOperation: BaseOperation {
 			return
 		}
 		
-		SwiftSpinner.show("Creating Stripe Account...")
+		SwiftSpinner.show("Creating Account...")
 		let service = StripePaymentService.shared()
 		
 		print("creating account for: \(email), with ipAddress: \(ipAddress)")

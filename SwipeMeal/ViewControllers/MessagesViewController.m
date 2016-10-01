@@ -18,10 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBarView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableDictionary *messageHeights;
 @property (strong, nonatomic) Message *selectedMessage;
 @property (strong, nonatomic) MessageService *messageService;
-@property (nonatomic) CGFloat defaultMessageHeight;
 
 @end
 
@@ -40,11 +38,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
-    
-    // Set the default height for a message
-    self.defaultMessageHeight = 60.0; // 60 == message cell's main image
-    self.messageHeights = [NSMutableDictionary dictionary];
-    
+
     // Listen for notifications telling us that a message detail window has been tapped to close
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMessageDetail) name:@"didTapToCloseMessageDetail" object:nil];
     
@@ -67,17 +61,6 @@
     return count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Compare the stored message height to the default message height.
-    // If the stored height is greater, return it. Otherwise, return the default height.
-    CGFloat height = [[self.messageHeights objectForKey:indexPath] floatValue];
-    if (height > self.defaultMessageHeight) {
-        return height;
-    }
-    
-    return self.defaultMessageHeight;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessagesTableViewCell *cell = (MessagesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MessagesTableViewCell" forIndexPath:indexPath];
     Message *message = [self.messageService.messages objectAtIndex:indexPath.row];
@@ -88,18 +71,6 @@
     // Image
     if (!message.mainImage) {
         [self startDownloadingProfileImageForUserID:message.fromUID atIndexPath:indexPath];
-    }
-    
-    // Force cell layout so we get an accurate message height.
-    [cell layoutIfNeeded];
-
-    // Compare the cell's message height to our stored message height.
-    // If they're different (i.e. the cell's message height has changed), store the new height.
-    CGFloat height = [[self.messageHeights objectForKey:indexPath] floatValue];
-    if (cell.messageHeight != height) {
-        [self.messageHeights setObject:@(cell.messageHeight) forKey:indexPath];
-        // Reload this row so the cell gets a proper height.
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
 
     // Cell background color

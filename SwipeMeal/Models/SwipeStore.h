@@ -14,7 +14,7 @@
 + (SwipeStore *)sharedSwipeStore;
 - (BOOL)containsSwipeKey:(NSString *)key;
 - (void)addSwipe:(Swipe *)swipe forKey:(NSString *)key;
-- (void)removeSwipe:(Swipe *)swipe forKey:(NSString *)key;
+- (void)removeSwipeForKey:(NSString *)key;
 - (Swipe *)swipeForKey:(NSString *)key;
 - (NSArray *)swipesSortedByPriceAscending;
 
