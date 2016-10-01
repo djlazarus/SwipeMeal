@@ -56,22 +56,27 @@
             [self sellerIsActiveWithSnapshot:snapshot completionBlock:^{
                 // Build Swipe
                 Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-                if ([self.swipeStore containsSwipeKey:swipe.swipeID]) {
-                    updateBlock();
-                } else {
+                if (swipe.isForSale) {
                     [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
                     NSLog(@"Added Swipe: %@", swipe);
                     addBlock();
+                } else {
+                    [self.swipeStore removeSwipeForKey:swipe.swipeID];
+                    NSLog(@"Removed Swipe: %@", swipe);
+                    removeBlock();
                 }
             }];
         }
     }];
     
-    [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildRemoved withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildChanged withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-        [self.swipeStore removeSwipe:swipe forKey:swipe.swipeID];
-        NSLog(@"Removed Swipe: %@", snapshot);
-        removeBlock();
+        [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
+        if (!swipe.isForSale) {
+            [self.swipeStore removeSwipeForKey:swipe.swipeID];
+        }
+        NSLog(@"Updated Swipe: %@", swipe);
+        updateBlock();
     }];
 }
 
@@ -106,6 +111,7 @@
     swipe.listingTime = [[values objectForKey:@"listing_time"] floatValue];
     swipe.expireTime = [[values objectForKey:@"expiration_time"] floatValue];
 	swipe.availableTime = [[values objectForKey:@"available_time"] doubleValue];
+    swipe.forSale = [[values objectForKey:@"is_for_sale"] boolValue];
 
     return swipe;
 }
@@ -142,18 +148,15 @@
                                 @"seller_name":swipe.listingUserName,
                                 @"listing_time":@(swipe.listingTime),
                                 @"location_name":swipe.locationName,
-                                @"seller_rating":@(swipe.listingUserRating)};
-    NSDictionary *childUpdates = @{[@"/swipes-sold/" stringByAppendingString:swipe.swipeID]: swipeDict,
-                                   [NSString stringWithFormat:@"/user-swipes-sold/%@/%@/", userID, swipe.swipeID]: swipeDict};
+                                @"seller_rating":@(swipe.listingUserRating),
+                                @"is_for_sale":@(NO)};
+    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:swipe.swipeID]: swipeDict,
+                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, swipe.swipeID]: swipeDict};
     
     [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
         if (error) {
             NSLog(@"%@", error);
         } else {
-            // Remove the listing
-            [[[self.dbRef child:@"swipes-listed"] child:swipe.swipeID] removeValue];
-            [[[[self.dbRef child:@"user-swipes-listed"] child:userID] child:swipe.swipeID] removeValue];
-            
             completionBlock();
         }
     }];

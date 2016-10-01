@@ -44,7 +44,7 @@
     [_swipesBySwipeID setObject:swipe forKey:key];
 }
 
-- (void)removeSwipe:(Swipe *)swipe forKey:(NSString *)key {
+- (void)removeSwipeForKey:(NSString *)key {
     [_swipesBySwipeID removeObjectForKey:key];
 }
 
