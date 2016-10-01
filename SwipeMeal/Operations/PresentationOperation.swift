@@ -35,42 +35,42 @@ class PresentationOperation: BaseOperation
    {
    }
    
-   internal func presentViewController(controller: UIViewController, completion: (() -> Void)? = nil)
+   internal func presentViewController(_ controller: UIViewController, completion: (() -> Void)? = nil)
    {
       guard let presentationContext = _viewControllerPresentationContext else { return }
-      dispatch_async(dispatch_get_main_queue()) {
-         presentationContext.presentViewController(controller, animated: true, completion: completion)
+      DispatchQueue.main.async {
+         presentationContext.present(controller, animated: true, completion: completion)
       }
    }
    
-   internal func dismissViewController(controller: UIViewController, completion: (() -> Void)? = nil)
+   internal func dismissViewController(_ controller: UIViewController, completion: (() -> Void)? = nil)
    {
-      dispatch_async(dispatch_get_main_queue()) { 
-         controller.dismissViewControllerAnimated(true, completion: completion)
+      DispatchQueue.main.async { 
+         controller.dismiss(animated: true, completion: completion)
       }
    }
    
-   internal func pushViewController(controller: UIViewController)
+   internal func pushViewController(_ controller: UIViewController)
    {
       guard let presentationContext = _navigationControllerPresentationContext else { return }
-      dispatch_async(dispatch_get_main_queue()) {
+      DispatchQueue.main.async {
          presentationContext.pushViewController(controller, animated: true)
       }
    }
    
-   internal func popTopmostViewController(animated: Bool = true)
+   internal func popTopmostViewController(_ animated: Bool = true)
    {
       guard let presentationContext = _navigationControllerPresentationContext else { return }
-      dispatch_async(dispatch_get_main_queue()) {
-         presentationContext.popViewControllerAnimated(animated)
+      DispatchQueue.main.async {
+         presentationContext.popViewController(animated: animated)
       }
    }
    
-   internal func popToRootViewController(animated: Bool = true)
+   internal func popToRootViewController(_ animated: Bool = true)
    {
       guard let presentationContext = _navigationControllerPresentationContext else { return }
-      dispatch_async(dispatch_get_main_queue()) {
-         presentationContext.popToRootViewControllerAnimated(animated)
+      DispatchQueue.main.async {
+         presentationContext.popToRootViewController(animated: animated)
       }
    }
 }

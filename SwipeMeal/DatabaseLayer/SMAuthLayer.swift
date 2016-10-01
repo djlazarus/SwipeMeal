@@ -9,25 +9,25 @@
 import Foundation
 import FirebaseAuth
 
-typealias UserSignInCompletion = (user: SwipeMealUser?, error: NSError?) -> Void
-typealias CreateUserCompletion = (user: SwipeMealUser?, error: NSError?) -> Void
-typealias SendEmailVerificationCompletion = (error: NSError?) -> Void
-typealias ReloadUserProfileCompletion = (error: NSError?) -> Void
-typealias UpdateUserProfileCompletion = (error: NSError?) -> Void
+typealias UserSignInCompletion = (_ user: SwipeMealUser?, _ error: Error?) -> Void
+typealias CreateUserCompletion = (_ user: SwipeMealUser?, _ error: Error?) -> Void
+typealias SendEmailVerificationCompletion = (_ error: Error?) -> Void
+typealias ReloadUserProfileCompletion = (_ error: Error?) -> Void
+typealias UpdateUserProfileCompletion = (_ error: Error?) -> Void
 
 struct SMAuthLayer
 {	
-   static func createUser(email: String, password: String, completion: CreateUserCompletion?)
+   static func createUser(_ email: String, password: String, completion: CreateUserCompletion?)
    {
-      FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
-         completion?(user: user, error: error)
+      FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+         completion?(user, error)
       })
    }
    
-   static func signIn(email: String, password: String, completion: UserSignInCompletion?)
+   static func signIn(_ email: String, password: String, completion: UserSignInCompletion?)
    {
-      FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
-         completion?(user: user, error: error)
+      FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+         completion?(user, error)
       })
    }
    

@@ -20,11 +20,11 @@ class SwipeMealNavigationBar: UINavigationBar, TransparencyAdjustable
       _commonInit()
    }
    
-   private func _commonInit()
+   fileprivate func _commonInit()
    {
       makeTransparent()
       
-      barStyle = .Black
-      titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+      barStyle = .black
+      titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
    }
 }

@@ -27,7 +27,7 @@ protocol SwipeMealUser
    /** @property photoURL
     @brief The URL of the user's profile photo.
     */
-   var photoURL: NSURL? { get }
+   var photoURL: URL? { get }
    
    /** @property email
     @brief The user's email address.
@@ -41,11 +41,11 @@ protocol SwipeMealUser
    
    var profileSetupComplete: Bool { get }
 	
-	func updatePhotoURL(url: NSURL, completion: UpdateUserProfileCompletion?)
-	func updateDisplayName(name: String, completion: UpdateUserProfileCompletion?)
+	func updatePhotoURL(_ url: URL, completion: UpdateUserProfileCompletion?)
+	func updateDisplayName(_ name: String, completion: UpdateUserProfileCompletion?)
 	
-   func reload(completion: ReloadUserProfileCompletion?)
-   func sendEmailVerification(completion: SendEmailVerificationCompletion?)
+   func reload(_ completion: ReloadUserProfileCompletion?)
+   func sendEmailVerification(_ completion: SendEmailVerificationCompletion?)
 	
 	func signOut()
 }
@@ -53,8 +53,8 @@ protocol SwipeMealUser
 extension SwipeMealUser {
 	var groupID: String? {
 		guard let email = email else { return nil }
-		guard let lastComponent = email.componentsSeparatedByString("@").last else { return nil }
-		return lastComponent.stringByReplacingOccurrencesOfString(".", withString: "-")
+		guard let lastComponent = email.components(separatedBy: "@").last else { return nil }
+		return lastComponent.replacingOccurrences(of: ".", with: "-")
 	}
 	
 	func rate(userWithUID uid: String, value: Int) {

@@ -12,11 +12,11 @@ private class ErrorPresenterViewController: UIViewController
 {
 	private var _isVisible = false
 	private lazy var _okAction: UIAlertAction = {
-		return UIAlertAction(title: "OK", style: .Default, handler: nil)
+		return UIAlertAction(title: "OK", style: .default, handler: nil)
 	}()
 	
-	private func _okAction(completion: (UIAlertAction -> Void)? = nil) -> UIAlertAction {
-		return UIAlertAction(title: "OK", style: .Default, handler: completion)
+	private func _okAction(completion: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+		return UIAlertAction(title: "OK", style: .default, handler: completion)
 	}
 	
 	override func viewDidLoad() {
@@ -24,30 +24,32 @@ private class ErrorPresenterViewController: UIViewController
 		view.alpha = 0
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		_isVisible = true
 	}
 	
-	override func viewWillDisappear(animated: Bool) {
+	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		_isVisible = false
 	}
 	
-	override func present(error: NSError, completion: (UIAlertAction -> Void)? = nil) {
+	override func present(error: NSError, completion: ((UIAlertAction) -> Void)? = nil) {
 		guard _isVisible == true else { return }
 		
-		let alertController = UIAlertController(title: error.localizedDescription, message: error.localizedFailureReason, preferredStyle: .Alert)
-		alertController.addAction(_okAction(completion))
-		presentViewController(alertController, animated: true, completion: nil)
+		let alertController = UIAlertController(title: error.localizedDescription, message: error.localizedFailureReason, preferredStyle: .alert)
+		alertController.addAction(_okAction(completion: completion))
+		
+		
+		present(alertController, animated: true, completion: nil)
 	}
 	
-	override func presentMessage(message: String, completion: (UIAlertAction -> Void)? = nil) {
+	override func presentMessage(message: String, completion: ((UIAlertAction) -> Void)? = nil) {
 		guard _isVisible == true else { return }
 		
-		let alertController = UIAlertController(title: message, message: nil, preferredStyle: .Alert)
-		alertController.addAction(_okAction(completion))
-		presentViewController(alertController, animated: true, completion: nil)
+		let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+		alertController.addAction(_okAction(completion: completion))
+		present(alertController, animated: true, completion: nil)
 	}
 }
 
@@ -66,21 +68,21 @@ public extension UIViewController
 	private func _createAndAddErrorPresenter() -> ErrorPresenterViewController {
 		let errorPresenter = ErrorPresenterViewController()
 		addChildViewController(errorPresenter)
-		errorPresenter.didMoveToParentViewController(self)
+		errorPresenter.didMove(toParentViewController: self)
 		
 		view.addSubview(errorPresenter.view)
 		return errorPresenter
 	}
 	
-	public func present(error: NSError, completion: (UIAlertAction -> Void)? = nil) {
-		dispatch_async(dispatch_get_main_queue()) {
-			self.errorPresenter.present(error, completion: completion)
+	public func present(error: NSError, completion: ((UIAlertAction) -> Void)? = nil) {
+		DispatchQueue.main.async {
+			self.errorPresenter.present(error: error, completion: completion)
 		}
 	}
 	
-	public func presentMessage(message: String, completion: (UIAlertAction -> Void)? = nil) {
-		dispatch_async(dispatch_get_main_queue()) {
-			self.errorPresenter.presentMessage(message, completion: completion)
+	public func presentMessage(message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+		DispatchQueue.main.async {
+			self.errorPresenter.presentMessage(message: message, completion: completion)
 		}
 	}
 	
@@ -100,27 +102,27 @@ public extension UIViewController
 	}
 	
 	public func updateLeftBarButtonItem(withImageName name: String, action: Selector) {
-		let item = UIBarButtonItem(image: UIImage(named: name), style: .Plain, target: self, action: action)
+		let item = UIBarButtonItem(image: UIImage(named: name), style: .plain, target: self, action: action)
 		navigationItem.setLeftBarButtonItems([item], animated: false)
 	}
 	
 	public func updateRightBarButtonItem(withImageName name: String, action: Selector) {
-		let item = UIBarButtonItem(image: UIImage(named: name), style: .Plain, target: self, action: action)
+		let item = UIBarButtonItem(image: UIImage(named: name), style: .plain, target: self, action: action)
 		navigationItem.setRightBarButtonItems([item], animated: false)
 	}
 	
 	public func updateLeftBarButtonItem(withTitle title: String, action: Selector) {
-		let item = UIBarButtonItem(title: title, style: .Plain, target: self, action: action)
+		let item = UIBarButtonItem(title: title, style: .plain, target: self, action: action)
 		navigationItem.setLeftBarButtonItems([item], animated: false)
 	}
 	
 	public func updateRightBarButtonItem(withTitle title: String, action: Selector) {
-		let item = UIBarButtonItem(title: title, style: .Plain, target: self, action: action)
+		let item = UIBarButtonItem(title: title, style: .plain, target: self, action: action)
 		navigationItem.setRightBarButtonItems([item], animated: false)
 	}
 	
 	@objc private func ik_backButtonPressed() {
-		navigationController?.popViewControllerAnimated(true)
+		navigationController?.popViewController(animated: true)
 	}
 	
 	// MARK: - Navigation Bar
@@ -153,13 +155,13 @@ public extension UIViewController
 	func add(childViewController vc: UIViewController, toContainer container: UIView) {
 		addChildViewController(vc)
 		container.addAndFill(subview: vc.view)
-		vc.didMoveToParentViewController(self)
+		vc.didMove(toParentViewController: self)
 	}
 	
 	// MARK: - Initialization
 	public static var className: String {
 		let classString = NSStringFromClass(self)
-		let components = classString.componentsSeparatedByString(".")
+		let components = classString.components(separatedBy: ".")
 		assert(components.count > 0, "Failed extract class name from \(classString)")
 		return components.last!
 	}
@@ -167,20 +169,20 @@ public extension UIViewController
 	// This method only works if the view controller's ID is the same as the class name
 	public class func instantiate(fromStoryboard name: String) -> Self {
 		let storyboard = UIStoryboard(name: name, bundle: nil)
-		return instantiateFromStoryboard(storyboard, type: self)
+		return instantiateFromStoryboard(storyboard: storyboard, type: self)
 	}
 	
 	private class func instantiateFromStoryboard<T: UIViewController>(storyboard: UIStoryboard, type: T.Type) -> T {
-		return storyboard.instantiateViewControllerWithIdentifier(self.className) as! T
+		return storyboard.instantiateViewController(withIdentifier: self.className) as! T
 	}
 }
 
 public extension UIViewControllerContextTransitioning {
 	public var toViewController: UIViewController? {
-		return viewControllerForKey(UITransitionContextToViewControllerKey)
+		return viewController(forKey: UITransitionContextViewControllerKey.to)
 	}
 	
 	public var fromViewController: UIViewController? {
-		return viewControllerForKey(UITransitionContextFromViewControllerKey)
+		return viewController(forKey: UITransitionContextViewControllerKey.from)
 	}
 }

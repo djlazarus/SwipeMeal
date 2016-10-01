@@ -10,21 +10,21 @@ import Foundation
 
 enum SignUpInfoInvalidStatus
 {
-   case FirstNameEmpty, LastNameEmpty, EmailEmpty, InvalidEmail(email: String), PasswordEmpty, PasswordsDoNotMatch, InvalidUniversityEmail(university: String, email: String)
+   case firstNameEmpty, lastNameEmpty, emailEmpty, invalidEmail(email: String), passwordEmpty, passwordsDoNotMatch, invalidUniversityEmail(university: String, email: String)
    
-   private func valid(info: SignUpInfo) -> Bool {
+   fileprivate func valid(_ info: SignUpInfo) -> Bool {
       switch self {
-      case .FirstNameEmpty: return info.firstName != ""
-      case .LastNameEmpty: return info.lastName != ""
-      case .EmailEmpty: return info.email != ""
-      case .InvalidEmail(_): return info.email.isValidEmail
-      case .PasswordEmpty: return info.password != ""
-      case .PasswordsDoNotMatch: return info.password == info.confirmedPassword
-      case .InvalidUniversityEmail(_, _): return true//info.email.isUniversityEmail
+      case .firstNameEmpty: return info.firstName != ""
+      case .lastNameEmpty: return info.lastName != ""
+      case .emailEmpty: return info.email != ""
+      case .invalidEmail(_): return info.email.isValidEmail
+      case .passwordEmpty: return info.password != ""
+      case .passwordsDoNotMatch: return info.password == info.confirmedPassword
+      case .invalidUniversityEmail(_, _): return true//info.email.isUniversityEmail
       }
    }
    
-   private static func status(info: SignUpInfo) -> SignUpInfoInvalidStatus?
+   fileprivate static func status(_ info: SignUpInfo) -> SignUpInfoInvalidStatus?
    {
       var invalidStatus: SignUpInfoInvalidStatus?
       for status in SignUpInfoInvalidStatus.all(info) {
@@ -36,40 +36,40 @@ enum SignUpInfoInvalidStatus
       return invalidStatus
    }
    
-   private static func all(info: SignUpInfo) -> [SignUpInfoInvalidStatus]
+   fileprivate static func all(_ info: SignUpInfo) -> [SignUpInfoInvalidStatus]
    {
       return [
-         .FirstNameEmpty,
-         .LastNameEmpty,
-         .EmailEmpty,
-         .InvalidEmail(email: info.email),
-         .PasswordEmpty,
-         .PasswordsDoNotMatch,
-         .InvalidUniversityEmail(university: "", email: info.email)
+         .firstNameEmpty,
+         .lastNameEmpty,
+         .emailEmpty,
+         .invalidEmail(email: info.email),
+         .passwordEmpty,
+         .passwordsDoNotMatch,
+         .invalidUniversityEmail(university: "", email: info.email)
       ]
    }
    
    var title: String {
       switch self {
-      case .FirstNameEmpty: return "Invalid First Name"
-      case .LastNameEmpty: return "Invalid Last Name"
-      case .EmailEmpty: return "Invalid Email"
-      case .InvalidEmail(_): return "Invalid Email"
-      case .PasswordEmpty: return "Invalid Password"
-      case .PasswordsDoNotMatch: return "Incorrect Confirmed Password"
-      case .InvalidUniversityEmail(_, _): return "Unsupported Email"
+      case .firstNameEmpty: return "Invalid First Name"
+      case .lastNameEmpty: return "Invalid Last Name"
+      case .emailEmpty: return "Invalid Email"
+      case .invalidEmail(_): return "Invalid Email"
+      case .passwordEmpty: return "Invalid Password"
+      case .passwordsDoNotMatch: return "Incorrect Confirmed Password"
+      case .invalidUniversityEmail(_, _): return "Unsupported Email"
       }
    }
    
    var errorMessage: String {
       switch self {
-      case .FirstNameEmpty: return "The First Name field is empty. Please enter your first name."
-      case .LastNameEmpty: return "The Last Name field is empty. Please enter your last name."
-      case .EmailEmpty: return "The E-mail field is empty. Please enter your email address"
-      case .InvalidEmail(let email): return "\(email) is not a valid email address. Please enter a valid email address."
-      case .PasswordEmpty: return "The Password field is empty. Please enter a password."
-      case .PasswordsDoNotMatch: return "The Password and Confirmed Password fields do not match."
-      case .InvalidUniversityEmail(_, let email): return "The email address \(email) is not a valid university email."
+      case .firstNameEmpty: return "The First Name field is empty. Please enter your first name."
+      case .lastNameEmpty: return "The Last Name field is empty. Please enter your last name."
+      case .emailEmpty: return "The E-mail field is empty. Please enter your email address"
+      case .invalidEmail(let email): return "\(email) is not a valid email address. Please enter a valid email address."
+      case .passwordEmpty: return "The Password field is empty. Please enter a password."
+      case .passwordsDoNotMatch: return "The Password and Confirmed Password fields do not match."
+      case .invalidUniversityEmail(_, let email): return "The email address \(email) is not a valid university email."
       }
    }
 }

@@ -18,62 +18,61 @@ private let kUserGroupsPathName = "user-groups"
 private let kUserProfileSetupCompletePathName = "profile_setup_complete"
 private let kUserRatingsPathName = "ratings"
 
-typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> Void
+typealias UserDataUploadCompletion = (_ error: NSError?, _ downloadURL: URL?) -> Void
 
 @objc class SMDatabaseLayer: NSObject
 {
-	static func upload(profileImage: UIImage, forSwipeMealUser user: SwipeMealUser, completion: UserDataUploadCompletion? = nil)
+	static func upload(_ profileImage: UIImage, forSwipeMealUser user: SwipeMealUser, completion: UserDataUploadCompletion? = nil)
 	{
 		guard let imageData = UIImageJPEGRepresentation(profileImage, 0.5) else { return }
 		
 		let storage = FIRStorage.storage()
-		let imagesRef = storage.referenceForURL(kStorageURL).child(kProfileImagesPathName)
+		let imagesRef = storage.reference(forURL: kStorageURL).child(kProfileImagesPathName)
 		
 		let fileName = "\(user.uid).jpg"
 		let profileImageRef = imagesRef.child(fileName)
 		
-		profileImageRef.putData(imageData, metadata: nil) { (metadata, error) in
+		profileImageRef.put(imageData, metadata: nil) { (metadata, error) in
 			
 			let url = metadata?.downloadURL()
-			completion?(error: error, downloadURL: url)
+			completion?(error as NSError?, url)
 		}
 	}
 	
-	static func setProfileSetupComplete(complete: Bool, forUser user: SwipeMealUser)
+	static func setProfileSetupComplete(_ complete: Bool, forUser user: SwipeMealUser)
 	{
 		let ref = FIRDatabase.database().reference()
 		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
 		userInfoRef.updateChildValues([kUserProfileSetupCompletePathName : complete])
 		
-		var storage = SwipeMealUserStorage(user: user)
+		let storage = SwipeMealUserStorage(user: user)
 		storage.profileSetupComplete = complete
 	}
 	
-	static func addUserToDatabase(user: SwipeMealUser)
+	static func addUserToDatabase(_ user: SwipeMealUser)
 	{
 		let ref = FIRDatabase.database().reference()
 		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
 		
-		var storage = SwipeMealUserStorage(user: user)
+		let storage = SwipeMealUserStorage(user: user)
 		userInfoRef.updateChildValues([kUserProfileSetupCompletePathName : storage.profileSetupComplete])
 	}
 	
-	static func profileSetupComplete(user: SwipeMealUser, callback: ((complete: Bool) -> ()))
+	static func profileSetupComplete(_ user: SwipeMealUser, callback: @escaping ((_ complete: Bool) -> ()))
 	{
-		let ref = FIRDatabase.database().reference()
-		let userInfoRef = ref.child("\(kUsersPathName)/\(user.uid)/\(kUserInfoPathName)")
-		userInfoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-			
-			var complete = false
-			if let readValue = snapshot.value?[kUserProfileSetupCompletePathName] as? Bool {
-				complete = readValue
-			}
-			
-			callback(complete: complete)
-		})
+//		let ref = FIRDatabase.database().reference()
+//		let userInfoRef = ref.child("\(kUsersPathName)/\(user.uid)/\(kUserInfoPathName)")
+//		userInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
+		
+//			var complete = false
+//			if let readValue = snapshot.value?[kUserProfileSetupCompletePathName] as? Bool {
+//				complete = readValue
+//			}
+//			callback(complete)
+//		})
 	}
 	
-	static func addUserToRespectiveGroup(user: SwipeMealUser) {
+	static func addUserToRespectiveGroup(_ user: SwipeMealUser) {
 		guard let groupID = user.groupID else { return }
 		
 		let ref = FIRDatabase.database().reference()
@@ -93,11 +92,11 @@ typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> V
 		}
 	}
 	
-	static func requestRatings(forUser user: SwipeMealUser, callback: (ratings: [String : Int]) -> Void) {
+	static func requestRatings(forUser user: SwipeMealUser, callback: @escaping (_ ratings: [String : Int]) -> Void) {
 		let ref = FIRDatabase.database().reference()
 		let userRatingsRef = ref.child("\(kUserRatingsPathName)/\(user.uid)")
 		
-		userRatingsRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+		userRatingsRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			var ratings: [String : Int] = [:]
 			let enumerator = snapshot.children
 			while let child = enumerator.nextObject() as? FIRDataSnapshot {
@@ -106,11 +105,11 @@ typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> V
 					ratings[child.key] = value
 				}
 			}
-			callback(ratings: ratings)
+			callback(ratings)
 		})
 	}
 	
-	static func add(rating rating: Int, toUserWithUID toUID: String, fromUserWithUID fromUID: String) {
+	static func add(rating: Int, toUserWithUID toUID: String, fromUserWithUID fromUID: String) {
 		let ref = FIRDatabase.database().reference()
 		let userRatingsRef = ref.child("\(kUserRatingsPathName)/\(toUID)")
 		userRatingsRef.updateChildValues([fromUID : rating])
@@ -122,31 +121,33 @@ typealias UserDataUploadCompletion = (error: NSError?, downloadURL: NSURL?) -> V
 		userInfoRef.updateChildValues(["deviceToken": token])
 	}
 	
-	static func getDeviceToken(forUserWithUID uid: String, callback: (token: String?) -> Void) {
+	static func getDeviceToken(forUserWithUID uid: String, callback: @escaping (_ token: String?) -> Void) {
 		let ref = FIRDatabase.database().reference()
 		let userInfoRef = ref.child("\(kUsersPathName)/\(uid)/\(kUserInfoPathName)")
-		userInfoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+		userInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			
 			var token: String?
-			if let readValue = snapshot.value?["deviceToken"] as? String {
+			let value = snapshot.value as? NSDictionary
+			if let readValue = value?["deviceToken"] as? String {
 				token = readValue
 			}
 			
-			callback(token: token)
+			callback(token)
 		})
 	}
 	
-	static func getOneSignalPlayerID(forUserWithUID uid: String, callback: (oneSignalPlayerID: String?) -> Void) {
+	static func getOneSignalPlayerID(forUserWithUID uid: String, callback: @escaping (_ oneSignalPlayerID: String?) -> Void) {
 		let ref = FIRDatabase.database().reference()
 		let userInfoRef = ref.child("\(kUsersPathName)/\(uid)/\(kUserInfoPathName)")
-		userInfoRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+		userInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
 			
 			var playerID: String?
-			if let readValue = snapshot.value?["oneSignalPlayerID"] as? String {
+			let value = snapshot.value as? NSDictionary
+			if let readValue = value?["oneSignalPlayerID"] as? String {
 				playerID = readValue
 			}
 			
-			callback(oneSignalPlayerID: playerID)
+			callback(playerID)
 		})
 	}
 	

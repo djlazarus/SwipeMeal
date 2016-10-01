@@ -676,6 +676,7 @@
 					CE2782C71CE7EA4200039014 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 49BYD5B64K;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1107,6 +1108,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwipeMeal-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1124,6 +1126,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Incipia.SwipeMeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwipeMeal-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

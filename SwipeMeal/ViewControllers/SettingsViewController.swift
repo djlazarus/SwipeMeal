@@ -11,14 +11,14 @@ import Branch
 
 class SettingsViewController: UIViewController {
 	
-	private let _legalController = LegalDocumentationViewController.instantiate(fromStoryboard: "SignUp")
+	fileprivate let _legalController = LegalDocumentationViewController.instantiate(fromStoryboard: "SignUp")
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+	override var preferredStatusBarStyle : UIStatusBarStyle {
+		return .lightContent
 	}
 	
 	// MARK: - Actions
-	@IBAction private func _referAFriendButtonPressed() {
+	@IBAction fileprivate func _referAFriendButtonPressed() {
 		guard let referralUserUID = SMAuthLayer.currentUser?.uid else { return }
 		
 		let linkProperties: BranchLinkProperties = BranchLinkProperties()
@@ -27,29 +27,29 @@ class SettingsViewController: UIViewController {
 		universalObject.canonicalIdentifier = "Swipemeal"
 		
 		universalObject.addMetadataKey("referral_sender_uid", value: referralUserUID)
-		universalObject.showShareSheetWithLinkProperties(linkProperties,
+		universalObject.showShareSheet(with: linkProperties,
 		                                                 andShareText: "Download Swipemeal",
-		                                                 fromViewController: self,
+		                                                 from: self,
 		                                                 completion: nil)
 	}
 	
-	@IBAction private func _privacyPolicyButtonPressed() {
-		_legalController.type = .PrivacyPolicy
-		presentViewController(_legalController, animated: true, completion: nil)
+	@IBAction fileprivate func _privacyPolicyButtonPressed() {
+		_legalController.type = .privacyPolicy
+		present(_legalController, animated: true, completion: nil)
 	}
 	
-	@IBAction private func _termsAndConditionsButtonPressed() {
-		_legalController.type = .TermsOfUse
-		presentViewController(_legalController, animated: true, completion: nil)
+	@IBAction fileprivate func _termsAndConditionsButtonPressed() {
+		_legalController.type = .termsOfUse
+		present(_legalController, animated: true, completion: nil)
 	}
 	
-	@IBAction private func _logOutButtonPressed() {
-		dismissViewControllerAnimated(true) { 
+	@IBAction fileprivate func _logOutButtonPressed() {
+		dismiss(animated: true) { 
 			SMAuthLayer.currentUser?.signOut()
 		}
 	}
 	
-	@IBAction private func _closeButtonPressed() {
-		dismissViewControllerAnimated(true, completion: nil)
+	@IBAction fileprivate func _closeButtonPressed() {
+		dismiss(animated: true, completion: nil)
 	}
 }

@@ -12,18 +12,18 @@ public extension UIView {
 	public func addAndFill(subview subview: UIView) {
 		addSubview(subview)
 		subview.translatesAutoresizingMaskIntoConstraints = false
-		subview.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-		subview.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-		subview.leadingAnchor.constraintEqualToAnchor(leadingAnchor).active = true
-		subview.trailingAnchor.constraintEqualToAnchor(trailingAnchor).active = true
+		subview.topAnchor.constraint(equalTo: topAnchor).isActive = true
+		subview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+		subview.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+		subview.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 	}
 	
 	public func addBorder(withSize size: CGFloat, toEdge edge: UIRectEdge, padding: CGFloat = 0.0) -> UIView? {
 		switch edge {
-		case UIRectEdge.Top: return _addTopBorder(withSize: size, padding: padding)
-		case UIRectEdge.Left: return _addLeftBorder(withSize: size, padding: padding)
-		case UIRectEdge.Bottom: return _addBottomBorder(withSize: size, padding: padding)
-		case UIRectEdge.Right: return _addRightBorder(withSize: size, padding: padding)
+		case UIRectEdge.top: return _addTopBorder(withSize: size, padding: padding)
+		case UIRectEdge.left: return _addLeftBorder(withSize: size, padding: padding)
+		case UIRectEdge.bottom: return _addBottomBorder(withSize: size, padding: padding)
+		case UIRectEdge.right: return _addRightBorder(withSize: size, padding: padding)
 		default: return nil
 		}
 	}
@@ -31,16 +31,16 @@ public extension UIView {
 	public func addBorders(withSize size: CGFloat, toEdges edges: UIRectEdge, padding: CGFloat = 0.0) -> [UIView] {
 		var borders: [UIView] = []
 		
-		if edges.contains(.Top) {
+		if edges.contains(.top) {
 			borders.append(_addTopBorder(withSize: size, padding: padding))
 		}
-		if edges.contains(.Left) {
+		if edges.contains(.left) {
 			borders.append(_addLeftBorder(withSize: size, padding: padding))
 		}
-		if edges.contains(.Bottom) {
+		if edges.contains(.bottom) {
 			borders.append(_addBottomBorder(withSize: size, padding: padding))
 		}
-		if edges.contains(.Right) {
+		if edges.contains(.right) {
 			borders.append(_addRightBorder(withSize: size, padding: padding))
 		}
 		
@@ -48,7 +48,7 @@ public extension UIView {
 	}
 	
 	public func addBordersToAllEdges(borderSize size: CGFloat) -> [UIView] {
-		return addBorders(withSize: size, toEdges: [.Top, .Right, .Bottom, .Left])
+		return addBorders(withSize: size, toEdges: [.top, .right, .bottom, .left])
 	}
 	
 	private func _addTopBorder(withSize size: CGFloat, padding: CGFloat) -> UIView {
@@ -56,10 +56,10 @@ public extension UIView {
 		addSubview(border)
 		
 		border.translatesAutoresizingMaskIntoConstraints = false
-		border.topAnchor.constraintEqualToAnchor(topAnchor).active = true
-		border.leftAnchor.constraintEqualToAnchor(leftAnchor, constant: padding).active = true
-		border.rightAnchor.constraintEqualToAnchor(rightAnchor, constant: -padding).active = true
-		border.heightAnchor.constraintEqualToConstant(size).active = true
+		border.topAnchor.constraint(equalTo: topAnchor).isActive = true
+		border.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
+		border.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+		border.heightAnchor.constraint(equalToConstant: size).isActive = true
 		
 		return border
 	}
@@ -69,10 +69,10 @@ public extension UIView {
 		addSubview(border)
 		
 		border.translatesAutoresizingMaskIntoConstraints = false
-		border.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
-		border.leftAnchor.constraintEqualToAnchor(leftAnchor, constant: padding).active = true
-		border.rightAnchor.constraintEqualToAnchor(rightAnchor, constant: -padding).active = true
-		border.heightAnchor.constraintEqualToConstant(size).active = true
+		border.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+		border.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
+		border.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+		border.heightAnchor.constraint(equalToConstant: size).isActive = true
 		
 		return border
 	}
@@ -82,10 +82,10 @@ public extension UIView {
 		addSubview(border)
 		
 		border.translatesAutoresizingMaskIntoConstraints = false
-		border.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
-		border.topAnchor.constraintEqualToAnchor(topAnchor, constant: padding).active = true
-		border.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -padding).active = true
-		border.widthAnchor.constraintEqualToConstant(size).active = true
+		border.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+		border.topAnchor.constraint(equalTo: topAnchor, constant: padding).isActive = true
+		border.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding).isActive = true
+		border.widthAnchor.constraint(equalToConstant: size).isActive = true
 		
 		return border
 	}
@@ -95,10 +95,10 @@ public extension UIView {
 		addSubview(border)
 		
 		border.translatesAutoresizingMaskIntoConstraints = false
-		border.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
-		border.topAnchor.constraintEqualToAnchor(topAnchor, constant: padding).active = true
-		border.bottomAnchor.constraintEqualToAnchor(bottomAnchor, constant: -padding).active = true
-		border.widthAnchor.constraintEqualToConstant(size).active = true
+		border.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+		border.topAnchor.constraint(equalTo: topAnchor, constant: padding).isActive = true
+		border.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding).isActive = true
+		border.widthAnchor.constraint(equalToConstant: size).isActive = true
 		
 		return border
 	}

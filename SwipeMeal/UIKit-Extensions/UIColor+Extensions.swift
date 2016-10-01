@@ -12,9 +12,9 @@ extension UIColor
 {
    convenience init(hexString: String)
    {
-      let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+      let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
       var int = UInt32()
-      NSScanner(string: hex).scanHexInt(&int)
+      Scanner(string: hex).scanHexInt32(&int)
       let a, r, g, b: UInt32
       switch hex.characters.count {
       case 3: // RGB (12-bit)
@@ -30,15 +30,15 @@ extension UIColor
    }
    
    var hexString: String {
-      let components = CGColorGetComponents(self.CGColor)
+      let components = self.cgColor.components
       
-      let red = Float(components[0])
-      let green = Float(components[1])
-      let blue = Float(components[2])
+      let red = Float((components?[0])!)
+      let green = Float((components?[1])!)
+      let blue = Float((components?[2])!)
       return String(format: "#%02lX%02lX%02lX", lroundf(red * 255), lroundf(green * 255), lroundf(blue * 255))
    }
    
    var isWhite: Bool {
-      return hexString.uppercaseString == "#FFFFFF"
+      return hexString.uppercased() == "#FFFFFF"
    }
 }

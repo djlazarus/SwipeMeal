@@ -1,3 +1,4 @@
+
 //
 //  IconProvider.swift
 //  IncipiaKit
@@ -15,7 +16,7 @@ enum IconType: String {
 
 class IconProvider {
 	static func icon(type: IconType) -> UIImage? {
-		let bundle = NSBundle(forClass: self)
-		return UIImage(named: type.rawValue, inBundle: bundle, compatibleWithTraitCollection: nil)
+		let bundle = Bundle(for: self)
+		return UIImage(named: type.rawValue, in: bundle, compatibleWith: nil)
 	}
 }

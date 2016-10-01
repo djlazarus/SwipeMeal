@@ -10,39 +10,39 @@ import UIKit
 import WebKit
 
 enum LegalDocType {
-	case TermsOfUse, PrivacyPolicy
+	case termsOfUse, privacyPolicy
 	
 	var documentName: String {
 		switch self {
-		case .TermsOfUse: return "swipe_meal_terms_of_use.pdf"
-		case .PrivacyPolicy: return "swipe_meal_privacy_policy.pdf"
+		case .termsOfUse: return "swipe_meal_terms_of_use.pdf"
+		case .privacyPolicy: return "swipe_meal_privacy_policy.pdf"
 		}
 	}
 	
-	var url: NSURL {
-		let path = NSBundle.mainBundle().pathForResource(documentName, ofType: nil)
-		return NSURL.fileURLWithPath(path!)
+	var url: URL {
+		let path = Bundle.main.path(forResource: documentName, ofType: nil)
+		return URL(fileURLWithPath: path!)
 	}
 }
 
 class LegalDocumentationViewController: UIViewController {
 	
-	@IBOutlet private var webView: UIWebView!
-	var type: LegalDocType = .TermsOfUse
+	@IBOutlet fileprivate var webView: UIWebView!
+	var type: LegalDocType = .termsOfUse
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 		
-		let request = NSURLRequest(URL: type.url)
+		let request = URLRequest(url: type.url)
 		webView.loadRequest(request)
 	}
 	
-	@IBAction private func _doneButtonPressed() {
-		dismissViewControllerAnimated(true, completion: nil)
+	@IBAction fileprivate func _doneButtonPressed() {
+		dismiss(animated: true, completion: nil)
 	}
 }

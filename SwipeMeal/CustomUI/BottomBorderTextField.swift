@@ -16,8 +16,8 @@ class BottomBorderTextField: UITextField
       }
    }
    
-   private let _borderHeight: CGFloat = 1.0
-   private let _bottomBorder = UIView()
+   fileprivate let _borderHeight: CGFloat = 1.0
+   fileprivate let _bottomBorder = UIView()
    
    required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
@@ -29,7 +29,7 @@ class BottomBorderTextField: UITextField
       _commonInit()
    }
    
-   private func _commonInit()
+   fileprivate func _commonInit()
    {
       _bottomBorder.backgroundColor = bottomBorderColor
       addSubview(_bottomBorder)
@@ -42,7 +42,7 @@ class BottomBorderTextField: UITextField
    }
    
    // MARK: - Private
-   private func _updateBorderFrame()
+   fileprivate func _updateBorderFrame()
    {
       let borderOrigin = CGPoint(x: 0, y: bounds.height - _borderHeight)
       let borderSize = CGSize(width: bounds.width, height: _borderHeight)

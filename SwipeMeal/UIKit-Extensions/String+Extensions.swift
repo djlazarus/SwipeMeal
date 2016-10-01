@@ -10,19 +10,9 @@ import Foundation
 
 extension String
 {
-   var trimmed: String {
-      return self.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
-   }
-   
-   var isValidEmail: Bool {
-      let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-      let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-      return emailTest.evaluateWithObject(self)
-   }
-   
    var isUniversityEmail: Bool {
       let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.edu"
       let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-      return emailTest.evaluateWithObject(self)
+      return emailTest.evaluate(with: self)
    }
 }

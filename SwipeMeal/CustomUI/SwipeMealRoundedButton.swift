@@ -10,9 +10,9 @@ import UIKit
 
 class SwipeMealRoundedButton: UIButton
 {
-   override var highlighted: Bool {
+   override var isHighlighted: Bool {
       didSet {
-         let colorAlpha: CGFloat = highlighted ? 0.05 : 0.10
+         let colorAlpha: CGFloat = isHighlighted ? 0.05 : 0.10
          backgroundColor = UIColor(white: 1, alpha: colorAlpha)
       }
    }

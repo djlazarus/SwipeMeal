@@ -12,9 +12,9 @@ public extension UIColor
 {
 	convenience init(hexString: String)
 	{
-		let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+		let hex = hexString.trimmingCharacters(in: NSCharacterSet.alphanumerics.inverted)
 		var int = UInt32()
-		NSScanner(string: hex).scanHexInt(&int)
+		Scanner(string: hex).scanHexInt32(&int)
 		let a, r, g, b: UInt32
 		switch hex.characters.count {
 		case 3: // RGB (12-bit)
@@ -30,21 +30,22 @@ public extension UIColor
 	}
 	
 	public var hexString: String {
-		let components = CGColorGetComponents(self.CGColor)
+		let components = self.cgColor.components
 		
-		let red = Float(components[0])
-		let green = Float(components[1])
-		let blue = Float(components[2])
+		let red = Float((components?[0])!)
+		let green = Float((components?[1])!)
+		let blue = Float((components?[2])!)
 		return String(format: "#%02lX%02lX%02lX", lroundf(red * 255), lroundf(green * 255), lroundf(blue * 255))
 	}
 	
 	public var isWhite: Bool {
-		return hexString.uppercaseString == "#FFFFFF"
+		let uppercased = hexString.uppercased()
+		return uppercased == "#FFFFFF"
 	}
 	
 	public var isLight: Bool {
-		let components = CGColorGetComponents(self.CGColor)
-		let brightness = (((components[0] * 299.0) as CGFloat) + ((components[1] * 587.0) as CGFloat) + ((components[2] * 114.0)) as CGFloat) / (1000.0 as CGFloat)
+		let components = self.cgColor.components
+		let brightness = ((((components?[0])! * 299.0) as CGFloat) + (((components?[1])! * 587.0) as CGFloat) + (((components?[2])! * 114.0)) as CGFloat) / (1000.0 as CGFloat)
 		
 		return brightness >= 0.7
 	}

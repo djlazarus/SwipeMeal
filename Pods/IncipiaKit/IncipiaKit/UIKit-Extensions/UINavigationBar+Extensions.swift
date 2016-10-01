@@ -1,3 +1,6 @@
+
+
+
 //
 //  UINavigationBar+Extensions.swift
 //  IncipiaKit
@@ -10,11 +13,11 @@ import Foundation
 
 public extension UINavigationBar {
 	public func makeTransparent() {
-		setBackgroundImage(UIImage(), forBarMetrics: .Default)
+		setBackgroundImage(UIImage(), for: .default)
 	}
 	
 	public func resetTransparency() {
-		setBackgroundImage(nil, forBarMetrics: .Default)
+		setBackgroundImage(nil, for: .default)
 	}
 	
 	public func makeShadowTransparent() {
@@ -26,27 +29,27 @@ public extension UINavigationBar {
 	}
 	
 	public func update(backgroundColor color: UIColor) {
-		let image = UIImage.imageWithColor(color)
-		setBackgroundImage(image, forBarMetrics: .Default)
+		let image = UIImage.imageWithColor(color: color)
+		setBackgroundImage(image, for: .default)
 	}
 }
 
 public extension UIToolbar {
 	public func makeTransparent() {
-		setBackgroundImage(UIImage(), forToolbarPosition: .Any, barMetrics: .Default)
+		setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
 	}
 	
 	public func resetTransparency() {
-		setBackgroundImage(nil, forToolbarPosition: .Any, barMetrics: .Default)
+		setBackgroundImage(nil, forToolbarPosition: .any, barMetrics: .default)
 	}
 	
 	public func makeShadowTransparent() {
-		setShadowImage(UIImage(), forToolbarPosition: .Any)
+		setShadowImage(UIImage(), forToolbarPosition: .any)
 	}
 	
 	public func update(backgroundColor color: UIColor) {
-		let image = UIImage.imageWithColor(color)
-		setBackgroundImage(image, forToolbarPosition: .Any, barMetrics: .Default)
+		let image = UIImage.imageWithColor(color: color)
+		setBackgroundImage(image, forToolbarPosition: .any, barMetrics: .default)
 	}
 }
 

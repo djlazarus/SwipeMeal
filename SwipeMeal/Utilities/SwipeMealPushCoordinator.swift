@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class SwipeMealPushCoordinator: NSObject {
 	
-	static func notifyUserOfInterestInPurchase(userUID: String) {
+	static func notifyUserOfInterestInPurchase(_ userUID: String) {
 		guard let currentUser = FIRAuth.auth()?.currentUser else { return }
 		
 		SMDatabaseLayer.getOneSignalPlayerID(forUserWithUID: userUID) { (oneSignalPlayerID) in
@@ -25,7 +25,7 @@ class SwipeMealPushCoordinator: NSObject {
 		}
 	}
 	
-	static func notifyUserOfArrival(userUID: String) {
+	static func notifyUserOfArrival(_ userUID: String) {
 		SMDatabaseLayer.getOneSignalPlayerID(forUserWithUID: userUID) { (oneSignalPlayerID) in
 			guard let currentUser = FIRAuth.auth()?.currentUser else { return }
 			guard let playerID = oneSignalPlayerID else { return }

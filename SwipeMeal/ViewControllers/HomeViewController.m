@@ -45,7 +45,7 @@ typedef enum : NSUInteger {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didCloseConfirmation) name:@"didCloseConfirmation" object:nil];
 	
 	UIColor *color = [[UIColor alloc] initWithHexString:@"272D2F"];
-	UIImage *tabBarBackgroundImage = [UIImage imageWithColor:color];
+	UIImage *tabBarBackgroundImage = [UIImage imageWithColorWithColor:color];
 	[self.tabBarController.tabBar setBackgroundImage:tabBarBackgroundImage];
 }
 

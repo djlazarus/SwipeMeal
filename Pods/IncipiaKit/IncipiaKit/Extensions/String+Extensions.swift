@@ -13,28 +13,28 @@ public extension String
 	public var isValidEmail: Bool {
 		let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
 		let testCase = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-		return testCase.evaluateWithObject(self)
+		return testCase.evaluate(with: self)
 	}
 	
 	public var containsNumber: Bool {
 		let numberRegEx = ".*[0-9]+.*"
 		let testCase = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
-		return testCase.evaluateWithObject(self)
+		return testCase.evaluate(with: self)
 	}
 	
 	public var isValidURL: Bool {
 		guard let url = NSURL(string: self) else { return false }
-		return UIApplication.sharedApplication().canOpenURL(url)
+		return UIApplication.shared.canOpenURL(url as URL)
 	}
 	
 	public var trimmed: String {
-		let whitespaceCharacters = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-		return stringByTrimmingCharactersInSet(whitespaceCharacters)
+		let whitespaceCharacters = NSCharacterSet.whitespacesAndNewlines
+		return trimmingCharacters(in: whitespaceCharacters)
 	}
 	
 	public func width(usingFont font: UIFont) -> CGFloat {
-		let constraintRect = CGSize(width: CGFloat.max, height: CGFloat.max)
-		let boundingBox = self.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil)
+		let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+		let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : font], context: nil)
 		return boundingBox.width
 	}
 }

@@ -10,31 +10,31 @@ import UIKit
 
 public extension UIBarButtonItem {
 	public static func back(target target: AnyObject? = nil, action: Selector? = nil) -> UIBarButtonItem {
-		let backImage = IconProvider.icon(.LeftArrow)
+		let backImage = IconProvider.icon(type: .LeftArrow)
 		
 		let overriddenTarget = action != nil ? target : nil
 		let overriddenAction = action ?? #selector(UIBarButtonItem.ik_doNothing)
 		
-		return UIBarButtonItem(image: backImage, style: .Plain, target: overriddenTarget, action: overriddenAction)
+		return UIBarButtonItem(image: backImage, style: .plain, target: overriddenTarget, action: overriddenAction)
 	}
 	
 	public static var empty: UIBarButtonItem {
-		return UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+		return UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 	}
 	
 	public func update(color color: UIColor) {
 		tintColor = color
-		if var attributes = titleTextAttributesForState(.Normal) {
+		if var attributes = titleTextAttributes(for: .normal) {
 			attributes[NSForegroundColorAttributeName] = color
 		} else {
-			setTitleTextAttributes([NSForegroundColorAttributeName : color], forState: .Normal)
+			setTitleTextAttributes([NSForegroundColorAttributeName : color], for: .normal)
 		}
 		
-		let highlightedColor = color.colorWithAlphaComponent(0.4)
-		if var attributes = titleTextAttributesForState(.Highlighted) {
+		let highlightedColor = color.withAlphaComponent(0.4)
+		if var attributes = titleTextAttributes(for: .highlighted) {
 			attributes[NSForegroundColorAttributeName] = highlightedColor
 		} else {
-			setTitleTextAttributes([NSForegroundColorAttributeName : highlightedColor], forState: .Highlighted)
+			setTitleTextAttributes([NSForegroundColorAttributeName : highlightedColor], for: .highlighted)
 		}
 	}
 	

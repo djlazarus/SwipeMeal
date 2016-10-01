@@ -16,30 +16,30 @@ extension FIRUser: SwipeMealUser
       return storage.profileSetupComplete
    }
    
-   func reload(completion: ReloadUserProfileCompletion?)
+   func reload(_ completion: ReloadUserProfileCompletion?)
    {
-      reloadWithCompletion(completion)
+      self.reload(completion: completion)
    }
    
-   func sendEmailVerification(completion: SendEmailVerificationCompletion?)
+   func sendEmailVerification(_ completion: SendEmailVerificationCompletion?)
    {
-      sendEmailVerificationWithCompletion(completion)
+      self.sendEmailVerification(completion: completion)
    }
 	
-	func updatePhotoURL(photoURL: NSURL, completion: UpdateUserProfileCompletion?)
+	func updatePhotoURL(_ photoURL: URL, completion: UpdateUserProfileCompletion?)
 	{
 		let changeRequest = profileChangeRequest()
 		
 		changeRequest.photoURL = photoURL
-		changeRequest.commitChangesWithCompletion(completion)
+		changeRequest.commitChanges(completion: completion)
 	}
 	
-	func updateDisplayName(name: String, completion: UpdateUserProfileCompletion?)
+	func updateDisplayName(_ name: String, completion: UpdateUserProfileCompletion?)
 	{
 		let changeRequest = profileChangeRequest()
 		changeRequest.displayName = name
 		
-		changeRequest.commitChangesWithCompletion(completion)
+		changeRequest.commitChanges(completion: completion)
 	}
 	
 	func signOut() {

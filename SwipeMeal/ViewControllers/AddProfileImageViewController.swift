@@ -10,8 +10,8 @@ import UIKit
 
 protocol AddProfileImageViewControllerDelegate: class
 {
-	func addProfileImageViewControllerAddImagePressed(controller: AddProfileImageViewController)
-	func addProfileImageViewControllerContinuePressed(controller: AddProfileImageViewController)
+	func addProfileImageViewControllerAddImagePressed(_ controller: AddProfileImageViewController)
+	func addProfileImageViewControllerContinuePressed(_ controller: AddProfileImageViewController)
 }
 
 class AddProfileImageViewController: UIViewController
@@ -24,18 +24,18 @@ class AddProfileImageViewController: UIViewController
 		}
 	}
 	
-	@IBOutlet private var _continueButton: UIButton!
-   @IBOutlet private var _imageView: CircularImageView!
+	@IBOutlet fileprivate var _continueButton: UIButton!
+   @IBOutlet fileprivate var _imageView: CircularImageView!
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-      return .LightContent
+   override var preferredStatusBarStyle : UIStatusBarStyle {
+      return .lightContent
    }
    
    override func viewDidLoad()
 	{
       super.viewDidLoad()
       
-      let image = UIImage(named: "user")!.imageWithRenderingMode(.AlwaysTemplate)
+      let image = UIImage(named: "user")!.withRenderingMode(.alwaysTemplate)
       
       _imageView.tintColor = UIColor(white: 0.9, alpha: 1)
       _imageView.image = image
@@ -44,39 +44,39 @@ class AddProfileImageViewController: UIViewController
 		_updateContinueButton()
    }
 	
-	private func _updateContinueButton()
+	fileprivate func _updateContinueButton()
 	{
-		guard isViewLoaded() else { return }
-		dispatch_async(dispatch_get_main_queue()) {
-			self._continueButton.enabled = self.continueButtonEnabled
+		guard isViewLoaded else { return }
+		DispatchQueue.main.async {
+			self._continueButton.isEnabled = self.continueButtonEnabled
 			self._continueButton.alpha = self.continueButtonEnabled ? 1 : 0.5
 		}
 	}
 	
-	func updateImage(image: UIImage)
+	func updateImage(_ image: UIImage)
 	{
-		guard isViewLoaded() else { return }
-		dispatch_async(dispatch_get_main_queue()) {
+		guard isViewLoaded else { return }
+		DispatchQueue.main.async {
 			self._imageView.image = image
 		}
 	}
 	
 	func resetImage()
 	{
-		guard isViewLoaded() else { return }
-		dispatch_async(dispatch_get_main_queue()) {
-			let image = UIImage(named: "user")!.imageWithRenderingMode(.AlwaysTemplate)
+		guard isViewLoaded else { return }
+		DispatchQueue.main.async {
+			let image = UIImage(named: "user")!.withRenderingMode(.alwaysTemplate)
 			self._imageView.image = image
 		}
 	}
 	
    // MARK: - Actions
-   @IBAction private func _addImageButtonPressed()
+   @IBAction fileprivate func _addImageButtonPressed()
    {
 		delegate?.addProfileImageViewControllerAddImagePressed(self)
    }
 	
-	@IBAction private func _continueButtonPressed()
+	@IBAction fileprivate func _continueButtonPressed()
 	{
 		delegate?.addProfileImageViewControllerContinuePressed(self)
 	}

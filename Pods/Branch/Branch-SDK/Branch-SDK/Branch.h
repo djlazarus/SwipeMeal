@@ -448,7 +448,7 @@ typedef NS_ENUM(NSUInteger, BranchCreditHistoryOrder) {
  but that UL is not a Facebook UL. Some developers prefer not to modify
  `application:didFinishLaunchingWithOptions:` to always return `YES` and should use this method instead.
  */
-- (void)accountForFacebookSDKPreventingAppLaunch;
+- (void)accountForFacebookSDKPreventingAppLaunch __attribute__((deprecated(("Please ensure application:didFinishLaunchingWithOptions: always returns YES/true instead of using this method. It will be removed in a future release."))));
 
 - (void)suppressWarningLogs;
 
@@ -459,6 +459,16 @@ typedef NS_ENUM(NSUInteger, BranchCreditHistoryOrder) {
  @param value Object to be included in request metadata
  */
 - (void)setRequestMetadataKey:(NSString *)key value:(NSObject *)value;
+
+- (void)enableDelayedInit;
+
+- (void)disableDelayedInit;
+
+- (NSURL *)getUrlForOnboardingWithRedirectUrl:(NSString *)redirectUrl;
+
+- (void)resumeInit;
+
+- (void)setInstallRequestDelay:(NSInteger)installRequestDelay;
 
 #pragma mark - Session Item methods
 

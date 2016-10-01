@@ -12,16 +12,16 @@ import IncipiaKit
 
 class ProfileViewController: UIViewController {
 	
-	@IBOutlet private var _nameLabel: UILabel!
-	@IBOutlet private var _ratingLabel: UILabel!
-	@IBOutlet private var _backgroundImageView: UIImageView!
-	@IBOutlet private var _centerImageView: CircularImageView!
-	@IBOutlet private var _emailLabel: UILabel!
+	@IBOutlet fileprivate var _nameLabel: UILabel!
+	@IBOutlet fileprivate var _ratingLabel: UILabel!
+	@IBOutlet fileprivate var _backgroundImageView: UIImageView!
+	@IBOutlet fileprivate var _centerImageView: CircularImageView!
+	@IBOutlet fileprivate var _emailLabel: UILabel!
 	
-	private var _profileImage: UIImage?
+	fileprivate var _profileImage: UIImage?
 	
-	private let _editProfileImageVC = EditProfileImageViewController.instantiate(fromStoryboard: "Main")
-	private let _settingsVC = SettingsViewController.instantiate(fromStoryboard: "Main")
+	fileprivate let _editProfileImageVC = EditProfileImageViewController.instantiate(fromStoryboard: "Main")
+	fileprivate let _settingsVC = SettingsViewController.instantiate(fromStoryboard: "Main")
 	
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
@@ -35,21 +35,21 @@ class ProfileViewController: UIViewController {
 		_emailLabel.text = user.email
 		_editProfileImageVC.delegate = self
 		
-		_settingsVC.modalPresentationStyle = .OverCurrentContext
-		_settingsVC.modalTransitionStyle = .CrossDissolve
+		_settingsVC.modalPresentationStyle = .overCurrentContext
+		_settingsVC.modalTransitionStyle = .crossDissolve
 	}
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return .LightContent
+	override var preferredStatusBarStyle : UIStatusBarStyle {
+		return .lightContent
 	}
 	
 	// MARK: - Private
-	private func _syncProfileImageViews(withUser user: SwipeMealUser) {
+	fileprivate func _syncProfileImageViews(withUser user: SwipeMealUser) {
 		
 		let storage = FIRStorage.storage()
 		let path = "profile_images/\(user.uid).jpg"
-		let pathRef = storage.referenceWithPath(path)
-		pathRef.dataWithMaxSize(1024 * 1024) { (data, error) in
+		let pathRef = storage.reference(withPath: path)
+		pathRef.data(withMaxSize: 1024 * 1024) { (data, error) in
 			
 			guard let data = data else { return }
 			self._profileImage = UIImage(data: data)
@@ -57,30 +57,30 @@ class ProfileViewController: UIViewController {
 		}
 	}
 	
-	private func _updateProfileImageViews() {
+	fileprivate func _updateProfileImageViews() {
 		_centerImageView.image = _profileImage
 		_backgroundImageView.image = _profileImage?.applyBlur(withRadius: 4, tintColor: nil, saturationDeltaFactor: 1.2)
 	}
 	
 	// MARK: - Actions
-	@IBAction private func _signOutButtonPressed() {
+	@IBAction fileprivate func _signOutButtonPressed() {
 		SMAuthLayer.currentUser?.signOut()
 	}
 	
-	@IBAction private func _settingsButtonPressed() {
-		presentViewController(_settingsVC, animated: true, completion: nil)
+	@IBAction fileprivate func _settingsButtonPressed() {
+		present(_settingsVC, animated: true, completion: nil)
 	}
 	
-	@IBAction private func _editProfileImageButtonPressed() {
+	@IBAction fileprivate func _editProfileImageButtonPressed() {
 		if let image = _profileImage {
 			_editProfileImageVC.updateImage(image)
 		}
-		tabBarController?.presentViewController(_editProfileImageVC, animated: true, completion: nil)
+		tabBarController?.present(_editProfileImageVC, animated: true, completion: nil)
 	}
 }
 
 extension ProfileViewController: EditProfileImageViewControllerDelegate {
-	func editProfileImageViewControllerAddImagePressed(controller: EditProfileImageViewController) {
+	func editProfileImageViewControllerAddImagePressed(_ controller: EditProfileImageViewController) {
 		
 		guard let user = SMAuthLayer.currentUser else { return }
 		
@@ -96,7 +96,7 @@ extension ProfileViewController: EditProfileImageViewControllerDelegate {
 		addProfileImageOp.start()
 	}
 	
-	func editProfileImageViewControllerSavePressed(controller: EditProfileImageViewController) {
-		controller.dismissViewControllerAnimated(true, completion: nil)
+	func editProfileImageViewControllerSavePressed(_ controller: EditProfileImageViewController) {
+		controller.dismiss(animated: true, completion: nil)
 	}
 }

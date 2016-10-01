@@ -11,41 +11,41 @@ import UIKit
 private let kExecutingKey = "isExecuting"
 private let kFinishedKey = "isFinished"
 
-class BaseOperation: NSOperation
+class BaseOperation: Operation
 {
    // This is meant to provide the client with information as to whether the operation succeeded or failed.
    // Checking to see if it's nil or not is most useful in the completion block
    internal(set) var error: NSError?
    var useVerboseLogging = false
    
-   override var asynchronous: Bool {
+   override var isAsynchronous: Bool {
       return true
    }
    
-   private var _executing = false {
+   fileprivate var _executing = false {
       willSet {
-         willChangeValueForKey(kExecutingKey)
+         willChangeValue(forKey: kExecutingKey)
       }
       didSet {
-         didChangeValueForKey(kExecutingKey)
+         didChangeValue(forKey: kExecutingKey)
       }
    }
    
-   override var executing: Bool {
+   override var isExecuting: Bool {
       return _executing
    }
    
-   private var _finished = false {
+   fileprivate var _finished = false {
       willSet {
-         willChangeValueForKey(kFinishedKey)
+         willChangeValue(forKey: kFinishedKey)
       }
       
       didSet {
-         didChangeValueForKey(kFinishedKey)
+         didChangeValue(forKey: kFinishedKey)
       }
    }
    
-   override var finished: Bool {
+   override var isFinished: Bool {
       return _finished
    }
    
@@ -63,10 +63,10 @@ class BaseOperation: NSOperation
       _finished = true
    }
    
-   internal func finishWithError(error: NSError?)
+   internal func finishWithError(_ error: NSError?)
    {
       if useVerboseLogging {
-         print("FINISHING OP: \(self.dynamicType)")
+         print("FINISHING OP: \(type(of: self))")
       }
       self.error = error
       finish()

@@ -36,7 +36,7 @@ enum SwipeMealErrors
 
 extension SwipeMealErrors
 {
-   static func error(status: SignUpInfoInvalidStatus) -> NSError
+   static func error(_ status: SignUpInfoInvalidStatus) -> NSError
    {
       let userInfo = [
          NSLocalizedFailureReasonErrorKey : status.errorMessage,

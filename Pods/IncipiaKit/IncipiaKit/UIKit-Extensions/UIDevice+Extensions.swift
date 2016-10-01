@@ -101,11 +101,11 @@ public extension UIDevice
 		var identifier = ""
 		
 		for child in mirror.children {
-			if let value = child.value as? Int8 where value != 0 {
-				identifier.append(UnicodeScalar(UInt8(value)))
+			if let value = child.value as? Int8, value != 0 {
+				identifier += "\(UnicodeScalar(UInt8(value)))"
 			}
 		}
 		
-		return parseDeviceType(identifier)
+		return parseDeviceType(identifier: identifier)
 	}
 }

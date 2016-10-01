@@ -11,9 +11,9 @@ import SwiftSpinner
 
 class AddProfileImageOperation: PresentationOperation
 {
-	private let _user: SwipeMealUser
-	private let _alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-	private let _imagePicker = UIImagePickerController()
+	fileprivate let _user: SwipeMealUser
+	fileprivate let _alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+	fileprivate let _imagePicker = UIImagePickerController()
 	
 	var profileImage: UIImage?
 	
@@ -29,25 +29,25 @@ class AddProfileImageOperation: PresentationOperation
 		_setupAlertController()
 	}
 	
-	private func _setupImagePicker()
+	fileprivate func _setupImagePicker()
 	{
 		_imagePicker.delegate = self
 		_imagePicker.allowsEditing = true
 	}
 	
-	private func _setupAlertController()
+	fileprivate func _setupAlertController()
 	{
-		let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction!) in
-			self._imagePicker.sourceType = .PhotoLibrary
+		let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { (alert: UIAlertAction!) in
+			self._imagePicker.sourceType = .photoLibrary
 			self.presentViewController(self._imagePicker)
 		}
 		
-		let takePictureAction = UIAlertAction(title: "Take Photo", style: .Default) { (alert: UIAlertAction!) in
-			self._imagePicker.sourceType = .Camera
+		let takePictureAction = UIAlertAction(title: "Take Photo", style: .default) { (alert: UIAlertAction!) in
+			self._imagePicker.sourceType = .camera
 			self.presentViewController(self._imagePicker)
 		}
 		
-		let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) in
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) in
 			self.finish()
 		}
 		
@@ -64,7 +64,7 @@ class AddProfileImageOperation: PresentationOperation
 
 extension AddProfileImageOperation: UINavigationControllerDelegate, UIImagePickerControllerDelegate
 {
-	func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
 	{
 		dismissViewController(picker)
 		
@@ -82,7 +82,7 @@ extension AddProfileImageOperation: UINavigationControllerDelegate, UIImagePicke
 				SwiftSpinner.show("Updating Profile Image...")
 				self._user.updatePhotoURL(url, completion: { (error) in
 					SwiftSpinner.hide()
-					self.finishWithError(error)
+					self.finishWithError(error as NSError?)
 				})
 			}
 			else {
@@ -92,7 +92,7 @@ extension AddProfileImageOperation: UINavigationControllerDelegate, UIImagePicke
 		}
 	}
 	
-	func imagePickerControllerDidCancel(picker: UIImagePickerController)
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
 	{
 		dismissViewController(picker) {
 			self.finish()

@@ -18,15 +18,15 @@ protocol TransparencyAdjustable
 protocol CornerRadiusAdjustable
 {
    func makeCircular()
-   func adjustCornerRadius(radius: CGFloat)
+   func adjustCornerRadius(_ radius: CGFloat)
 }
 
 extension PlaceholderColorAdjustable where Self: UITextField
 {
-   func adjustPlaceholder(color: UIColor)
+   func adjustPlaceholder(_ color: UIColor)
    {
       let placeholderText = placeholder ?? ""
-      let placeholderFont = font ?? UIFont.systemFontOfSize(12)
+      let placeholderFont = font ?? UIFont.systemFont(ofSize: 12)
       
       let placeholderAttributes = [NSFontAttributeName : placeholderFont, NSForegroundColorAttributeName : color]
       
@@ -39,7 +39,7 @@ extension TransparencyAdjustable where Self: UINavigationBar
 {
    func makeTransparent()
    {
-      setBackgroundImage(UIImage(), forBarMetrics: .Default)
+      setBackgroundImage(UIImage(), for: .default)
       shadowImage = UIImage()
    }
 }
@@ -60,7 +60,7 @@ extension CornerRadiusAdjustable where Self: UIView
       layer.cornerRadius = min(bounds.width, bounds.height) * 0.5
    }
    
-   func adjustCornerRadius(radius: CGFloat)
+   func adjustCornerRadius(_ radius: CGFloat)
    {
       layer.cornerRadius = radius
    }

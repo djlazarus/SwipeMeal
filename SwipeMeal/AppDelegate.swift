@@ -16,10 +16,10 @@ import OneSignal
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
    var window: UIWindow?
-   private let _flowController = AppEntryFlowController()
+   fileprivate let _flowController = AppEntryFlowController()
    
    // MARK: - Overridden
-   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
    {
 //      _registerForPushNotifications(application)
       FIRApp.configure()
@@ -33,10 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		_setupNavBarAppearance()
 		
 		let branch = Branch.getInstance()
-		branch.initSessionWithLaunchOptions(launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
+		branch?.initSession(launchOptions: launchOptions) { (branchUniversalObject, branchLinkProperties, error) in
 			let metadata = branchUniversalObject.metadata
 			if metadata != nil {
-				if let referralSenderID = metadata["referral_sender_uid"] as? String {
+				if let referralSenderID = metadata?["referral_sender_uid"] as? String {
 					print("--- BRANCH.IO --- Referral: \(referralSenderID)")
 					SwipeMealUserStorage.referralUID = referralSenderID
 				}
@@ -47,19 +47,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 //      print("TOKEN: \(token)")
 		
     // Stripe setup
-    STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_GDqLMB8TumWkOgCBbvNZwliF"
-    STPTheme.defaultTheme().accentColor = UIColor(hexString: "6BB739");
-    STPTheme.defaultTheme().secondaryForegroundColor = UIColor(hexString: "6BB739");
+    STPPaymentConfiguration.shared().publishableKey = "pk_test_GDqLMB8TumWkOgCBbvNZwliF"
+    STPTheme.default().accentColor = UIColor(hexString: "6BB739");
+    STPTheme.default().secondaryForegroundColor = UIColor(hexString: "6BB739");
 		
     return true
    }
 	
-	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+	func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
 		return Branch.getInstance().handleDeepLink(url)
 	}
 	
-	func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-		return Branch.getInstance().continueUserActivity(userActivity)
+	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+		return Branch.getInstance().continue(userActivity)
 	}
    
 //   func applicationDidBecomeActive(application: UIApplication)
@@ -72,9 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 //      FIRMessaging.messaging().disconnect()
 //   }
 		
-   func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings)
+   func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings)
    {
-      if notificationSettings.types != .None {
+      if notificationSettings.types != UIUserNotificationType() {
          application.registerForRemoteNotifications()
       }
    }
@@ -109,24 +109,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 //   }
 	
    // MARK: - Private
-   private func _setupRootViewController()
+   fileprivate func _setupRootViewController()
    {
       window = UIWindow()
       window?.rootViewController = _flowController.initialViewController()
       window?.makeKeyAndVisible()
    }
 	
-	private func _setupNavBarAppearance()
+	fileprivate func _setupNavBarAppearance()
 	{
 		let barButtonItemAppearance = UIBarButtonItem.appearance()
 		
-		let primaryColor = UIColor.whiteColor()
+		let primaryColor = UIColor.white
 		barButtonItemAppearance.tintColor = primaryColor
-		barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor], forState: .Normal)
-		barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor.colorWithAlphaComponent(0.4)], forState: .Disabled)
+		barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor], for: UIControlState())
+		barButtonItemAppearance.setTitleTextAttributes([NSForegroundColorAttributeName : primaryColor.withAlphaComponent(0.4)], for: .disabled)
 		
 		let navBarAppearance = UINavigationBar.appearance()
-		navBarAppearance.tintColor = UIColor.whiteColor()
+		navBarAppearance.tintColor = UIColor.white
 	}
 	
 //   private func _registerForPushNotifications(application: UIApplication)

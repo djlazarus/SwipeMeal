@@ -10,35 +10,35 @@ import Foundation
 
 public extension UICollectionView
 {
-	public var lastIndexPath: NSIndexPath? {
+	public var lastIndexPath: IndexPath? {
 		var ip: NSIndexPath?
-		let numberOfRows = numberOfItemsInSection(0)
+		let numberOfRows = numberOfItems(inSection: 0)
 		if numberOfRows > 0 {
-			ip = NSIndexPath(forRow: numberOfRows - 1, inSection: 0)
+			ip = NSIndexPath(row: numberOfRows - 1, section: 0)
 		}
-		return ip
+		return ip as? IndexPath
 	}
 	
 	public func deselectAllItems(animated: Bool = false)
 	{
-		for indexPath in self.indexPathsForSelectedItems() ?? [] {
-			self.deselectItemAtIndexPath(indexPath, animated: animated)
+		for indexPath in self.indexPathsForSelectedItems ?? [] {
+			self.deselectItem(at: indexPath, animated: animated)
 		}
 	}
 	
 	public func scrollToBottom(animated: Bool = true)
 	{
 		if let ip = lastIndexPath {
-			scrollToItemAtIndexPath(ip, atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: animated)
+			scrollToItem(at: ip as IndexPath, at: .centeredVertically, animated: animated)
 		}
 	}
 	
-	public func scrollToBottomWithDuration(duration: Double, completion: ((finished: Bool) -> ())?)
+	public func scrollToBottomWithDuration(duration: Double, completion: ((_ finished: Bool) -> Void)?)
 	{
-		UIView.animateWithDuration(duration, animations: { () -> Void in
+		UIView.animate(withDuration: duration, animations: { () -> Void in
 			
 			if let ip = self.lastIndexPath {
-				self.scrollToItemAtIndexPath(ip, atScrollPosition: .Bottom, animated: false)
+				self.scrollToItem(at: ip, at: .bottom, animated: false)
 			}
 			}, completion: completion)
 	}

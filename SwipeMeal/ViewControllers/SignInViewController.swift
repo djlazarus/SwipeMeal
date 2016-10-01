@@ -10,21 +10,21 @@ import UIKit
 
 protocol SignInViewControllerDelegate: class
 {
-   func signInViewControllerSignInButtonPressed(controller: SignInViewController, email: String, password: String)
-   func signInViewController(controller: SignInViewController, signUpButtonPressed: UIButton)
+   func signInViewControllerSignInButtonPressed(_ controller: SignInViewController, email: String, password: String)
+   func signInViewController(_ controller: SignInViewController, signUpButtonPressed: UIButton)
    
-   func signInViewController(controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
+   func signInViewController(_ controller: SignInViewController, forgotPasswordButtonPressed: UIButton)
 }
 
 class SignInViewController: UIViewController
 {
    weak var delegate: SignInViewControllerDelegate?
    
-   @IBOutlet private var _usernameTextField: SignInTextField!
-   @IBOutlet private var _passwordTextField: SignInTextField!
-   @IBOutlet private var _keyboardAvoidingConstraint: NSLayoutConstraint!
+   @IBOutlet fileprivate var _usernameTextField: SignInTextField!
+   @IBOutlet fileprivate var _passwordTextField: SignInTextField!
+   @IBOutlet fileprivate var _keyboardAvoidingConstraint: NSLayoutConstraint!
    
-   private let _operationQueue = NSOperationQueue()
+   fileprivate let _operationQueue = OperationQueue()
    
    deinit {
       _unsubscribeFromKeyboardNotifications()
@@ -37,41 +37,41 @@ class SignInViewController: UIViewController
       _subscribeForKeyboardNotifications()
    }
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-      return .LightContent
+   override var preferredStatusBarStyle : UIStatusBarStyle {
+      return .lightContent
    }
    
    // MARK: - Setup
-   private func _subscribeForKeyboardNotifications()
+   fileprivate func _subscribeForKeyboardNotifications()
    {
-      let center = NSNotificationCenter.defaultCenter()
-      center.addObserver(self, selector: #selector(SignInViewController.keyboardWillChangeHeight(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+      let center = NotificationCenter.default
+      center.addObserver(self, selector: #selector(SignInViewController.keyboardWillChangeHeight(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
    }
    
-   private func _unsubscribeFromKeyboardNotifications()
+   fileprivate func _unsubscribeFromKeyboardNotifications()
    {
-      let center = NSNotificationCenter.defaultCenter()
+      let center = NotificationCenter.default
       center.removeObserver(self)
    }
    
    // MARK: - Actions
-   @IBAction private func _viewTapped(recognizer: UIGestureRecognizer)
+   @IBAction fileprivate func _viewTapped(_ recognizer: UIGestureRecognizer)
    {
       guard let textFieldSuperview = _usernameTextField.superview else { return }
       
-      let location = recognizer.locationInView(textFieldSuperview)
+      let location = recognizer.location(in: textFieldSuperview)
       guard !_usernameTextField.frame.contains(location) && !_passwordTextField.frame.contains(location) else { return }
       
       _usernameTextField.resignFirstResponder()
       _passwordTextField.resignFirstResponder()
    }
    
-   @IBAction private func _signUpButtonPressed(sender: UIButton)
+   @IBAction fileprivate func _signUpButtonPressed(_ sender: UIButton)
    {
       delegate?.signInViewController(self, signUpButtonPressed: sender)
    }
    
-   @IBAction private func _signInButtonPressed(sender: UIButton)
+   @IBAction fileprivate func _signInButtonPressed(_ sender: UIButton)
    {
       guard let email = _usernameTextField.text else { return }
       guard let password = _passwordTextField.text else { return }
@@ -79,18 +79,18 @@ class SignInViewController: UIViewController
       delegate?.signInViewControllerSignInButtonPressed(self, email: email, password: password)
    }
    
-   @IBAction private func _forgotPasswordButtonPressed(sender: UIButton)
+   @IBAction fileprivate func _forgotPasswordButtonPressed(_ sender: UIButton)
    {
       delegate?.signInViewController(self, forgotPasswordButtonPressed: sender)
    }
    
-   internal func keyboardWillChangeHeight(notification: NSNotification)
+   internal func keyboardWillChangeHeight(_ notification: Notification)
    {
-      guard let userInfo = notification.userInfo else { return }
-      guard let frameEnd = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue else { return }
+      guard let userInfo = (notification as NSNotification).userInfo else { return }
+      guard let frameEnd = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
       
-      let convertedFrameEnd = view.convertRect(frameEnd, fromView: nil)
-      let passwordFrame = _passwordTextField.superview!.convertRect(_passwordTextField.frame, toView: nil)
+      let convertedFrameEnd = view.convert(frameEnd, from: nil)
+      let passwordFrame = _passwordTextField.superview!.convert(_passwordTextField.frame, to: nil)
       
       let padding: CGFloat = 10
       var offset = (passwordFrame.maxY + padding) - convertedFrameEnd.minY + _keyboardAvoidingConstraint.constant
@@ -98,11 +98,11 @@ class SignInViewController: UIViewController
       
       _keyboardAvoidingConstraint.constant = offset
       
-      guard let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.unsignedIntValue else { return }
-      guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { return }
+      guard let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as AnyObject).uint32Value else { return }
+      guard let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { return }
       let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
       
-      UIView.animateWithDuration(duration, delay: 0, options: options, animations: {
+      UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
          self.view.layoutIfNeeded()
          }, completion: nil
       )
@@ -111,7 +111,7 @@ class SignInViewController: UIViewController
 
 extension SignInViewController: UITextFieldDelegate
 {
-   func textFieldShouldReturn(textField: UITextField) -> Bool
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool
    {
       switch textField {
       case _usernameTextField:

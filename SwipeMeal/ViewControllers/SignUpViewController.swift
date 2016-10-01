@@ -10,8 +10,8 @@ import UIKit
 
 protocol SignUpViewControllerDelegate: class
 {
-   func signUpViewControllerSignInButtonPressed(controller: SignUpViewController)
-   func signUpViewControllerRegisterButtonPressed(controller: SignUpViewController)
+   func signUpViewControllerSignInButtonPressed(_ controller: SignUpViewController)
+   func signUpViewControllerRegisterButtonPressed(_ controller: SignUpViewController)
 }
 
 class SignUpViewController: UIViewController
@@ -36,33 +36,33 @@ class SignUpViewController: UIViewController
    }
    
    // MARK: - Private Properties
-   private var _initialKeyboardAvoidingConstant: CGFloat = 0
+   fileprivate var _initialKeyboardAvoidingConstant: CGFloat = 0
    
    // MARK: - Outlets
-   @IBOutlet private var _firstNameTextField: SignUpTextField!
-   @IBOutlet private var _lastNameTextField: SignUpTextField!
-   @IBOutlet private var _emailTextField: SignUpTextField!
-   @IBOutlet private var _passwordTextField: SignUpTextField!
-   @IBOutlet private var _confirmPasswordTextField: SignUpTextField!
+   @IBOutlet fileprivate var _firstNameTextField: SignUpTextField!
+   @IBOutlet fileprivate var _lastNameTextField: SignUpTextField!
+   @IBOutlet fileprivate var _emailTextField: SignUpTextField!
+   @IBOutlet fileprivate var _passwordTextField: SignUpTextField!
+   @IBOutlet fileprivate var _confirmPasswordTextField: SignUpTextField!
    
-   @IBOutlet private var _textFieldsContainer: UIView!
-   @IBOutlet private var _textFields: [UITextField]!
-   @IBOutlet private var _lastTextField: UITextField!
+   @IBOutlet fileprivate var _textFieldsContainer: UIView!
+   @IBOutlet fileprivate var _textFields: [UITextField]!
+   @IBOutlet fileprivate var _lastTextField: UITextField!
    
-   @IBOutlet private var _keyboardAvoidingConstraint: NSLayoutConstraint! {
+   @IBOutlet fileprivate var _keyboardAvoidingConstraint: NSLayoutConstraint! {
       didSet {
          _initialKeyboardAvoidingConstant = _keyboardAvoidingConstraint.constant
       }
    }
 	
-	private let _legalController = LegalDocumentationViewController.instantiate(fromStoryboard: "SignUp")
+	fileprivate let _legalController = LegalDocumentationViewController.instantiate(fromStoryboard: "SignUp")
    
    // MARK: - Computed Properties
-   private var _activeTextField: UITextField? {
-      return _textFields.filter({ $0.isFirstResponder() }).first
+   fileprivate var _activeTextField: UITextField? {
+      return _textFields.filter({ $0.isFirstResponder }).first
    }
    
-   private var _keyboardPadding: CGFloat {
+   fileprivate var _keyboardPadding: CGFloat {
       guard let field = _activeTextField else { return 0 }
       let padding: CGFloat = 10
       return field === _lastTextField ? padding : field.bounds.height + padding
@@ -79,46 +79,46 @@ class SignUpViewController: UIViewController
       _subscribeForKeyboardNotifications()
    }
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-      return .LightContent
+   override var preferredStatusBarStyle : UIStatusBarStyle {
+      return .lightContent
    }
    
    // MARK: - Setup / Teardown
-   private func _subscribeForKeyboardNotifications()
+   fileprivate func _subscribeForKeyboardNotifications()
    {
-      let center = NSNotificationCenter.defaultCenter()
-      center.addObserver(self, selector: #selector(SignUpViewController.keyboardWillChangeHeight(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
+      let center = NotificationCenter.default
+      center.addObserver(self, selector: #selector(SignUpViewController.keyboardWillChangeHeight(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
    }
    
-   private func _unsubscribeFromKeyboardNotifications()
+   fileprivate func _unsubscribeFromKeyboardNotifications()
    {
-      let center = NSNotificationCenter.defaultCenter()
+      let center = NotificationCenter.default
       center.removeObserver(self)
    }
    
    // MARK: - Actions
-   @IBAction private func _signInButtonPressed() {
+   @IBAction fileprivate func _signInButtonPressed() {
       delegate?.signUpViewControllerSignInButtonPressed(self)
    }
    
-   @IBAction private func _registerButtonPressed() {
+   @IBAction fileprivate func _registerButtonPressed() {
       delegate?.signUpViewControllerRegisterButtonPressed(self)
    }
 	
-	@IBAction private func _termsOfUsePressed() {
-		_legalController.type = .TermsOfUse
-		presentViewController(_legalController, animated: true, completion: nil)
+	@IBAction fileprivate func _termsOfUsePressed() {
+		_legalController.type = .termsOfUse
+		present(_legalController, animated: true, completion: nil)
 	}
 	
-	@IBAction private func _privacyPolicyPressed() {
-		_legalController.type = .PrivacyPolicy
-		presentViewController(_legalController, animated: true, completion: nil)
+	@IBAction fileprivate func _privacyPolicyPressed() {
+		_legalController.type = .privacyPolicy
+		present(_legalController, animated: true, completion: nil)
 	}
    
    // MARK: - Gesture Recognizers
-   @IBAction private func _viewTapped(recognizer: UIGestureRecognizer)
+   @IBAction fileprivate func _viewTapped(_ recognizer: UIGestureRecognizer)
    {
-      let location = recognizer.locationInView(_textFieldsContainer)
+      let location = recognizer.location(in: _textFieldsContainer)
       
       var shouldResign = true
       for field in _textFields {
@@ -134,14 +134,14 @@ class SignUpViewController: UIViewController
    }
    
    // MARK: - Private
-   private func _resignAllTextFields()
+   fileprivate func _resignAllTextFields()
    {
       _textFields.forEach { field in
          field.resignFirstResponder()
       }
    }
    
-   private func _nextTextField(field: UITextField) -> UITextField?
+   fileprivate func _nextTextField(_ field: UITextField) -> UITextField?
    {
       switch field {
       case _firstNameTextField: return _lastNameTextField
@@ -154,16 +154,16 @@ class SignUpViewController: UIViewController
    }
    
    // MARK: - Keyboard
-   internal func keyboardWillChangeHeight(notification: NSNotification)
+   internal func keyboardWillChangeHeight(_ notification: Notification)
    {
-      guard let userInfo = notification.userInfo else { return }
-      guard let frameEnd = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue else { return }
+      guard let userInfo = (notification as NSNotification).userInfo else { return }
+      guard let frameEnd = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
       
-      let convertedFrameEnd = view.convertRect(frameEnd, fromView: nil)
+      let convertedFrameEnd = view.convert(frameEnd, from: nil)
       
       var textFieldFrame = CGRect.zero
       if let frame = _activeTextField?.frame {
-         textFieldFrame = _textFieldsContainer.convertRect(frame, toView: nil)
+         textFieldFrame = _textFieldsContainer.convert(frame, to: nil)
       }
 
       var offset = (textFieldFrame.maxY + _keyboardPadding) - convertedFrameEnd.minY + _keyboardAvoidingConstraint.constant
@@ -171,11 +171,11 @@ class SignUpViewController: UIViewController
       
       _keyboardAvoidingConstraint.constant = offset
       
-      guard let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]?.unsignedIntValue else { return }
-      guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue else { return }
+      guard let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as AnyObject).uint32Value else { return }
+      guard let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { return }
       let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
       
-      UIView.animateWithDuration(duration, delay: 0, options: options, animations: {
+      UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
          self.view.layoutIfNeeded()
          }, completion: nil
       )
@@ -190,7 +190,7 @@ class SignUpViewController: UIViewController
 
 extension SignUpViewController: UITextFieldDelegate
 {
-   func textFieldShouldReturn(textField: UITextField) -> Bool
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool
    {
       _nextTextField(textField)?.becomeFirstResponder()
       if textField == _lastTextField {

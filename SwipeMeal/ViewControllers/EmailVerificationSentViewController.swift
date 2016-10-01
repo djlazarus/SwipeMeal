@@ -10,35 +10,35 @@ import UIKit
 
 protocol EmailVerificationSentViewControllerDelegate: class
 {
-   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
-   func emailVerificationSentViewController(controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
+   func emailVerificationSentViewController(_ controller: EmailVerificationSentViewController, resendButtonPressed button: UIButton)
+   func emailVerificationSentViewController(_ controller: EmailVerificationSentViewController, logMeInButtonPressed button: UIButton)
    
-   func emailVerificationSentViewControllerCancelButtonPressed(controller: EmailVerificationSentViewController)
+   func emailVerificationSentViewControllerCancelButtonPressed(_ controller: EmailVerificationSentViewController)
 }
 
 class EmailVerificationSentViewController: UIViewController
 {
-   @IBOutlet private var _resendButton: SwipeMealRoundedButton!
-   @IBOutlet private var _logMeInButton: SwipeMealRoundedButton!
+   @IBOutlet fileprivate var _resendButton: SwipeMealRoundedButton!
+   @IBOutlet fileprivate var _logMeInButton: SwipeMealRoundedButton!
    
    weak var delegate: EmailVerificationSentViewControllerDelegate?
    
-   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-      return .LightContent
+   override var preferredStatusBarStyle : UIStatusBarStyle {
+      return .lightContent
    }
    
    // MARK: - IBActions
-   @IBAction private func resendButtonPressed(sender: UIButton)
+   @IBAction fileprivate func resendButtonPressed(_ sender: UIButton)
    {
       delegate?.emailVerificationSentViewController(self, resendButtonPressed: sender)
    }
    
-   @IBAction private func logMeInButtonPressed(sender: UIButton)
+   @IBAction fileprivate func logMeInButtonPressed(_ sender: UIButton)
    {
       delegate?.emailVerificationSentViewController(self, logMeInButtonPressed: sender)
    }
    
-   @IBAction private func cancelButtonPressed()
+   @IBAction fileprivate func cancelButtonPressed()
    {
       delegate?.emailVerificationSentViewControllerCancelButtonPressed(self)
    }

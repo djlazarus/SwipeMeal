@@ -12,8 +12,8 @@ public extension UILabel {
 	public var kerning: Float {
 		get {
 			var range = NSMakeRange(0, (text ?? "").characters.count)
-			guard let kern = attributedText?.attribute(NSKernAttributeName, atIndex: 0, effectiveRange: &range),
-				value = kern as? NSNumber else {
+			guard let kern = attributedText?.attribute(NSKernAttributeName, at: 0, effectiveRange: &range),
+				let value = kern as? NSNumber else {
 					return 0
 			}
 			return value.floatValue
@@ -29,7 +29,7 @@ public extension UILabel {
 			}
 			
 			let range = NSMakeRange(0, attText.length)
-			attText.addAttribute(NSKernAttributeName, value: NSNumber(float: newValue), range: range)
+			attText.addAttribute(NSKernAttributeName, value: NSNumber(value: newValue), range: range)
 			self.attributedText = attText
 		}
 	}

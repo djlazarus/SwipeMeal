@@ -13,7 +13,7 @@ class CreateUserAccountStatus
    let info: SignUpInfo
    
    var user: SwipeMealUser?
-   var error: NSError?
+   var error: Error?
    
    init(info: SignUpInfo) {
       self.info = info
@@ -22,8 +22,8 @@ class CreateUserAccountStatus
 
 class CreateUserAccountOperation: BaseOperation
 {
-   private let _status: CreateUserAccountStatus
-   private let _internalQueue = NSOperationQueue()
+   fileprivate let _status: CreateUserAccountStatus
+   fileprivate let _internalQueue = OperationQueue()
    
    init(status: CreateUserAccountStatus) {
       self._status = status
@@ -31,7 +31,7 @@ class CreateUserAccountOperation: BaseOperation
    
    override func execute()
    {
-      let validateSignUpInfoOp = NSBlockOperation {
+      let validateSignUpInfoOp = BlockOperation {
          let validator = SignUpInfoValidator(info: self._status.info)
          
          if let invalidStatus = validator.validate() {
@@ -39,7 +39,7 @@ class CreateUserAccountOperation: BaseOperation
          }
       }
       
-      let createUserAccountOp = NSBlockOperation {
+      let createUserAccountOp = BlockOperation {
          guard self._status.error == nil else {
             self.finish()
             return

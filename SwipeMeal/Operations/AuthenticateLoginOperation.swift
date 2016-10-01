@@ -14,7 +14,7 @@ class AuthenticateLoginStatus
    let password: String
    
    var user: SwipeMealUser?
-   var error: NSError?
+   var error: Error?
    
    init(email: String, password: String)
    {
@@ -25,7 +25,7 @@ class AuthenticateLoginStatus
 
 class AuthenticateLoginOperation: BaseOperation
 {
-   private let _status: AuthenticateLoginStatus
+   fileprivate let _status: AuthenticateLoginStatus
    
    init(status: AuthenticateLoginStatus)
    {

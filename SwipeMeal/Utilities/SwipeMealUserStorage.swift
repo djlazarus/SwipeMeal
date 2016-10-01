@@ -13,7 +13,7 @@ private enum SwipeMealUserStorageKey: String
 {
    case ProfileSetupComplete
    
-   func keyName(user: SwipeMealUser) -> String {
+   func keyName(_ user: SwipeMealUser) -> String {
       return "\(user.uid)-\(self)"
    }
 }
@@ -29,14 +29,14 @@ class SwipeMealUserStorage: NSObject
    
    var profileSetupComplete: Bool {
       get {
-         let defaults = NSUserDefaults.standardUserDefaults()
+         let defaults = UserDefaults.standard
          let key = SwipeMealUserStorageKey.ProfileSetupComplete.keyName(user)
-         return defaults.boolForKey(key)
+         return defaults.bool(forKey: key)
       }
       set {
-         let defaults = NSUserDefaults.standardUserDefaults()
+         let defaults = UserDefaults.standard
          let key = SwipeMealUserStorageKey.ProfileSetupComplete.keyName(user)
-         defaults.setBool(newValue, forKey: key)
+         defaults.set(newValue, forKey: key)
       }
 	}
 	

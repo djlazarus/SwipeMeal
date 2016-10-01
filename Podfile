@@ -10,11 +10,21 @@ target 'SwipeMeal' do
   pod 'Firebase/Database'
 
   pod 'SwiftSpinner'
-  pod 'IncipiaKit'
   pod 'Branch'
   pod 'Stripe'
   pod 'AFNetworking'
   pod 'SwiftyUserDefaults'
   pod 'OneSignal'
+  pod 'IncipiaKit',
+        :git => 'https://github.com/Incipia/IncipiaKit.git',
+            :branch => 'swift3'
 
+end
+
+post_install do |installer|
+      installer.pods_project.targets.each do |target|
+                  target.build_configurations.each do |config|
+                                      config.build_settings['SWIFT_VERSION'] = '3.0'
+                                                            end
+                              end
 end
