@@ -67,17 +67,6 @@
     return count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Compare the stored message height to the default message height.
-    // If the stored height is greater, return it. Otherwise, return the default height.
-    CGFloat height = [[self.messageHeights objectForKey:indexPath] floatValue];
-    if (height > self.defaultMessageHeight) {
-        return height;
-    }
-    
-    return self.defaultMessageHeight;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessagesTableViewCell *cell = (MessagesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MessagesTableViewCell" forIndexPath:indexPath];
     Message *message = [self.messageService.messages objectAtIndex:indexPath.row];
@@ -88,18 +77,6 @@
     // Image
     if (!message.mainImage) {
         [self startDownloadingProfileImageForUserID:message.fromUID atIndexPath:indexPath];
-    }
-    
-    // Force cell layout so we get an accurate message height.
-    [cell layoutIfNeeded];
-
-    // Compare the cell's message height to our stored message height.
-    // If they're different (i.e. the cell's message height has changed), store the new height.
-    CGFloat height = [[self.messageHeights objectForKey:indexPath] floatValue];
-    if (cell.messageHeight != height) {
-        [self.messageHeights setObject:@(cell.messageHeight) forKey:indexPath];
-        // Reload this row so the cell gets a proper height.
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
 
     // Cell background color
