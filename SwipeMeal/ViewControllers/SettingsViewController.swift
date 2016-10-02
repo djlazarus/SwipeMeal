@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
 		
 		universalObject.addMetadataKey("referral_sender_uid", value: referralUserUID)
 		universalObject.showShareSheet(with: linkProperties,
-		                                                 andShareText: "Download Swipemeal",
+		                                                 andShareText: "Download Swipe Meal",
 		                                                 from: self,
 		                                                 completion: nil)
 	}
