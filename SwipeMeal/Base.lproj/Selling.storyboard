@@ -107,7 +107,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saleswipes" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-5l-Omi"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saleswipes" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-5l-Omi"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNZ-3f-1Vq">
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,6 +136,11 @@
                                     <action selector="didTapContinueButton:" destination="iSe-qo-eos" eventType="touchUpInside" id="jHh-kC-3jP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder: A transaction fee will be applied." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwv-ky-WTE">
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -144,14 +149,17 @@
                             <constraint firstItem="yyv-5l-Omi" firstAttribute="leading" secondItem="Swt-hY-ZGY" secondAttribute="leading" id="FF5-GC-vCY"/>
                             <constraint firstAttribute="trailing" secondItem="5rI-FG-1oT" secondAttribute="trailing" id="MFe-Pw-eEu"/>
                             <constraint firstItem="B6L-XQ-HML" firstAttribute="top" secondItem="rhN-sS-4Kd" secondAttribute="bottom" constant="50" id="Mab-ic-Cwv"/>
+                            <constraint firstItem="5rI-FG-1oT" firstAttribute="top" secondItem="zwv-ky-WTE" secondAttribute="bottom" constant="8" id="OvK-Iz-Ido"/>
                             <constraint firstItem="orx-PA-aoG" firstAttribute="top" secondItem="5rI-FG-1oT" secondAttribute="bottom" id="SFb-Mk-k8h"/>
                             <constraint firstItem="rhN-sS-4Kd" firstAttribute="centerX" secondItem="Swt-hY-ZGY" secondAttribute="centerX" id="TtY-bO-wcg"/>
                             <constraint firstItem="5rI-FG-1oT" firstAttribute="leading" secondItem="Swt-hY-ZGY" secondAttribute="leading" id="XPp-fJ-Lhp"/>
+                            <constraint firstAttribute="trailing" secondItem="zwv-ky-WTE" secondAttribute="trailing" constant="8" id="gzB-71-NWV"/>
                             <constraint firstItem="yyv-5l-Omi" firstAttribute="top" secondItem="1Pq-O2-CFW" secondAttribute="bottom" id="hsP-he-Mrb"/>
                             <constraint firstItem="rhN-sS-4Kd" firstAttribute="top" secondItem="QNZ-3f-1Vq" secondAttribute="bottom" constant="50" id="ks9-rj-R19"/>
                             <constraint firstItem="QNZ-3f-1Vq" firstAttribute="centerX" secondItem="Swt-hY-ZGY" secondAttribute="centerX" id="oTX-YG-wEF"/>
                             <constraint firstItem="B6L-XQ-HML" firstAttribute="centerX" secondItem="Swt-hY-ZGY" secondAttribute="centerX" id="uUV-7c-97c"/>
                             <constraint firstAttribute="trailing" secondItem="yyv-5l-Omi" secondAttribute="trailing" id="w6g-Yg-yaY"/>
+                            <constraint firstItem="zwv-ky-WTE" firstAttribute="leading" secondItem="Swt-hY-ZGY" secondAttribute="leading" constant="8" id="yhN-Ze-MhB"/>
                         </constraints>
                     </view>
                     <connections>
@@ -164,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Two-ka-0Ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="532"/>
+            <point key="canvasLocation" x="861.60000000000002" y="530.28485757121439"/>
         </scene>
         <!--Swipe Sell Confirmation View Controller-->
         <scene sceneID="Rbh-Uh-uhr">

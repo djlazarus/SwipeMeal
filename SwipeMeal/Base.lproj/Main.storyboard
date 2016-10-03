@@ -631,7 +631,7 @@
             <objects>
                 <navigationController id="Vue-dJ-dIH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home-tab" selectedImage="home-tab" id="xbn-0t-JF1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jeG-oY-4E7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jeG-oY-4E7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -927,7 +927,7 @@
             <objects>
                 <navigationController id="HpA-31-3Xp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wallet" image="wallet-tab" selectedImage="wallet-tab" id="oQm-Ja-TMx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FXN-lu-Mhk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FXN-lu-Mhk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
