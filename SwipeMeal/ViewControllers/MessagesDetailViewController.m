@@ -10,11 +10,14 @@
 #import "MessagesDetailReplyViewController.h"
 #import "MessagesDetailChildViewController.h"
 #import "SwipeService.h"
+#import "StripePaymentService.h"
+@import Firebase;
 
 @interface MessagesDetailViewController ()
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonnull) SwipeService *swipeService;
+@property (strong, nonatomic) FIRDatabaseReference *dbRef;
 
 @end
 
@@ -36,21 +39,51 @@
     [self setViewControllerAtIndex:0];
     
     self.swipeService = [SwipeService sharedSwipeService];
+    self.dbRef = [[FIRDatabase database] reference];
 }
 
 - (void)buySwipe {
-    Swipe *swipe = [self.swipeService swipeForKey:self.message.swipeID];
-    if (swipe) {
-        [self.swipeService buySwipe:swipe withCompletionBlock:^{
-            [self loadReplyViewController];
-        }];
-    } else {
-        [self.swipeService getSwipeWithSwipeID:self.message.swipeID completionBlock:^(Swipe *swipe) {
-            [self.swipeService buySwipe:swipe withCompletionBlock:^{
-                [self loadReplyViewController];
+    NSString *userID = [FIRAuth auth].currentUser.uid;
+    [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *stripeCustomerStatus = [snapshot.value objectForKey:@"stripe_customer_status"];
+        if ([stripeCustomerStatus isEqualToString:@"active"]) {
+            StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+            [paymentService requestPurchaseWithSwipeID:self.message.swipeID buyerID:userID completionBlock:^(NSDictionary *response, NSError *error) {
+                if (error) {
+                    NSLog(@"%@", error);
+                } else {
+                    
+//                    if (!SwipeMealUserStorage.hasMadeFirstPurchaseOrSale) {
+//                        SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
+//                        
+//                        NSString* referralUID = SwipeMealUserStorage.referralUID;
+//                        if (referralUID != NULL) {
+//                            // TODO: Send user with referralUID a payment of $1
+//                        }
+//                    }
+
+                    NSLog(@"%@", response);
+                }
             }];
-        }];
-    }
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
+                                                                                     message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alertController addAction:action];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+//            self.acceptButton.enabled = YES;
+        }
+    }];
+    
+    [self.swipeService buySwipeWithSwipeID:self.message.swipeID completionBlock:^(NSError *error) {
+        if (!error) {
+            [self loadReplyViewController];
+        }
+    }];
 }
 
 - (void)loadReplyViewController {

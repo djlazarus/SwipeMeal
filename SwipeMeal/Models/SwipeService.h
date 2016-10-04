@@ -16,7 +16,6 @@
 - (Swipe *)swipeForKey:(NSString *)key;
 - (void)listenForEventsWithAddBlock:(void(^)(void))addBlock removeBlock:(void(^)(void))removeBlock updateBlock:(void(^)(void))updateBlock;
 - (void)createNewSwipeWithValues:(NSDictionary *)values withCompletionBlock:(void (^)(NSString *swipeKey))completionBlock;
-- (void)getSwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock;
-- (void)buySwipe:(Swipe *)swipe withCompletionBlock:(void (^)(void))completionBlock;
+- (void)buySwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(NSError *error))completionBlock;
 
 @end

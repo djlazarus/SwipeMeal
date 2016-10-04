@@ -56,7 +56,7 @@
             [self sellerIsActiveWithSnapshot:snapshot completionBlock:^{
                 // Build Swipe
                 Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-                if (swipe.isForSale) {
+                if (!swipe.soldTime) {
                     [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
                     NSLog(@"Added Swipe: %@", swipe);
                     addBlock();
@@ -71,9 +71,10 @@
     
     [[self.dbRef child:@"/swipes-listed/"] observeEventType:FIRDataEventTypeChildChanged withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-        [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
-        if (!swipe.isForSale) {
+        if (swipe.soldTime) {
             [self.swipeStore removeSwipeForKey:swipe.swipeID];
+        } else {
+            [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
         }
         NSLog(@"Updated Swipe: %@", swipe);
         updateBlock();
@@ -108,10 +109,10 @@
     swipe.listingUserRating = [[values objectForKey:@"seller_rating"] integerValue];
     swipe.listPrice = [[values objectForKey:@"price"] integerValue];
     swipe.locationName = [values objectForKey:@"location_name"];
-    swipe.listingTime = [[values objectForKey:@"listing_time"] floatValue];
-    swipe.expireTime = [[values objectForKey:@"expiration_time"] floatValue];
-	swipe.availableTime = [[values objectForKey:@"available_time"] doubleValue];
-    swipe.forSale = [[values objectForKey:@"is_for_sale"] boolValue];
+    swipe.listingTime = [[values objectForKey:@"listing_time"] integerValue];
+    swipe.expireTime = [[values objectForKey:@"expiration_time"] integerValue];
+	swipe.availableTime = [[values objectForKey:@"available_time"] integerValue];
+    swipe.soldTime = [[values objectForKey:@"sold_time"] integerValue];
 
     return swipe;
 }
@@ -131,34 +132,40 @@
     }];
 }
 
-- (void)getSwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock {
-    [[[self.dbRef child:@"/swipes-listed/"] child:swipeID] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+- (void)getSwipeWithSwipeID
+:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock {
+    [[[self.dbRef child:@"/swipes-listed/"] child:swipeID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
         [self.swipeStore addSwipe:swipe forKey:swipeID];
-        completionBlock(swipe);
+        if (swipe) {
+            completionBlock(swipe);
+        } else {
+            completionBlock(nil);
+        }
     }];
 }
 
-- (void)buySwipe:(Swipe *)swipe withCompletionBlock:(void (^)(void))completionBlock {
-    NSString *userID = [FIRAuth auth].currentUser.uid;
-    NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
-    NSDictionary *swipeDict = @{@"uid":userID,
-                                @"sold_time":@(timestamp),
-                                @"price":@(swipe.listPrice),
-                                @"seller_name":swipe.listingUserName,
-                                @"listing_time":@(swipe.listingTime),
-                                @"location_name":swipe.locationName,
-                                @"seller_rating":@(swipe.listingUserRating),
-                                @"is_for_sale":@(NO)};
-    NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:swipe.swipeID]: swipeDict,
-                                   [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, swipe.swipeID]: swipeDict};
-    
-    [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else {
-            completionBlock();
-        }
+- (void)buySwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(NSError *))completionBlock {
+    [self getSwipeWithSwipeID:swipeID completionBlock:^(Swipe *swipe) {
+        NSString *userID = [FIRAuth auth].currentUser.uid;
+        NSTimeInterval timestamp = [[NSDate date] timeIntervalSince1970];
+        NSDictionary *swipeDict = @{@"uid":userID,
+                                    @"sold_time":@(timestamp),
+                                    @"price":@(swipe.listPrice),
+                                    @"seller_name":swipe.listingUserName,
+                                    @"listing_time":@(swipe.listingTime),
+                                    @"location_name":swipe.locationName,
+                                    @"seller_rating":@(swipe.listingUserRating)};
+        NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:swipe.swipeID]: swipeDict,
+                                       [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, swipe.swipeID]: swipeDict};
+        
+        [self.dbRef updateChildValues:childUpdates withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            if (error) {
+                completionBlock(error);
+            } else {
+                completionBlock(nil);
+            }
+        }];
     }];
 }
 

@@ -24,6 +24,5 @@
 @property (nonatomic) NSTimeInterval expireTime;
 @property (nonatomic) NSInteger listingUserRating;
 @property (nonatomic, getter=isValid) BOOL valid;
-@property (nonatomic, getter=isForSale) BOOL forSale;
 
 @end
