@@ -48,16 +48,19 @@
     self.sendButton.layer.borderWidth = 1.0;
     self.sendButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
     
-//    // Hide 'Cancel' button if transaction is more than 48 hours old
-//    Swipe *swipe = [self.swipeService swipeForKey:self.message.swipeID];
-//    if (swipe) {
-//        NSTimeInterval soldTime = swipe.soldTime;
-//        NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
-//        
-//    }
-
-    self.cancelButton.layer.borderWidth = 1.0;
-    self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
+    // Hide 'Cancel' button if transaction is more than 48 hours old
+    [self.swipeService getSwipeWithSwipeID:self.message.swipeID completionBlock:^(Swipe *swipe) {
+        if (swipe) {
+            NSTimeInterval soldTime = swipe.soldTime;
+            NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+            if (currentTime - soldTime > 60 * 60 * 48) {
+                self.cancelButton.hidden = YES;
+            } else {
+                self.cancelButton.layer.borderWidth = 1.0;
+                self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+    }];
     
     [self.datePicker addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
     

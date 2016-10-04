@@ -132,8 +132,7 @@
     }];
 }
 
-- (void)getSwipeWithSwipeID
-:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock {
+- (void)getSwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock {
     [[[self.dbRef child:@"/swipes-listed/"] child:swipeID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
         [self.swipeStore addSwipe:swipe forKey:swipeID];
