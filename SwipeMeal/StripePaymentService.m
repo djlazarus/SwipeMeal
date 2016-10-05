@@ -152,12 +152,12 @@
     [dataTask resume];
 }
 
-- (void)requestRefundWithSwipeID:(NSString *)swipeID
-                 completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock {
+- (void)requestRefundWithTransactionID:(NSString *)transactionID
+                       completionBlock:(void (^)(NSDictionary *, NSError *))completionBlock {
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
-    NSDictionary *params = @{@"swipeId":swipeID,
+    NSDictionary *params = @{@"swipeTransactionId":transactionID,
                              kPaymentServerDevParameter:kPaymentServerDevValue};
     NSString *urlString = [kPaymentServerEndpoint stringByAppendingString:@"/payments/refund"];
     NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];

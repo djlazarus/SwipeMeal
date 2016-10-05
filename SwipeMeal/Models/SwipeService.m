@@ -113,6 +113,7 @@
     swipe.expireTime = [[values objectForKey:@"expiration_time"] integerValue];
 	swipe.availableTime = [[values objectForKey:@"available_time"] integerValue];
     swipe.soldTime = [[values objectForKey:@"sold_time"] integerValue];
+    swipe.swipeTransactionID = [values objectForKey:@"swipe_transaction_id"];
 
     return swipe;
 }

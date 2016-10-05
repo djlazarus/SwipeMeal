@@ -74,8 +74,6 @@
             }];
             [alertController addAction:action];
             [self presentViewController:alertController animated:YES completion:nil];
-            
-//            self.acceptButton.enabled = YES;
         }
     }];
     
@@ -95,7 +93,26 @@
 }
 
 - (void)cancelTransaction {
-
+    [self.swipeService getSwipeWithSwipeID:self.message.swipeID completionBlock:^(Swipe *swipe) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cancel Transaction"
+                                                                                 message:@"Are you sure you want to cancel this Swipe?"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:nil];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"Yes, Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
+            [paymentService requestRefundWithTransactionID:swipe.swipeTransactionID completionBlock:^(NSDictionary *response, NSError *error) {
+                if (error) {
+                    NSLog(@"%@", error);
+                } else {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+        }];
+        
+        [alertController addAction:action1];
+        [alertController addAction:action2];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }];
 }
 
 - (void)setViewControllerAtIndex:(NSInteger)index {
