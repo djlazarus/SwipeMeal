@@ -157,7 +157,7 @@ class SignUpViewController: UIViewController
    internal func keyboardWillChangeHeight(_ notification: Notification)
    {
       guard let userInfo = (notification as NSNotification).userInfo else { return }
-      guard let frameEnd = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
+      guard let frameEnd = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
       
       let convertedFrameEnd = view.convert(frameEnd, from: nil)
       
@@ -171,8 +171,8 @@ class SignUpViewController: UIViewController
       
       _keyboardAvoidingConstraint.constant = offset
       
-      guard let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as AnyObject).uint32Value else { return }
-      guard let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue else { return }
+      guard let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber)?.uint32Value else { return }
+      guard let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else { return }
       let options = UIViewAnimationOptions(rawValue: UInt(curve) << 16)
       
       UIView.animate(withDuration: duration, delay: 0, options: options, animations: {

@@ -57,7 +57,7 @@ private enum WelcomeViewControllerMode
 		case .dontAbuseSwipeMeal: return "Swipe Meal does not condone the sale of Swipes if it's prohibited by the school."
       case .setupProfile: return "A complete profile helps others identify you while you buy and/or sell Swipes."
       case .addPayments: return "Setup your payment options to buy and sell Swipes instantly."
-      case .buyOrSell: return "You can find Swipes for sale near you or sell Swipes for cash."
+      case .buyOrSell: return "You can find Swipes for sale near you or sell Swipes for cash.\r\rSwipe Meal takes a transaction fee in the amount of $2.00."
 		case .referAFriend: return "You can refer a friend via your profile page, and get $1 upon their first buy or sell of a Swipe."
       }
    }
