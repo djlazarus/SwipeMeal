@@ -18,8 +18,9 @@ class SwipeMealPushCoordinator: NSObject {
 		SMDatabaseLayer.getOneSignalPlayerID(forUserWithUID: userUID) { (oneSignalPlayerID) in
 			guard let playerID = oneSignalPlayerID else { return }
 			
+			let name = currentUser.displayName ?? "A user"
 			OneSignal.postNotification([
-				"contents": ["en": "\(currentUser.displayName) is interested in buying your Swipe!"],
+				"contents": ["en": "\(name) is interested in buying your Swipe!"],
 				"include_player_ids": [playerID]]
 			)
 		}
@@ -30,8 +31,9 @@ class SwipeMealPushCoordinator: NSObject {
 			guard let currentUser = FIRAuth.auth()?.currentUser else { return }
 			guard let playerID = oneSignalPlayerID else { return }
 			
+			let name = currentUser.displayName ?? "A user"
 			OneSignal.postNotification([
-				"contents": ["en": "\(currentUser.displayName) has arrived at the location."],
+				"contents": ["en": "\(name) has arrived at the location."],
 				"include_player_ids": [playerID]]
 			)
 		}
