@@ -47,6 +47,10 @@ typealias UserDataUploadCompletion = (_ error: NSError?, _ downloadURL: URL?) ->
 		
 		let storage = SwipeMealUserStorage(user: user)
 		storage.profileSetupComplete = complete
+		
+		if let referralUID = SwipeMealUserStorage.referralUID {
+			userInfoRef.updateChildValues(["referral_uid" : referralUID])
+		}
 	}
 	
 	static func addUserToDatabase(_ user: SwipeMealUser)
@@ -148,6 +152,21 @@ typealias UserDataUploadCompletion = (_ error: NSError?, _ downloadURL: URL?) ->
 			}
 			
 			callback(playerID)
+		})
+	}
+	
+	static func getReferralUID(forUserWithUID uid: String, callback: @escaping (_ referralUID: String?) -> Void) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child("\(kUsersPathName)/\(uid)/\(kUserInfoPathName)")
+		userInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
+			
+			var referralUserUID: String?
+			let value = snapshot.value as? NSDictionary
+			if let readValue = value?["referral_uid"] as? String {
+				referralUserUID = readValue
+			}
+			
+			callback(referralUserUID)
 		})
 	}
 	
