@@ -92,13 +92,13 @@
 }
 
 - (void)sellerIsActiveWithSnapshot:(FIRDataSnapshot *)snapshot completionBlock:(void (^)(void))completionBlock {
-//    NSString *sellerID = [snapshot.value objectForKey:@"uid"];
-//    [[[self.dbRef child:@"users"] child:sellerID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        NSString *sellStatus = [snapshot.value objectForKey:@"stripe_account_status"];
-//        if ([sellStatus isEqualToString:@"active"]) {
+    NSString *sellerID = [snapshot.value objectForKey:@"uid"];
+    [[[self.dbRef child:@"users"] child:sellerID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *sellStatus = [snapshot.value objectForKey:@"stripe_account_status"];
+        if ([sellStatus isEqualToString:@"active"]) {
             completionBlock();
-//        }
-//    }];
+        }
+    }];
 }
 
 - (Swipe *)swipeWithKey:(NSString *)key values:(NSDictionary *)values {
