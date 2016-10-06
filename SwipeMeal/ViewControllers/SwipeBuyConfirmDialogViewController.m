@@ -98,25 +98,7 @@
     [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSString *stripeCustomerStatus = [snapshot.value objectForKey:@"stripe_customer_status"];
         if ([stripeCustomerStatus isEqualToString:@"active"]) {
-            StripePaymentService *paymentService = [StripePaymentService sharedPaymentService];
-            [paymentService requestPurchaseWithSwipeID:self.swipe.swipeID buyerID:userID completionBlock:^(NSDictionary *response, NSError *error) {
-                if (error) {
-                    NSLog(@"%@", error);
-                } else {
-
-						 if (!SwipeMealUserStorage.hasMadeFirstPurchaseOrSale) {
-							 SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
-							 
-							 NSString* referralUID = SwipeMealUserStorage.referralUID;
-							 if (referralUID != NULL) {
-								 // TODO: Send user with referralUID a payment of $1
-							 }
-						 }
-						 
-                    [self notifySwipeSeller];
-                    NSLog(@"%@", response);
-                }
-            }];
+            [self notifySwipeSeller];
         } else {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
                                                                                      message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."

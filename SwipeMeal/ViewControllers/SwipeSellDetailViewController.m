@@ -80,8 +80,7 @@
                                 @"price":@(self.swipe.listPrice),
                                 @"fee":@200,
                                 @"location_name":self.swipe.locationName,
-                                @"seller_rating":@(self.swipe.listingUserRating),
-                                @"is_for_sale":@(YES)};
+                                @"seller_rating":@(self.swipe.listingUserRating)};
     
     [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^(NSString *swipeKey) {
         // Create initial message

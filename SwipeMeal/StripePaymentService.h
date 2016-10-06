@@ -38,4 +38,7 @@
                            buyerID:(NSString *)buyerID
                    completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
 
+- (void)requestRefundWithTransactionID:(NSString *)transactionID
+                 completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
+
 @end

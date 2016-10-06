@@ -152,4 +152,27 @@
     [dataTask resume];
 }
 
+- (void)requestRefundWithTransactionID:(NSString *)transactionID
+                       completionBlock:(void (^)(NSDictionary *, NSError *))completionBlock {
+    
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
+    NSDictionary *params = @{@"swipeTransactionId":transactionID,
+                             kPaymentServerDevParameter:kPaymentServerDevValue};
+    NSString *urlString = [kPaymentServerEndpoint stringByAppendingString:@"/payments/refund"];
+    NSURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlString parameters:params error:nil];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@", error);
+            completionBlock(nil, error);
+        } else {
+            NSLog(@"%@", responseObject);
+            completionBlock(responseObject, nil);
+        }
+    }];
+    
+    [dataTask resume];
+}
+
 @end

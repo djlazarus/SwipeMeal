@@ -9,6 +9,7 @@
 #import "MessagesDetailReplyViewController.h"
 #import "MessagesDetailReplyTableViewCell.h"
 #import "MessageService.h"
+#import "SwipeService.h"
 #import "SwipeMeal-Swift.h"
 @import Firebase;
 
@@ -26,6 +27,7 @@
 @property (nonatomic) NSDate *replyDate;
 @property (nonatomic) NSInteger selectedIndex;
 @property (strong, nonatomic) MessageService *messageService;
+@property (strong, nonatomic) SwipeService *swipeService;
 
 @end
 
@@ -35,6 +37,7 @@
     [super viewDidLoad];
 
     self.messageService = [MessageService sharedMessageService];
+    self.swipeService = [SwipeService sharedSwipeService];
     
     self.toNameLabel.text = [NSString stringWithFormat:@"To: %@", self.message.fromName];
     self.tableView.delegate = self;
@@ -45,8 +48,19 @@
     self.sendButton.layer.borderWidth = 1.0;
     self.sendButton.layer.borderColor = [[UIColor alloc] initWithHexString:@"6BB739"].CGColor;
     
-    self.cancelButton.layer.borderWidth = 1.0;
-    self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
+    // Hide 'Cancel' button if transaction is more than 48 hours old
+    [self.swipeService getSwipeWithSwipeID:self.message.swipeID completionBlock:^(Swipe *swipe) {
+        if (swipe) {
+            NSTimeInterval soldTime = swipe.soldTime;
+            NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+            if (currentTime - soldTime > 60 * 60 * 48) {
+                self.cancelButton.hidden = YES;
+            } else {
+                self.cancelButton.layer.borderWidth = 1.0;
+                self.cancelButton.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+    }];
     
     [self.datePicker addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
     
