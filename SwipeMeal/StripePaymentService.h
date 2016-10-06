@@ -41,4 +41,9 @@
 - (void)requestRefundWithTransactionID:(NSString *)transactionID
                  completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
 
+- (void)requestReferralPaymentWithReferralID:(NSString *)referralID
+                                      userID:(NSString *)userID
+                                      amount:(NSNumber *)amount
+                             completionBlock:(void (^)(NSDictionary *response, NSError *error))completionBlock;
+
 @end

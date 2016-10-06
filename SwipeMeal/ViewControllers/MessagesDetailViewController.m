@@ -11,6 +11,7 @@
 #import "MessagesDetailChildViewController.h"
 #import "SwipeService.h"
 #import "StripePaymentService.h"
+#import "SwipeMeal-Swift.h"
 @import Firebase;
 
 @interface MessagesDetailViewController ()
@@ -52,15 +53,20 @@
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
-                    
-//                    if (!SwipeMealUserStorage.hasMadeFirstPurchaseOrSale) {
-//                        SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
-//                        
-//                        NSString* referralUID = SwipeMealUserStorage.referralUID;
-//                        if (referralUID != NULL) {
-//                            // TODO: Send user with referralUID a payment of $1
-//                        }
-//                    }
+                    if (!SwipeMealUserStorage.hasMadeFirstPurchaseOrSale) {
+                        SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
+                        NSString* referralUID = SwipeMealUserStorage.referralUID;
+                        if (referralUID != NULL) {
+                            // TODO: Send user with referralUID a payment of $1
+                            [paymentService requestReferralPaymentWithReferralID:referralUID userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
+                                if (error) {
+                                    NSLog(@"%@", error);
+                                } else {
+                                    NSLog(@"%@", response);
+                                }
+                            }];
+                        }
+                    }
 
                     NSLog(@"%@", response);
                 }
