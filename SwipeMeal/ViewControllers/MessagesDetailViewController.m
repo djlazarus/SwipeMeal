@@ -53,19 +53,23 @@
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
-                    if (!SwipeMealUserStorage.hasMadeFirstPurchaseOrSale) {
-                        SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
-                        NSString* referralUID = SwipeMealUserStorage.referralUID;
-                        if (referralUID != NULL) {
-                            // TODO: Send user with referralUID a payment of $1
-                            [paymentService requestReferralPaymentWithReferralID:referralUID userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
-                                if (error) {
-                                    NSLog(@"%@", error);
-                                } else {
-                                    NSLog(@"%@", response);
-                                }
-                            }];
-                        }
+                    BOOL hasMadeFirstPurchaseOrSale = SwipeMealUserStorage.hasMadeFirstPurchaseOrSale;
+                    NSString *referralString = SwipeMealUserStorage.referralUID;
+                    
+                    if (DEBUG) {
+                        hasMadeFirstPurchaseOrSale = YES;
+                        referralString = @"sm3ehHenpOMhMlKxujyMfPiT9X33";
+                    }
+                    
+                    if (hasMadeFirstPurchaseOrSale && referralString) {
+                        [paymentService requestReferralPaymentWithReferralID:referralString userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
+                            if (error) {
+                                NSLog(@"%@", error);
+                            } else {
+                                NSLog(@"%@", response);
+                                SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
+                            }
+                        }];
                     }
 
                     NSLog(@"%@", response);
