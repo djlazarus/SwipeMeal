@@ -20,7 +20,7 @@ enum SignUpInfoInvalidStatus
       case .invalidEmail(_): return info.email.isValidEmail
       case .passwordEmpty: return info.password != ""
       case .passwordsDoNotMatch: return info.password == info.confirmedPassword
-      case .invalidUniversityEmail(_, _): return true//info.email.isUniversityEmail
+      case .invalidUniversityEmail(_, _): return info.email.isUniversityEmail
       }
    }
    

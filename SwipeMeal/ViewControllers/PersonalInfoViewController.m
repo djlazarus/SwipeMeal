@@ -33,6 +33,10 @@
     [self.ssnTextField addTarget:self action:@selector(checkFormValidity) forControlEvents:UIControlEventEditingChanged];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+	return UIStatusBarStyleLightContent;
+}
+
 - (void)showDatePicker {
     [UIView animateWithDuration:0.25 animations:^{
         self.datePicker.hidden = NO;

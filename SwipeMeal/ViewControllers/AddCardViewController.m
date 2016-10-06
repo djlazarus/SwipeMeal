@@ -35,6 +35,10 @@
     [self.stackView insertArrangedSubview:self.paymentCardTextField atIndex:0];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+	return UIStatusBarStyleLightContent;
+}
+
 - (void)resignEverything {
     [self.paymentCardTextField resignFirstResponder];
     [self.emailTextField resignFirstResponder];

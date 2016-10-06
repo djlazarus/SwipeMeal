@@ -11,7 +11,6 @@
 @interface WalletHeaderTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
-@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
 
 @end
 
@@ -23,14 +22,6 @@
 
 - (UIImage *)mainImage {
     return self.mainImageView.image;
-}
-
-- (void)setMainText:(NSString *)text {
-    self.mainLabel.text = text;
-}
-
-- (NSString *)mainText {
-    return self.mainLabel.text;
 }
 
 @end
