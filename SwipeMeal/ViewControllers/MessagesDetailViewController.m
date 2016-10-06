@@ -54,27 +54,22 @@
                     NSLog(@"%@", error);
                 } else {
                     [SMDatabaseLayer getReferralUIDForUserWithUID:userID callback:^(NSString *referralID) {
-                        BOOL hasMadeFirstPurchaseOrSale = YES;
-                        BOOL hasReferralID = NO;
                         if (referralID) {
-                            hasReferralID = YES;
-                        }
-
-                        if (hasMadeFirstPurchaseOrSale && hasReferralID) {
-                            [paymentService requestReferralPaymentWithReferralID:referralID userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
-                                if (error) {
-                                    NSLog(@"%@", error);
-                                } else {
-                                    NSLog(@"%@", response);
-                                    SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
-                                }
-                            }];
+                            BOOL hasMadeFirstPurchaseOrSale = [SwipeMealUserStorage hasMadeFirstPurchaseOrSale];
+                            if (!hasMadeFirstPurchaseOrSale && referralID) {
+                                [paymentService requestReferralPaymentWithReferralID:referralID userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
+                                    if (error) {
+                                        NSLog(@"Referral error: %@", error);
+                                    } else {
+                                        NSLog(@"Referral response: %@", response);
+                                        [SwipeMealUserStorage setHasMadeFirstPurchaseOrSale:YES];
+                                    }
+                                }];
+                            }
                         }
                     }];
 
-                    
-
-                    NSLog(@"%@", response);
+                    NSLog(@"Payments response: %@", response);
                 }
             }];
         } else {
