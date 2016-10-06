@@ -100,7 +100,7 @@
 
 - (void)cancelTransaction {
     [self.swipeService getSwipeWithSwipeID:self.message.swipeID completionBlock:^(Swipe *swipe) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cancel Transaction"
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cancel Swipe"
                                                                                  message:@"Are you sure you want to cancel this Swipe?"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:nil];
@@ -110,7 +110,14 @@
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Swipe Cancelled"
+                                                                                             message:@"This Swipe has been cancelled successfully."
+                                                                                      preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alertController addAction:action1];
+                    [self presentViewController:alertController animated:YES completion:nil];
                 }
             }];
         }];
