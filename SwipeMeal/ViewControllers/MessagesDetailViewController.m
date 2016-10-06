@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buySwipe) name:@"didTapAcceptButton" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sellSwipe) name:@"didTapAcceptButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadReplyViewController) name:@"didTapReplyButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadConfirmationViewController) name:@"didTapSendButton" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelTransaction) name:@"didTapCancelTransactionButton" object:nil];
@@ -43,8 +43,8 @@
     self.dbRef = [[FIRDatabase database] reference];
 }
 
-- (void)buySwipe {
-    NSString *userID = [FIRAuth auth].currentUser.uid;
+- (void)sellSwipe {
+    NSString *userID = self.message.fromUID;
     [[[self.dbRef child:@"users"] child:userID] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSString *stripeCustomerStatus = [snapshot.value objectForKey:@"stripe_customer_status"];
         if ([stripeCustomerStatus isEqualToString:@"active"]) {
@@ -53,24 +53,26 @@
                 if (error) {
                     NSLog(@"%@", error);
                 } else {
-                    BOOL hasMadeFirstPurchaseOrSale = SwipeMealUserStorage.hasMadeFirstPurchaseOrSale;
-                    NSString *referralString = SwipeMealUserStorage.referralUID;
+                    [SMDatabaseLayer getReferralUIDForUserWithUID:userID callback:^(NSString *referralID) {
+                        BOOL hasMadeFirstPurchaseOrSale = YES;
+                        BOOL hasReferralID = NO;
+                        if (referralID) {
+                            hasReferralID = YES;
+                        }
+
+                        if (hasMadeFirstPurchaseOrSale && hasReferralID) {
+                            [paymentService requestReferralPaymentWithReferralID:referralID userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
+                                if (error) {
+                                    NSLog(@"%@", error);
+                                } else {
+                                    NSLog(@"%@", response);
+                                    SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
+                                }
+                            }];
+                        }
+                    }];
+
                     
-                    if (DEBUG) {
-                        hasMadeFirstPurchaseOrSale = YES;
-                        referralString = @"sm3ehHenpOMhMlKxujyMfPiT9X33";
-                    }
-                    
-                    if (hasMadeFirstPurchaseOrSale && referralString) {
-                        [paymentService requestReferralPaymentWithReferralID:referralString userID:userID amount:@100 completionBlock:^(NSDictionary *response, NSError *error) {
-                            if (error) {
-                                NSLog(@"%@", error);
-                            } else {
-                                NSLog(@"%@", response);
-                                SwipeMealUserStorage.hasMadeFirstPurchaseOrSale = YES;
-                            }
-                        }];
-                    }
 
                     NSLog(@"%@", response);
                 }
