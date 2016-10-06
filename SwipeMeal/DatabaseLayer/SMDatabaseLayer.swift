@@ -51,6 +51,29 @@ typealias UserDataUploadCompletion = (_ error: NSError?, _ downloadURL: URL?) ->
 		if let referralUID = SwipeMealUserStorage.referralUID {
 			userInfoRef.updateChildValues(["referral_uid" : referralUID])
 		}
+		
+		userInfoRef.updateChildValues(["has_made_first_transaction" : false])
+	}
+	
+	static func setHasMadeFirstTransaction(_ value: Bool, forUserWithUID uid: String) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child(kUsersPathName).child("\(uid)/\(kUserInfoPathName)")
+		userInfoRef.updateChildValues(["has_made_first_transaction" : value])
+	}
+	
+	static func getHasMadeTransaction(forUserWithUID uid: String, callback: @escaping (_ madeFirstTransaction: Bool?) -> Void) {
+		let ref = FIRDatabase.database().reference()
+		let userInfoRef = ref.child("\(kUsersPathName)/\(uid)/\(kUserInfoPathName)")
+		userInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
+			
+			var hasMadeFirstTransaction: Bool?
+			let value = snapshot.value as? NSDictionary
+			if let readValue = value?["has_made_first_transaction"] as? Bool {
+				hasMadeFirstTransaction = readValue
+			}
+			
+			callback(hasMadeFirstTransaction)
+		})
 	}
 	
 	static func addUserToDatabase(_ user: SwipeMealUser)
