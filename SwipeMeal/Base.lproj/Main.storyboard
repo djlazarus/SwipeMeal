@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -522,7 +523,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="145" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lMJ-Il-GgX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="145" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lMJ-Il-GgX">
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.20814983976392773" green="0.2200595092310309" blue="0.22201522435897436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -994,25 +995,23 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2b-JF-MRI">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending SwipeMeal transactions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKr-hK-erG">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="210" id="K03-VP-kMg"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="R2b-JF-MRI" firstAttribute="centerY" secondItem="JCp-2P-NOe" secondAttribute="centerY" constant="-11" id="09Y-qY-DEJ"/>
-                                                <constraint firstItem="aKr-hK-erG" firstAttribute="leading" secondItem="O19-oT-rFg" secondAttribute="trailing" constant="35" id="8bo-Op-xkU"/>
-                                                <constraint firstItem="R2b-JF-MRI" firstAttribute="leading" secondItem="O19-oT-rFg" secondAttribute="trailing" constant="35" id="EtS-El-mj3"/>
+                                                <constraint firstItem="aKr-hK-erG" firstAttribute="leading" secondItem="O19-oT-rFg" secondAttribute="trailing" constant="28" id="8bo-Op-xkU"/>
+                                                <constraint firstItem="R2b-JF-MRI" firstAttribute="leading" secondItem="O19-oT-rFg" secondAttribute="trailing" constant="28" id="EtS-El-mj3"/>
                                                 <constraint firstItem="O19-oT-rFg" firstAttribute="centerY" secondItem="JCp-2P-NOe" secondAttribute="centerY" id="Jnm-xQ-Xhn"/>
                                                 <constraint firstItem="aKr-hK-erG" firstAttribute="top" secondItem="R2b-JF-MRI" secondAttribute="bottom" constant="5" id="b7D-Wq-3aC"/>
+                                                <constraint firstItem="aKr-hK-erG" firstAttribute="trailing" secondItem="JCp-2P-NOe" secondAttribute="trailingMargin" id="vZB-yf-o3r"/>
                                                 <constraint firstItem="O19-oT-rFg" firstAttribute="leading" secondItem="JCp-2P-NOe" secondAttribute="leading" constant="15" id="zjH-Pq-6CF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1045,7 +1044,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bX-A3-OvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="588"/>
+            <point key="canvasLocation" x="1516" y="587.85607196401804"/>
         </scene>
         <!--TransactionsViewController-->
         <scene sceneID="18l-h9-rYQ">

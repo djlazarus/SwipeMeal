@@ -198,4 +198,10 @@ typealias UserDataUploadCompletion = (_ error: NSError?, _ downloadURL: URL?) ->
 		let userInfoRef = ref.child(kUsersPathName).child("\(user.uid)/\(kUserInfoPathName)")
 		userInfoRef.updateChildValues(["oneSignalPlayerID": id])
 	}
+	
+	static func groupName(forUser user: FIRUser) -> String {
+		guard let email = user.email else { return "" }
+		guard let lastComponent = email.components(separatedBy: "@").last else { return "" }
+		return lastComponent.replacingOccurrences(of: ".", with: "-")
+	}
 }

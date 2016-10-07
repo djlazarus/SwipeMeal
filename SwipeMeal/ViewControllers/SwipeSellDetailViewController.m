@@ -11,6 +11,7 @@
 #import "SwipeService.h"
 #import "MessageService.h"
 #import "Constants.h"
+#import "SwipeMeal-Swift.h"
 @import Firebase;
 
 @interface SwipeSellDetailViewController ()
@@ -63,7 +64,8 @@
 - (void)createNewSwipe {
     NSString *userID = [FIRAuth auth].currentUser.uid;
     NSString *userName = [FIRAuth auth].currentUser.displayName;
-    
+	NSString* groupName = [SMDatabaseLayer groupNameForUser:[FIRAuth auth].currentUser];
+	
     // Listing timestamp
     NSDate *listingDate = [NSDate date];
     NSTimeInterval listingTimestamp = [listingDate timeIntervalSince1970];
@@ -80,7 +82,8 @@
                                 @"price":@(self.swipe.listPrice),
                                 @"fee":@200,
                                 @"location_name":self.swipe.locationName,
-                                @"seller_rating":@(self.swipe.listingUserRating)};
+                                @"seller_rating":@(self.swipe.listingUserRating),
+										  @"seller_group_name" : groupName};
     
     [self.swipeService createNewSwipeWithValues:swipeDict withCompletionBlock:^(NSString *swipeKey) {
         // Create initial message

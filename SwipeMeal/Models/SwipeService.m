@@ -8,6 +8,8 @@
 
 #import "SwipeService.h"
 #import "SwipeStore.h"
+#import "SwipeMeal-Swift.h"
+
 @import Firebase;
 
 @interface SwipeService ()
@@ -56,7 +58,9 @@
             [self sellerIsActiveWithSnapshot:snapshot completionBlock:^{
                 // Build Swipe
                 Swipe *swipe = [self swipeWithKey:snapshot.key values:snapshot.value];
-                if (!swipe.soldTime) {
+					NSString* currentUserGroupName = [SMDatabaseLayer groupNameForUser:[FIRAuth auth].currentUser];
+					
+                if (!swipe.soldTime && [swipe.sellerGroupName isEqualToString: currentUserGroupName]) {
                     [self.swipeStore addSwipe:swipe forKey:swipe.swipeID];
                     NSLog(@"Added Swipe: %@", swipe);
                     addBlock();
@@ -114,6 +118,7 @@
 	swipe.availableTime = [[values objectForKey:@"available_time"] integerValue];
     swipe.soldTime = [[values objectForKey:@"sold_time"] integerValue];
     swipe.swipeTransactionID = [values objectForKey:@"swipe_transaction_id"];
+	swipe.sellerGroupName = [values objectForKey:@"seller_group_name"];
 
     return swipe;
 }
