@@ -44,15 +44,6 @@
     self.dbRef = [[FIRDatabase database] reference];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-//    
-//    CGSize size = self.topImageView.frame.size;
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://placehold.it/%@x%@", @(size.width), @(size.height)]];
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    self.topImageView.image = [UIImage imageWithData:data];
-}
-
 - (NSString *)timeStringFromDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"hh:mm a"];
