@@ -31,7 +31,8 @@ class EditProfileImageViewController: UIViewController {
 		let image = UIImage(named: "user")!.withRenderingMode(.alwaysTemplate)
 		
 		_imageView.tintColor = UIColor(white: 0.9, alpha: 1)
-		_imageView.image = image
+		_imageView.contentMode = UIViewContentMode.scaleAspectFill
+        _imageView.image = image
 		
 		_imageView.layer.masksToBounds = true
 	}
@@ -54,6 +55,10 @@ class EditProfileImageViewController: UIViewController {
 	}
 	
 	// MARK: - Actions
+    @IBAction func _cancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil);
+    }
+    
 	@IBAction fileprivate func _addImageButtonPressed()
 	{
 		delegate?.editProfileImageViewControllerAddImagePressed(self)

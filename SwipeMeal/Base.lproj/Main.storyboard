@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jnk-j2-2bd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jnk-j2-2bd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -27,7 +27,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yS8-85-UBz" userLabel="Status Bar Background View">
                                         <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-9Q-WoF">
+                                    <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhb-9Q-WoF">
                                         <color key="barTintColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textAttributes key="titleTextAttributes">
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -632,7 +632,7 @@
             <objects>
                 <navigationController id="Vue-dJ-dIH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home-tab" selectedImage="home-tab" id="xbn-0t-JF1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jeG-oY-4E7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jeG-oY-4E7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -720,10 +720,10 @@
             </objects>
             <point key="canvasLocation" x="3583" y="-295"/>
         </scene>
-        <!--Profile-->
+        <!--Edit Profile Image View Controller-->
         <scene sceneID="fjw-tQ-StF">
             <objects>
-                <viewController storyboardIdentifier="EditProfileImageViewController" title="Profile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VhG-Gb-l3p" customClass="EditProfileImageViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfileImageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VhG-Gb-l3p" customClass="EditProfileImageViewController" customModule="SwipeMeal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zwt-lm-NcK"/>
                         <viewControllerLayoutGuide type="bottom" id="UQ3-g3-WXM"/>
@@ -732,43 +732,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYD-Kl-asr">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZH-i2-jYk">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kpH-fY-sm7" userLabel="Status Bar Background View">
+                                <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="lZH-i2-jYk" firstAttribute="centerX" secondItem="KYD-Kl-asr" secondAttribute="centerX" id="CML-go-9om"/>
-                                    <constraint firstAttribute="height" constant="64" id="Lzl-Ep-368"/>
-                                    <constraint firstItem="lZH-i2-jYk" firstAttribute="centerY" secondItem="KYD-Kl-asr" secondAttribute="centerY" id="dnd-Th-ZBt"/>
+                                    <constraint firstAttribute="height" constant="20" id="L3U-85-Htc"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUi-Et-t3i">
-                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="JHO-pA-0b3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="_saveButtonPressed" destination="VhG-Gb-l3p" eventType="touchUpInside" id="jGi-RM-bqY"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEL-RB-bnQ">
+                                <color key="barTintColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Profile" id="uja-Vr-PNA">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Y8z-WE-xle">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="_cancelPressed:" destination="VhG-Gb-l3p" id="dqw-RV-ngc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3og-kB-Bum">
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit your Swipe Meal profile image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztw-dX-LLs">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="325" id="hLY-aQ-tbQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oW6-cI-mXu" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="oW6-cI-mXu" secondAttribute="height" multiplier="1:1" id="4LI-co-HvO"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhq-jb-efd" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
-                                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="asY-DV-ce0"/>
                                             <constraint firstAttribute="height" constant="48" id="pYs-FD-8oL"/>
@@ -785,38 +787,47 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="centerY" secondItem="3og-kB-Bum" secondAttribute="centerY" id="K03-sJ-xma"/>
+                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="centerX" secondItem="3og-kB-Bum" secondAttribute="centerX" id="FWv-4b-oPA"/>
                                     <constraint firstItem="Jhq-jb-efd" firstAttribute="centerY" secondItem="oW6-cI-mXu" secondAttribute="centerY" id="PYM-09-uYW"/>
+                                    <constraint firstItem="ztw-dX-LLs" firstAttribute="centerX" secondItem="3og-kB-Bum" secondAttribute="centerX" id="aLz-XN-6aW"/>
                                     <constraint firstItem="oW6-cI-mXu" firstAttribute="width" secondItem="3og-kB-Bum" secondAttribute="width" multiplier="0.6" id="dwg-pp-NBC"/>
                                     <constraint firstItem="Jhq-jb-efd" firstAttribute="leading" secondItem="oW6-cI-mXu" secondAttribute="trailing" constant="-40" id="jBF-Y2-hhD"/>
-                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="centerX" secondItem="3og-kB-Bum" secondAttribute="centerX" id="sHU-zu-RdD"/>
+                                    <constraint firstItem="ztw-dX-LLs" firstAttribute="top" secondItem="3og-kB-Bum" secondAttribute="top" constant="70" id="l9W-aZ-hcf"/>
+                                    <constraint firstItem="oW6-cI-mXu" firstAttribute="centerY" secondItem="3og-kB-Bum" secondAttribute="centerY" id="qmk-3W-jo7"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit your Swipe Meal profile image" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztw-dX-LLs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUi-Et-t3i">
+                                <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JHO-pA-0b3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="_saveButtonPressed" destination="VhG-Gb-l3p" eventType="touchUpInside" id="jGi-RM-bqY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ztw-dX-LLs" firstAttribute="top" secondItem="KYD-Kl-asr" secondAttribute="bottom" constant="30" id="H3y-dQ-F8f"/>
                             <constraint firstAttribute="trailing" secondItem="iUi-Et-t3i" secondAttribute="trailing" id="HVU-5Y-zF5"/>
-                            <constraint firstAttribute="trailing" secondItem="ztw-dX-LLs" secondAttribute="trailing" constant="25" id="MvJ-MX-ibl"/>
+                            <constraint firstItem="BEL-RB-bnQ" firstAttribute="top" secondItem="kpH-fY-sm7" secondAttribute="bottom" id="I7G-QA-Y9n"/>
                             <constraint firstAttribute="trailing" secondItem="3og-kB-Bum" secondAttribute="trailing" id="QfN-TQ-e9u"/>
-                            <constraint firstItem="KYD-Kl-asr" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="U0L-MV-KrS"/>
                             <constraint firstItem="iUi-Et-t3i" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="XfJ-np-wGu"/>
                             <constraint firstItem="3og-kB-Bum" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="bhS-cF-CB0"/>
-                            <constraint firstItem="3og-kB-Bum" firstAttribute="top" secondItem="ztw-dX-LLs" secondAttribute="bottom" id="e9n-xo-wlF"/>
-                            <constraint firstAttribute="trailing" secondItem="KYD-Kl-asr" secondAttribute="trailing" id="gLg-MJ-fk7"/>
+                            <constraint firstItem="BEL-RB-bnQ" firstAttribute="top" secondItem="Zwt-lm-NcK" secondAttribute="bottom" id="fQH-jB-RNG"/>
+                            <constraint firstItem="kpH-fY-sm7" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="hXp-8F-hih"/>
+                            <constraint firstAttribute="trailing" secondItem="kpH-fY-sm7" secondAttribute="trailing" id="iwU-4F-DRG"/>
                             <constraint firstItem="iUi-Et-t3i" firstAttribute="top" secondItem="3og-kB-Bum" secondAttribute="bottom" id="lb3-0e-sTP"/>
-                            <constraint firstItem="KYD-Kl-asr" firstAttribute="top" secondItem="h3z-wK-Mvw" secondAttribute="top" id="oBO-FQ-BmC"/>
-                            <constraint firstItem="ztw-dX-LLs" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" constant="25" id="oZ2-Sq-cvb"/>
-                            <constraint firstItem="UQ3-g3-WXM" firstAttribute="top" secondItem="iUi-Et-t3i" secondAttribute="bottom" constant="34" id="qhi-7N-KVA"/>
+                            <constraint firstItem="UQ3-g3-WXM" firstAttribute="top" secondItem="iUi-Et-t3i" secondAttribute="bottom" id="qhi-7N-KVA"/>
+                            <constraint firstItem="3og-kB-Bum" firstAttribute="top" secondItem="BEL-RB-bnQ" secondAttribute="bottom" id="tID-ec-y3u"/>
+                            <constraint firstItem="BEL-RB-bnQ" firstAttribute="leading" secondItem="h3z-wK-Mvw" secondAttribute="leading" id="tpI-PU-kTk"/>
+                            <constraint firstAttribute="trailing" secondItem="BEL-RB-bnQ" secondAttribute="trailing" id="wJb-26-mp9"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="_continueButton" destination="iUi-Et-t3i" id="EZO-fQ-NgL"/>
                         <outlet property="_imageView" destination="oW6-cI-mXu" id="ho2-MJ-hwV"/>
@@ -824,7 +835,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj6-L4-4ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="1605"/>
+            <point key="canvasLocation" x="1392.8" y="1604.3478260869567"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="lpX-eR-Oz7">
@@ -928,7 +939,7 @@
             <objects>
                 <navigationController id="HpA-31-3Xp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wallet" image="wallet-tab" selectedImage="wallet-tab" id="oQm-Ja-TMx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FXN-lu-Mhk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FXN-lu-Mhk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1074,8 +1085,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3He-fr-p65">
-                                <color key="barTintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3He-fr-p65">
+                                <color key="barTintColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
@@ -1121,7 +1132,7 @@
                             </datePicker>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powered_by_stripe" translatesAutoresizingMaskIntoConstraints="NO" id="2PE-i1-aOI"/>
                         </subviews>
-                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3He-fr-p65" secondAttribute="trailing" id="29x-gE-g67"/>
                             <constraint firstItem="2PE-i1-aOI" firstAttribute="centerX" secondItem="8fF-rE-1rA" secondAttribute="centerX" id="5f0-Xc-YuZ"/>
@@ -1161,8 +1172,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="df3-Ea-HoS">
-                                <color key="barTintColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="df3-Ea-HoS">
+                                <color key="barTintColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
@@ -1235,7 +1246,7 @@
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powered_by_stripe" translatesAutoresizingMaskIntoConstraints="NO" id="gH0-gh-q32"/>
                         </subviews>
-                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tpQ-3J-ibs" firstAttribute="top" secondItem="gH0-gh-q32" secondAttribute="bottom" constant="20" id="1eO-or-3Y2"/>
                             <constraint firstItem="hHx-rF-Rm3" firstAttribute="centerX" secondItem="iX9-fB-e2K" secondAttribute="centerX" id="EzU-0s-vBl"/>

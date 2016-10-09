@@ -45,7 +45,7 @@
 		<true/>
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This will allow you to select a profile photo.</string>
+	<string>Swipe Meal would like to access your photo library for choosing a profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Black.otf</string>
@@ -83,7 +83,5 @@
 		<key>live</key>
 		<string>key_live_opFhfg1CxJdCSiPfsIMfGclgCsbX64O3</string>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Swipe meal would like to access your photo library for choosing a profile picture</string>
 </dict>
 </plist>

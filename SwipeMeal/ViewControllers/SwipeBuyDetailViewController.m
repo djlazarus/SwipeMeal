@@ -80,7 +80,7 @@
             [self performSegueWithIdentifier:@"Segue_SwipeBuyDetailViewController_SwipeBuyConfirmDialogViewController" sender:nil];
         } else {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"More info needed"
-                                                                                     message:@"Please enter your debit card information on the Wallet screen in order to buy this Swipe."
+                                                                                     message:@"Please enter your debit card information on the Wallet tab in order to buy this Swipe."
                                                                               preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self dismissViewControllerAnimated:YES completion:nil];
