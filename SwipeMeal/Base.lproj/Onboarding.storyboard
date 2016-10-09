@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-bE-kNH">
-                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Xwf-DP-pz2"/>
                                 </constraints>
@@ -127,7 +127,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfF-Yp-bfB">
-                                <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ixY-c0-9UP"/>
                                 </constraints>
@@ -147,7 +147,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-qC-a9Q" customClass="SwipeMealAddProfileImageButton" customModule="SwipeMeal" customModuleProvider="target">
-                                        <color key="backgroundColor" red="0.5277109485" green="0.80341950259999995" blue="0.35121518699999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.41960784309999999" green="0.71764705880000002" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="knQ-Ch-Y9q"/>
                                             <constraint firstAttribute="height" constant="48" id="m1g-f9-ftk"/>
@@ -180,7 +180,7 @@
                             <constraint firstAttribute="trailing" secondItem="ZfF-Yp-bfB" secondAttribute="trailing" id="MXT-hx-nZP"/>
                             <constraint firstAttribute="trailing" secondItem="Rz6-y5-PgY" secondAttribute="trailing" id="UYO-CQ-nTi"/>
                             <constraint firstAttribute="trailing" secondItem="ce2-bE-kNH" secondAttribute="trailing" id="WXp-SP-vpG"/>
-                            <constraint firstItem="YQY-7Y-oyd" firstAttribute="top" secondItem="ZfF-Yp-bfB" secondAttribute="bottom" constant="34" id="aVM-gb-E0o"/>
+                            <constraint firstItem="YQY-7Y-oyd" firstAttribute="top" secondItem="ZfF-Yp-bfB" secondAttribute="bottom" id="aVM-gb-E0o"/>
                             <constraint firstItem="Rz6-y5-PgY" firstAttribute="leading" secondItem="cQj-4v-0mK" secondAttribute="leading" id="nxi-ar-eYZ"/>
                             <constraint firstItem="Rz6-y5-PgY" firstAttribute="top" secondItem="arZ-dK-7q2" secondAttribute="bottom" id="sTA-vl-8mL"/>
                             <constraint firstItem="arZ-dK-7q2" firstAttribute="top" secondItem="ce2-bE-kNH" secondAttribute="bottom" constant="30" id="tBb-F8-RYR"/>
