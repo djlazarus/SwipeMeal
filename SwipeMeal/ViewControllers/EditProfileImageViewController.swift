@@ -31,7 +31,8 @@ class EditProfileImageViewController: UIViewController {
 		let image = UIImage(named: "user")!.withRenderingMode(.alwaysTemplate)
 		
 		_imageView.tintColor = UIColor(white: 0.9, alpha: 1)
-		_imageView.image = image
+		_imageView.contentMode = UIViewContentMode.scaleAspectFill
+        _imageView.image = image
 		
 		_imageView.layer.masksToBounds = true
 	}
