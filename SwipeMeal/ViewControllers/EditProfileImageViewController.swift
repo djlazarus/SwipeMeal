@@ -55,6 +55,10 @@ class EditProfileImageViewController: UIViewController {
 	}
 	
 	// MARK: - Actions
+    @IBAction func _cancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil);
+    }
+    
 	@IBAction fileprivate func _addImageButtonPressed()
 	{
 		delegate?.editProfileImageViewControllerAddImagePressed(self)
