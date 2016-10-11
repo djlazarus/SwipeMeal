@@ -160,6 +160,7 @@
                                     @"seller_name":swipe.listingUserName,
                                     @"listing_time":@(swipe.listingTime),
                                     @"location_name":swipe.locationName,
+                                    @"fee":@200,
                                     @"seller_rating":@(swipe.listingUserRating)};
         NSDictionary *childUpdates = @{[@"/swipes-listed/" stringByAppendingString:swipe.swipeID]: swipeDict,
                                        [NSString stringWithFormat:@"/user-swipes-listed/%@/%@/", userID, swipe.swipeID]: swipeDict};
