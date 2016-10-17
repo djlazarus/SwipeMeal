@@ -67,7 +67,7 @@ PODS:
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
   - IncipiaKit (0.0.12)
-  - OneSignal (2.1.15)
+  - OneSignal (2.1.16)
   - Stripe (8.0.7)
   - SwiftSpinner (1.0.2)
   - SwiftyUserDefaults (3.0.0)
@@ -112,11 +112,11 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   IncipiaKit: c4e741526ff20af3ffc3d4798b01f70dfcf5a635
-  OneSignal: de89d8a0667559332f825dbc2f545af8ce110a5f
+  OneSignal: 7a4272f857d3005949f83a373868c5c98d02f203
   Stripe: 2bb9646115745d0ee8c7799e6872c57ba5dc6cc5
   SwiftSpinner: 1c80ff6ea1c47e2faa1dfce0fcd5e6b39a47fd51
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
 PODFILE CHECKSUM: 718cd9de0d09929768f48e4fa09330c6d2725df9
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

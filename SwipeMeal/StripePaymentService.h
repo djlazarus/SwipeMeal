@@ -10,6 +10,9 @@
 
 @interface StripePaymentService : NSObject
 
+- (NSString *)getIPAddress:(BOOL)preferIPv4;
+- (NSDictionary *)getIPAddresses;
+
 + (StripePaymentService *)sharedPaymentService;
 
 - (void)createCustomerWithUserID:(NSString *)userID

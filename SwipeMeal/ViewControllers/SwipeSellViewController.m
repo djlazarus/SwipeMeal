@@ -51,6 +51,7 @@
     
     // Date picker
     [self.datePicker addTarget:self action:@selector(updateTime:) forControlEvents:UIControlEventValueChanged];
+	self.datePicker.backgroundColor = [UIColor whiteColor];
     
     // Continue button
     self.continueButton.enabled = NO;
@@ -111,6 +112,10 @@
 		 [self updateTime:self.datePicker];
         //
     }];
+}
+
+- (IBAction)viewTapped:(UIGestureRecognizer*)recognizer {
+	[self hideDatePicker];
 }
 
 - (void)hideDatePicker {

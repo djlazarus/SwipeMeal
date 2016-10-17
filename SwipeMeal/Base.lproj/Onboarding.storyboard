@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="bottom" id="il9-pU-ZBn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9ld-b3-jhS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4t-j3-Xbt">
@@ -61,7 +61,7 @@
                                     <action selector="_previousButtonPressed" destination="isE-6k-N2v" eventType="touchUpInside" id="Y95-CS-x3J"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1sm" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough-1sm" translatesAutoresizingMaskIntoConstraints="NO" id="NRX-bi-BDE" customClass="CircularImageView" customModule="SwipeMeal" customModuleProvider="target">
                                 <color key="backgroundColor" red="1" green="0.42658943965517243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NRX-bi-BDE" secondAttribute="height" multiplier="1:1" id="YLc-Wi-qYE"/>
@@ -77,7 +77,7 @@
                             <constraint firstItem="pr6-Lt-Im7" firstAttribute="centerY" secondItem="1lX-n1-Ev1" secondAttribute="centerY" id="AaM-7f-gkw"/>
                             <constraint firstItem="1lX-n1-Ev1" firstAttribute="leading" secondItem="pr6-Lt-Im7" secondAttribute="trailing" constant="25" id="BV9-hO-zCG"/>
                             <constraint firstItem="il9-pU-ZBn" firstAttribute="top" secondItem="1lX-n1-Ev1" secondAttribute="bottom" constant="20" id="Etj-t1-iCs"/>
-                            <constraint firstItem="NRX-bi-BDE" firstAttribute="width" secondItem="9ld-b3-jhS" secondAttribute="width" multiplier="0.7" id="aIe-AZ-Leg"/>
+                            <constraint firstItem="NRX-bi-BDE" firstAttribute="width" secondItem="9ld-b3-jhS" secondAttribute="width" multiplier="0.5" id="aIe-AZ-Leg"/>
                             <constraint firstItem="S4t-j3-Xbt" firstAttribute="top" secondItem="NRX-bi-BDE" secondAttribute="bottom" constant="40" id="jg1-d1-uXN"/>
                             <constraint firstItem="S4t-j3-Xbt" firstAttribute="leading" secondItem="9ld-b3-jhS" secondAttribute="leading" constant="20" id="mod-Y2-bNk"/>
                             <constraint firstItem="NRX-bi-BDE" firstAttribute="centerX" secondItem="9ld-b3-jhS" secondAttribute="centerX" id="pT5-xG-gwX"/>
@@ -111,7 +111,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YQY-7Y-oyd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cQj-4v-0mK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ce2-bE-kNH">

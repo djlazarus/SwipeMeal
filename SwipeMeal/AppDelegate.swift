@@ -21,13 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
    // MARK: - Overridden
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
    {
-//      _registerForPushNotifications(application)
       FIRApp.configure()
 		
 		FIRDatabase.database().persistenceEnabled = true
       OneSignal.initWithLaunchOptions(launchOptions, appId: "71319fb8-f6ae-45f6-ba32-ad7f39a39d79")
-		
-//      _observeFirebaseMessagingTokenRefresh()
 		
       _setupRootViewController()
 		_setupNavBarAppearance()
@@ -42,9 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 				}
 			}
 		}
-		
-//      let token = FIRInstanceID.instanceID().token()
-//      print("TOKEN: \(token)")
 		
     // Stripe setup
     STPPaymentConfiguration.shared().publishableKey = "pk_live_nZpTMAMiiErZUdkUOEDI88LP"
@@ -61,52 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
 		return Branch.getInstance().continue(userActivity)
 	}
-   
-//   func applicationDidBecomeActive(application: UIApplication)
-//   {
-//      _connectToFCM()
-//   }
-		
-//   func applicationDidEnterBackground(application: UIApplication)
-//   {
-//      FIRMessaging.messaging().disconnect()
-//   }
-		
-   func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings)
-   {
-      if notificationSettings.types != UIUserNotificationType() {
-         application.registerForRemoteNotifications()
-      }
-   }
-   
-//   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-//   {
-//      let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-//      var tokenString = ""
-//      
-//      for i in 0..<deviceToken.length {
-//         tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-//      }
-//      
-//      FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
-//		SwipeMealPushStorage.deviceToken = tokenString
-//      print("Device Token:", tokenString)
-//   }
-	
-//   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
-//   {
-//      print("Failed to register for remote notifications: \(error.description)")
-//   }
-	
-//   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-//   {
-//      FIRMessaging.messaging().appDidReceiveMessage(userInfo)
-//      
-//      print("Message ID: \(userInfo["gcm.message_id"])")
-//      print(userInfo)
-//		
-//      completionHandler(.NoData)
-//   }
 	
    // MARK: - Private
    fileprivate func _setupRootViewController()
