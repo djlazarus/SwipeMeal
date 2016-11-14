@@ -204,4 +204,20 @@ typealias UserDataUploadCompletion = (_ error: NSError?, _ downloadURL: URL?) ->
 		guard let lastComponent = email.components(separatedBy: "@").last else { return "" }
 		return lastComponent.replacingOccurrences(of: ".", with: "-")
 	}
+   
+   static func getUserUIDs(groupName name: String, completion: @escaping (([String]) -> Void)) {
+      let ref = FIRDatabase.database().reference()
+      let userGroupRef = ref.child("\(kUserGroupsPathName)/\(name)")
+      
+      var uids: [String] = []
+      userGroupRef.observeSingleEvent(of: .value, with: { snapshot in
+         
+         let enumerator = snapshot.children
+         while let child = enumerator.nextObject() as? FIRDataSnapshot {
+            uids.append(child.key)
+         }
+         
+         completion(uids)
+      })
+   }
 }

@@ -136,6 +136,8 @@
             completionBlock(key);
         }
     }];
+   
+   [SwipeMealPushCoordinator notifyUsersOfAvailableSwipe];
 }
 
 - (void)getSwipeWithSwipeID:(NSString *)swipeID completionBlock:(void (^)(Swipe *swipe))completionBlock {

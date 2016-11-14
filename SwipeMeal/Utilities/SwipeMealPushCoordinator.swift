@@ -38,4 +38,21 @@ class SwipeMealPushCoordinator: NSObject {
 			)
 		}
 	}
+   
+   static func notifyUsersOfAvailableSwipe() {
+      guard let currentUser = FIRAuth.auth()?.currentUser else { return }
+      let groupName = SMDatabaseLayer.groupName(forUser: currentUser)
+      
+      SMDatabaseLayer.getUserUIDs(groupName: groupName, completion: { uids in
+         for uid in uids {
+            SMDatabaseLayer.getOneSignalPlayerID(forUserWithUID: uid, callback: { playerID in
+               guard let playerID = playerID else { return }
+               OneSignal.postNotification([
+                  "contents": ["en": "A swipe has just been posted."],
+                  "include_player_ids": [playerID]]
+               )
+            })
+         }
+      })
+   }
 }

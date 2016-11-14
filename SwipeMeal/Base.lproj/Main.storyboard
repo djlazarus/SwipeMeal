@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jnk-j2-2bd">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jnk-j2-2bd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -53,7 +53,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessagesTableViewCell" id="1Bh-9p-mpt" customClass="MessagesTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessagesTableViewCell" id="1Bh-9p-mpt" customClass="MessagesTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Bh-9p-mpt" id="lty-AY-OcN">
@@ -282,7 +282,7 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K0e-Bd-Qh5">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessagesDetailReplyTableViewCell" id="R0g-ZN-KC9" customClass="MessagesDetailReplyTableViewCell">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessagesDetailReplyTableViewCell" id="R0g-ZN-KC9" customClass="MessagesDetailReplyTableViewCell">
                                                         <rect key="frame" x="0.0" y="28" width="255" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R0g-ZN-KC9" id="ODp-m5-f8o">
@@ -529,8 +529,8 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.078431372550000003" green="0.066666666669999999" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeHeaderTableViewCell" id="62g-HK-b9i" customClass="HomeHeaderTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="145"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeHeaderTableViewCell" id="62g-HK-b9i" customClass="HomeHeaderTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="1000" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="62g-HK-b9i" id="2Gm-a8-6ha">
                                             <frame key="frameInset" width="375" height="144"/>
@@ -549,8 +549,8 @@
                                             <outlet property="mainImageView" destination="fW1-TC-DfV" id="G0o-ux-6qs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMainTableViewCell" id="orO-ah-UMV" customClass="HomeMainTableViewCell">
-                                        <rect key="frame" x="0.0" y="237" width="375" height="145"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeMainTableViewCell" id="orO-ah-UMV" customClass="HomeMainTableViewCell">
+                                        <rect key="frame" x="0.0" y="237" width="1000" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="orO-ah-UMV" id="bV9-Af-6jh">
                                             <frame key="frameInset" width="342" height="144"/>
@@ -632,7 +632,7 @@
             <objects>
                 <navigationController id="Vue-dJ-dIH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home-tab" selectedImage="home-tab" id="xbn-0t-JF1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jeG-oY-4E7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jeG-oY-4E7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -939,7 +939,7 @@
             <objects>
                 <navigationController id="HpA-31-3Xp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wallet" image="wallet-tab" selectedImage="wallet-tab" id="oQm-Ja-TMx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FXN-lu-Mhk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FXN-lu-Mhk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
